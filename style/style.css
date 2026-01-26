@@ -604,14 +604,16 @@ button,
     padding: 0 1.25rem;
   }
 }
-
+.header .container {
+    max-width: 100rem;
+}
 .header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 99;
-  padding: 1.1875rem 0;
+  padding: 1.5rem 0;
   background-color: #ffffff;
 }
 @media (max-width: 767px) {
@@ -701,6 +703,7 @@ button,
   -webkit-transition: color 0.3s ease, background-color 0.3s ease;
   transition: color 0.3s ease, background-color 0.3s ease;
   color: #000000;
+  white-space: nowrap;
 }
 @media (hover: hover) {
   .header__nav-link:hover:not(.focus-visible) {
