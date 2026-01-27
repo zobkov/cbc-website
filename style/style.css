@@ -2390,7 +2390,7 @@ button,
   font-family: "MarvinVisions", "Arial", sans-serif;
   text-transform: uppercase;
   font-size: 3.75rem;
-  line-height: 4.5rem;
+  line-height: 3.5rem;
   color: #c31632;
   margin: 0 0 2.5rem 0;
 }
@@ -2510,6 +2510,133 @@ button,
     width: 0.75rem;
     height: 0.75rem;
   }
+}
+.about__cards {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 1023px) {
+    .about__cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.875rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .about__cards {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+.about__card {
+    background-color: #c31632;
+    border-radius: 2.5rem;
+    padding: 3.125rem 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    /* чтобы нижний текст “прилипал” вниз как на макете */
+    min-height: 26.25rem;
+}
+
+@media (max-width: 1439px) {
+    .about__card {
+        padding: 2.5rem 2.1875rem 2.1875rem;
+        min-height: 23.75rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .about__card {
+        padding: 2.1875rem 1.875rem 1.875rem;
+        min-height: 21.25rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .about__card {
+        padding: 1.875rem 1.5rem 1.5rem;
+        min-height: 18.75rem;
+        border-radius: 2rem;
+    }
+}
+
+.about__card-num {
+    margin: 0;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 9.5rem;
+    line-height: 0.65;
+    color: #ffffff;
+    letter-spacing: 0;
+}
+
+@media (max-width: 1439px) {
+    .about__card-num {
+        font-size: 8rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .about__card-num {
+        font-size: 6.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .about__card-num {
+        font-size: 6rem;
+    }
+}
+
+.about__card-label {
+    margin: 0;
+    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #f6ac1b;
+    text-transform: lowercase;
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 1023px) {
+    .about__card-label {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .about__card-label {
+        font-size: 1.5rem;
+    }
+}
+
+.about__card-text {
+    margin: 0;
+    margin-top: auto;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: #ffffff;
+    max-width: 18rem;
+}
+
+@media (max-width: 1023px) {
+    .about__card-text {
+        font-size: 1.125rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .about__card-text {
+        font-size: 1rem;
+    }
 }
 
 .question {
