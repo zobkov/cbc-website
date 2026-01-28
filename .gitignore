@@ -1,0 +1,9 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+.vs/
+.vs/**
+/.vs/cbc website 26/v17/.wsuo
+/.vs/cbc website 26/v17/DocumentLayout.backup.json
+/.vs/cbc website 26/v17/DocumentLayout.json
