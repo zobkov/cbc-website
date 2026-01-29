@@ -899,6 +899,7 @@ button,
     line-height: 1.5rem;
     color: #000000;
     margin: 0 0 0.25rem 0;
+    white-space: nowrap;
 }
 
 @media (max-width: 1023px) {
@@ -922,6 +923,7 @@ button,
     font-weight: 800;
     margin: 0 0 1.25rem 0;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .footer__mail--last {
@@ -4587,4 +4589,101 @@ button,
 .up.focus-visible:active {
   background-color: #6bc9c6;
   color: #ffffff;
+}
+
+.wait {
+    position: relative;
+    background-color: #c31632; /* как на макете */
+    overflow: hidden;
+}
+
+/* чтобы блок выглядел как "экран" и центрировался */
+.wait__wrapper {
+    min-height: 45rem;
+    padding: 6rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.wait__title {
+    margin: 0 0 0.75rem 0;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 4.5rem;
+    line-height: 4.25rem;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.wait__subtitle {
+    margin: 0;
+    font-size: 1.75rem;
+    line-height: 2.125rem;
+    color: #ffffff;
+}
+
+/* декор по бокам */
+.wait__decor {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 200%;
+    width: auto;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+.wait__decor--left {
+    left: -1.5rem;
+    width: 30rem;
+}
+
+.wait__decor--right {
+    right: -1.5rem;
+    width: 30rem;
+}
+
+.wait .container,
+.wait__wrapper {
+    position: relative;
+    z-index: 1; /* чтобы текст был поверх декора */
+}
+
+/* адаптив */
+@media (max-width: 1023px) {
+    .wait__wrapper {
+        min-height: 28rem;
+        padding: 4.5rem 0;
+    }
+
+    .wait__title {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    .wait__subtitle {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+
+    .wait__decor--left,
+    .wait__decor--right {
+        width: 12rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .wait__wrapper {
+        min-height: 22rem;
+        padding: 3.5rem 0;
+    }
+
+    .wait__decor--left,
+    .wait__decor--right {
+        width: 8rem;
+        opacity: 0.9;
+    }
 }
