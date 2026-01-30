@@ -819,7 +819,7 @@ button,
     }
 }
 
-/* 3 колонки как на новом дизайне */
+/* 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .footer__wrapper {
     display: grid;
     grid-template-columns: minmax(12rem, 18rem) 1fr minmax(12rem, 18rem);
@@ -835,7 +835,7 @@ button,
     }
 }
 
-/* левая колонка: логотипы вертикально */
+/* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .footer__logos {
     display: flex;
     flex-direction: column;
@@ -863,7 +863,7 @@ button,
     }
 }
 
-/* центральная колонка */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .footer__content {
     display: flex;
     flex-direction: column;
@@ -879,7 +879,7 @@ button,
     }
 }
 
-/* правая колонка */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .footer__content--social {
     justify-self: end;
     align-items: flex-end;
@@ -956,7 +956,7 @@ button,
     color: #f6ac1b;
 }
 
-/* логотипы (оставляем твои текущие размеры, только под вертикальную колонку) */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ) */
 .footer__logo {
     transition: opacity 0.3s ease;
 }
@@ -971,12 +971,12 @@ button,
     opacity: 0.6;
 }
 
-/* правый блок: иконки соцсетей КРУГЛЫЕ (как на макете) */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ) */
 .footer__socials {
     margin: 0;
 }
 
-/* важное: в футере убираем mask с самого элемента, и рисуем иконку через ::after */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ mask пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ ::after */
 .footer .socials__link {
     position: relative;
     width: 4.375rem;
@@ -1166,11 +1166,61 @@ button,
   }
 }
 
+.registration__closing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: clamp(1.875rem, 1.2rem + 3.5vw, 3.25rem);
+  line-height: 1.05;
+  font-weight: 800;
+  font-family: "MarvinVisions", "Arial", sans-serif;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.25rem;
+  max-width: min(70ch, 80%);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+
 .registration {
   position: relative;
   z-index: 1;
   width: 100%;
   margin: auto 0;
+  min-height: calc(100vh - 4.5625rem);
+}
+@media (max-width: 1023px) {
+  .registration__closing {
+    font-size: clamp(2.25rem, 4.2vw + 1rem, 4.5rem);
+    max-width: 90%;
+    padding: 0 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .registration {
+    min-height: calc(100vh - 3.4375rem);
+  }
+  .registration__closing {
+    font-size: clamp(2.5rem, 6.5vw + 1rem, 5.5rem);
+    line-height: 1.05;
+    padding: 0 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  /* Desktop: increase size by ~50% for better prominence without filling the whole page */
+  .registration__closing {
+    font-size: clamp(2.8125rem, 2.2rem + 2vw, 4.875rem);
+    line-height: 1.02;
+    max-width: min(80ch, 70%);
+  }
 }
 .registration__wrapper {
   display: -webkit-box;
@@ -2794,10 +2844,10 @@ button,
 }
 
 .ecosystem__panel {
-    background-color: transparent; /* фон теперь у слайда */
+    background-color: transparent; /* пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ */
     border-radius: 2.5rem;
     padding: 0;
-    overflow: hidden; /* важно: прячем “соседние” слайды */
+    overflow: hidden; /* пїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ */
 }
 
     .ecosystem__panel > div {
@@ -3100,15 +3150,15 @@ button,
     color: #ffffff;
 }
 
-/* окно для ленты */
+/* пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
 .support__logos {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    overflow: hidden; /* чтобы лента не вылезала */
+    overflow: hidden; /* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 }
 
-/* сама лента */
+/* пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
 .support__logos-track {
     display: flex;
     flex-wrap: nowrap;
@@ -3119,11 +3169,11 @@ button,
     will-change: transform;
 }
 
-/* отдельный логотип */
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 .support__logo {
     width: 16.25rem;
     height: 8.125rem;
-    background-color: #bfbfbf; /* если картинка не загрузилась */
+    background-color: #bfbfbf; /* пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
     display: flex;
     align-items: center;
     justify-content: center;
