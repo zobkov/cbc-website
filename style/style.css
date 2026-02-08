@@ -4671,3 +4671,338 @@ button,
         opacity: 0.9;
     }
 }
+
+.reg {
+    padding: 4.5rem 0 6.25rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.reg__corner {
+    position: absolute;
+    width: 12.5rem;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+.reg__corner--tr {
+    top: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.reg__corner--bl {
+    bottom: 0;
+    left: 0;
+}
+
+.reg .container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 1439px) {
+    .reg__corner {
+        width: 10.625rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .reg__corner {
+        width: 8.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__corner {
+        width: 6.25rem;
+    }
+}
+
+.reg__top {
+    text-align: center;
+    padding: 3.75rem 0 2.5rem 0;
+}
+
+.reg__title {
+    margin: -1rem 0 2rem 0;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 6.25rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+@media (max-width: 1439px) {
+    .reg__title {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .reg__title {
+        font-size: 3.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__title {
+        font-size: 2.75rem;
+    }
+}
+
+.reg__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 3rem;
+    border-radius: 50px;
+    background-color: #6bc9c6;
+    color: #ffffff;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 1023px) {
+    .reg__btn {
+        font-size: 1.5rem;
+        padding: 0.875rem 2.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__btn {
+        width: 100%;
+        max-width: 22rem;
+        font-size: 1.25rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (hover: hover) {
+    .reg__btn:hover:not(.focus-visible) {
+        transform: scale(1.05);
+        background-color: #f6ac1b;
+    }
+}
+
+.reg__btn.focus-visible:focus {
+    transform: scale(1.05);
+    background-color: #f6ac1b;
+}
+
+.reg__btn.focus-visible:active {
+    transform: scale(1);
+    background-color: #000000;
+}
+
+.reg__note {
+    margin: 1.25rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+@media (max-width: 1023px) {
+    .reg__note {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__note {
+        font-size: 1rem;
+        text-align: left;
+        justify-content: flex-start;
+    }
+}
+
+.reg__note-icon {
+    color: #f6ac1b;
+    font-size: 4rem;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+
+.reg__guide-title {
+    margin: 0 0 2.5rem 0;
+    text-align: center;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+@media (max-width: 1439px) {
+    .reg__guide-title {
+        font-size: 3.75rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .reg__guide-title {
+        font-size: 2.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__guide-title {
+        font-size: 2rem;
+        margin-bottom: 1.75rem;
+    }
+}
+
+.reg__video {
+    width: 100%;
+    max-width: 76rem;
+    margin: 0 auto 3.75rem auto;
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+    .reg__video iframe,
+    .reg__video video {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
+
+.reg-steps {
+    width: 100%;
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    counter-reset: reg-step;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.reg-steps__item {
+    position: relative;
+    padding-left: 5.5rem;
+}
+
+@media (max-width: 767px) {
+    .reg-steps__item {
+        padding-left: 4.25rem;
+    }
+}
+
+.reg-steps__item::before {
+    counter-increment: reg-step;
+    content: counter(reg-step);
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 999px;
+    background-color: #f6ac1b;
+    color: #c31632;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+@media (max-width: 767px) {
+    .reg-steps__item::before {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.75rem;
+    }
+}
+
+.reg-steps__item::after {
+    content: "";
+    position: absolute;
+    left: 1.625rem;
+    top: 3.75rem;
+    bottom: -2.5rem;
+    width: 0.25rem;
+    border-radius: 999px;
+    background-color: #f6ac1b;
+}
+
+@media (max-width: 767px) {
+    .reg-steps__item::after {
+        left: 1.375rem;
+        top: 3.25rem;
+    }
+}
+
+.reg-steps__item:last-child::after {
+    display: none;
+}
+
+.reg-steps__title {
+    margin: 0 0 0.75rem 0;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+@media (max-width: 1439px) {
+    .reg-steps__title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .reg-steps__title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg-steps__title {
+        font-size: 1.75rem;
+    }
+}
+
+.reg-steps__text {
+    margin: 0;
+    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: #ffffff;
+}
+
+@media (max-width: 1023px) {
+    .reg-steps__text {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg-steps__text {
+        font-size: 1rem;
+    }
+}
