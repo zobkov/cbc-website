@@ -702,6 +702,7 @@ button,
   cursor: pointer;
   z-index: 1001;
   padding: 0;
+  pointer-events: auto; /* Ensure clickable */
 }
 
 .header__burger span {
@@ -710,6 +711,7 @@ button,
     height: 3px;
     background-color: #000;
     transition: 0.3s;
+    border-radius: 2px; /* Smooth edges */
 }
 
 /* --- MOBILE MENU (1024px and below) --- */
@@ -720,6 +722,7 @@ button,
   
   .header__burger {
       display: flex;
+      flex-direction: column; /* Ensure direction */
   }
 
   /* Nav becomes a Drawer/Overlay */
@@ -887,55 +890,6 @@ button,
     align-items: center;
     gap: 3.125rem;
 }
-
-/* === Canonical header rules (override earlier conflicting rules) === */
-/* Default: show nav, hide burger */
-.header__burger {
-  display: none !important;
-}
-.header__nav {
-  display: flex !important;
-}
-
-/* Explicit class hook for JS toggling */
-.header--use-burger .header__nav {
-  display: none !important;
-}
-.header--use-burger .header__burger {
-  display: block !important;
-}
-
-/* When in burger mode, allow JS to open the nav via `.is-active` */
-.header--use-burger .header__nav.is-active {
-  display: block !important;
-  padding: 0 0 1.25rem 0 !important;
-}
-
-/* Breakpoint: at or below 1030px use burger by CSS only */
-@media (max-width: 1030px) {
-  .header__burger {
-    display: block !important;
-  }
-  .header__nav {
-    display: none !important;
-  }
-  .header__wrapper {
-    display: grid !important;
-    grid-template-columns: 1fr auto !important;
-    gap: 0.5rem !important;
-    align-items: center !important;
-  }
-}
-
-/* Safety: when nav is hidden, ensure burger is visible and reachable */
-.header__burger {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 150;
-}
-
-/* End canonical header rules */
 
 
 @media (max-width: 1023px) {
