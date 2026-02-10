@@ -830,35 +830,39 @@ button,
 
 /* Mobile Dropdown */
 @media (max-width: 1024px) {
-    .header__nav-item--dropdown {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    /* Hide the dropdown button/header on mobile */
+    .header__nav-link--dropdown {
+        display: none;
     }
+
+    /* Make the dropdown list always visible as part of the flow */
     .header__dropdown {
         position: static;
         min-width: 0;
         box-shadow: none;
         transform: none;
-        display: none; /* simple toggle */
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; /* Match header__nav-list gap */
         padding: 0;
         text-align: center;
         opacity: 1;
         visibility: visible;
     }
-    .header__dropdown.is-open {
-        display: block;
-        transform: none;
+    
+    /* Make dropdown links look exactly like main links */
+    .header__dropdown-link {
+        font-size: 1.5rem;
+        font-weight: 800;
+        padding: 0;
     }
-    .header__nav-link--dropdown {
-        padding-bottom: 0.5rem;
+
+    /* Remove specific dropdown item container logic if any */
+    .header__nav-item--dropdown {
+        display: contents; /* Allows children (the UL) to sit directly in the grid/flex context of the parent list if possible */
     }
-    .header__nav-arrow {
-        transform: rotate(0deg); 
-    }
-    .header__nav-link--dropdown[aria-expanded="true"] .header__nav-arrow {
-        transform: rotate(180deg);
-    }
+
+    /* Actually, display: contents on li inside a flex-col ul works well to flatten the list */
 }
 
 .footer {
