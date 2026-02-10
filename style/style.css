@@ -846,6 +846,7 @@ button,
     flex: 1 1 0;
     display: flex;
     justify-content: center;
+
   }
   .header__nav-link {
     font-size: 0.95rem;
@@ -865,8 +866,8 @@ button,
   }
 }
 
-/* For screens less than 1000px use burger (JS will also switch on overflow) */
-@media (max-width: 1000px) {
+/* For screens less than 1030px use burger (JS will also switch on overflow) */
+@media (max-width: 1030px) {
   .header__burger {
     display: block;
   }
@@ -897,7 +898,8 @@ button,
   }
   .header__nav-list {
     gap: 1rem;
-    flex-wrap: wrap;
+    /* prevent wrapping into second row on mid sizes; allow items to shrink */
+    flex-wrap: nowrap;
     align-items: center;
   }
   .header__nav-link {
@@ -920,7 +922,7 @@ button,
 }
 
 /* Switch to burger at <=1000px */
-@media (max-width: 1000px) {
+@media (max-width: 1030px) {
   .header__nav {
     display: none !important;
   }
@@ -943,6 +945,14 @@ button,
     display: -ms-flexbox;
     display: flex;
   }
+}
+
+/* Class hooks used by header-responsive.js */
+.header--use-burger .header__nav {
+  display: none !important;
+}
+.header--use-burger .header__burger {
+  display: block !important;
 }
 
 /* --- Dropdown nav --- */
@@ -1083,7 +1093,7 @@ button,
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1000px) {
     .footer {
         padding: 2.5rem 0;
     }
