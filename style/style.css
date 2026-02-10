@@ -818,6 +818,125 @@ button,
   height: 2px;
   background-color: #000000;
 }
+
+/* Between 1001px and 1439px: distribute nav items to fill full width */
+@media (min-width: 1001px) and (max-width: 1439px) {
+  .header {
+    width: 100%;
+    padding: 1rem 0;
+  }
+  /* make header container span full viewport so header fills space */
+  .header .container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .header__wrapper {
+    --header-gap: 1rem;
+  }
+  .header__nav-list {
+    gap: 0;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .header__nav-list > li {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+  }
+  .header__nav-link {
+    font-size: 0.95rem;
+  }
+  .header__nav-list .header__nav-link--btn {
+    margin-left: 0;
+    align-self: center;
+  }
+  /* ensure socials stay left and nav grows to fill remaining space */
+  .header__socials {
+    flex: 0 0 auto;
+    padding-left: 1rem;
+  }
+  .header__nav {
+    flex: 1 1 auto;
+    padding-right: 1rem;
+  }
+}
+
+/* For screens less than 1000px use burger (JS will also switch on overflow) */
+@media (max-width: 1000px) {
+  .header__burger {
+    display: block;
+  }
+  .header__nav {
+    display: none !important;
+  }
+}
+
+/* Ensure header never overflows horizontally */
+.header {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  right: 0;
+}
+
+/* For screens up to 1440px: make header full-width, reduce gaps and fonts so items fit */
+@media (max-width: 1440px) {
+  .header {
+    padding: 1rem 0;
+  }
+  .header .container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .header__wrapper {
+    --header-gap: 1rem;
+  }
+  .header__nav-list {
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .header__nav-link {
+    font-size: 0.9rem;
+  }
+  .header__nav-link--btn {
+    font-size: 0.95rem;
+    padding: 0.3125rem 1rem;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .header__nav {
+    min-width: 0;
+  }
+  .header__wrapper,
+  .header__nav-list,
+  .header__nav {
+    min-width: 0;
+  }
+}
+
+/* Switch to burger at <=1000px */
+@media (max-width: 1000px) {
+  .header__nav {
+    display: none !important;
+  }
+  .header__nav-list .header__nav-link--btn {
+    margin-left: 0;
+  }
+  .header__burger {
+    display: block;
+  }
+  .header__wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
 @media (max-width: 767px) {
   .header__burger {
     display: -webkit-box;
