@@ -5055,6 +5055,7 @@ button,
     .reg-steps__text {
         font-size: 1rem;
     }
+}
 
 :root {
     --kbk-red: #c31631;
@@ -5875,7 +5876,7 @@ button,
     overflow: hidden; /* чтобы скругления работали */
     border-radius: 26px; /* подгони под свой блок */
 }
-
+   
     /* чтобы картинка заполняла блок как в макете */
     .kbk-photo > img {
         width: 100%;
