@@ -1110,6 +1110,9 @@ button,
 .socials--big {
   gap: 0.8125rem;
 }
+.socials--medium {
+  gap: 0.6rem;
+}
 .socials__link {
   -webkit-mask-size: contain;
           mask-size: contain;
@@ -1146,6 +1149,14 @@ button,
 .socials--big .socials__link--vk {
   width: 2.9375rem;
   height: 2.9375rem;
+}
+.socials--medium .socials__link--tg {
+  width: 2.625rem;
+  height: 2.625rem;
+}
+.socials--medium .socials__link--vk {
+  width: 2.5rem;
+  height: 2.5rem;
 }
 @media (max-width: 767px) {
   .socials--big .socials__link--vk {
