@@ -2789,7 +2789,7 @@ button,
     font-size: 1.25rem;
     line-height: 1.25;
     color: #ffffff;
-    max-width: 18rem;
+    max-width: 25rem;
 }
 
 @media (max-width: 1023px) {
