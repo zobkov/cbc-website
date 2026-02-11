@@ -3228,8 +3228,7 @@ button,
 /* îòäåëüíûé ëîãîòèï */
 .support__logo {
     width: 16.25rem;
-    height: 8.125rem;
-    background-color: #bfbfbf; /* åñëè êàðòèíêà íå çàãðóçèëàñü */
+    height: 5.625rem;
     display: flex;
     align-items: center;
     justify-content: center;
