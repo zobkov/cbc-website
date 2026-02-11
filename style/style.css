@@ -659,8 +659,6 @@ button,
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 100%;
-  justify-content: space-between;
 }
 
 @media (max-width: 1440px) {
@@ -775,6 +773,123 @@ button,
   .header__burger.is-active span:nth-child(3) {
       transform: rotate(-45deg) translate(6px, -6px);
   }
+  .header__burger.is-active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* Dropdown Container */
+.header__nav-item--dropdown {
+    position: relative;
+}
+
+/* Dropdown Button */
+.header__nav-link--dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0; 
+  margin: 0;
+  font-family: "MarvinVisions", "Arial", sans-serif;
+  font-size: 1rem;
+  line-height: 1.1875rem; 
+  font-weight: 800;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.header__nav-link--dropdown:hover {
+    color: #c31632;
+}
+
+/* Dropdown Arrow */
+.header__nav-arrow {
+  display: none;
+}
+
+/* Dropdown Menu (Desktop) */
+.header__dropdown {
+    position: absolute;
+    top: 100%;
+    left: -1rem; /* Access offsets padding to align text with parent */
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    
+    min-width: 100%; /* At least parent width */
+    width: max-content; /* Grow to fit content, but start at parent width */
+    
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    list-style: none;
+    z-index: 1002;
+    text-align: left;
+}
+
+.header__nav-item--dropdown:hover .header__dropdown,
+.header__dropdown.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header__dropdown-link {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.1875rem; /* Copied from .header__nav-link */
+    font-weight: 800;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+.header__dropdown-link:hover {
+    color: #c31632;
+}
+
+/* Mobile Dropdown */
+@media (max-width: 1024px) {
+    /* Hide the dropdown button/header on mobile */
+    .header__nav-link--dropdown {
+        display: none;
+    }
+
+    /* Make the dropdown list always visible as part of the flow */
+    .header__dropdown {
+        position: static;
+        min-width: 0;
+        box-shadow: none;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; /* Match header__nav-list gap */
+        padding: 0;
+        text-align: center;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Make dropdown links look exactly like main links */
+    .header__dropdown-link {
+        font-size: 1.5rem;
+        font-weight: 800;
+        padding: 0;
+    }
+
+    /* Remove specific dropdown item container logic if any */
+    .header__nav-item--dropdown {
+        display: contents; /* Allows children (the UL) to sit directly in the grid/flex context of the parent list if possible */
+    }
+
+    /* Actually, display: contents on li inside a flex-col ul works well to flatten the list */
 }
 
 /* Dropdown Container */
@@ -5436,7 +5551,7 @@ button,
 
 .kbk-year {
     position: relative;
-    padding: 10px 0 70px;
+    padding: 10px 0 0px;
 }
 
 .kbk-dot {
@@ -5538,7 +5653,8 @@ button,
 
 /* top turquoise “shapes” placeholders */
 .kbk-shapes {
-    margin-top: 28px;
+    margin-top: 100px;
+    margin-bottom:-160px;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 26px;
@@ -5601,7 +5717,8 @@ button,
     width: 100%;
     margin-left: 0 !important; /* убираем старый сдвиг */
     display: block;
-    margin-top: 100px;
+    margin-top: 75px;
+    margin-bottom: 75px;
 }
 
 .kbk-photoGrid--two {
@@ -5692,7 +5809,7 @@ button,
 /* общий контейнер истории — здесь будет единая ось */
 .kbk-historyWrap {
     --kbk-axis-top: 300px;
-    --kbk-axis-bottom: 950px;
+    --kbk-axis-bottom: 920px;
     position: relative;
     --kbk-wrapw: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
     isolation: isolate;
@@ -6149,6 +6266,94 @@ html, body {
     transform: translateY(-50%) rotate(180deg)
 }
 
+/* ===== LEFT DECOR between 2024 and 2025 ===== */
+.kbk-between24-25 {
+    position: relative;
+    top:-300px;
+    height: 0; /* не добавляет высоту */
+    z-index: 6;
+    pointer-events: none;
+}
+
+.kbk-yearPhoto {
+    position: relative;
+    left:600px;
+    top:-350px;
+    margin-bottom: -600px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+
+.kbk-p--history24 {
+    max-width: 600px;
+}
+
+.kbk-year__num26 {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 3.75rem;
+    line-height: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 0.9;
+    font-size: clamp(62px, 7vw, 132px);
+    color: #fff;
+    margin-left: 0;
+    margin-top:30px;
+}
+
+
+/* Красное продолжение после истории */
+.kbk-history {
+    position: relative;
+    overflow: hidden;
+}
+
+    .kbk-history::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px; /* убирает 1px шов */
+        height: -200px; /* сколько красного "продолжения" нужно */
+
+        background: var(--kbk-red);
+        z-index: 0; /* под контентом истории */
+        pointer-events: none;
+    }
+
+    /* чтобы контент истории был поверх хвоста */
+    .kbk-history .kbk-container {
+        position: relative;
+        z-index: 2;
+    }
+
+.kbk-decor-26-right {
+    position: relative;
+    left: 895px;
+    top:-5px;
+    width:475px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.kbk-decor-26-left {
+    position: relative;
+    right: 550px;
+    top: -850px;
+    width: 550px;
+    z-index: 6;
+    pointer-events: none;
+    margin-bottom:-1000px;
+}
+
+.kbk-decor-25-26-right {
+    position: relative;
+    left: 1220px;
+    top: -0px;
+    width: 150px;
+    z-index: 100;
+    pointer-events: none;
 
 .ecosystem__gallery-card {
     width: 100%;
