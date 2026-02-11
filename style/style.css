@@ -924,7 +924,7 @@ button,
 .footer__logos {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
     justify-self: start;
 }
@@ -3108,22 +3108,7 @@ button,
 
 @media (max-width: 1439px) {
     .ecosystem__img {
-        width: 7.5rem;
-        top: -15.625rem;
-    }
-}
-
-@media (max-width: 1023px) {
-    .ecosystem__img {
-        width: 5rem;
-        top: -10.9375rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .ecosystem__img {
-        width: 2.5rem;
-        top: -5rem;
+        display: none;
     }
 }
 
