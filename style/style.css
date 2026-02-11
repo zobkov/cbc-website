@@ -924,7 +924,7 @@ button,
 .footer__logos {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
     justify-self: start;
 }
@@ -3108,22 +3108,7 @@ button,
 
 @media (max-width: 1439px) {
     .ecosystem__img {
-        width: 7.5rem;
-        top: -15.625rem;
-    }
-}
-
-@media (max-width: 1023px) {
-    .ecosystem__img {
-        width: 5rem;
-        top: -10.9375rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .ecosystem__img {
-        width: 2.5rem;
-        top: -5rem;
+        display: none;
     }
 }
 
@@ -3243,8 +3228,7 @@ button,
 /* îòäåëüíûé ëîãîòèï */
 .support__logo {
     width: 16.25rem;
-    height: 8.125rem;
-    background-color: #bfbfbf; /* åñëè êàðòèíêà íå çàãðóçèëàñü */
+    height: 5.625rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3372,21 +3356,21 @@ button,
   .promo__title {
     font-size: 3rem;
     line-height: 3.625rem;
-    margin: 0 0 3.75rem 0;
+    margin: 2rem 0 3.75rem 0;
   }
 }
 @media (max-width: 1023px) {
   .promo__title {
     font-size: 2.25rem;
     line-height: 3rem;
-    margin: 0 0 2.5rem 0;
+    margin: 2rem 0 2.5rem 0;
   }
 }
 @media (max-width: 767px) {
   .promo__title {
     font-size: 1.75rem;
     line-height: 2.25rem;
-    margin: 0 0 1.25rem 0;
+    margin: 1.5rem 0 1.25rem 0;
   }
 }
 .promo__link {
@@ -4748,21 +4732,24 @@ button,
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    height: 200%;
+    height: 100%;
     width: auto;
     pointer-events: none;
     user-select: none;
     z-index: 0;
+    object-fit: contain;
 }
 
 .wait__decor--left {
     left: -1.5rem;
-    width: 30rem;
+    width: 25vw;
+    max-width: 30rem;
 }
 
 .wait__decor--right {
     right: -1.5rem;
-    width: 30rem;
+    width: 25vw;
+    max-width: 30rem;
 }
 
 .wait .container,
@@ -4772,6 +4759,18 @@ button,
 }
 
 /* àäàïòèâ */
+@media (max-width: 1439px) {
+    .wait__decor--left,
+    .wait__decor--right {
+        width: 18vw;
+    }
+    
+    .wait__title {
+        font-size: 3.5rem;
+        line-height: 1.1;
+    }
+}
+
 @media (max-width: 1023px) {
     .wait__wrapper {
         min-height: 28rem;
@@ -4790,7 +4789,7 @@ button,
 
     .wait__decor--left,
     .wait__decor--right {
-        width: 12rem;
+        width: 20vw;
     }
 }
 
@@ -4800,9 +4799,25 @@ button,
         padding: 3.5rem 0;
     }
 
-    .wait__decor--left,
+    .wait__title {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+    }
+
+    .wait__subtitle {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+
+    .wait__decor--left {
+        width: 35vw;
+        left: -3rem;
+        opacity: 0.9;
+    }
+
     .wait__decor--right {
-        width: 8rem;
+        width: 35vw;
+        right: -3rem;
         opacity: 0.9;
     }
 }
