@@ -5985,3 +5985,135 @@ button,
         object-fit: cover;
         object-position: center;
     }
+
+/* чтобы вообще никогда не расширяло страницу */
+html, body {
+    overflow-x: clip;
+}
+/* можно hidden если clip не поддерживается */
+
+/* hero — контейнер для абсолютных элементов */
+.kbk-hero {
+    position: relative;
+    overflow: hidden; /* обрезает то, что вылезает за края */
+}
+
+/* слой декора на весь hero */
+.kbk-hero__decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; /* декор под баннером */
+}
+
+/* сами картинки */
+.kbk-hero__corner {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+    width: clamp(260px, 28vw, 520px);
+}
+
+/* top-right: двигаем ВПРАВО через transform (не ломает ширину страницы) */
+.kbk-hero__corner--tr {
+    top: 0;
+    right: 0;
+    transform: translate(35%, -20%); /* <-- правее/выше, не создаёт скролл */
+}
+
+/* bottom-left: двигаем ВЛЕВО/ВНИЗ через transform */
+.kbk-hero__corner--bl {
+    left: 0;
+    bottom: 0;
+    transform: translate(-25%, 25%);
+}
+
+/* баннер поверх декора */
+.kbk-hero__banner {
+    position: relative;
+    z-index: 5;
+}
+
+/* если раньше ты вставлял декор внутрь .kbk-history--turq — выключаем его */
+.kbk-historyDecor {
+    display: none !important;
+}
+
+/* слой между секциями */
+.kbk-seamDecor {
+    position: relative;
+    height: 0; /* не влияет на разметку */
+    z-index: 50; /* поверх белого и бирюзового */
+    pointer-events: none;
+}
+
+/* внутренний контейнер по ширине как .kbk-container */
+.kbk-seamDecor__inner {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+    transform: translateX(-50%);
+}
+
+/* картинки */
+.kbk-seamDecor__img {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+}
+
+/* ЛЕВАЯ длинная (на белом фоне) */
+.kbk-seamDecor__img--left {
+    left: -6px; /* ближе к центру -> увеличивай (0..40px) */
+    top: -500px; /* подними/опусти на белом фоне */
+    width: 450px;
+}
+
+/* ПРАВАЯ верхняя (на белом фоне) */
+.kbk-seamDecor__img--tr {
+    right: -6px; /* ближе к центру -> увеличивай (0..40px) */
+    top: -850px;
+    width: 450px;
+}
+
+/* ПРАВАЯ нижняя (уже на бирюзовом) */
+.kbk-seamDecor__img--br {
+    right: -20px;
+    top: -40px; /* чуть ниже стыка */
+    width: 260px;
+}
+
+/* Вставка декора между годами */
+.kbk-betweenYears {
+    position: relative;
+    height: 140px; /* высота вставки как на макете */
+    margin: 40px 0 60px; /* отступы сверху/снизу */
+    overflow: visible; /* чтобы ничего не вылезало и не делало scroll */
+    z-index: 5;
+}
+
+/* две одинаковые картинки по краям */
+.kbk-betweenYears__img {
+    position: absolute;
+    top: 50%;
+    width: 300px; /* размер круга */
+    height: 300px;
+    object-fit: contain;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* левый круг */
+.kbk-betweenYears__img--l {
+    left: -620px; /* чуть “уходит” за край */
+}
+
+/* правый круг */
+.kbk-betweenYears__img--r {
+    right: -470px; /* чуть “уходит” за край */
+    transform: translateY(-50%) rotate(180deg)
+}
+
