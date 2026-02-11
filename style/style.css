@@ -640,6 +640,10 @@ button,
   gap: 1rem;
 }
 
+.header__socials.header__socials--mobile {
+    display: none;
+}
+
 /* Nav (Right on Desktop) */
 .header__nav {
   display: flex;
@@ -719,7 +723,11 @@ button,
 /* --- MOBILE MENU (1024px and below) --- */
 @media (max-width: 1024px) {
   .header {
-      padding: 1rem 0;
+      padding: inherit;
+  }
+
+  .header__socials.header__socials--mobile {
+      display: flex;
   }
   
   .header__burger {
