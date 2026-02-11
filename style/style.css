@@ -2522,6 +2522,7 @@ button,
   background-color: #c31632;
   clip-path: polygon(0 0, 0 100%, 100% 0);
   z-index: 0;
+  transform: translateY(-1px);
 }
 @media (max-width: 1439px) {
   .about::before {
