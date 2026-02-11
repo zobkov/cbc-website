@@ -604,197 +604,281 @@ button,
     padding: 0 1.25rem;
   }
 }
-.header .container {
-    max-width: 100rem;
-}
+/* --- HEADER (Canonical Rewrite) --- */
 .header {
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  z-index: 99;
-  padding: 1.5rem 0;
+  width: 100%;
+  z-index: 999;
   background-color: #ffffff;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
 }
-@media (max-width: 767px) {
-  .header {
-    padding: 0.625rem 0;
-  }
+
+.header .container {
+  max-width: 68.875rem; 
 }
+
 .header__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  gap: 5.375rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
-@media (max-width: 1439px) {
+
+@media (max-width: 1440px) {
   .header__wrapper {
-    gap: 4.0625rem;
+    gap: 1rem;
   }
 }
-@media (max-width: 1023px) {
-  .header__wrapper {
-    gap: 0.9375rem;
-  }
+
+/* Socials (Left) */
+.header__socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-@media (max-width: 767px) {
-  .header__wrapper {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-  }
+
+/* Nav (Right on Desktop) */
+.header__nav {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  justify-content: flex-start;
 }
-@media (max-width: 767px) {
-  .header__nav {
-    display: none;
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    grid-row: 2/3;
-    -ms-grid-column-span: 2;
-    grid-column: span 2;
-  }
-  .header__nav.is-active {
-    display: block;
-    padding: 0 0 1.25rem 0;
-  }
-}
+
 .header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2rem; 
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style: none;
-  gap: 5.0625rem;
 }
-@media (max-width: 1439px) {
-  .header__nav-list {
-    gap: 4.0625rem;
-  }
+
+@media (max-width: 1440px) {
+    .header__nav-list {
+        gap: 1rem;
+    }
 }
-@media (max-width: 1023px) {
-  .header__nav-list {
-    gap: 0.9375rem;
-  }
-}
-@media (max-width: 767px) {
-  .header__nav-list {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
+
+/* Nav Links */
 .header__nav-link {
   font-size: 1rem;
-  line-height: 1.1875rem;
   font-weight: 800;
   font-family: "MarvinVisions", "Arial", sans-serif;
-  -webkit-transition: color 0.3s ease, background-color 0.3s ease;
-  transition: color 0.3s ease, background-color 0.3s ease;
   color: #000000;
+  text-decoration: none;
+  transition: color 0.3s;
   white-space: nowrap;
 }
-@media (hover: hover) {
-  .header__nav-link:hover:not(.focus-visible) {
-    color: #c31632;
-  }
-}
-.header__nav-link.focus-visible:focus {
+
+.header__nav-link:hover {
   color: #c31632;
 }
-.header__nav-link.focus-visible:active {
-  color: #f6ac1b;
-}
+
 .header__nav-link--btn {
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.1875rem;
-  padding: 0.40625rem 1.5rem;
-  border-radius: 16px;
-  background-color: #f6ac1b;
+    padding: 0.5rem 1.5rem;
+    background-color: #f6ac1b;
+    border-radius: 16px;
+    font-weight: 600;
 }
-@media (hover: hover) {
-  .header__nav-link--btn:hover:not(.focus-visible) {
+.header__nav-link--btn:hover {
     background-color: #c31632;
-    color: #ffffff;
-  }
+    color: #fff;
 }
-.header__nav-link--btn.focus-visible:focus {
-  background-color: #c31632;
-  color: #ffffff;
-}
-.header__nav-link--btn.focus-visible:active {
-  background-color: #000000;
-  color: #ffffff;
-}
-.header__nav-link--btn.header__nav-link--active {
-  pointer-events: none;
-  background-color: #000000;
-  color: #ffffff;
-}
-.header__nav-link--active:not(.header__nav-link--btn) {
-  pointer-events: none;
-  position: relative;
-}
-.header__nav-link--active:not(.header__nav-link--btn)::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.3125rem;
-  width: 100%;
-  height: 2px;
-  background-color: #c31632;
-}
+
+/* Burger Button (Desktop Hidden) */
 .header__burger {
   display: none;
-  width: 1.875rem;
-  height: 1.875rem;
-  gap: 0.5625rem;
-  padding: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: transparent;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 30px;
+  height: 30px;
+  background: none;
   border: none;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
   cursor: pointer;
-  -ms-grid-column-align: end;
-      justify-self: end;
+  z-index: 1001;
+  padding: 0;
+  pointer-events: auto; /* Ensure clickable */
 }
-.header__burger.is-active {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
+
 .header__burger span {
-  width: 100%;
-  height: 2px;
-  background-color: #000000;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transition: 0.3s;
+    border-radius: 2px; /* Smooth edges */
 }
-@media (max-width: 767px) {
-  .header__burger {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+
+/* --- MOBILE MENU (1024px and below) --- */
+@media (max-width: 1024px) {
+  .header {
+      padding: 1rem 0;
   }
+  
+  .header__burger {
+      display: flex;
+      flex-direction: column; /* Ensure direction */
+  }
+
+  /* Nav becomes a Drawer/Overlay */
+  .header__nav {
+      position: fixed;
+      top: 0;
+      right: -100%; /* Slide out */
+      width: 100%;
+      height: 100vh;
+      background-color: #ffffff;
+      flex-direction: column;
+      justify-content: center;
+      transition: right 0.4s ease;
+      z-index: 1000;
+      padding: 2rem;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  }
+
+  .header__nav.is-active {
+      right: 0; /* Slide in */
+  }
+
+  .header__nav-list {
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+  }
+
+  .header__nav-link {
+      font-size: 1.5rem;
+  }
+  
+  /* Burger Animation */
+  .header__burger.is-active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+  }
+  .header__burger.is-active span:nth-child(2) {
+      opacity: 0;
+  }
+  .header__burger.is-active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* Dropdown Container */
+.header__nav-item--dropdown {
+    position: relative;
+}
+
+/* Dropdown Button */
+.header__nav-link--dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0; 
+  margin: 0;
+  font-family: "MarvinVisions", "Arial", sans-serif;
+  font-size: 1rem;
+  line-height: 1.1875rem; 
+  font-weight: 800;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.header__nav-link--dropdown:hover {
+    color: #c31632;
+}
+
+/* Dropdown Arrow */
+.header__nav-arrow {
+  display: none;
+}
+
+/* Dropdown Menu (Desktop) */
+.header__dropdown {
+    position: absolute;
+    top: 100%;
+    left: -1rem; /* Access offsets padding to align text with parent */
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    
+    min-width: 100%; /* At least parent width */
+    width: max-content; /* Grow to fit content, but start at parent width */
+    
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    list-style: none;
+    z-index: 1002;
+    text-align: left;
+}
+
+.header__nav-item--dropdown:hover .header__dropdown,
+.header__dropdown.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header__dropdown-link {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.1875rem; /* Copied from .header__nav-link */
+    font-weight: 800;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+.header__dropdown-link:hover {
+    color: #c31632;
+}
+
+/* Mobile Dropdown */
+@media (max-width: 1024px) {
+    /* Hide the dropdown button/header on mobile */
+    .header__nav-link--dropdown {
+        display: none;
+    }
+
+    /* Make the dropdown list always visible as part of the flow */
+    .header__dropdown {
+        position: static;
+        min-width: 0;
+        box-shadow: none;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; /* Match header__nav-list gap */
+        padding: 0;
+        text-align: center;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Make dropdown links look exactly like main links */
+    .header__dropdown-link {
+        font-size: 1.5rem;
+        font-weight: 800;
+        padding: 0;
+    }
+
+    /* Remove specific dropdown item container logic if any */
+    .header__nav-item--dropdown {
+        display: contents; /* Allows children (the UL) to sit directly in the grid/flex context of the parent list if possible */
+    }
+
+    /* Actually, display: contents on li inside a flex-col ul works well to flatten the list */
 }
 
 .footer {
@@ -807,7 +891,7 @@ button,
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1000px) {
     .footer {
         padding: 2.5rem 0;
     }
@@ -826,6 +910,7 @@ button,
     align-items: center;
     gap: 3.125rem;
 }
+
 
 @media (max-width: 1023px) {
     .footer__wrapper {
@@ -5304,7 +5389,7 @@ button,
 
 .kbk-year {
     position: relative;
-    padding: 10px 0 70px;
+    padding: 10px 0 0px;
 }
 
 .kbk-dot {
@@ -5406,7 +5491,8 @@ button,
 
 /* top turquoise “shapes” placeholders */
 .kbk-shapes {
-    margin-top: 28px;
+    margin-top: 100px;
+    margin-bottom:-160px;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 26px;
@@ -5469,7 +5555,8 @@ button,
     width: 100%;
     margin-left: 0 !important; /* убираем старый сдвиг */
     display: block;
-    margin-top: 100px;
+    margin-top: 75px;
+    margin-bottom: 75px;
 }
 
 .kbk-photoGrid--two {
@@ -5560,7 +5647,7 @@ button,
 /* общий контейнер истории — здесь будет единая ось */
 .kbk-historyWrap {
     --kbk-axis-top: 300px;
-    --kbk-axis-bottom: 950px;
+    --kbk-axis-bottom: 920px;
     position: relative;
     --kbk-wrapw: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
     isolation: isolate;
@@ -5885,3 +5972,224 @@ button,
         object-fit: cover;
         object-position: center;
     }
+
+/* чтобы вообще никогда не расширяло страницу */
+html, body {
+    overflow-x: clip;
+}
+/* можно hidden если clip не поддерживается */
+
+/* hero — контейнер для абсолютных элементов */
+.kbk-hero {
+    position: relative;
+    overflow: hidden; /* обрезает то, что вылезает за края */
+}
+
+/* слой декора на весь hero */
+.kbk-hero__decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; /* декор под баннером */
+}
+
+/* сами картинки */
+.kbk-hero__corner {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+    width: clamp(260px, 28vw, 520px);
+}
+
+/* top-right: двигаем ВПРАВО через transform (не ломает ширину страницы) */
+.kbk-hero__corner--tr {
+    top: 0;
+    right: 0;
+    transform: translate(35%, -20%); /* <-- правее/выше, не создаёт скролл */
+}
+
+/* bottom-left: двигаем ВЛЕВО/ВНИЗ через transform */
+.kbk-hero__corner--bl {
+    left: 0;
+    bottom: 0;
+    transform: translate(-25%, 25%);
+}
+
+/* баннер поверх декора */
+.kbk-hero__banner {
+    position: relative;
+    z-index: 5;
+}
+
+/* если раньше ты вставлял декор внутрь .kbk-history--turq — выключаем его */
+.kbk-historyDecor {
+    display: none !important;
+}
+
+/* слой между секциями */
+.kbk-seamDecor {
+    position: relative;
+    height: 0; /* не влияет на разметку */
+    z-index: 50; /* поверх белого и бирюзового */
+    pointer-events: none;
+}
+
+/* внутренний контейнер по ширине как .kbk-container */
+.kbk-seamDecor__inner {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+    transform: translateX(-50%);
+}
+
+/* картинки */
+.kbk-seamDecor__img {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+}
+
+/* ЛЕВАЯ длинная (на белом фоне) */
+.kbk-seamDecor__img--left {
+    left: -6px; /* ближе к центру -> увеличивай (0..40px) */
+    top: -500px; /* подними/опусти на белом фоне */
+    width: 450px;
+}
+
+/* ПРАВАЯ верхняя (на белом фоне) */
+.kbk-seamDecor__img--tr {
+    right: -6px; /* ближе к центру -> увеличивай (0..40px) */
+    top: -850px;
+    width: 450px;
+}
+
+/* ПРАВАЯ нижняя (уже на бирюзовом) */
+.kbk-seamDecor__img--br {
+    right: -20px;
+    top: -40px; /* чуть ниже стыка */
+    width: 260px;
+}
+
+/* Вставка декора между годами */
+.kbk-betweenYears {
+    position: relative;
+    height: 140px; /* высота вставки как на макете */
+    margin: 40px 0 60px; /* отступы сверху/снизу */
+    overflow: visible; /* чтобы ничего не вылезало и не делало scroll */
+    z-index: 5;
+}
+
+/* две одинаковые картинки по краям */
+.kbk-betweenYears__img {
+    position: absolute;
+    top: 50%;
+    width: 300px; /* размер круга */
+    height: 300px;
+    object-fit: contain;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* левый круг */
+.kbk-betweenYears__img--l {
+    left: -620px; /* чуть “уходит” за край */
+}
+
+/* правый круг */
+.kbk-betweenYears__img--r {
+    right: -470px; /* чуть “уходит” за край */
+    transform: translateY(-50%) rotate(180deg)
+}
+
+/* ===== LEFT DECOR between 2024 and 2025 ===== */
+.kbk-between24-25 {
+    position: relative;
+    top:-300px;
+    height: 0; /* не добавляет высоту */
+    z-index: 6;
+    pointer-events: none;
+}
+
+.kbk-yearPhoto {
+    position: relative;
+    left:600px;
+    top:-350px;
+    margin-bottom: -600px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+
+.kbk-p--history24 {
+    max-width: 600px;
+}
+
+.kbk-year__num26 {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 3.75rem;
+    line-height: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 0.9;
+    font-size: clamp(62px, 7vw, 132px);
+    color: #fff;
+    margin-left: 0;
+    margin-top:30px;
+}
+
+
+/* Красное продолжение после истории */
+.kbk-history {
+    position: relative;
+    overflow: hidden;
+}
+
+    .kbk-history::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px; /* убирает 1px шов */
+        height: -200px; /* сколько красного "продолжения" нужно */
+
+        background: var(--kbk-red);
+        z-index: 0; /* под контентом истории */
+        pointer-events: none;
+    }
+
+    /* чтобы контент истории был поверх хвоста */
+    .kbk-history .kbk-container {
+        position: relative;
+        z-index: 2;
+    }
+
+.kbk-decor-26-right {
+    position: relative;
+    left: 895px;
+    top:-5px;
+    width:475px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.kbk-decor-26-left {
+    position: relative;
+    right: 550px;
+    top: -850px;
+    width: 550px;
+    z-index: 6;
+    pointer-events: none;
+    margin-bottom:-1000px;
+}
+
+.kbk-decor-25-26-right {
+    position: relative;
+    left: 1220px;
+    top: -0px;
+    width: 150px;
+    z-index: 100;
+    pointer-events: none;
+}

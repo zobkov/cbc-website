@@ -26,7 +26,7 @@
 
 <body class="page--about">
     <div class="page-wrapper">
-        <!-- HEADER (same as index.html) -->
+        <!-- HEADER -->
         <header class="header">
             <div class="container">
                 <div class="header__wrapper">
@@ -40,26 +40,42 @@
                             <li class="header__nav-item">
                                 <a class="header__nav-link" href="index.html">Главная</a>
                             </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link header__nav-link--active" href="about.html" aria-current="page">О КБК</a>
+                            <li class="header__nav-item header__nav-item--dropdown">
+                                <button class="header__nav-link header__nav-link--dropdown header__nav-link--active" type="button" aria-expanded="false" aria-haspopup="true">
+                                    Наша экосистема
+                                    <svg class="header__nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </button>
+                                <ul class="header__dropdown">
+                                    <li class="header__dropdown-item">
+                                        <a class="header__dropdown-link header__dropdown-link--active" href="about.html">О КБК</a>
+                                    </li>
+                                    <li class="header__dropdown-item">
+                                        <a class="header__dropdown-link" href="wait.html">Сериал</a>
+                                    </li>
+                                    <li class="header__dropdown-item">
+                                        <a class="header__dropdown-link" href="wait.html">Online</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link" href="wait.html">Партнёры</a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link" href="wait.html">Медиа</a>
+                            <li class="header__nav-item header__nav-item--dropdown">
+                                <button class="header__nav-link header__nav-link--dropdown" type="button" aria-expanded="false" aria-haspopup="true">
+                                    Партнёры
+                                    <svg class="header__nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </button>
+                                <ul class="header__dropdown">
+                                    <li class="header__dropdown-item">
+                                        <a class="header__dropdown-link" href="wait.html">Партнёры</a>
+                                    </li>
+                                    <li class="header__dropdown-item">
+                                        <a class="header__dropdown-link" href="wait.html">Медиа</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="header__nav-item">
                                 <a class="header__nav-link" href="wait.html">Программа</a>
                             </li>
                             <li class="header__nav-item">
                                 <a class="header__nav-link" href="way.html">Как добраться</a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link" href="wait.html">Сериал</a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link" href="wait.html">Online</a>
                             </li>
                             <li class="header__nav-item">
                                 <a class="header__nav-link header__nav-link--btn" href="registration_open.html">Регистрация на форум</a>
@@ -77,6 +93,10 @@
         <main class="kbk-about" aria-label="Страница о КБК">
             <!-- HERO -->
             <section class="kbk-hero" aria-label="Что такое КБК">
+                <div class="kbk-hero__decor" aria-hidden="true">
+                    <img class="kbk-hero__corner kbk-hero__corner--tr" src="img/hero-top-right.svg" alt="">
+                    <img class="kbk-hero__corner kbk-hero__corner--bl" src="img/hero-bottom-left.svg" alt="">
+                </div>
                 <div class="kbk-container">
                     <div class="kbk-photo" id="group-321">
                         <img src="img/Group 321.svg" alt="Фото Group 321">
@@ -108,6 +128,11 @@
                     </div>
                 </div>
             </section>
+            <div class="kbk-seamDecor" aria-hidden="true">
+                <img class="kbk-seamDecor__img kbk-seamDecor__img--left" src="img/decor-left.svg" alt="">
+                <img class="kbk-seamDecor__img kbk-seamDecor__img--tr" src="img/decor-top-right.svg" alt="">
+                <img class="kbk-seamDecor__img kbk-seamDecor__img--br" src="img/decor-bottom-right.svg" alt="">
+            </div>
             <section class="kbk-historyWrap">
                 <!-- HISTORY (TURQUOISE) -->
                 <section class="kbk-history kbk-history--turq" aria-label="Наша история: 2023–2024">
@@ -132,13 +157,19 @@
                                     </div>
                                 </div>
 
-                                <!-- design placeholders (shapes in the PDF) -->
+                                <!-- design placeholders -->
                                 <div class="kbk-shapes" aria-label="Плейсхолдеры">
                                     <div class="kbk-ph kbk-ph--star" title="placeholder"></div>
                                     <div class="kbk-ph kbk-ph--diamond" title="placeholder"></div>
                                     <div class="kbk-ph kbk-ph--diamond kbk-ph--diamondSm" title="placeholder"></div>
                                 </div>
                             </article>
+
+                            <!-- DECOR between 2023 and 2024 -->
+                            <div class="kbk-betweenYears" aria-hidden="true">
+                                <img class="kbk-betweenYears__img kbk-betweenYears__img--l" src="img/target.svg" alt="">
+                                <img class="kbk-betweenYears__img kbk-betweenYears__img--r" src="img/target.svg" alt="">
+                            </div>
 
                             <!-- 2024 -->
                             <article class="kbk-year kbk-year--darkText">
@@ -148,29 +179,39 @@
                                     <div class="kbk-year__num">2024</div>
 
                                     <div class="kbk-year__content">
+
                                         <p class="kbk-p kbk-p--history">
                                             Таким образом начало повседневной работы по формированию позиции требуют от нас анализа дальнейших
                                             направлений развития. С другой стороны постоянное информационно-пропагандистское обеспечение нашей
-                                            деятельности играет важную роль в формировании модели развития. Задача организации, в особенности же
-                                            рамки и место обучения кадров играет важную роль в формировании новых предложений. Товарищи!
+                                            деятельности играет важную роль в формировании модели развития. Задача организации, в особенности
+                                        </p>
+                                        <p class="kbk-p kbk-p--history24">
+                                            же рамки и место обучения кадров играет важную роль в формировании новых предложений. Товарищи!
                                             консультация с широким активом в значительной степени обуславливает создание существенных финансовых и
                                             административных условий. Значимость этих проблем настолько очевидна, что сложившаяся структура
                                             организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации.
                                         </p>
-                                    </div>
 
+                                    </div>
+                                    <img class="kbk-yearPhoto" src="img/people.png" alt="">
                                 </div>
                             </article>
+
                         </div>
                     </div>
                 </section>
+
+                <!-- DECOR between 2024 and 2025 (left) -->
+                <div class="kbk-between24-25" aria-hidden="true">
+                    <img src="img/decor-24-25.svg" alt="">
+                </div>
 
                 <!-- HISTORY (RED) -->
                 <section class="kbk-history kbk-history--red" aria-label="Наша история: 2025–2026">
                     <div class="kbk-container">
                         <div class="kbk-timeline kbk-timeline--light">
                             <!-- 2025 -->
-                            <article class="kbk-year">
+                            <article class="kbk-year kbk-year--2025">
                                 <span class="kbk-dot" aria-hidden="true"></span>
 
                                 <div class="kbk-year__row">
@@ -208,13 +249,13 @@
                                     </div>
                                 </div>
                             </article>
-
+                            <img class="kbk-decor-25-26-right" src="img/decor-25-26-right.svg" alt="">
                             <!-- 2026 -->
                             <article class="kbk-year kbk-year--last">
                                 <span class="kbk-dot" aria-hidden="true"></span>
 
                                 <div class="kbk-year__row">
-                                    <div class="kbk-year__num">2026</div>
+                                    <div class="kbk-year__num26">2026</div>
                                     <div class="kbk-year__content">
                                         <p class="kbk-p kbk-p--history kbk-p--light">
                                             Задача организации, в особенности же начало повседневной работы по формированию позиции позволяет
@@ -232,6 +273,9 @@
                                 <div class="kbk-photoGrid" aria-label="Фото плейсхолдер">
                                     <div class="kbk-ph kbk-ph--rect kbk-ph--rectLg"></div>
                                 </div>
+                                <img class="kbk-decor-26-left" src="img/decor-26-left.svg" alt="">
+                                <img class="kbk-decor-26-right" src="img/decor-26-right.svg" alt="">
+
                             </article>
                         </div>
                     </div>
@@ -317,6 +361,7 @@
 
     <script src="./js/vendor.min.js?t1"></script>
     <script src="./js/main.min.js?t10"></script>
+    <script src="./js/dropdown.js" defer></script>
     <script src="./about_page.js?v=1"></script>
 </body>
 </html>
