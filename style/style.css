@@ -2678,7 +2678,7 @@ button,
     padding: 0;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 1.25rem; /* same as .ecosystem__gallery gap */
 }
 
@@ -2703,6 +2703,16 @@ button,
     display: flex;
     flex-direction: column;
     min-height: 26.25rem;
+}
+
+@media (min-width: 1024px) {
+    .about__card {
+        grid-column: span 2;
+    }
+    .about__card:nth-last-child(2):nth-child(4),
+    .about__card:nth-last-child(1):nth-child(5) {
+        grid-column: span 3;
+    }
 }
 
 @media (max-width: 767px) {
