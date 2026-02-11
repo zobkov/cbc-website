@@ -645,7 +645,7 @@ button,
   display: flex;
   align-items: center;
   flex: 1 1 auto;
-  justify-content: flex-start;
+  width: 100%;
 }
 
 .header__nav-list {
@@ -655,6 +655,8 @@ button,
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%;
+  justify-content: space-between;
 }
 
 @media (max-width: 1440px) {
