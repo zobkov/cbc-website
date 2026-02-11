@@ -40,7 +40,7 @@
     <meta property="og:image:type" content="png" />
     <meta property="og:image:width" content="1300" />
     <meta property="og:image:height" content="530" />
-    <link rel="stylesheet" href="style/style.css?t8" />
+    <link rel="stylesheet" href="style/style.css?t9" />
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -63,38 +63,56 @@
           <header class="header">
               <div class="container">
                   <div class="header__wrapper">
-                      <div class="header__socials socials">
-                          <a class="socials__link socials__link--tg" href="https://t.me/forumcbc" target="_blank" aria-label="Связаться с нами в телеграмм"></a>
-                          <a class="socials__link socials__link--vk" href="https://vk.com/forumcbc" target="_blank" aria-label="Связаться с нами в вконтакте"></a>
+                      <div class="header__socials socials header__socials--mobile">
+                        <a class="socials__link socials__link--tg" href="https://t.me/forumcbc" target="_blank" aria-label="Связаться с нами в телеграмм"></a>
+                        <a class="socials__link socials__link--vk" href="https://vk.com/forumcbc" target="_blank" aria-label="Связаться с нами в вконтакте"></a>
                       </div>
                       <nav class="header__nav" id="headerNav" aria-label="Основная навигация">
                           <ul class="header__nav-list">
+                              <div class="header__socials socials">
+                                <a class="socials__link socials__link--tg" href="https://t.me/forumcbc" target="_blank" aria-label="Связаться с нами в телеграмм"></a>
+                                <a class="socials__link socials__link--vk" href="https://vk.com/forumcbc" target="_blank" aria-label="Связаться с нами в вконтакте"></a>
+                              </div>
                               <li class="header__nav-item">
-                                  <a class="header__nav-link" href="index.html">Главная</a>
+                                  <a class="header__nav-link header__nav-link--active" href="index.html">Главная</a>
                               </li>
-                              <li class="header__nav-item">
-                                  <a class="header__nav-link" href="about.html" aria-current="page">О КБК</a>
+                              <li class="header__nav-item header__nav-item--dropdown">
+                                  <button class="header__nav-link header__nav-link--dropdown" type="button" aria-expanded="false" aria-haspopup="true">
+                                      Наша экосистема
+                                  </button>
+                                  <ul class="header__dropdown">
+                                      <li class="header__dropdown-item">
+                                          <a class="header__dropdown-link" href="wait.html">О КБК</a>
+                                      </li>
+                                      <li class="header__dropdown-item">
+                                          <a class="header__dropdown-link" href="wait.html">Сериал</a>
+                                      </li>
+                                      <li class="header__dropdown-item">
+                                          <a class="header__dropdown-link" href="wait.html">Online</a>
+                                      </li>
+                                  </ul>
                               </li>
-                              <li class="header__nav-item">
-                                  <a class="header__nav-link" href="wait.html">Партнёры</a>
-                              </li>
-                              <li class="header__nav-item">
-                                  <a class="header__nav-link" href="wait.html">Медиа</a>
+                              <li class="header__nav-item header__nav-item--dropdown">
+                                  <button class="header__nav-link header__nav-link--dropdown" type="button" aria-expanded="false" aria-haspopup="true">
+                                      Партнёры
+                                  </button>
+                                  <ul class="header__dropdown">
+                                      <li class="header__dropdown-item">
+                                          <a class="header__dropdown-link" href="wait.html">Партнёры</a>
+                                      </li>
+                                      <li class="header__dropdown-item">
+                                          <a class="header__dropdown-link" href="wait.html">Медиа</a>
+                                      </li>
+                                  </ul>
                               </li>
                               <li class="header__nav-item">
                                   <a class="header__nav-link" href="wait.html">Программа</a>
                               </li>
                               <li class="header__nav-item">
-                                  <a class="header__nav-link header__nav-link--active" href="way.html">Как добраться</a>
+                                  <a class="header__nav-link" href="way.html">Как добраться</a>
                               </li>
-                              <li class="header__nav-item">
-                                  <a class="header__nav-link" href="wait.html">Сериал</a>
-                              </li>
-                              <li class="header__nav-item">
-                                  <a class="header__nav-link" href="wait.html">Online</a>
-                              </li>
-                              <li class="header__nav-item">
-                                  <a class="header__nav-link header__nav-link--btn" href="registration_open.html">Регистрация на форум</a>
+                              <li class="header__nav-item-reg">
+                                  <a class="header__nav-link header__nav-link--btn" href="wait.html">Регистрация на форум</a>
                               </li>
                           </ul>
                       </nav>
@@ -146,7 +164,9 @@
               <div class="container">
                   <div class="footer__wrapper">
                       <div class="footer__logos">
-                          <img class="footer__grant" src="./img/rosmol-grants.svg" alt="Росмолодёжь.Гранты" loading="lazy">
+                          <a class="footer__logo" href="https://myrosmol.ru/" target="_blank" aria-label="Переход на сайт Росмолодёжь.Гранты">
+                              <img class="footer__grant" src="./img/rosmol-grants.svg" alt="Росмолодёжь.Гранты" loading="eager" width="200" height="50">
+                          </a>
 
                           <a class="footer__logo" href="https://gsom.spbu.ru" target="_blank" aria-label="Переход на сайт Высшая школа менеджмента СПбГУ">
                               <img class="footer__logo-img footer__logo-img--sp" src="img/logo-sp.svg" width="250" height="80" alt="Логотип ВШМ СПбГУ" loading="lazy">
@@ -169,7 +189,7 @@
                       </div>
 
                       <div class="footer__content footer__content--social">
-                          <p class="footer__content-text">Подпишитесь на нас:</p>
+                          <p class="footer__content-text">Подпишись на нас:</p>
                           <div class="footer__socials socials socials--big">
                               <a class="socials__link socials__link--tg" href="https://t.me/forumcbc" target="_blank" aria-label="Связаться с нами в телеграмм"></a>
                               <a class="socials__link socials__link--vk" href="https://vk.com/forumcbc" target="_blank" aria-label="Связаться с нами в вконтакте"></a>
@@ -181,6 +201,7 @@
       </div>
     <script src="./js/vendor.min.js?t1"></script>
     <script src="./js/main.min.js?t8"></script>
+    <script src="./js/dropdown.js" defer></script>
   </body>
 
 </html>
