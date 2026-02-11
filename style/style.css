@@ -723,7 +723,7 @@ button,
 /* --- MOBILE MENU (1024px and below) --- */
 @media (max-width: 1024px) {
   .header {
-      padding: inherit;
+      padding: 1rem 0 1rem 0;
   }
 
   .header__socials.header__socials--mobile {
