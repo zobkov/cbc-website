@@ -6406,3 +6406,389 @@ html, body {
 .ecosystem__gallery-card-link:active {
     color: #ffffff;
 }
+
+/* Mobile-only registration button in the header (center) */
+.header__reg-btn--mobile {
+  display: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Mobile-only “Медиа” item (we show it only on mobile) */
+.header__nav-item--media { display: none; }
+
+/* --- Drawer menu like in the screenshot (left panel + dimmed area) --- */
+@media (max-width: 1024px) {
+
+  /* Header row: burger left, register center, socials right */
+  .header__burger { order: 1; }
+  .header__reg-btn--mobile {
+    display: flex;
+    order: 2;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
+    max-width: 10rem;
+    margin: 0 auto;
+  }
+  .header__socials.header__socials--mobile { order: 3; }
+
+  /* Header icons: black circle with white icon */
+  .header__socials.header__socials--mobile .socials__link {
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: #000;
+    -webkit-mask-image: none;
+    mask-image: none;
+    flex: 0 0 auto;
+  }
+  .header__socials.header__socials--mobile .socials__link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #fff;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 1.25rem 1.25rem;
+    mask-size: 1.25rem 1.25rem;
+  }
+  .header__socials.header__socials--mobile .socials__link--tg::after {
+    -webkit-mask-image: url("../img/tg.svg");
+    mask-image: url("../img/tg.svg");
+  }
+  .header__socials.header__socials--mobile .socials__link--vk::after {
+    -webkit-mask-image: url("../img/vk.svg");
+    mask-image: url("../img/vk.svg");
+  }
+
+  /* Fullscreen backdrop that slides from LEFT */
+  .header__nav {
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    background: rgba(0,0,0,0.28);
+    box-shadow: none;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+  .header__nav.is-active { transform: translateX(0); }
+
+  /* White panel */
+  .header__nav-list {
+    width: min(82vw, 22.5rem);
+    height: 100%;
+    background: #fff;
+    padding: 1.75rem 0 1.25rem 0;
+    margin: 0;
+    gap: 0;
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  /* Show mobile-only Media item */
+  .header__nav-item--media { display: block; }
+
+  /* Show dropdown “category” buttons as normal items */
+  .header__nav-link--dropdown {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hide dropdown lists on mobile (макет shows only top-level items) */
+  .header__dropdown { display: none !important; }
+  .header__nav-item--dropdown { display: block; }
+
+  /* Menu separators */
+  .header__nav-item,
+  .header__nav-item-reg {
+    width: 100%;
+    border-bottom: 1px solid #c31632;
+  }
+
+  .header__nav-link,
+  .header__dropdown-link {
+    display: block;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  /* Yellow buttons inside menu (stacked at top) */
+  .header__nav-item-reg {
+    order: -2;
+    border-bottom: none;
+    padding: 0 1.25rem 0.75rem 1.25rem;
+  }
+  .header__nav-item-reg--grant {
+    order: -1;
+    border-bottom: none;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+  .header__nav-item-reg .header__nav-link--btn {
+    width: 100%;
+    border-radius: 999px;
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  /* Move socials (the ones inside the burger menu) to the bottom */
+  .header__nav-list > .header__socials {
+    order: 99;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+    padding: 1.25rem 0 0 0;
+  }
+}
+
+/* Phone tweaks */
+@media (max-width: 767px) {
+  .header { padding: 0.75rem 0; }
+  .header__reg-btn--mobile {
+    max-width: 18.5rem;
+    font-size: 0.9rem;
+    padding: 0.55rem 1rem;
+  }
+  .header__nav-link { font-size: 1.125rem; padding: 1.1rem 1.25rem; }
+}
+
+/* --- WAIT section: match mobile макет proportions --- */
+@media (max-width: 767px) {
+  .wait__wrapper {
+    min-height: 38rem;
+    padding: 6.5rem 0 7.5rem 0;
+  }
+  .wait__title {
+    font-size: 2.5rem;
+    line-height: 2.35rem;
+    margin-bottom: 0.75rem;
+  }
+  .wait__subtitle {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+
+  /* Corner hands */
+  .wait__decor { top: auto; transform: none; height: auto; }
+  .wait__decor--left {
+    top: 5.25rem;
+    left: -6rem;
+    width: 74vw;
+    max-width: 22rem;
+    opacity: 1;
+  }
+  .wait__decor--right {
+    top: auto;
+    bottom: -2.25rem;
+    right: -6rem;
+    width: 74vw;
+    max-width: 22rem;
+    opacity: 1;
+  }
+}
+
+/* --- Footer: logos in one row on phones (like макет) --- */
+@media (max-width: 767px) {
+  .footer__logos {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .footer__grant { height: 2.25rem; }
+  .footer__logo-img--sp { width: 7.5rem; height: auto; }
+  .footer__logo-img--kbk { width: 7.25rem; height: auto; }
+
+  .footer .socials__link { width: 3.125rem; height: 3.125rem; }
+  .footer .socials__link::after {
+    -webkit-mask-size: 1.5rem 1.5rem;
+    mask-size: 1.5rem 1.5rem;
+  }
+}
+
+/* Hide separate "Медиа" item on desktop (it exists only for mobile drawer) */
+.header__nav-item--media {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    /* Show "Медиа" as a normal list item in the drawer */
+    .header__nav-item--media {
+        display: block;
+    }
+
+    /* Center button in header: burger left, socials right, button centered */
+    .header__wrapper {
+        position: relative;
+        justify-content: center;
+    }
+
+    .header__burger {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .header__socials.header__socials--mobile {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .header__reg-btn--mobile {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: min(70vw, 19rem);
+        margin: 0;
+        border-radius: 999px;
+        padding: 0.7rem 1.25rem;
+        font-size: 1rem;
+        line-height: 1.1;
+    }
+
+    /* Drawer items: left align everything */
+    .header__nav-list {
+        text-align: left;
+    }
+
+    .header__nav-link {
+        text-align: left;
+    }
+
+    /* Fix for dropdown buttons (they are <button>, not <a>) */
+    .header__nav-link--dropdown {
+        display: block;
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        font-size: 1.25rem;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    /* Hide submenu lists in the drawer (макет shows only top-level items) */
+    .header__dropdown {
+        display: none !important;
+    }
+
+    /* Second button right after “Регистрация на форум” inside the drawer */
+    .header__nav-item-reg--grant {
+        order: -1;
+        border-bottom: none;
+        padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .header__reg-btn--mobile {
+        width: min(72vw, 17.5rem);
+        font-size: 0.95rem;
+        padding: 0.65rem 1rem;
+    }
+}
+
+/* 2) Hide grant button on desktop; show only in mobile drawer */
+.header__nav-item-reg--grant {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .header__nav-item-reg--grant {
+        display: block;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    /* 1) Same font sizing for every menu row inside the drawer */
+    .header__nav-list .header__nav-link,
+    .header__nav-list .header__nav-link--dropdown,
+    .header__nav-list .header__dropdown-link {
+        font-size: 1.25rem;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Keep everything in the drawer equal on phones too */
+    .header__nav-list .header__nav-link,
+    .header__nav-list .header__nav-link--dropdown,
+    .header__nav-list .header__dropdown-link,
+    .header__nav-item-reg .header__nav-link--btn {
+        font-size: 1.125rem;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Reserve space for the absolute burger (left) and socials (right) */
+    .header__wrapper {
+        padding-left: 3.25rem; /* burger + breathing room */
+        padding-right: 6.75rem; /* 2 social icons + gap */
+    }
+
+    /* Keep font size, but reduce the button's physical footprint */
+    .header__reg-btn--mobile {
+        width: auto;
+        max-width: 100%;
+        flex: 0 1 auto;
+        padding: 0.5rem 0.9rem; /* narrower than default */
+        font-size: 0.9rem; /* cancels the earlier clamp */
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 767px) {
+    .header__wrapper {
+        padding-left: 3.25rem;
+        padding-right: 6.25rem;
+    }
+
+    .header__reg-btn--mobile {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* show Media item in drawer even if earlier rules hide it */
+    .header__nav-item--media {
+        display: block !important;
+    }
+}
+
+@media (max-width: 767px) {
+    /* dropdown items were a bit more to the right; match padding with other пункты */
+    .header__nav-list .header__nav-link--dropdown {
+        padding: 1.1rem 1.25rem; /* same as .header__nav-link on phones */
+    }
+}
+
+/* smaller hands on mobile */
+@media (max-width: 767px) {
+    .wait__decor--right {
+        width: 58vw; /* было ~74vw — уменьшаем */
+        top: 450px;
+        max-width: 17rem; /* ограничение по максимуму */
+    }
+}
+@media (max-width: 767px) {
+    .wait__decor--left {
+        width: 58vw; /* было ~74vw — уменьшаем */
+        top:25px;
+        max-width: 17rem; /* ограничение по максимуму */
+    }
+}
