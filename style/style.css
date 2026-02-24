@@ -4986,6 +4986,8 @@ button,
     z-index: 0;
 }
 
+
+
 .reg__corner--tr {
     top: 0;
     right: 0;
@@ -5017,6 +5019,7 @@ button,
 @media (max-width: 767px) {
     .reg__corner {
         width: 6.25rem;
+        display:none;
     }
 }
 
@@ -5050,6 +5053,7 @@ button,
 @media (max-width: 767px) {
     .reg__title {
         font-size: 2.75rem;
+        margin-top:-105px;
     }
 }
 
@@ -5303,6 +5307,7 @@ button,
 @media (max-width: 767px) {
     .reg-steps__text {
         font-size: 1rem;
+        font-weight: 300;
     }
 }
 
@@ -7198,3 +7203,5 @@ html, body {
         height: 108px;
     }
 }
+
+
