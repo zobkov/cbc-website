@@ -6815,3 +6815,386 @@ html, body {
         display: flex;
     }
 }
+
+
+.page--about-mobile {
+    --about-red: #c31632;
+    --about-turq: #66c9c5;
+    --about-yellow: #f4b02a;
+    --about-gray: #d9d9d9;
+    --about-black: #111;
+    --about-radius: 22px;
+    overflow-x: hidden;
+}
+
+    .page--about-mobile img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .page--about-mobile .aboutm-inner {
+        width: min(440px, calc(100% - 32px));
+        margin-inline: auto;
+    }
+
+    .page--about-mobile .aboutm-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* ---------- HERO ---------- */
+    .page--about-mobile .aboutm-hero {
+        background: var(--about-red);
+        /* header is fixed; keep hero content below it */
+        padding: 96px 0 70px;
+        clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    }
+
+    .page--about-mobile .aboutm-hero__decor {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .page--about-mobile .aboutm-hero__corner {
+        position: absolute;
+        width: min(42vw, 170px);
+        max-width: none;
+    }
+
+    .page--about-mobile .aboutm-hero__corner--tr {
+        top: -18px;
+        right: -34px;
+        
+    }
+
+    .page--about-mobile .aboutm-hero__corner--bl {
+        left: -45px;
+        bottom: -34px;
+    }
+
+    .page--about-mobile .aboutm-hero__art {
+        display: block;
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+
+    }
+
+    /* ---------- MISSION / VALUES (white) ---------- */
+    .page--about-mobile .aboutm-mv {
+        background: #fff;
+        margin-top: -36px; /* overlap hero diagonal */
+        padding: 56px 0 58px;
+        clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .page--about-mobile .aboutm-block {
+        position: relative;
+    }
+
+        .page--about-mobile .aboutm-block + .aboutm-block {
+            margin-top: 54px;
+        }
+
+    .page--about-mobile .aboutm-h {
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin: 0 0 12px;
+        font-size: 26px;
+        line-height: 1.05;
+        color: var(--about-black);
+    }
+
+    .page--about-mobile .aboutm-h--right {
+        text-align: right;
+    }
+
+    .page--about-mobile .aboutm-p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.35;
+        color: var(--about-black);
+        max-width: 360px;
+    }
+
+    .page--about-mobile .aboutm-p--right {
+        margin-left: auto;
+        text-align: right;
+        max-width: 320px;
+    }
+
+    /* decorative seam pieces in white area */
+    .page--about-mobile .aboutm-mv__decor {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .page--about-mobile .aboutm-mv__decor-img {
+        position: absolute;
+        max-width: none;
+    }
+
+    .page--about-mobile .aboutm-mv__decor-img--left {
+        left: -2px;
+        bottom: -10px;
+        width: 120px;
+    }
+
+    .page--about-mobile .aboutm-mv__decor-img--tr {
+        right: -26px;
+        top: -56px;
+        width: 150px;
+        display: none;
+    }
+
+    .page--about-mobile .aboutm-mv__decor-img--br {
+        right: -10px;
+        bottom: -38px;
+        width: 140px;
+        display: none;
+    }
+
+    /* ---------- HISTORY (turquoise) ---------- */
+    .page--about-mobile .aboutm-history--turq {
+        background: var(--about-turq);
+        padding: 44px 0 80px;
+        clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 94%);
+    }
+
+    .page--about-mobile .aboutm-title {
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 0 24px;
+        color: #fff;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+    }
+
+    .page--about-mobile .aboutm-timeline {
+        position: relative;
+        padding-left: 70px;
+    }
+
+        .page--about-mobile .aboutm-timeline::before {
+            content: "";
+            position: absolute;
+            left: 40px;
+            top: 30px;
+            bottom: 0px;
+            width: 4px;
+            background: #fff;
+            border-radius: 4px;
+            overflow:visible;
+        }
+
+    .page--about-mobile .aboutm-year {
+        position: relative;
+        padding: 6px 0 24px;
+    }
+
+        .page--about-mobile .aboutm-year::before {
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: 20px;
+            width: 25px;
+            height: 25px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+    .page--about-mobile .aboutm-year__num {
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        color: #fff;
+        font-size: 44px;
+        line-height: 1;
+        margin: 0 0 6px;
+    }
+
+    .page--about-mobile .aboutm-year__text {
+        margin: 0;
+        color: #0b0b0b;
+        font-size: 14px;
+        line-height: 1.35;
+        max-width: 310px;
+    }
+
+    /* decorative targets between years */
+    .page--about-mobile .aboutm-betweenYears {
+        position: relative;
+        height: 30px;
+        margin: 18px 0 10px;
+    }
+
+        .page--about-mobile .aboutm-betweenYears img {
+            position: absolute;
+            top: 50%;
+            width: 65px;
+            height: 65px;
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+
+    .page--about-mobile .aboutm-betweenYears__l {
+        left: -90px;
+    }
+
+    .page--about-mobile .aboutm-betweenYears__r {
+        right: -0px;
+        transform: rotate(90deg);
+        display: none;
+    }
+
+    /* grey shapes in turquoise */
+    .page--about-mobile .aboutm-shapes {
+        position: relative;
+        height: 220px;
+        margin-top: 18px;
+    }
+
+    .page--about-mobile .aboutm-shape {
+        position: absolute;
+        background: var(--about-gray);
+    }
+
+    .page--about-mobile .aboutm-shape--star {
+        left: 16px;
+        bottom: 10px;
+        width: 150px;
+        height: 150px;
+        clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
+    }
+
+    .page--about-mobile .aboutm-shape--diamond {
+        right: 20px;
+        bottom: 44px;
+        width: 118px;
+        height: 118px;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+
+    .page--about-mobile .aboutm-shape--diamondSm {
+        right: 118px;
+        bottom: 6px;
+        width: 70px;
+        height: 70px;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+
+    /* small side decor (optional, uses existing asset if present) */
+    .page--about-mobile .aboutm-sideDecor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 90px;
+        pointer-events: none;
+    }
+
+    /* ---------- HISTORY (red) ---------- */
+    .page--about-mobile .aboutm-history--red {
+        background: var(--about-red);
+        margin-top: -56px; /* overlap turquoise diagonal */
+        padding: 72px 0 62px;
+        clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 94%);
+        overflow:visible;
+    }
+
+        .page--about-mobile .aboutm-history--red .aboutm-timeline::before {
+            background: #fff;
+        }
+
+        .page--about-mobile .aboutm-history--red .aboutm-year__text {
+            color: #fff;
+        }
+
+    .page--about-mobile .aboutm-photoRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 18px 0 8px;
+        padding-right: 4px;
+    }
+
+    .page--about-mobile .aboutm-photoPh {
+        background: var(--about-gray);
+        border-radius: 18px;
+        height: 120px;
+    }
+
+    .page--about-mobile .aboutm-photoPh--big {
+        height: 160px;
+        margin-top: 12px;
+    }
+
+    /* ---------- TEAM (yellow) ---------- */
+    .page--about-mobile .aboutm-team {
+        background: var(--about-yellow);
+        margin-top: -56px;
+        padding: 72px 0 70px;
+        clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 100%);
+    }
+
+        .page--about-mobile .aboutm-team .aboutm-h {
+            color: var(--about-red);
+        }
+
+        .page--about-mobile .aboutm-team .aboutm-p {
+            max-width: 340px;
+        }
+
+    .page--about-mobile .aboutm-starPh {
+        position: absolute;
+        background: var(--about-gray);
+        width: 170px;
+        height: 170px;
+        clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
+    }
+
+    .page--about-mobile .aboutm-starPh--left {
+        left: -46px;
+        top: 42px;
+    }
+
+    .page--about-mobile .aboutm-starPh--right {
+        right: -52px;
+        bottom: 70px;
+        width: 180px;
+        height: 180px;
+    }
+
+    .page--about-mobile .aboutm-cta {
+        display: block;
+        width: min(280px, 100%);
+        margin: 32px auto 0;
+        padding: 14px 18px;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--about-black);
+        text-align: center;
+        text-decoration: none;
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+    }
+
+/* Small phones */
+@media (max-width: 360px) {
+    .page--about-mobile .aboutm-year__num {
+        font-size: 40px;
+    }
+
+    .page--about-mobile .aboutm-timeline {
+        padding-left: 54px;
+    }
+
+    .page--about-mobile .aboutm-photoPh {
+        height: 108px;
+    }
+}
