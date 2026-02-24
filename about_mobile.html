@@ -7,7 +7,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-5BHBQFSWF3');
     </script>
 
@@ -39,24 +38,13 @@
     <meta property="og:image:height" content="530" />
     <link rel="stylesheet" href="style/style.css?t9" />
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106290644', 'ym');
-
-        ym(106290644, 'init', { ssr: false, webvisor: true, clickmap: true, ecommerce: "dataLayer", accurateTrackBounce: true, trackLinks: true });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/106290644" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
+    <!-- base styles (header/footer/fonts) -->
+    <link rel="stylesheet" href="style/style.css?t=base" />
 </head>
 
-<body>
+<body class="page--about-mobile">
     <div class="page-wrapper">
+
         <header class="header">
             <div class="container">
                 <div class="header__wrapper">
@@ -129,21 +117,145 @@
             </div>
         </header>
 
-        <main>
-            <section class="wait">
 
-                <img class="wait__decor wait__decor--left" src="./img/empty-left-hand.svg" alt="" aria-hidden="true" />
-                <img class="wait__decor wait__decor--right" src="./img/empty-right-hand.svg" alt="" aria-hidden="true" />
+        <main class="aboutm" aria-label="О КБК (мобильная версия)">
 
-                <div class="container">
-                    <div class="wait__wrapper">
-                        <h1 class="wait__title">Регистрация закрыта!</h1>
-                        <p class="wait__subtitle">Скоро мы начнем <br>приём заявок :)</p>
+            <!-- HERO -->
+            <section class="aboutm-section aboutm-hero" aria-label="Что такое КБК">
+                <div class="aboutm-hero__decor" aria-hidden="true">
+                    <img class="aboutm-hero__corner aboutm-hero__corner--tr" src="img/hero-top-right.svg" alt="">
+                    <img class="aboutm-hero__corner aboutm-hero__corner--bl" src="img/hero-bottom-left.svg" alt="">
+                </div>
+                <div class="aboutm-inner">
+                    <!-- В макете это большая иллюстрация с драконом + табличкой "Что такое КБК?" -->
+                    <img class="aboutm-hero__art" src="img/Group 321.svg" alt="Что такое КБК?">
+                </div>
+            </section>
+
+            <!-- MISSION / VALUES -->
+            <section class="aboutm-section aboutm-mv" aria-label="Миссия и ценности">
+                <div class="aboutm-mv__decor" aria-hidden="true">
+                    <!-- декор как на макете (если эти файлы есть в проекте) -->
+                    <img class="aboutm-mv__decor-img aboutm-mv__decor-img--left" src="img/decor-left.svg" alt="">
+                    <img class="aboutm-mv__decor-img aboutm-mv__decor-img--tr" src="img/decor-top-right.svg" alt="">
+                    <img class="aboutm-mv__decor-img aboutm-mv__decor-img--br" src="img/decor-bottom-right.svg" alt="">
+                </div>
+
+                <div class="aboutm-inner">
+                    <div class="aboutm-block">
+                        <h2 class="aboutm-h">НАША МИССИЯ</h2>
+                        <p class="aboutm-p">
+                            Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения
+                            системы обучения кадров, соответствует насущным потребностям.
+                        </p>
+                    </div>
+
+                    <div class="aboutm-block">
+                        <h2 class="aboutm-h aboutm-h--right">НАШИ ЦЕННОСТИ</h2>
+                        <p class="aboutm-p aboutm-p--right">
+                            Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения
+                            системы обучения кадров, соответствует насущным потребностям.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HISTORY (TURQUOISE) -->
+            <section class="aboutm-section aboutm-history--turq" aria-label="Наша история: 2023–2024">
+                <div class="aboutm-inner">
+                    <h2 class="aboutm-title">НАША ИСТОРИЯ</h2>
+
+                    <div class="aboutm-timeline">
+                        <article class="aboutm-year" aria-label="2023">
+                            <div class="aboutm-year__num">2023</div>
+                            <p class="aboutm-year__text">
+                                Повседневная практика показывает, что реализация намеченных плановых заданий требуют определения и уточнения
+                                соответствующий условий активизации.
+                            </p>
+                        </article>
+
+                        <div class="aboutm-betweenYears" aria-hidden="true">
+                            <img class="aboutm-betweenYears__l" src="img/target.svg" alt="">
+                            <img class="aboutm-betweenYears__r" src="img/target.svg" alt="">
+                        </div>
+
+                        <article class="aboutm-year" aria-label="2024">
+                            <div class="aboutm-year__num">2024</div>
+                            <p class="aboutm-year__text">
+                                Значимость этих проблем настолько очевидна, что сложившаяся структура организации влечет за собой процесс внедрения и
+                                модернизации соответствующий условий активизации.
+                            </p>
+                        </article>
+
+                        <div class="aboutm-shapes" aria-hidden="true">
+                            <div class="aboutm-shape aboutm-shape--star"></div>
+                            <div class="aboutm-shape aboutm-shape--diamond"></div>
+                            <div class="aboutm-shape aboutm-shape--diamondSm"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HISTORY (RED) -->
+            <section class="aboutm-section aboutm-history--red" aria-label="Наша история: 2025–2026">
+                <div class="aboutm-inner">
+                    <div class="aboutm-timeline">
+
+                        <article class="aboutm-year" aria-label="2025">
+                            <div class="aboutm-year__num">2025</div>
+                            <p class="aboutm-year__text">
+                                Повседневная практика показывает, что реализация намеченных плановых заданий требуют определения и уточнения
+                                соответствующий условий активизации.
+                            </p>
+
+                            <div class="aboutm-photoRow" aria-label="Фото 2025">
+                                <div class="aboutm-photoPh" aria-hidden="true"></div>
+                                <div class="aboutm-photoPh" aria-hidden="true"></div>
+                            </div>
+                        </article>
+
+                        <article class="aboutm-year" aria-label="2026">
+                            <div class="aboutm-year__num">2026</div>
+                            <p class="aboutm-year__text">
+                                Повседневная практика показывает, что реализация намеченных плановых заданий требуют определения и уточнения
+                                соответствующий условий активизации.
+                            </p>
+
+                            <div class="aboutm-photoPh aboutm-photoPh--big" aria-label="Фото 2026" aria-hidden="true"></div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- TEAM / ACADEMY -->
+            <section class="aboutm-section aboutm-team" aria-label="Команда КБК и Smart академия">
+                <div class="aboutm-starPh aboutm-starPh--left" aria-hidden="true"></div>
+                <div class="aboutm-starPh aboutm-starPh--right" aria-hidden="true"></div>
+
+                <div class="aboutm-inner">
+                    <div class="aboutm-block">
+                        <h2 class="aboutm-h">КОМАНДА КБК</h2>
+                        <p class="aboutm-p">
+                            Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения
+                            системы обучения кадров, соответствует насущным потребностям.
+                        </p>
+                    </div>
+
+                    <div class="aboutm-block">
+                        <h2 class="aboutm-h">SMART АКАДЕМИЯ</h2>
+                        <p class="aboutm-p">
+                            Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности требуют определения и уточнения
+                            системы обучения кадров, соответствует насущным потребностям.
+                        </p>
+
+                        <a class="aboutm-cta" href="#" role="button" aria-label="Стать командой КБК">
+                            СТАТЬ КОМАНДОЙ КБК
+                        </a>
                     </div>
                 </div>
             </section>
         </main>
-
         <footer class="footer">
             <div class="container">
                 <div class="footer__wrapper">
@@ -153,7 +265,7 @@
                         </a>
 
                         <a class="footer__logo" href="https://gsom.spbu.ru" target="_blank" aria-label="Переход на сайт Высшая школа менеджмента СПбГУ">
-                            <img class="footer__logo-img footer__logo-img--sp" src="img/logo-sp.svg" width="198" height="60" alt="Логотип ВШМ СПбГУ" loading="lazy">
+                            <img class="footer__logo-img footer__logo-img--sp" src="img/logo-sp.svg" width="250" height="80" alt="Логотип ВШМ СПбГУ" loading="lazy">
                         </a>
 
                         <a class="footer__logo scroll-to-top" href="index.html" aria-label="Переход на главную страницу">
@@ -182,8 +294,11 @@
                 </div>
             </div>
         </footer>
-    <script src="./js/vendor.min.js?t1"></script>
-    <script src="./js/main.min.js?t8"></script>
-    <script src="./js/dropdown.js" defer></script>
+
+    </div>
+
+  <script src="./js/vendor.min.js?t=1"></script>
+  <script src="./js/main.min.js?t=1"></script>
+  <script src="./js/dropdown.js" defer></script>
 </body>
 </html>

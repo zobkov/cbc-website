@@ -4986,6 +4986,8 @@ button,
     z-index: 0;
 }
 
+
+
 .reg__corner--tr {
     top: 0;
     right: 0;
@@ -5017,6 +5019,7 @@ button,
 @media (max-width: 767px) {
     .reg__corner {
         width: 6.25rem;
+        display:none;
     }
 }
 
@@ -5050,6 +5053,7 @@ button,
 @media (max-width: 767px) {
     .reg__title {
         font-size: 2.75rem;
+        margin-top:-105px;
     }
 }
 
@@ -5303,6 +5307,7 @@ button,
 @media (max-width: 767px) {
     .reg-steps__text {
         font-size: 1rem;
+        font-weight: 300;
     }
 }
 
@@ -6406,3 +6411,797 @@ html, body {
 .ecosystem__gallery-card-link:active {
     color: #ffffff;
 }
+
+/* Mobile-only registration button in the header (center) */
+.header__reg-btn--mobile {
+  display: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Mobile-only “Медиа” item (we show it only on mobile) */
+.header__nav-item--media { display: none; }
+
+/* --- Drawer menu like in the screenshot (left panel + dimmed area) --- */
+@media (max-width: 1024px) {
+
+  /* Header row: burger left, register center, socials right */
+  .header__burger { order: 1; }
+  .header__reg-btn--mobile {
+    display: flex;
+    order: 2;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
+    max-width: 10rem;
+    margin: 0 auto;
+  }
+  .header__socials.header__socials--mobile { order: 3; }
+
+  /* Header icons: black circle with white icon */
+  .header__socials.header__socials--mobile .socials__link {
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: #000;
+    -webkit-mask-image: none;
+    mask-image: none;
+    flex: 0 0 auto;
+  }
+  .header__socials.header__socials--mobile .socials__link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #fff;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 1.25rem 1.25rem;
+    mask-size: 1.25rem 1.25rem;
+  }
+  .header__socials.header__socials--mobile .socials__link--tg::after {
+    -webkit-mask-image: url("../img/tg.svg");
+    mask-image: url("../img/tg.svg");
+  }
+  .header__socials.header__socials--mobile .socials__link--vk::after {
+    -webkit-mask-image: url("../img/vk.svg");
+    mask-image: url("../img/vk.svg");
+  }
+
+  /* Fullscreen backdrop that slides from LEFT */
+  .header__nav {
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    background: rgba(0,0,0,0.28);
+    box-shadow: none;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+  .header__nav.is-active { transform: translateX(0); }
+
+  /* White panel */
+  .header__nav-list {
+    width: min(82vw, 22.5rem);
+    height: 100%;
+    background: #fff;
+    padding: 1.75rem 0 1.25rem 0;
+    margin: 0;
+    gap: 0;
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  /* Show mobile-only Media item */
+  .header__nav-item--media { display: block; }
+
+  /* Show dropdown “category” buttons as normal items */
+  .header__nav-link--dropdown {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hide dropdown lists on mobile (макет shows only top-level items) */
+  .header__dropdown { display: none !important; }
+  .header__nav-item--dropdown { display: block; }
+
+  /* Menu separators */
+  .header__nav-item,
+  .header__nav-item-reg {
+    width: 100%;
+    border-bottom: 1px solid #c31632;
+  }
+
+  .header__nav-link,
+  .header__dropdown-link {
+    display: block;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  /* Yellow buttons inside menu (stacked at top) */
+  .header__nav-item-reg {
+    order: -2;
+    border-bottom: none;
+    padding: 0 1.25rem 0.75rem 1.25rem;
+  }
+  .header__nav-item-reg--grant {
+    order: -1;
+    border-bottom: none;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+  .header__nav-item-reg .header__nav-link--btn {
+    width: 100%;
+    border-radius: 999px;
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  /* Move socials (the ones inside the burger menu) to the bottom */
+  .header__nav-list > .header__socials {
+    order: 99;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+    padding: 1.25rem 0 0 0;
+  }
+}
+
+/* Phone tweaks */
+@media (max-width: 767px) {
+  .header { padding: 0.75rem 0; }
+  .header__reg-btn--mobile {
+    max-width: 18.5rem;
+    font-size: 0.9rem;
+    padding: 0.55rem 1rem;
+  }
+  .header__nav-link { font-size: 1.125rem; padding: 1.1rem 1.25rem; }
+}
+
+/* --- WAIT section: match mobile макет proportions --- */
+@media (max-width: 767px) {
+  .wait__wrapper {
+    min-height: 38rem;
+    padding: 6.5rem 0 7.5rem 0;
+  }
+  .wait__title {
+    font-size: 2.5rem;
+    line-height: 2.35rem;
+    margin-bottom: 0.75rem;
+  }
+  .wait__subtitle {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+
+  /* Corner hands */
+  .wait__decor { top: auto; transform: none; height: auto; }
+  .wait__decor--left {
+    top: 5.25rem;
+    left: -6rem;
+    width: 74vw;
+    max-width: 22rem;
+    opacity: 1;
+  }
+  .wait__decor--right {
+    top: auto;
+    bottom: -2.25rem;
+    right: -6rem;
+    width: 74vw;
+    max-width: 22rem;
+    opacity: 1;
+  }
+}
+
+/* --- Footer: logos in one row on phones (like макет) --- */
+@media (max-width: 767px) {
+  .footer__logos {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .footer__grant { height: 2.25rem; }
+  .footer__logo-img--sp { width: 7.5rem; height: auto; }
+  .footer__logo-img--kbk { width: 7.25rem; height: auto; }
+
+  .footer .socials__link { width: 3.125rem; height: 3.125rem; }
+  .footer .socials__link::after {
+    -webkit-mask-size: 1.5rem 1.5rem;
+    mask-size: 1.5rem 1.5rem;
+  }
+}
+
+/* Hide separate "Медиа" item on desktop (it exists only for mobile drawer) */
+.header__nav-item--media {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    /* Show "Медиа" as a normal list item in the drawer */
+    .header__nav-item--media {
+        display: block;
+    }
+
+    /* Center button in header: burger left, socials right, button centered */
+    .header__wrapper {
+        position: relative;
+        justify-content: center;
+    }
+
+    .header__burger {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .header__socials.header__socials--mobile {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .header__reg-btn--mobile {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: min(70vw, 19rem);
+        margin: 0;
+        border-radius: 999px;
+        padding: 0.7rem 1.25rem;
+        font-size: 1rem;
+        line-height: 1.1;
+    }
+
+    /* Drawer items: left align everything */
+    .header__nav-list {
+        text-align: left;
+    }
+
+    .header__nav-link {
+        text-align: left;
+    }
+
+    /* Fix for dropdown buttons (they are <button>, not <a>) */
+    .header__nav-link--dropdown {
+        display: block;
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        font-size: 1.25rem;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    /* Hide submenu lists in the drawer (макет shows only top-level items) */
+    .header__dropdown {
+        display: none !important;
+    }
+
+    /* Second button right after “Регистрация на форум” inside the drawer */
+    .header__nav-item-reg--grant {
+        order: -1;
+        border-bottom: none;
+        padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .header__reg-btn--mobile {
+        width: min(72vw, 17.5rem);
+        font-size: 0.95rem;
+        padding: 0.65rem 1rem;
+    }
+}
+
+/* 2) Hide grant button on desktop; show only in mobile drawer */
+.header__nav-item-reg--grant {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .header__nav-item-reg--grant {
+        display: block;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    /* 1) Same font sizing for every menu row inside the drawer */
+    .header__nav-list .header__nav-link,
+    .header__nav-list .header__nav-link--dropdown,
+    .header__nav-list .header__dropdown-link {
+        font-size: 1.25rem;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Keep everything in the drawer equal on phones too */
+    .header__nav-list .header__nav-link,
+    .header__nav-list .header__nav-link--dropdown,
+    .header__nav-list .header__dropdown-link,
+    .header__nav-item-reg .header__nav-link--btn {
+        font-size: 1.125rem;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Reserve space for the absolute burger (left) and socials (right) */
+    .header__wrapper {
+        padding-left: 3.25rem; /* burger + breathing room */
+        padding-right: 6.75rem; /* 2 social icons + gap */
+    }
+
+    /* Keep font size, but reduce the button's physical footprint */
+    .header__reg-btn--mobile {
+        width: auto;
+        max-width: 100%;
+        flex: 0 1 auto;
+        padding: 0.5rem 0.9rem; /* narrower than default */
+        font-size: 0.9rem; /* cancels the earlier clamp */
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 767px) {
+    .header__wrapper {
+        padding-left: 3.25rem;
+        padding-right: 6.25rem;
+    }
+
+    .header__reg-btn--mobile {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* show Media item in drawer even if earlier rules hide it */
+    .header__nav-item--media {
+        display: block !important;
+    }
+}
+
+@media (max-width: 767px) {
+    /* dropdown items were a bit more to the right; match padding with other пункты */
+    .header__nav-list .header__nav-link--dropdown {
+        padding: 1.1rem 1.25rem; /* same as .header__nav-link on phones */
+    }
+}
+
+/* smaller hands on mobile */
+@media (max-width: 767px) {
+    .wait__decor--right {
+        width: 58vw; /* было ~74vw — уменьшаем */
+        top: 450px;
+        max-width: 17rem; /* ограничение по максимуму */
+    }
+}
+@media (max-width: 767px) {
+    .wait__decor--left {
+        width: 58vw; /* было ~74vw — уменьшаем */
+        top:25px;
+        max-width: 17rem; /* ограничение по максимуму */
+    }
+}
+
+@media (max-width: 767px) {
+    .way__icon-left,
+    .way__icon-right,
+    .way__dragon-body,
+    .way__dragon-head {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__map {
+        margin-top: 2.5rem;
+        margin-bottom: -3.5rem;
+        width: 100%;
+        height: 15rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+
+
+.page--about-mobile {
+    --about-red: #c31632;
+    --about-turq: #66c9c5;
+    --about-yellow: #f4b02a;
+    --about-gray: #d9d9d9;
+    --about-black: #111;
+    --about-radius: 22px;
+    overflow-x: hidden;
+}
+
+    .page--about-mobile img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .page--about-mobile .aboutm-inner {
+        width: min(440px, calc(100% - 32px));
+        margin-inline: auto;
+    }
+
+    .page--about-mobile .aboutm-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* ---------- HERO ---------- */
+    .page--about-mobile .aboutm-hero {
+        background: var(--about-red);
+        /* header is fixed; keep hero content below it */
+        padding: 96px 0 70px;
+        clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    }
+
+    .page--about-mobile .aboutm-hero__decor {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .page--about-mobile .aboutm-hero__corner {
+        position: absolute;
+        width: min(42vw, 170px);
+        max-width: none;
+    }
+
+    .page--about-mobile .aboutm-hero__corner--tr {
+        top: -18px;
+        right: -34px;
+        
+    }
+
+    .page--about-mobile .aboutm-hero__corner--bl {
+        left: -45px;
+        bottom: -34px;
+    }
+
+    .page--about-mobile .aboutm-hero__art {
+        display: block;
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+
+    }
+
+    /* ---------- MISSION / VALUES (white) ---------- */
+    .page--about-mobile .aboutm-mv {
+        background: #fff;
+        margin-top: -36px; /* overlap hero diagonal */
+        padding: 56px 0 58px;
+        clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .page--about-mobile .aboutm-block {
+        position: relative;
+    }
+
+        .page--about-mobile .aboutm-block + .aboutm-block {
+            margin-top: 54px;
+        }
+
+    .page--about-mobile .aboutm-h {
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin: 0 0 12px;
+        font-size: 26px;
+        line-height: 1.05;
+        color: var(--about-black);
+    }
+
+    .page--about-mobile .aboutm-h--right {
+        text-align: right;
+    }
+
+    .page--about-mobile .aboutm-p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.35;
+        color: var(--about-black);
+        max-width: 360px;
+    }
+
+    .page--about-mobile .aboutm-p--right {
+        margin-left: auto;
+        text-align: right;
+        max-width: 320px;
+    }
+
+    /* decorative seam pieces in white area */
+    .page--about-mobile .aboutm-mv__decor {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .page--about-mobile .aboutm-mv__decor-img {
+        position: absolute;
+        max-width: none;
+    }
+
+    .page--about-mobile .aboutm-mv__decor-img--left {
+        left: -2px;
+        bottom: -10px;
+        width: 120px;
+    }
+
+    .page--about-mobile .aboutm-mv__decor-img--tr {
+        right: -26px;
+        top: -56px;
+        width: 150px;
+        display: none;
+    }
+
+    .page--about-mobile .aboutm-mv__decor-img--br {
+        right: -10px;
+        bottom: -38px;
+        width: 140px;
+        display: none;
+    }
+
+    /* ---------- HISTORY (turquoise) ---------- */
+    .page--about-mobile .aboutm-history--turq {
+        background: var(--about-turq);
+        padding: 44px 0 80px;
+        clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 94%);
+    }
+
+    .page--about-mobile .aboutm-title {
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 0 24px;
+        color: #fff;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+    }
+
+    .page--about-mobile .aboutm-timeline {
+        position: relative;
+        padding-left: 70px;
+    }
+
+        .page--about-mobile .aboutm-timeline::before {
+            content: "";
+            position: absolute;
+            left: 40px;
+            top: 30px;
+            bottom: 0px;
+            width: 4px;
+            background: #fff;
+            border-radius: 4px;
+            overflow:visible;
+        }
+
+    .page--about-mobile .aboutm-year {
+        position: relative;
+        padding: 6px 0 24px;
+    }
+
+        .page--about-mobile .aboutm-year::before {
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: 20px;
+            width: 25px;
+            height: 25px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+    .page--about-mobile .aboutm-year__num {
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        color: #fff;
+        font-size: 44px;
+        line-height: 1;
+        margin: 0 0 6px;
+    }
+
+    .page--about-mobile .aboutm-year__text {
+        margin: 0;
+        color: #0b0b0b;
+        font-size: 14px;
+        line-height: 1.35;
+        max-width: 310px;
+    }
+
+    /* decorative targets between years */
+    .page--about-mobile .aboutm-betweenYears {
+        position: relative;
+        height: 30px;
+        margin: 18px 0 10px;
+    }
+
+        .page--about-mobile .aboutm-betweenYears img {
+            position: absolute;
+            top: 50%;
+            width: 65px;
+            height: 65px;
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+
+    .page--about-mobile .aboutm-betweenYears__l {
+        left: -90px;
+    }
+
+    .page--about-mobile .aboutm-betweenYears__r {
+        right: -0px;
+        transform: rotate(90deg);
+        display: none;
+    }
+
+    /* grey shapes in turquoise */
+    .page--about-mobile .aboutm-shapes {
+        position: relative;
+        height: 220px;
+        margin-top: 18px;
+    }
+
+    .page--about-mobile .aboutm-shape {
+        position: absolute;
+        background: var(--about-gray);
+    }
+
+    .page--about-mobile .aboutm-shape--star {
+        left: 16px;
+        bottom: 10px;
+        width: 150px;
+        height: 150px;
+        clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
+    }
+
+    .page--about-mobile .aboutm-shape--diamond {
+        right: 20px;
+        bottom: 44px;
+        width: 118px;
+        height: 118px;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+
+    .page--about-mobile .aboutm-shape--diamondSm {
+        right: 118px;
+        bottom: 6px;
+        width: 70px;
+        height: 70px;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+
+    /* small side decor (optional, uses existing asset if present) */
+    .page--about-mobile .aboutm-sideDecor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 90px;
+        pointer-events: none;
+    }
+
+    /* ---------- HISTORY (red) ---------- */
+    .page--about-mobile .aboutm-history--red {
+        background: var(--about-red);
+        margin-top: -56px; /* overlap turquoise diagonal */
+        padding: 72px 0 62px;
+        clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 94%);
+        overflow:visible;
+    }
+
+        .page--about-mobile .aboutm-history--red .aboutm-timeline::before {
+            background: #fff;
+        }
+
+        .page--about-mobile .aboutm-history--red .aboutm-year__text {
+            color: #fff;
+        }
+
+    .page--about-mobile .aboutm-photoRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 18px 0 8px;
+        padding-right: 4px;
+    }
+
+    .page--about-mobile .aboutm-photoPh {
+        background: var(--about-gray);
+        border-radius: 18px;
+        height: 120px;
+    }
+
+    .page--about-mobile .aboutm-photoPh--big {
+        height: 160px;
+        margin-top: 12px;
+    }
+
+    /* ---------- TEAM (yellow) ---------- */
+    .page--about-mobile .aboutm-team {
+        background: var(--about-yellow);
+        margin-top: -56px;
+        padding: 72px 0 70px;
+        clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 100%);
+    }
+
+        .page--about-mobile .aboutm-team .aboutm-h {
+            color: var(--about-red);
+        }
+
+        .page--about-mobile .aboutm-team .aboutm-p {
+            max-width: 340px;
+        }
+
+    .page--about-mobile .aboutm-starPh {
+        position: absolute;
+        background: var(--about-gray);
+        width: 170px;
+        height: 170px;
+        clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
+    }
+
+    .page--about-mobile .aboutm-starPh--left {
+        left: -46px;
+        top: 42px;
+    }
+
+    .page--about-mobile .aboutm-starPh--right {
+        right: -52px;
+        bottom: 70px;
+        width: 180px;
+        height: 180px;
+    }
+
+    .page--about-mobile .aboutm-cta {
+        display: block;
+        width: min(280px, 100%);
+        margin: 32px auto 0;
+        padding: 14px 18px;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--about-black);
+        text-align: center;
+        text-decoration: none;
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+    }
+
+/* Small phones */
+@media (max-width: 360px) {
+    .page--about-mobile .aboutm-year__num {
+        font-size: 40px;
+    }
+
+    .page--about-mobile .aboutm-timeline {
+        padding-left: 54px;
+    }
+
+    .page--about-mobile .aboutm-photoPh {
+        height: 108px;
+    }
+}
+
+
