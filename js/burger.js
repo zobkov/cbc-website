@@ -47,12 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Close when clicking outside
-    document.addEventListener('click', function (e) {
-        if (nav.classList.contains('is-active')) {
-            if (!nav.contains(e.target) && !burger.contains(e.target)) {
-                closeMenu();
-            }
+    // Close when clicking the backdrop (dark area outside the white panel)
+    nav.addEventListener('click', function (e) {
+        var navList = nav.querySelector('.header__nav-list');
+        if (navList && !navList.contains(e.target)) {
+            closeMenu();
         }
     });
 
