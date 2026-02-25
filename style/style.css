@@ -1044,6 +1044,7 @@ button,
         grid-template-columns: 1fr;
         justify-items: center;
         gap: 2.5rem;
+        padding: 2rem 0 0 0;
     }
 }
 
@@ -1185,43 +1186,14 @@ button,
     opacity: 0.6;
 }
 
-/* ïðàâûé áëîê: èêîíêè ñîöñåòåé ÊÐÓÃËÛÅ (êàê íà ìàêåòå) */
+/* ïðàâûé áëîê: èêîíêè ñîöñåòåé */
 .footer__socials {
     margin: 0;
 }
 
-/* âàæíîå: â ôóòåðå óáèðàåì mask ñ ñàìîãî ýëåìåíòà, è ðèñóåì èêîíêó ÷åðåç ::after */
 .footer .socials__link {
-    position: relative;
-    width: 4.375rem;
-    height: 4.375rem;
-    border-radius: 50%;
-    background-color: #000000;
-    -webkit-mask-image: none;
-    mask-image: none;
-}
-
-    .footer .socials__link::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: #ffffff;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        -webkit-mask-size: 1.875rem 1.875rem;
-        mask-size: 1.875rem 1.875rem;
-    }
-
-.footer .socials__link--tg::after {
-    -webkit-mask-image: url("../img/tg.svg");
-    mask-image: url("../img/tg.svg");
-}
-
-.footer .socials__link--vk::after {
-    -webkit-mask-image: url("../img/vk.svg");
-    mask-image: url("../img/vk.svg");
+  width: 3.0625rem;
+  height: 3.0625rem;
 }
 
 
@@ -1241,21 +1213,20 @@ button,
   gap: 0.6rem;
 }
 .socials__link {
-  -webkit-mask-size: contain;
-          mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-          mask-position: center;
-  background-color: #000000;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
+  display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  -webkit-transition: filter 0.3s ease;
+  transition: filter 0.3s ease;
 }
 .socials__link--tg {
   width: 2.1875rem;
   height: 2.1875rem;
-  -webkit-mask-image: url("../img/tg.svg");
-          mask-image: url("../img/tg.svg");
+  background-image: url("../img/tg.svg");
 }
 .socials--big .socials__link--tg {
   width: 3.0625rem;
@@ -1270,8 +1241,7 @@ button,
 .socials__link--vk {
   width: 2rem;
   height: 2rem;
-  -webkit-mask-image: url("../img/vk.svg");
-          mask-image: url("../img/vk.svg");
+  background-image: url("../img/vk.svg");
 }
 .socials--big .socials__link--vk {
   width: 2.9375rem;
@@ -1293,14 +1263,17 @@ button,
 }
 @media (hover: hover) {
   .socials__link:hover:not(.focus-visible) {
-    background-color: #c31632;
+    -webkit-filter: brightness(0) saturate(100%) invert(12%) sepia(79%) saturate(3782%) hue-rotate(337deg) brightness(101%) contrast(93%);
+            filter: brightness(0) saturate(100%) invert(12%) sepia(79%) saturate(3782%) hue-rotate(337deg) brightness(101%) contrast(93%);
   }
 }
 .socials__link.focus-visible:focus {
-  background-color: #c31632;
+  -webkit-filter: brightness(0) saturate(100%) invert(12%) sepia(79%) saturate(3782%) hue-rotate(337deg) brightness(101%) contrast(93%);
+          filter: brightness(0) saturate(100%) invert(12%) sepia(79%) saturate(3782%) hue-rotate(337deg) brightness(101%) contrast(93%);
 }
 .socials__link.focus-visible:active {
-  background-color: #f6ac1b;
+  -webkit-filter: brightness(0) saturate(100%) invert(63%) sepia(40%) saturate(3408%) hue-rotate(359deg) brightness(101%) contrast(93%);
+          filter: brightness(0) saturate(100%) invert(63%) sepia(40%) saturate(3408%) hue-rotate(359deg) brightness(101%) contrast(93%);
 }
 
 .empty {
@@ -6438,36 +6411,14 @@ html, body {
   }
   .header__socials.header__socials--mobile { order: 3; }
 
-  /* Header icons: black circle with white icon */
-  .header__socials.header__socials--mobile .socials__link {
-    position: relative;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 50%;
-    background-color: #000;
-    -webkit-mask-image: none;
-    mask-image: none;
-    flex: 0 0 auto;
+  /* Header icon sizes on mobile */
+  .header__socials.header__socials--mobile .socials__link--tg {
+    width: 1.8rem;
+    height: 1.8rem;
   }
-  .header__socials.header__socials--mobile .socials__link::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: #fff;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-size: 1.25rem 1.25rem;
-    mask-size: 1.25rem 1.25rem;
-  }
-  .header__socials.header__socials--mobile .socials__link--tg::after {
-    -webkit-mask-image: url("../img/tg.svg");
-    mask-image: url("../img/tg.svg");
-  }
-  .header__socials.header__socials--mobile .socials__link--vk::after {
-    -webkit-mask-image: url("../img/vk.svg");
-    mask-image: url("../img/vk.svg");
+  .header__socials.header__socials--mobile .socials__link--vk {
+    width: 1.8rem;
+    height: 1.8rem;
   }
 
   /* Fullscreen backdrop that slides from LEFT */
@@ -6559,7 +6510,7 @@ html, body {
 
 /* Phone tweaks */
 @media (max-width: 767px) {
-  .header { padding: 0.75rem 0; }
+  .header { padding: 2rem 0; }
   .header__reg-btn--mobile {
     max-width: 18.5rem;
     font-size: 0.9rem;
@@ -6616,11 +6567,7 @@ html, body {
   .footer__logo-img--sp { width: 7.5rem; height: auto; }
   .footer__logo-img--kbk { width: 7.25rem; height: auto; }
 
-  .footer .socials__link { width: 3.125rem; height: 3.125rem; }
-  .footer .socials__link::after {
-    -webkit-mask-size: 1.5rem 1.5rem;
-    mask-size: 1.5rem 1.5rem;
-  }
+  .footer .socials__link { height: 3.125rem; }
 }
 
 /* Hide separate "Медиа" item on desktop (it exists only for mobile drawer) */
