@@ -6510,7 +6510,7 @@ html, body {
 
 /* Phone tweaks */
 @media (max-width: 767px) {
-  .header { padding: 2rem 0; }
+  .header { padding: 1rem 0; }
   .header__reg-btn--mobile {
     max-width: 18.5rem;
     font-size: 0.9rem;
