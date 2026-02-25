@@ -6403,18 +6403,12 @@ html, body {
 /* --- Drawer menu like in the screenshot (left panel + dimmed area) --- */
 @media (max-width: 1024px) {
 
-  /* Header row: burger left, register center, socials right */
-  .header__burger { order: 1; }
+  /* Header row: burger (first in DOM) | reg-btn (absolute center) | socials (last in DOM) */
   .header__reg-btn--mobile {
     display: flex;
-    order: 2;
     justify-content: center;
     align-items: center;
-    flex: 1 0 auto;
-    max-width: 10rem;
-    margin: 0 auto;
   }
-  .header__socials.header__socials--mobile { order: 3; }
 
   /* Header icon sizes on mobile */
   .header__socials.header__socials--mobile .socials__link--tg {
@@ -6513,6 +6507,8 @@ html, body {
   }
 }
 
+
+
 /* Phone tweaks */
 @media (max-width: 767px) {
   .header { padding: 1rem 0; }
@@ -6522,6 +6518,14 @@ html, body {
     padding: 0.55rem 1rem;
   }
   .header__nav-link { font-size: 1.125rem; padding: 1.1rem 1.25rem; }
+  .header__socials.header__socials--mobile .socials__link--tg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .header__socials.header__socials--mobile .socials__link--vk {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
 }
 
 /* --- WAIT section: match mobile макет proportions --- */
@@ -6586,27 +6590,19 @@ html, body {
         display: block;
     }
 
-    /* Center button in header: burger left, socials right, button centered */
+    /* Burger (first in DOM) and socials (last visible) spread via space-between;
+       reg-btn is pulled out of flow and centred absolutely */
     .header__wrapper {
         position: relative;
-        justify-content: center;
-    }
-
-    .header__burger {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .header__socials.header__socials--mobile {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .header__reg-btn--mobile {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -6650,13 +6646,7 @@ html, body {
     }
 }
 
-@media (max-width: 767px) {
-    .header__reg-btn--mobile {
-        width: min(72vw, 17.5rem);
-        font-size: 0.95rem;
-        padding: 0.65rem 1rem;
-    }
-}
+
 
 /* 2) Hide grant button on desktop; show only in mobile drawer */
 .header__nav-item-reg--grant {
@@ -6694,8 +6684,8 @@ html, body {
 @media (max-width: 1024px) {
     /* Reserve space for the absolute burger (left) and socials (right) */
     .header__wrapper {
-        padding-left: 3.25rem; /* burger + breathing room */
-        padding-right: 6.75rem; /* 2 social icons + gap */
+        padding-left: 3.75rem; /* burger + breathing room */
+        padding-right: 3.75rem; /* 2 social icons + gap */
     }
 
     /* Keep font size, but reduce the button's physical footprint */
@@ -6710,13 +6700,20 @@ html, body {
 }
 
 @media (max-width: 767px) {
+    .header__reg-btn--mobile {
+        font-size: 0.6rem;
+        padding: 0.65rem 1rem;
+    }
+}
+
+@media (max-width: 767px) {
     .header__wrapper {
-        padding-left: 3.25rem;
-        padding-right: 6.25rem;
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
     }
 
     .header__reg-btn--mobile {
-        padding: 0.5rem 0.75rem;
+        padding: 0.3rem 0.8rem;
     }
 }
 
