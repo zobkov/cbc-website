@@ -601,7 +601,7 @@ button,
 }
 @media (max-width: 1023px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 6.7rem;
   }
 }
 @media (max-width: 767px) {
@@ -2798,10 +2798,17 @@ button,
     }
 }
 
+@media (min-width: 1px) {
+    /* 2-2-1: last card alone in its row stretches full width */
+    .about__card:last-child:nth-child(odd) {
+        grid-column: span 2;
+    }
+}
+
+
 @media (max-width: 767px) {
     .about__cards {
-        grid-template-columns: 1fr;
-        gap: 1.25rem; /* keep exactly the same */
+        gap: 0.5rem; /* keep exactly the same */
     }
 }
 
@@ -2811,7 +2818,7 @@ button,
     padding: 3.125rem 2.5rem 2.5rem;
     display: flex;
     flex-direction: column;
-    min-height: 26.25rem;
+    min-height: 25.25rem;
 }
 
 @media (min-width: 1024px) {
@@ -2824,9 +2831,18 @@ button,
     }
 }
 
+@media (max-width: 1024px) {
+    .about__card {
+        border-radius: 1rem; /* matches ecosystem items on mobile */
+        min-height: 17rem;
+    }
+}
+
 @media (max-width: 767px) {
     .about__card {
         border-radius: 1rem; /* matches ecosystem items on mobile */
+        min-height: 15rem;
+        padding: 1.5rem 1rem 1.5rem 1rem;
     }
 }
 
@@ -2848,13 +2864,13 @@ button,
 
 @media (max-width: 1023px) {
     .about__card-num {
-        font-size: 6.5rem;
+        font-size: 5em;
     }
 }
 
 @media (max-width: 767px) {
     .about__card-num {
-        font-size: 6rem;
+        font-size: 4.5rem;
     }
 }
 
@@ -2866,18 +2882,17 @@ button,
     line-height: 1.5;
     color: #f6ac1b;
     text-transform: lowercase;
-    margin-left: 0.5rem;
 }
 
 @media (max-width: 1023px) {
     .about__card-label {
-        font-size: 1.875rem;
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 767px) {
     .about__card-label {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -2892,14 +2907,14 @@ button,
 
 @media (max-width: 1023px) {
     .about__card-text {
-        font-size: 1.125rem;
+        font-size: 1rem;
         max-width: 100%;
     }
 }
 
 @media (max-width: 767px) {
     .about__card-text {
-        font-size: 1rem;
+        font-size: 0.6rem;
     }
 }
 
@@ -3441,7 +3456,7 @@ button,
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding: 0.9375rem 0 15rem 0;
+    padding: 2rem 0 15rem 0;
     position: relative;
     z-index: 1;
     margin-top: -1px;
@@ -3449,7 +3464,7 @@ button,
 
 @media (max-width: 1439px) {
   .promo__wrapper {
-    padding: 1.5625rem 0 12.5rem 0;
+    padding: 2.5rem 0 12.5rem 0;
   }
 }
 @media (max-width: 1023px) {
@@ -3487,13 +3502,13 @@ button,
 }
 @media (max-width: 767px) {
   .promo__title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 2.25rem;
     margin: 1.5rem 0 1.25rem 0;
   }
 }
 .promo__link {
-  width: 43.375rem;
+  width: auto;
   padding: 1.25rem;
   margin: 0 auto;
   font-weight: 600;
@@ -6675,10 +6690,6 @@ html, body {
 
 @media (max-width: 1024px) {
     /* Reserve space for the absolute burger (left) and socials (right) */
-    .header__wrapper {
-        padding-left: 3.75rem; /* burger + breathing room */
-        padding-right: 3.75rem; /* 2 social icons + gap */
-    }
 
     /* Keep font size, but reduce the button's physical footprint */
     .header__reg-btn--mobile {
@@ -6699,11 +6710,6 @@ html, body {
 }
 
 @media (max-width: 767px) {
-    .header__wrapper {
-        padding-left: 1.75rem;
-        padding-right: 1.75rem;
-    }
-
     .header__reg-btn--mobile {
         padding: 0.3rem 0.8rem;
     }
