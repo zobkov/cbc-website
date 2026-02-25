@@ -409,6 +409,11 @@ body {
   position: relative;
   margin-top: 4.5625rem;
 }
+@media (max-width: 1024px) {
+  .main {
+    margin-top: 3.875rem;
+  }
+}
 @media (max-width: 767px) {
   .main {
     margin-top: 3.4375rem;
@@ -596,7 +601,7 @@ button,
 }
 @media (max-width: 1023px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 6.7rem;
   }
 }
 @media (max-width: 767px) {
@@ -765,18 +770,10 @@ button,
       font-size: 1.5rem;
   }
   
-  /* Burger Animation */
-  .header__burger.is-active span:nth-child(1) {
-      transform: rotate(45deg) translate(6px, 6px);
-  }
-  .header__burger.is-active span:nth-child(2) {
+  /* Burger hidden while nav is open */
+  .header__burger.is-active {
       opacity: 0;
-  }
-  .header__burger.is-active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-  }
-  .header__burger.is-active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
+      pointer-events: none;
   }
 }
 
@@ -1044,6 +1041,7 @@ button,
         grid-template-columns: 1fr;
         justify-items: center;
         gap: 2.5rem;
+        padding: 2rem 0 0 0;
     }
 }
 
@@ -1185,43 +1183,14 @@ button,
     opacity: 0.6;
 }
 
-/* ïðàâûé áëîê: èêîíêè ñîöñåòåé ÊÐÓÃËÛÅ (êàê íà ìàêåòå) */
+/* ïðàâûé áëîê: èêîíêè ñîöñåòåé */
 .footer__socials {
     margin: 0;
 }
 
-/* âàæíîå: â ôóòåðå óáèðàåì mask ñ ñàìîãî ýëåìåíòà, è ðèñóåì èêîíêó ÷åðåç ::after */
 .footer .socials__link {
-    position: relative;
-    width: 4.375rem;
-    height: 4.375rem;
-    border-radius: 50%;
-    background-color: #000000;
-    -webkit-mask-image: none;
-    mask-image: none;
-}
-
-    .footer .socials__link::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: #ffffff;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        -webkit-mask-size: 1.875rem 1.875rem;
-        mask-size: 1.875rem 1.875rem;
-    }
-
-.footer .socials__link--tg::after {
-    -webkit-mask-image: url("../img/tg.svg");
-    mask-image: url("../img/tg.svg");
-}
-
-.footer .socials__link--vk::after {
-    -webkit-mask-image: url("../img/vk.svg");
-    mask-image: url("../img/vk.svg");
+  width: 3.0625rem;
+  height: 3.0625rem;
 }
 
 
@@ -1241,21 +1210,20 @@ button,
   gap: 0.6rem;
 }
 .socials__link {
-  -webkit-mask-size: contain;
-          mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-          mask-position: center;
-  background-color: #000000;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
+  display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  -webkit-transition: filter 0.3s ease;
+  transition: filter 0.3s ease;
 }
 .socials__link--tg {
   width: 2.1875rem;
   height: 2.1875rem;
-  -webkit-mask-image: url("../img/tg.svg");
-          mask-image: url("../img/tg.svg");
+  background-image: url("../img/tg.svg");
 }
 .socials--big .socials__link--tg {
   width: 3.0625rem;
@@ -1270,8 +1238,7 @@ button,
 .socials__link--vk {
   width: 2rem;
   height: 2rem;
-  -webkit-mask-image: url("../img/vk.svg");
-          mask-image: url("../img/vk.svg");
+  background-image: url("../img/vk.svg");
 }
 .socials--big .socials__link--vk {
   width: 2.9375rem;
@@ -1293,14 +1260,17 @@ button,
 }
 @media (hover: hover) {
   .socials__link:hover:not(.focus-visible) {
-    background-color: #c31632;
+    -webkit-filter: brightness(0) saturate(100%) invert(12%) sepia(79%) saturate(3782%) hue-rotate(337deg) brightness(101%) contrast(93%);
+            filter: brightness(0) saturate(100%) invert(12%) sepia(79%) saturate(3782%) hue-rotate(337deg) brightness(101%) contrast(93%);
   }
 }
 .socials__link.focus-visible:focus {
-  background-color: #c31632;
+  -webkit-filter: brightness(0) saturate(100%) invert(12%) sepia(79%) saturate(3782%) hue-rotate(337deg) brightness(101%) contrast(93%);
+          filter: brightness(0) saturate(100%) invert(12%) sepia(79%) saturate(3782%) hue-rotate(337deg) brightness(101%) contrast(93%);
 }
 .socials__link.focus-visible:active {
-  background-color: #f6ac1b;
+  -webkit-filter: brightness(0) saturate(100%) invert(63%) sepia(40%) saturate(3408%) hue-rotate(359deg) brightness(101%) contrast(93%);
+          filter: brightness(0) saturate(100%) invert(63%) sepia(40%) saturate(3408%) hue-rotate(359deg) brightness(101%) contrast(93%);
 }
 
 .empty {
@@ -2828,10 +2798,17 @@ button,
     }
 }
 
+@media (min-width: 1px) {
+    /* 2-2-1: last card alone in its row stretches full width */
+    .about__card:last-child:nth-child(odd) {
+        grid-column: span 2;
+    }
+}
+
+
 @media (max-width: 767px) {
     .about__cards {
-        grid-template-columns: 1fr;
-        gap: 1.25rem; /* keep exactly the same */
+        gap: 0.5rem; /* keep exactly the same */
     }
 }
 
@@ -2841,7 +2818,7 @@ button,
     padding: 3.125rem 2.5rem 2.5rem;
     display: flex;
     flex-direction: column;
-    min-height: 26.25rem;
+    min-height: 25.25rem;
 }
 
 @media (min-width: 1024px) {
@@ -2854,9 +2831,18 @@ button,
     }
 }
 
+@media (max-width: 1024px) {
+    .about__card {
+        border-radius: 1rem; /* matches ecosystem items on mobile */
+        min-height: 17rem;
+    }
+}
+
 @media (max-width: 767px) {
     .about__card {
         border-radius: 1rem; /* matches ecosystem items on mobile */
+        min-height: 15rem;
+        padding: 1.5rem 1rem 1.5rem 1rem;
     }
 }
 
@@ -2878,13 +2864,13 @@ button,
 
 @media (max-width: 1023px) {
     .about__card-num {
-        font-size: 6.5rem;
+        font-size: 5em;
     }
 }
 
 @media (max-width: 767px) {
     .about__card-num {
-        font-size: 6rem;
+        font-size: 4.5rem;
     }
 }
 
@@ -2896,18 +2882,17 @@ button,
     line-height: 1.5;
     color: #f6ac1b;
     text-transform: lowercase;
-    margin-left: 0.5rem;
 }
 
 @media (max-width: 1023px) {
     .about__card-label {
-        font-size: 1.875rem;
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 767px) {
     .about__card-label {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -2922,14 +2907,14 @@ button,
 
 @media (max-width: 1023px) {
     .about__card-text {
-        font-size: 1.125rem;
+        font-size: 1rem;
         max-width: 100%;
     }
 }
 
 @media (max-width: 767px) {
     .about__card-text {
-        font-size: 1rem;
+        font-size: 0.6rem;
     }
 }
 
@@ -3471,7 +3456,7 @@ button,
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding: 0.9375rem 0 15rem 0;
+    padding: 2rem 0 15rem 0;
     position: relative;
     z-index: 1;
     margin-top: -1px;
@@ -3479,7 +3464,7 @@ button,
 
 @media (max-width: 1439px) {
   .promo__wrapper {
-    padding: 1.5625rem 0 12.5rem 0;
+    padding: 2.5rem 0 12.5rem 0;
   }
 }
 @media (max-width: 1023px) {
@@ -3517,13 +3502,13 @@ button,
 }
 @media (max-width: 767px) {
   .promo__title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 2.25rem;
     margin: 1.5rem 0 1.25rem 0;
   }
 }
 .promo__link {
-  width: 43.375rem;
+  width: auto;
   padding: 1.25rem;
   margin: 0 auto;
   font-weight: 600;
@@ -6425,49 +6410,21 @@ html, body {
 /* --- Drawer menu like in the screenshot (left panel + dimmed area) --- */
 @media (max-width: 1024px) {
 
-  /* Header row: burger left, register center, socials right */
-  .header__burger { order: 1; }
+  /* Header row: burger (first in DOM) | reg-btn (absolute center) | socials (last in DOM) */
   .header__reg-btn--mobile {
     display: flex;
-    order: 2;
     justify-content: center;
     align-items: center;
-    flex: 1 0 auto;
-    max-width: 10rem;
-    margin: 0 auto;
   }
-  .header__socials.header__socials--mobile { order: 3; }
 
-  /* Header icons: black circle with white icon */
-  .header__socials.header__socials--mobile .socials__link {
-    position: relative;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 50%;
-    background-color: #000;
-    -webkit-mask-image: none;
-    mask-image: none;
-    flex: 0 0 auto;
+  /* Header icon sizes on mobile */
+  .header__socials.header__socials--mobile .socials__link--tg {
+    width: 1.8rem;
+    height: 1.8rem;
   }
-  .header__socials.header__socials--mobile .socials__link::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: #fff;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-size: 1.25rem 1.25rem;
-    mask-size: 1.25rem 1.25rem;
-  }
-  .header__socials.header__socials--mobile .socials__link--tg::after {
-    -webkit-mask-image: url("../img/tg.svg");
-    mask-image: url("../img/tg.svg");
-  }
-  .header__socials.header__socials--mobile .socials__link--vk::after {
-    -webkit-mask-image: url("../img/vk.svg");
-    mask-image: url("../img/vk.svg");
+  .header__socials.header__socials--mobile .socials__link--vk {
+    width: 1.8rem;
+    height: 1.8rem;
   }
 
   /* Fullscreen backdrop that slides from LEFT */
@@ -6557,15 +6514,25 @@ html, body {
   }
 }
 
+
+
 /* Phone tweaks */
 @media (max-width: 767px) {
-  .header { padding: 0.75rem 0; }
+  .header { padding: 1rem 0; }
   .header__reg-btn--mobile {
     max-width: 18.5rem;
     font-size: 0.9rem;
     padding: 0.55rem 1rem;
   }
   .header__nav-link { font-size: 1.125rem; padding: 1.1rem 1.25rem; }
+  .header__socials.header__socials--mobile .socials__link--tg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .header__socials.header__socials--mobile .socials__link--vk {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
 }
 
 /* --- WAIT section: match mobile макет proportions --- */
@@ -6616,11 +6583,7 @@ html, body {
   .footer__logo-img--sp { width: 7.5rem; height: auto; }
   .footer__logo-img--kbk { width: 7.25rem; height: auto; }
 
-  .footer .socials__link { width: 3.125rem; height: 3.125rem; }
-  .footer .socials__link::after {
-    -webkit-mask-size: 1.5rem 1.5rem;
-    mask-size: 1.5rem 1.5rem;
-  }
+  .footer .socials__link { height: 3.125rem; }
 }
 
 /* Hide separate "Медиа" item on desktop (it exists only for mobile drawer) */
@@ -6634,27 +6597,19 @@ html, body {
         display: block;
     }
 
-    /* Center button in header: burger left, socials right, button centered */
+    /* Burger (first in DOM) and socials (last visible) spread via space-between;
+       reg-btn is pulled out of flow and centred absolutely */
     .header__wrapper {
         position: relative;
-        justify-content: center;
-    }
-
-    .header__burger {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .header__socials.header__socials--mobile {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .header__reg-btn--mobile {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -6698,13 +6653,7 @@ html, body {
     }
 }
 
-@media (max-width: 767px) {
-    .header__reg-btn--mobile {
-        width: min(72vw, 17.5rem);
-        font-size: 0.95rem;
-        padding: 0.65rem 1rem;
-    }
-}
+
 
 /* 2) Hide grant button on desktop; show only in mobile drawer */
 .header__nav-item-reg--grant {
@@ -6741,10 +6690,6 @@ html, body {
 
 @media (max-width: 1024px) {
     /* Reserve space for the absolute burger (left) and socials (right) */
-    .header__wrapper {
-        padding-left: 3.25rem; /* burger + breathing room */
-        padding-right: 6.75rem; /* 2 social icons + gap */
-    }
 
     /* Keep font size, but reduce the button's physical footprint */
     .header__reg-btn--mobile {
@@ -6758,13 +6703,15 @@ html, body {
 }
 
 @media (max-width: 767px) {
-    .header__wrapper {
-        padding-left: 3.25rem;
-        padding-right: 6.25rem;
-    }
-
     .header__reg-btn--mobile {
-        padding: 0.5rem 0.75rem;
+        font-size: 0.6rem;
+        padding: 0.65rem 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .header__reg-btn--mobile {
+        padding: 0.3rem 0.8rem;
     }
 }
 

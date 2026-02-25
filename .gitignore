@@ -8,3 +8,5 @@
 /.vs/cbc website 26/v17/DocumentLayout.backup.json
 /.vs/cbc website 26/v17/DocumentLayout.json
 .claude/**
+.DS_store
+.DS_Store?
