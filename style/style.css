@@ -409,6 +409,11 @@ body {
   position: relative;
   margin-top: 4.5625rem;
 }
+@media (max-width: 1024px) {
+  .main {
+    margin-top: 3.875rem;
+  }
+}
 @media (max-width: 767px) {
   .main {
     margin-top: 3.4375rem;
