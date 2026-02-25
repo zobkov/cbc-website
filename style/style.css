@@ -600,12 +600,18 @@ button,
   }
 }
 @media (max-width: 1023px) {
-  .container {
+  .page-index .container {
     padding: 0 6.7rem;
+  }
+  .page-index .header .container {
+    padding: 0 1.875rem;
   }
 }
 @media (max-width: 767px) {
   .container {
+    padding: 0 1.25rem;
+  }
+  .page-index .container {
     padding: 0 1.25rem;
   }
 }
