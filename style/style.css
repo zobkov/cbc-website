@@ -5585,14 +5585,14 @@ button,
 
 .kbk-year__num {
     font-family: "MarvinVisions", "Arial", sans-serif;
-    font-size: 3.75rem;
+    font-size: 4.25rem;
     line-height: 3.5rem;
     font-weight: 900;
     letter-spacing: 0.01em;
     line-height: 0.9;
-    font-size: clamp(62px, 7vw, 132px);
     color: #fff;
     margin-left: 0;
+    margin-top: 30px;
 }
 
 .kbk-year__content {
@@ -5690,7 +5690,7 @@ button,
 .kbk-ph--diamondSm {
     width: 160px;
     height: 160px;
-    margin-top: -150px;
+    margin-top: -170px;
     margin-left: -20px;
     justify-self: start;
     transform: rotate(20deg);
@@ -6160,7 +6160,7 @@ html, body {
     display: block;
     max-width: none;
     height: auto;
-    width: clamp(260px, 28vw, 520px);
+    width: clamp(260px, 24vw, 520px);
 }
 
 /* top-right: двигаем ВПРАВО через transform (не ломает ширину страницы) */
@@ -6290,15 +6290,14 @@ html, body {
 
 .kbk-year__num26 {
     font-family: "MarvinVisions", "Arial", sans-serif;
-    font-size: 3.75rem;
+    font-size: 4.25rem;
     line-height: 3.5rem;
     font-weight: 900;
     letter-spacing: 0.01em;
     line-height: 0.9;
-    font-size: clamp(62px, 7vw, 132px);
     color: #fff;
     margin-left: 0;
-    margin-top:30px;
+    margin-top: 30px;
 }
 
 
