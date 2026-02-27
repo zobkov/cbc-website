@@ -5260,6 +5260,7 @@ button,
     line-height: 1;
     text-transform: uppercase;
     color: #ffffff;
+    white-space: nowrap;
 }
 
 @media (max-width: 1439px) {
@@ -5584,14 +5585,14 @@ button,
 
 .kbk-year__num {
     font-family: "MarvinVisions", "Arial", sans-serif;
-    font-size: 3.75rem;
+    font-size: 4.25rem;
     line-height: 3.5rem;
     font-weight: 900;
     letter-spacing: 0.01em;
     line-height: 0.9;
-    font-size: clamp(62px, 7vw, 132px);
     color: #fff;
     margin-left: 0;
+    margin-top: 30px;
 }
 
 .kbk-year__content {
@@ -5689,7 +5690,7 @@ button,
 .kbk-ph--diamondSm {
     width: 160px;
     height: 160px;
-    margin-top: -150px;
+    margin-top: -170px;
     margin-left: -20px;
     justify-self: start;
     transform: rotate(20deg);
@@ -6159,7 +6160,7 @@ html, body {
     display: block;
     max-width: none;
     height: auto;
-    width: clamp(260px, 28vw, 520px);
+    width: clamp(260px, 24vw, 520px);
 }
 
 /* top-right: двигаем ВПРАВО через transform (не ломает ширину страницы) */
@@ -6289,15 +6290,14 @@ html, body {
 
 .kbk-year__num26 {
     font-family: "MarvinVisions", "Arial", sans-serif;
-    font-size: 3.75rem;
+    font-size: 4.25rem;
     line-height: 3.5rem;
     font-weight: 900;
     letter-spacing: 0.01em;
     line-height: 0.9;
-    font-size: clamp(62px, 7vw, 132px);
     color: #fff;
     margin-left: 0;
-    margin-top:30px;
+    margin-top: 30px;
 }
 
 
@@ -7158,3 +7158,266 @@ html, body {
 }
 
 
+.fgais--reg--link {
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    color: #ffffff;
+    font-weight: 800;
+    margin: 0 0 1.25rem 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 1023px) {
+    .fgais--reg--link {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .fgais--reg--link {
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+    }
+}
+
+@media (hover: hover) {
+    .fgais--reg--link:hover:not(.focus-visible) {
+        color: #f6ac1b;
+    }
+}
+
+.fgais--reg--link.focus-visible:focus {
+    color: #f6ac1b;
+}
+
+.fgais--reg--link.focus-visible:active {
+    color: #f6ac1b;
+}
+
+/* Registration dropdown (header button -> dropdown) */
+.reg-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+    .reg-dropdown > summary {
+        list-style: none;
+    }
+
+        .reg-dropdown > summary::-webkit-details-marker {
+            display: none;
+        }
+
+.reg-dropdown__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.55rem 0.55rem 0.55rem 1.25rem;
+    border: 2px solid #000000;
+    border-radius: 999px;
+    background: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+    color: #000000;
+}
+
+    .reg-dropdown__toggle:focus-visible {
+        outline: 3px solid #6bc9c6;
+        outline-offset: 3px;
+    }
+
+.reg-dropdown__chev {
+    flex: 0 0 auto;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 999px;
+    background: #f6ac1b;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .reg-dropdown__chev::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        border-right: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        transform: rotate(45deg);
+        margin-top: -0.15rem;
+    }
+
+.reg-dropdown[open] .reg-dropdown__chev::before {
+    transform: rotate(-135deg);
+    margin-top: 0.15rem;
+}
+
+.reg-dropdown__menu {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    z-index: 1002;
+}
+
+.reg-dropdown__link {
+    display: block;
+    padding: 0.65rem 1.25rem;
+    border-radius: 999px;
+    border: 2px solid #000000;
+    background: #6bc9c6;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.1;
+}
+
+@media (hover: hover) {
+    .reg-dropdown__link:hover:not(.focus-visible) {
+        background: #f6ac1b;
+    }
+}
+
+.reg-dropdown__link.focus-visible:focus {
+    background: #f6ac1b;
+}
+
+.reg-dropdown__link:active {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* Only one registration control at a time */
+@media (min-width: 1025px) {
+    .reg-dropdown--mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header__nav-item--reg {
+        display: none;
+    }
+    /* hide desktop dropdown in drawer */
+    .reg-dropdown--mobile {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(70vw, 19rem);
+        z-index: 1002;
+    }
+
+        .reg-dropdown--mobile .reg-dropdown__toggle {
+            padding: 0.55rem 0.55rem 0.55rem 1.1rem;
+            font-size: 0.9rem;
+        }
+
+        .reg-dropdown--mobile .reg-dropdown__chev {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .reg-dropdown--mobile .reg-dropdown__menu {
+            top: calc(100% + 0.5rem);
+        }
+}
+
+@media (max-width: 767px) {
+    .reg-dropdown--mobile {
+        width: min(76vw, 18.5rem);
+    }
+
+        .reg-dropdown--mobile .reg-dropdown__toggle {
+            font-size: 0.8rem;
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
+        }
+
+        .reg-dropdown--mobile .reg-dropdown__link {
+            font-size: 0.8rem;
+            padding: 0.6rem 1rem;
+        }
+}
+
+.reg-dropdown--desktop {
+    width: 13rem; /* <- longer desktop button */
+}
+
+.reg-dropdown__toggle {
+    width: 100%; /* fill the details width */
+}
+
+/* Ink color that animates on hover */
+.reg-dropdown__toggle {
+    --reg-ink: #000000;
+    color: var(--reg-ink);
+    border-color: var(--reg-ink);
+    transition: color 0.3s ease, border-color 0.3s ease; /* <- slow */
+}
+
+.reg-dropdown__chev::before {
+    border-right: 3px solid var(--reg-ink);
+    border-bottom: 3px solid var(--reg-ink);
+    transition: border-right-color 0.3s ease, border-bottom-color 0.3s ease; /* <- slow */
+}
+
+/* Hover/active ink shift */
+@media (hover: hover) {
+    .reg-dropdown__toggle:hover {
+        --reg-ink: #c40000; /* <- red */
+    }
+}
+
+.reg-dropdown__link {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* <- slow */
+}
+
+@media (hover: hover) {
+    .reg-dropdown__link:hover:not(.focus-visible) {
+        background: #f6ac1b; /* yellow */
+    }
+}
+
+/* Text-only hover animation (black -> red) */
+.reg-dropdown__toggle {
+    color: #000000; /* keep base */
+}
+
+/* animate ONLY the text span */
+.reg-dropdown__text {
+    color: #000000;
+    transition: color 0.3s ease; /* slow */
+}
+
+@media (hover: hover) {
+    .reg-dropdown__toggle:hover .reg-dropdown__text {
+        color: #c40000; /* red */
+    }
+}
+
+/* Outline stays black */
+.reg-dropdown__toggle {
+    border-color: #000000;
+}
+
+/* Arrow stays black */
+.reg-dropdown__chev::before {
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+}
