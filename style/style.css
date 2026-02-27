@@ -7421,3 +7421,344 @@ html, body {
     border-right-color: #000000;
     border-bottom-color: #000000;
 }
+
+/* =========================
+   FAQ categories (tabs)
+   ========================= */
+
+.faq-tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 0 0 1.25rem 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+.faq-tabs__btn {
+    position: relative;
+    border: 2px solid #ffffff;
+    border-bottom: none;
+    background: transparent;
+    color: #ffffff;
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+    text-transform: uppercase;
+    /* trapezoid */
+    clip-path: polygon(0.9rem 0, 100% 0, calc(100% - 0.9rem) 100%, 0 100%);
+    z-index: 1;
+}
+
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: -0.9rem; /* join angled edges */
+    }
+
+    .faq-tabs__btn:focus-visible {
+        outline: 3px solid #f6ac1b;
+        outline-offset: 2px;
+    }
+
+    .faq-tabs__btn.is-active {
+        margin-bottom: -1px;
+        z-index: 2;
+    }
+
+@media (hover:hover) {
+    .faq-tabs__btn:hover:not(.focus-visible) {
+        color: #f6ac1b;
+        transition: color 0.35s ease;
+    }
+}
+
+.faq-empty {
+    margin: 0 0 1.25rem 0;
+    color: #ffffff;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+/* =========================
+   FAQ accordion look (as in mock)
+   ========================= */
+
+.accordion--faq .accordion__element {
+    border-top: 1px solid #ffffff;
+}
+
+    .accordion--faq .accordion__element:last-of-type {
+        border-bottom: 1px solid #ffffff;
+    }
+
+.accordion--faq .accordion__button {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    padding: 0.85rem 2.5rem 0.85rem 0;
+    transition: color 0.35s ease;
+}
+
+    /* Replace svg plus with plain “+” like in mock */
+    .accordion--faq .accordion__button::after {
+        mask-image: none;
+        -webkit-mask-image: none;
+        width: auto;
+        height: auto;
+        background: none;
+        content: "+";
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease, color 0.35s ease;
+    }
+
+.accordion--faq .accordion__element.is-active .accordion__button::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.accordion--faq .accordion__wrapper p {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+    .faq-tabs__btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.95rem;
+        clip-path: polygon(0.75rem 0, 100% 0, calc(100% - 0.75rem) 100%, 0 100%);
+    }
+
+        .faq-tabs__btn + .faq-tabs__btn {
+            margin-left: -0.75rem;
+        }
+
+    .accordion--faq .accordion__button {
+        font-size: 1.1rem;
+        line-height: 1.35rem;
+        padding: 0.75rem 2.2rem 0.75rem 0;
+    }
+
+        .accordion--faq .accordion__button::after {
+            font-size: 1.4rem;
+        }
+
+    .accordion--faq .accordion__wrapper p {
+        font-size: 1rem;
+        line-height: 1.35rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .faq-tabs {
+        margin-bottom: 1rem;
+    }
+
+    .faq-tabs__btn {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.8rem;
+        clip-path: polygon(0.65rem 0, 100% 0, calc(100% - 0.65rem) 100%, 0 100%);
+    }
+
+        .faq-tabs__btn + .faq-tabs__btn {
+            margin-left: -0.65rem;
+        }
+}
+
+.faq-is-hidden {
+    display: none !important;
+}
+/* =========================
+   FAQ categories (tabs) — DESIGN FIXES
+   ========================= */
+
+.faq-tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    /* remove extra gap above accordion */
+    margin: 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* same font as questions + same hover animation */
+.faq-tabs__btn {
+    position: relative;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    /* same font as accordion questions */
+    font-family: inherit; /* <- important */
+    font-weight: 600; /* matches .accordion__button */
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    text-transform: none; /* like in mock */
+    /* same hover animation timing as questions */
+    transition: color 0.3s ease;
+    /* trapezoid */
+    clip-path: polygon(0.9rem 0, 100% 0, calc(100% - 0.9rem) 100%, 0 100%);
+    /* inactive tabs are "closed" at bottom */
+    border-bottom-color: #ffffff;
+}
+
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: -0.9rem; /* join angled edges */
+    }
+
+@media (hover:hover) {
+    .faq-tabs__btn:hover:not(.focus-visible) {
+        color: #c31632; /* same red as questions */
+    }
+}
+
+.faq-tabs__btn:focus-visible {
+    outline: 3px solid #f6ac1b;
+    outline-offset: 2px;
+}
+
+/* active tab: no bottom line */
+.faq-tabs__btn.is-active {
+    z-index: 2;
+    color: #ffffff;
+    /* remove bottom border and also hide the parent's bottom line under it */
+    border-bottom-color: transparent; /* <- no bottom line */
+    margin-bottom: -1px; /* overlap the tab-row line */
+    background: #000000; /* masks the white line beneath */
+}
+
+/* =========================
+   Remove the “extra black line/gap” between tabs and questions
+   ========================= */
+
+/* Use the tabs' bottom border as the first separator line */
+.accordion--faq .accordion__element:first-of-type {
+    border-top: none;
+}
+
+/* Tabs: make borders clearly visible between buttons */
+.faq-tabs {
+    border-bottom: 4px solid #ffffff; /* match accordion thickness */
+}
+
+.faq-tabs__btn {
+    border: 4px solid #ffffff;
+    border-bottom: none;
+    background: #000000; /* important: prevents overlap artifacts */
+}
+
+    /* keep your overlap */
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: -0.9rem;
+    }
+
+    /* stacking: left tab above right tab => diagonal separators stay visible */
+    .faq-tabs__btn:nth-child(1) {
+        z-index: 3;
+    }
+
+    .faq-tabs__btn:nth-child(2) {
+        z-index: 2;
+    }
+
+    .faq-tabs__btn:nth-child(3) {
+        z-index: 1;
+    }
+
+    /* active tab must be on top */
+    .faq-tabs__btn.is-active {
+        z-index: 10;
+        border-bottom-color: transparent;
+        margin-bottom: -4px; /* overlap the tabs row line (no bottom line) */
+    }
+
+.faq-empty {
+    display: none !important;
+}
+.accordion--faq > .accordion__element:first-child {
+    border-top: none !important;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .faq-tabs {
+        --faq-s: 0.95rem;
+    }
+}
+/* remove top border from first *visible* element (JS adds .faq-first) */
+.accordion--faq .accordion__element.faq-first {
+    border-top: none !important;
+}
+
+/* make z-index actually behave inside the row */
+.faq-tabs {
+    position: relative;
+    isolation: isolate;
+}
+
+/* default */
+.faq-tabs__btn {
+    position: relative;
+    z-index: 1;
+}
+
+    /* left tab above right tab => diagonal separators stay visible */
+    .faq-tabs__btn:nth-child(1) {
+        z-index: 3;
+    }
+
+    .faq-tabs__btn:nth-child(2) {
+        z-index: 2;
+    }
+
+    .faq-tabs__btn:nth-child(3) {
+        z-index: 1;
+    }
+
+    /* active always on top */
+    .faq-tabs__btn.is-active {
+        z-index: 10;
+    }
+
+/* FAQ questions: hover = text color only (white -> red, 0.3s) */
+.accordion--faq .accordion__button {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+    /* make + use text color, remove any icon background/mask leftovers */
+    .accordion--faq .accordion__button::after {
+        content: "+";
+        color: currentColor; /* <- plus follows text color */
+        background: transparent !important; /* <- no red square */
+        mask-image: none !important;
+        -webkit-mask-image: none !important;
+        width: auto;
+        height: auto;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+/* hover makes BOTH question text and + red */
+@media (hover:hover) {
+    .accordion--faq .accordion__button:hover {
+        color: #c31632;
+    }
+}
+
+/* opened state: rotate + */
+.accordion--faq .accordion__element.is-active .accordion__button::after {
+    transform: translateY(-50%) rotate(45deg);
+}
