@@ -66,8 +66,17 @@
                           <span></span>
                       </button>
 
-                      <a class="header__nav-link header__nav-link--btn header__reg-btn--mobile"
-                         href="registration_closed.html">Регистрация на форум</a>
+                      <details class="reg-dropdown reg-dropdown--mobile" data-reg-dropdown>
+                          <summary class="reg-dropdown__toggle">
+                              <span class="reg-dropdown__text">Регистрация</span>
+                              <span class="reg-dropdown__chev" aria-hidden="true"></span>
+                          </summary>
+
+                          <div class="reg-dropdown__menu">
+                              <a class="reg-dropdown__link" href="registration_closed.html">Регистрация на грант</a>
+                              <a class="reg-dropdown__link" href="registration_closed.html">Регистрация на форум</a>
+                          </div>
+                      </details>
 
                       <div class="header__socials socials header__socials--mobile">
                           <a class="socials__link socials__link--tg" href="https://t.me/forumcbc" target="_blank" aria-label="Связаться с нами в телеграмм"></a>
@@ -118,11 +127,18 @@
                               <li class="header__nav-item">
                                   <a class="header__nav-link" href="way.html">Как добраться</a>
                               </li>
-                              <li class="header__nav-item-reg">
-                                  <a class="header__nav-link header__nav-link--btn" href="registration_closed.html">Регистрация на форум</a>
-                              </li>
-                              <li class="header__nav-item-reg header__nav-item-reg--grant">
-                                  <a class="header__nav-link header__nav-link--btn" href="registration_closed.html">Регистрация на грант</a>
+                              <li class="header__nav-item header__nav-item--reg">
+                                  <details class="reg-dropdown reg-dropdown--desktop" data-reg-dropdown>
+                                      <summary class="reg-dropdown__toggle">
+                                          <span class="reg-dropdown__text">Регистрация</span>
+                                          <span class="reg-dropdown__chev" aria-hidden="true"></span>
+                                      </summary>
+
+                                      <div class="reg-dropdown__menu">
+                                          <a class="reg-dropdown__link" href="registration_closed.html">Регистрация на грант</a>
+                                          <a class="reg-dropdown__link" href="registration_closed.html">Регистрация на форум</a>
+                                      </div>
+                                  </details>
                               </li>
                           </ul>
                       </nav>

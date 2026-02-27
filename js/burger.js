@@ -62,3 +62,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Registration dropdown (header) – closes on outside click + ESC
+(() => {
+    const dropdowns = Array.from(document.querySelectorAll('[data-reg-dropdown]'));
+    if (!dropdowns.length) return;
+
+    const closeAll = (except) => {
+        dropdowns.forEach((dd) => {
+            if (dd !== except) dd.open = false;
+        });
+    };
+
+    dropdowns.forEach((dd) => {
+        dd.addEventListener('toggle', () => {
+            if (dd.open) closeAll(dd);
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        dropdowns.forEach((dd) => {
+            if (dd.open && !dd.contains(e.target)) dd.open = false;
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAll();
+    });
+})();
