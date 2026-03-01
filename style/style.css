@@ -7762,3 +7762,91 @@ html, body {
 .accordion--faq .accordion__element.is-active .accordion__button::after {
     transform: translateY(-50%) rotate(45deg);
 }
+
+/* =========================
+   ECOSYSTEM carousel: side arrows + responsive placement
+   ========================= */
+
+.ecosystem__carousel {
+    position: relative;
+    overflow: visible; /* allow arrows to sit outside */
+}
+
+    .ecosystem__carousel .ecosystem__controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        margin-top: 0; /* override old bottom controls spacing */
+        display: flex;
+        justify-content: space-between;
+        gap: 0;
+        pointer-events: none; /* only buttons are clickable */
+        z-index: 5;
+    }
+
+    .ecosystem__carousel .ecosystem__arrow {
+        pointer-events: auto;
+    }
+
+/* >1440: arrows OUTSIDE container/card */
+@media (min-width: 1441px) {
+    .ecosystem__carousel .ecosystem__panel {
+        width: 100%;
+        margin: 0;
+    }
+
+    .ecosystem__carousel .ecosystem__controls {
+        left: -6.25rem;
+        right: -6.25rem;
+    }
+}
+
+/* 1440–1023: shrink card, arrows INSIDE container */
+@media (max-width: 1440px) {
+    .ecosystem__carousel .ecosystem__panel {
+        width: calc(100% - 12rem);
+        margin: 0 auto;
+    }
+}
+
+/* 1023 and below: a bit tighter + smaller arrows */
+@media (max-width: 1023px) {
+    .ecosystem__carousel .ecosystem__panel {
+        width: calc(100% - 9rem);
+    }
+
+    .ecosystem__carousel .ecosystem__arrow {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+
+        .ecosystem__carousel .ecosystem__arrow::before {
+            width: 1rem;
+            height: 1rem;
+            border-right-width: 4px;
+            border-bottom-width: 4px;
+        }
+}
+
+/* Mobile: keep your original bottom arrows layout */
+@media (max-width: 767px) {
+    .ecosystem__carousel .ecosystem__panel {
+        width: 100%;
+        margin: 0;
+    }
+
+    .ecosystem__carousel .ecosystem__controls {
+        position: static;
+        transform: none;
+        margin-top: 2.5rem;
+        justify-content: center;
+        gap: 3.125rem;
+        pointer-events: auto;
+    }
+}
+
+.ecosystem__panel {
+    touch-action: pan-y; /* allow vertical page scroll, keep horizontal gestures for us */
+}
