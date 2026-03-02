@@ -8211,3 +8211,30 @@ html, body {
             color: #000000 !important;
         }
 }
+
+@media (min-width: 1025px) {
+    .header__dropdown {
+        font-size: 18px; /* smaller than before */
+        line-height: 1.15;
+    }
+
+    .header__dropdown-link {
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+/* Desktop: ONLY “Наша экосистема” + “Партнёры” (dropdown triggers)
+   black -> red in 0.3s */
+@media (min-width: 1025px) {
+    .header__nav-item--dropdown > .header__nav-link--dropdown {
+        color: #000000 !important;
+        transition: color 0.3s ease;
+    }
+
+    @media (hover:hover) {
+        .header__nav-item--dropdown:hover > .header__nav-link--dropdown,
+        .header__nav-item--dropdown:focus-within > .header__nav-link--dropdown {
+            color: #c31632 !important;
+        }
+    }
+}
