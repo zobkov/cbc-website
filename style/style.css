@@ -7619,7 +7619,7 @@ html, body {
 
 .faq-tabs__btn:focus-visible {
     outline: 3px solid #f6ac1b;
-    outline-offset: 2px;
+    outline-offset: 1px;
 }
 
 /* active tab: no bottom line */
@@ -7628,7 +7628,7 @@ html, body {
     color: #ffffff;
     /* remove bottom border and also hide the parent's bottom line under it */
     border-bottom-color: transparent; /* <- no bottom line */
-    margin-bottom: -1px; /* overlap the tab-row line */
+    margin-bottom: -2px; /* overlap the tab-row line */
     background: #000000; /* masks the white line beneath */
 }
 
@@ -7643,7 +7643,7 @@ html, body {
 
 /* Tabs: make borders clearly visible between buttons */
 .faq-tabs {
-    border-bottom: 4px solid #ffffff; /* match accordion thickness */
+    border-bottom: 1px solid #ffffff; /* match accordion thickness */
 }
 
 .faq-tabs__btn {
@@ -8322,7 +8322,7 @@ html, body {
    ========================================= */
 
 .question {
-    --faq-line: 4px;
+    --faq-line: 1.5px;
 }
 /* same thickness as question separators */
 
