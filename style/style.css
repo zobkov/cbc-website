@@ -8211,3 +8211,223 @@ html, body {
             color: #000000 !important;
         }
 }
+
+@media (min-width: 1025px) {
+    .header__dropdown {
+        font-size: 22px; /* smaller than before */
+        line-height: 1.15;
+    }
+
+    .header__dropdown-link {
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+/* Desktop: ONLY “Наша экосистема” + “Партнёры” (dropdown triggers)
+   black -> red in 0.3s */
+@media (min-width: 1025px) {
+    .header__nav-item--dropdown > .header__nav-link--dropdown {
+        color: #000000 !important;
+        transition: color 0.3s ease;
+    }
+
+    @media (hover:hover) {
+        .header__nav-item--dropdown:hover > .header__nav-link--dropdown,
+        .header__nav-item--dropdown:focus-within > .header__nav-link--dropdown {
+            color: #c31632 !important;
+        }
+    }
+}
+
+/* Ecosystem arrows: hidden/disabled on edges */
+.ecosystem__arrow.is-disabled {
+    opacity: 0;
+    pointer-events: none;
+    transform: none !important; /* prevent hover-scale glitches */
+    transition: opacity 0.2s ease;
+}
+
+/* Ecosystem arrows: hidden/disabled on edges (instant) */
+.ecosystem__arrow.is-disabled {
+    opacity: 0;
+    pointer-events: none;
+    transition: none; /* <- instant */
+}
+
+/* ===== FAQ: unify line thickness (tabs underline + question separators) ===== */
+.question {
+    --faq-line: 4px; /* thickness like in mock */
+}
+
+.faq-tabs::after {
+    height: var(--faq-line) !important;
+}
+
+.accordion--faq .accordion__element {
+    border-top: var(--faq-line) solid #ffffff !important;
+}
+
+    .accordion--faq .accordion__element:last-of-type {
+        border-bottom: var(--faq-line) solid #ffffff !important;
+    }
+
+/* ===== FAQ tabs: diagonals visible ===== */
+.faq-tabs {
+    --faq-b: var(--faq-line);
+    --faq-s: 1.6rem; /* a bit larger slant */
+    position: relative;
+    isolation: isolate; /* make z-index reliable */
+}
+
+/* make borders thick */
+.faq-tabs__btn {
+    border-width: var(--faq-b) !important;
+    background: transparent !important;
+}
+
+    /* overlap less than slant => diagonal border remains visible */
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: calc(-1 * (var(--faq-s) - var(--faq-b))) !important;
+    }
+
+    /* stacking order: left above right so separators show */
+    .faq-tabs__btn:nth-child(1) {
+        z-index: 3;
+    }
+
+    .faq-tabs__btn:nth-child(2) {
+        z-index: 2;
+    }
+
+    .faq-tabs__btn:nth-child(3) {
+        z-index: 1;
+    }
+
+    .faq-tabs__btn.is-active {
+        z-index: 10;
+    }
+
+/* ensure clip-path uses our slant variable */
+.faq-tabs__btn {
+    clip-path: polygon(var(--faq-s) 0, 100% 0, calc(100% - var(--faq-s)) 100%, 0 100%) !important;
+}
+
+    /* active tab: no bottom line (covers underline) */
+    .faq-tabs__btn.is-active {
+        margin-bottom: calc(-1 * var(--faq-b)) !important;
+    }
+
+/* =========================================
+   FAQ TABS — draw real visible diagonals (robust)
+   ========================================= */
+
+.question {
+    --faq-line: 4px;
+}
+/* same thickness as question separators */
+
+/* underline under tabs */
+.faq-tabs {
+    --s: 28px; /* slant size (tweak if needed) */
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    margin: 0;
+    isolation: isolate; /* z-index works predictably */
+}
+
+    .faq-tabs::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: var(--faq-line);
+        background: #ffffff;
+        z-index: 0;
+    }
+
+/* TAB BUTTON: no border; outline is drawn by pseudo-elements */
+.faq-tabs__btn {
+    position: relative;
+    z-index: 1;
+    border: 0 !important;
+    background: transparent !important;
+    padding: 10px 26px;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.1;
+    transition: color 0.3s ease;
+}
+
+    /* overlap to “connect” tabs */
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: calc(-1 * (var(--s) - var(--faq-line)));
+    }
+
+    /* stacking: left tab above right tab => diagonal separators always visible */
+    .faq-tabs__btn:nth-child(1) {
+        z-index: 3;
+    }
+
+    .faq-tabs__btn:nth-child(2) {
+        z-index: 2;
+    }
+
+    .faq-tabs__btn:nth-child(3) {
+        z-index: 1;
+    }
+
+    .faq-tabs__btn.is-active {
+        z-index: 10;
+    }
+
+    /* Outer white shape (outline) */
+    .faq-tabs__btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #ffffff;
+        clip-path: polygon(var(--s) 0, 100% 0, calc(100% - var(--s)) 100%, 0 100%);
+        z-index: -2;
+    }
+
+    /* Inner black fill (covers the inside AND removes bottom border by reaching bottom) */
+    .faq-tabs__btn::after {
+        content: "";
+        position: absolute;
+        top: var(--faq-line);
+        left: var(--faq-line);
+        right: var(--faq-line);
+        bottom: 0; /* IMPORTANT: covers bottom edge => no bottom outline */
+        background: #000000;
+        clip-path: polygon(var(--s) 0, 100% 0, calc(100% - var(--s)) 100%, 0 100%);
+        z-index: -1;
+    }
+
+    /* Active tab covers the underline under it */
+    .faq-tabs__btn.is-active {
+        margin-bottom: calc(-1 * var(--faq-line));
+    }
+
+/* Hover like questions */
+@media (hover:hover) {
+    .faq-tabs__btn:hover {
+        color: #c31632;
+    }
+}
+
+/* =========================================
+   Match separators thickness with tabs underline
+   ========================================= */
+.accordion--faq .accordion__element {
+    border-top: var(--faq-line) solid #ffffff !important;
+}
+
+    .accordion--faq .accordion__element:last-of-type {
+        border-bottom: var(--faq-line) solid #ffffff !important;
+    }
