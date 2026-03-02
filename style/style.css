@@ -8238,3 +8238,18 @@ html, body {
         }
     }
 }
+
+/* Ecosystem arrows: hidden/disabled on edges */
+.ecosystem__arrow.is-disabled {
+    opacity: 0;
+    pointer-events: none;
+    transform: none !important; /* prevent hover-scale glitches */
+    transition: opacity 0.2s ease;
+}
+
+/* Ecosystem arrows: hidden/disabled on edges (instant) */
+.ecosystem__arrow.is-disabled {
+    opacity: 0;
+    pointer-events: none;
+    transition: none; /* <- instant */
+}
