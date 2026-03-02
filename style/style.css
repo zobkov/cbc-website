@@ -8214,7 +8214,7 @@ html, body {
 
 @media (min-width: 1025px) {
     .header__dropdown {
-        font-size: 18px; /* smaller than before */
+        font-size: 22px; /* smaller than before */
         line-height: 1.15;
     }
 
