@@ -8431,3 +8431,150 @@ html, body {
     .accordion--faq .accordion__element:last-of-type {
         border-bottom: var(--faq-line) solid #ffffff !important;
     }
+
+/* =========================================
+   FAQ TABS — responsive and stable on all widths
+   ========================================= */
+
+.question {
+    --faq-line: clamp(2px, 0.22vw, 4px);
+    --faq-tab-font: clamp(11px, 1.45vw, 24px);
+    --faq-tab-pad-y: clamp(6px, 0.7vw, 10px);
+    --faq-tab-pad-x: clamp(14px, 1.8vw, 26px);
+    --faq-tab-slant: clamp(14px, 2vw, 28px);
+}
+
+/* tabs row */
+.faq-tabs {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    margin: 0;
+    isolation: isolate;
+    flex-wrap: nowrap;
+    overflow: visible;
+}
+
+    /* underline under tabs */
+    .faq-tabs::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: var(--faq-line);
+        background: #ffffff;
+        z-index: 0;
+    }
+
+/* tab button */
+.faq-tabs__btn {
+    position: relative;
+    z-index: 1;
+    border: 0 !important;
+    background: transparent !important;
+    padding: var(--faq-tab-pad-y) var(--faq-tab-pad-x);
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: var(--faq-tab-font);
+    line-height: 1.1;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+    /* overlap */
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: calc(-1 * (var(--faq-tab-slant) - var(--faq-line)));
+    }
+
+    /* stacking */
+    .faq-tabs__btn:nth-child(1) {
+        z-index: 3;
+    }
+
+    .faq-tabs__btn:nth-child(2) {
+        z-index: 2;
+    }
+
+    .faq-tabs__btn:nth-child(3) {
+        z-index: 1;
+    }
+
+    .faq-tabs__btn.is-active {
+        z-index: 10;
+    }
+
+    /* outer white shape */
+    .faq-tabs__btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #ffffff;
+        clip-path: polygon( var(--faq-tab-slant) 0, 100% 0, calc(100% - var(--faq-tab-slant)) 100%, 0 100% );
+        z-index: -2;
+    }
+
+    /* inner black fill */
+    .faq-tabs__btn::after {
+        content: "";
+        position: absolute;
+        top: var(--faq-line);
+        left: var(--faq-line);
+        right: var(--faq-line);
+        bottom: 0;
+        background: #000000;
+        clip-path: polygon( var(--faq-tab-slant) 0, 100% 0, calc(100% - var(--faq-tab-slant)) 100%, 0 100% );
+        z-index: -1;
+    }
+
+    /* active tab covers underline */
+    .faq-tabs__btn.is-active {
+        margin-bottom: calc(-1 * var(--faq-line));
+    }
+
+@media (hover:hover) {
+    .faq-tabs__btn:hover {
+        color: #c31632;
+    }
+}
+
+/* separators under questions match tabs underline */
+.accordion--faq .accordion__element {
+    border-top: var(--faq-line) solid #ffffff !important;
+}
+
+    .accordion--faq .accordion__element:last-of-type {
+        border-bottom: var(--faq-line) solid #ffffff !important;
+    }
+
+/* =========================================
+   FAQ text responsiveness
+   ========================================= */
+.accordion--faq .accordion__button {
+    font-size: clamp(18px, 2vw, 32px);
+    line-height: 1.15;
+    padding: clamp(12px, 1.2vw, 20px) clamp(32px, 3vw, 48px) clamp(12px, 1.2vw, 20px) 0;
+}
+
+    .accordion--faq .accordion__button::after {
+        font-size: clamp(28px, 2.4vw, 44px);
+    }
+
+/* =========================================
+   Small screens: allow horizontal scroll instead of breaking shape
+   ========================================= */
+@media (max-width: 767px) {
+    .faq-tabs {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+    }
+
+        .faq-tabs::-webkit-scrollbar {
+            display: none;
+        }
+}
+
