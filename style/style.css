@@ -18453,3 +18453,20 @@ html, body {
         padding-left: 25px !important;
     }
 }
+
+/* Ecosystem arrows: inactive = darker, not hidden */
+.ecosystem__arrow.is-disabled,
+.ecosystem__arrow:disabled {
+    opacity: 1 !important;
+    pointer-events: none;
+    cursor: default;
+    background-color: #cfcfcf;
+    transform: none !important;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .ecosystem__arrow.is-disabled::before,
+    .ecosystem__arrow:disabled::before {
+        border-right-color: #7a7a7a;
+        border-bottom-color: #7a7a7a;
+    }
