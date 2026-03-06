@@ -18447,3 +18447,9 @@ html, body {
     font-size: 0.9rem;
     padding: 0.55rem 1rem;
 }
+
+@media (max-width: 1024px) {
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+        padding-left: 25px !important;
+    }
+}
