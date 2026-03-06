@@ -87,3 +87,34 @@
         if (e.key === 'Escape') closeAll();
     });
 })();
+
+// Mobile burger: close when clicking outside the white menu panel
+(() => {
+    const burger = document.querySelector('.header__burger');
+    const nav = document.querySelector('.header__nav');
+    const panel = nav?.querySelector('.header__nav-list');
+
+    if (!burger || !nav || !panel) return;
+
+    const closeMenu = () => {
+        burger.classList.remove('is-active');
+        nav.classList.remove('is-active');
+        document.body.classList.remove('menu-open');
+        document.documentElement.classList.remove('menu-open');
+    };
+
+    nav.addEventListener('click', (e) => {
+        if (!nav.classList.contains('is-active')) return;
+
+        // click on dark overlay, not inside white panel
+        if (!panel.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('is-active')) {
+            closeMenu();
+        }
+    });
+})();
