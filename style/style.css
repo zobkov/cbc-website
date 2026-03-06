@@ -6528,7 +6528,7 @@ html, body {
   .header__reg-btn--mobile {
     max-width: 18.5rem;
     font-size: 0.9rem;
-    padding: 0.55rem 1rem;
+    padding: 0.55rem 11rem;
   }
   .header__nav-link { font-size: 1.125rem; padding: 1.1rem 1.25rem; }
   .header__socials.header__socials--mobile .socials__link--tg {
@@ -18440,4 +18440,10 @@ html, body {
 
 .cta-reg__label {
     justify-self: center;
+}
+
+.header__reg-btn--mobile {
+    max-width: 111em;
+    font-size: 0.9rem;
+    padding: 0.55rem 1rem;
 }
