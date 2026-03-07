@@ -1,0 +1,281 @@
+/* --- HEADER (Canonical Rewrite) --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #ffffff;
+    padding: 1.5rem 0;
+    box-sizing: border-box;
+}
+
+    .header .container {
+        max-width: 68.875rem;
+    }
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+@media (max-width: 1440px) {
+    .header__wrapper {
+        gap: 1rem;
+    }
+}
+
+/* Socials (Left) */
+.header__socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+    .header__socials.header__socials--mobile {
+        display: none;
+    }
+
+/* Nav (Right on Desktop) */
+.header__nav {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: space-between;
+}
+
+@media (max-width: 1440px) {
+    .header__nav-list {
+        gap: 1rem;
+    }
+}
+
+/* Nav Links */
+.header__nav-link {
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+    .header__nav-link:hover {
+        color: #c31632;
+    }
+
+.header__nav-link--btn {
+    padding: 0.5rem 1.5rem;
+    background-color: #f6ac1b;
+    border-radius: 16px;
+    font-weight: 600;
+}
+
+    .header__nav-link--btn:hover {
+        background-color: #c31632;
+        color: #fff;
+    }
+
+/* Burger Button (Desktop Hidden) */
+.header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0;
+    pointer-events: auto; /* Ensure clickable */
+}
+
+    .header__burger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #000;
+        transition: 0.3s;
+        border-radius: 2px; /* Smooth edges */
+    }
+
+/* --- MOBILE MENU (1024px and below) --- */
+@media (max-width: 1024px) {
+    .header {
+        padding: 1rem 0 1rem 0;
+    }
+
+    .header__socials.header__socials--mobile {
+        display: flex;
+    }
+
+    .header__burger {
+        display: flex;
+        flex-direction: column; /* Ensure direction */
+    }
+
+    /* Nav becomes a Drawer/Overlay */
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Slide out */
+        width: 100%;
+        height: 100vh;
+        background-color: #ffffff;
+        flex-direction: column;
+        justify-content: center;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        padding: 2rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+        .header__nav.is-active {
+            right: 0; /* Slide in */
+        }
+
+    .header__nav-list {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .header__nav-link {
+        font-size: 1.5rem;
+    }
+
+    /* Burger hidden while nav is open */
+    .header__burger.is-active {
+        opacity: 0;
+        pointer-events: none;
+    }
+/* Dropdown Container */
+.header__nav-item--dropdown {
+    position: relative;
+}
+
+/* Dropdown Button */
+.header__nav-link--dropdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    font-weight: 800;
+    color: #000;
+    transition: color 0.3s;
+}
+
+    .header__nav-link--dropdown:hover {
+        color: #c31632;
+    }
+
+/* Dropdown Arrow */
+.header__nav-arrow {
+    display: none;
+}
+
+/* Dropdown Menu (Desktop) */
+.header__dropdown {
+    position: absolute;
+    top: 100%;
+    left: -1rem; /* Access offsets padding to align text with parent */
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    min-width: 100%; /* At least parent width */
+    width: max-content; /* Grow to fit content, but start at parent width */
+
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    list-style: none;
+    z-index: 1002;
+    text-align: left;
+}
+
+    .header__nav-item--dropdown:hover .header__dropdown,
+    .header__dropdown.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+.header__dropdown-link {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.1875rem; /* Copied from .header__nav-link */
+    font-weight: 800;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+    .header__dropdown-link:hover {
+        color: #c31632;
+    }
+}
+
+/* Mobile Dropdown */
+@media (max-width: 1024px) {
+    /* Hide the dropdown button/header on mobile */
+    .header__nav-link--dropdown {
+        display: none;
+    }
+
+    /* Make the dropdown list always visible as part of the flow */
+    .header__dropdown {
+        position: static;
+        min-width: 0;
+        box-shadow: none;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; /* Match header__nav-list gap */
+        padding: 0;
+        text-align: center;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Make dropdown links look exactly like main links */
+    .header__dropdown-link {
+        font-size: 1.5rem;
+        font-weight: 800;
+        padding: 0;
+    }
+
+    /* Remove specific dropdown item container logic if any */
+    .header__nav-item--dropdown {
+        display: contents; /* Allows children (the UL) to sit directly in the grid/flex context of the parent list if possible */
+    }
+
+    /* Actually, display: contents on li inside a flex-col ul works well to flatten the list */
+}

@@ -1,0 +1,568 @@
+/* moved from sections/wait.css - header related overrides */
+/* Mobile-only registration button in the header (center) */
+.header__reg-btn--mobile {
+    display: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Mobile-only “Медиа” item (we show it only on mobile) */
+.header__nav-item--media {
+    display: none;
+}
+
+/* --- Drawer menu like in the screenshot (left panel + dimmed area) --- */
+@media (max-width: 1024px) {
+
+    /* Header row: burger (first in DOM) | reg-btn (absolute center) | socials (last in DOM) */
+    .header__reg-btn--mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Header icon sizes on mobile */
+    .header__socials.header__socials--mobile .socials__link--tg {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .header__socials.header__socials--mobile .socials__link--vk {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    /* Fullscreen backdrop that slides from LEFT */
+    .header__nav {
+        left: 0;
+        right: auto;
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        background: rgba(0,0,0,0.28);
+        box-shadow: none;
+        justify-content: flex-start;
+        align-items: flex-start;
+        transform: translateX(-100%);
+        transition: transform 0.4s ease;
+    }
+
+        .header__nav.is-active {
+            transform: translateX(0);
+        }
+
+    /* White panel */
+    .header__nav-list {
+        width: min(82vw, 22.5rem);
+        height: 100%;
+        background: #fff;
+        padding: 1.75rem 0 1.25rem 0;
+        margin: 0;
+        gap: 0;
+        justify-content: flex-start;
+        align-items: stretch;
+        text-align: left;
+    }
+
+    /* Show mobile-only Media item */
+    .header__nav-item--media {
+        display: block;
+    }
+
+    /* Show dropdown “category” buttons as normal items */
+    .header__nav-link--dropdown {
+        display: block;
+        width: 100%;
+    }
+
+    /* Hide dropdown lists on mobile (макет shows only top-level items) */
+    .header__dropdown {
+        display: none !important;
+    }
+
+    .header__nav-item--dropdown {
+        display: block;
+    }
+
+    /* Menu separators */
+    .header__nav-item,
+    .header__nav-item-reg {
+        width: 100%;
+        border-bottom: 1px solid #c31632;
+    }
+
+    .header__nav-link,
+    .header__dropdown-link {
+        display: block;
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    /* Yellow buttons inside menu (stacked at top) */
+    .header__nav-item-reg {
+        order: -2;
+        border-bottom: none;
+        padding: 0 1.25rem 0.75rem 1.25rem;
+    }
+
+    .header__nav-item-reg--grant {
+        order: -1;
+        border-bottom: none;
+        padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+
+    .header__nav-item-reg .header__nav-link--btn {
+        width: 100%;
+        border-radius: 999px;
+        text-align: center;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        line-height: 1.1;
+    }
+
+    /* Move socials (the ones inside the burger menu) to the bottom */
+    .header__nav-list > .header__socials {
+        order: 99;
+        justify-content: center;
+        width: 100%;
+        margin-top: auto;
+        padding: 1.25rem 0 0 0;
+    }
+}
+
+
+
+/* Phone tweaks */
+@media (max-width: 767px) {
+    .header {
+        padding: 1rem 0;
+    }
+
+    .header__reg-btn--mobile {
+        max-width: 18.5rem;
+        font-size: 0.9rem;
+        padding: 0.55rem 1rem;
+    }
+
+    .header__nav-link {
+        font-size: 1.125rem;
+        padding: 1.1rem 1.25rem;
+    }
+
+    .header__socials.header__socials--mobile .socials__link--tg {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .header__socials.header__socials--mobile .socials__link--vk {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Show "Медиа" as a normal list item in the drawer */
+    .header__nav-item--media {
+        display: block;
+    }
+
+    /* Burger (first in DOM) and socials (last visible) spread via space-between;
+       reg-btn is pulled out of flow and centred absolutely */
+    .header__wrapper {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__reg-btn--mobile {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: min(70vw, 19rem);
+        margin: 0;
+        border-radius: 999px;
+        padding: 0.7rem 1.25rem;
+        font-size: 1rem;
+        line-height: 1.1;
+    }
+
+    /* Drawer items: left align everything */
+    .header__nav-list {
+        text-align: left;
+    }
+
+    .header__nav-link {
+        text-align: left;
+    }
+
+    /* Fix for dropdown buttons (they are <button>, not <a>) */
+    .header__nav-link--dropdown {
+        display: block;
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        font-size: 1.25rem;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    /* Hide submenu lists in the drawer (макет shows only top-level items) */
+    .header__dropdown {
+        display: none !important;
+    }
+
+    /* Second button right after “Регистрация на форум” inside the drawer */
+    .header__nav-item-reg--grant {
+        order: -1;
+        border-bottom: none;
+        padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+}
+
+
+
+/* 2) Hide grant button on desktop; show only in mobile drawer */
+.header__nav-item-reg--grant {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .header__nav-item-reg--grant {
+        display: block;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    /* 1) Same font sizing for every menu row inside the drawer */
+    .header__nav-list .header__nav-link,
+    .header__nav-list .header__nav-link--dropdown,
+    .header__nav-list .header__dropdown-link {
+        font-size: 1.25rem;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Keep everything in the drawer equal on phones too */
+    .header__nav-list .header__nav-link,
+    .header__nav-list .header__nav-link--dropdown,
+    .header__nav-list .header__dropdown-link,
+    .header__nav-item-reg .header__nav-link--btn {
+        font-size: 1.125rem;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Reserve space for the absolute burger (left) and socials (right) */
+
+    /* Keep font size, but reduce the button's physical footprint */
+    .header__reg-btn--mobile {
+        width: auto;
+        max-width: 100%;
+        flex: 0 1 auto;
+        padding: 0.5rem 0.9rem; /* narrower than default */
+        font-size: 0.9rem; /* cancels the earlier clamp */
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 767px) {
+    .header__reg-btn--mobile {
+        font-size: 0.6rem;
+        padding: 0.65rem 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .header__reg-btn--mobile {
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* show Media item in drawer even if earlier rules hide it */
+    .header__nav-item--media {
+        display: block !important;
+    }
+}
+
+@media (max-width: 767px) {
+    /* dropdown items were a bit more to the right; match padding with other пункты */
+    .header__nav-list .header__nav-link--dropdown {
+        padding: 1.1rem 1.25rem; /* same as .header__nav-link on phones */
+    }
+}
+
+.fgais--reg--link {
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    color: #ffffff;
+    font-weight: 800;
+    margin: 0 0 1.25rem 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 1023px) {
+    .fgais--reg--link {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .fgais--reg--link {
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+    }
+}
+
+@media (hover: hover) {
+    .fgais--reg--link:hover:not(.focus-visible) {
+        color: #f6ac1b;
+    }
+}
+
+.fgais--reg--link.focus-visible:focus {
+    color: #f6ac1b;
+}
+
+.fgais--reg--link.focus-visible:active {
+    color: #f6ac1b;
+}
+
+/* Registration dropdown (header button -> dropdown) */
+.reg-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+    .reg-dropdown > summary {
+        list-style: none;
+    }
+
+        .reg-dropdown > summary::-webkit-details-marker {
+            display: none;
+        }
+
+.reg-dropdown__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.55rem 0.55rem 0.55rem 1.25rem;
+    border: 2px solid #000000;
+    border-radius: 999px;
+    background: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+    color: #000000;
+}
+
+    .reg-dropdown__toggle:focus-visible {
+        outline: 3px solid #6bc9c6;
+        outline-offset: 3px;
+    }
+
+.reg-dropdown__chev {
+    flex: 0 0 auto;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 999px;
+    background: #f6ac1b;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .reg-dropdown__chev::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        border-right: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        transform: rotate(45deg);
+        margin-top: -0.15rem;
+    }
+
+.reg-dropdown[open] .reg-dropdown__chev::before {
+    transform: rotate(-135deg);
+    margin-top: 0.15rem;
+}
+
+.reg-dropdown__menu {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    z-index: 1002;
+}
+
+.reg-dropdown__link {
+    display: block;
+    padding: 0.65rem 1.25rem;
+    border-radius: 999px;
+    border: 2px solid #000000;
+    background: #6bc9c6;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.1;
+}
+
+@media (hover: hover) {
+    .reg-dropdown__link:hover:not(.focus-visible) {
+        background: #f6ac1b;
+    }
+}
+
+.reg-dropdown__link.focus-visible:focus {
+    background: #f6ac1b;
+}
+
+.reg-dropdown__link:active {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* Only one registration control at a time */
+@media (min-width: 1025px) {
+    .reg-dropdown--mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header__nav-item--reg {
+        display: none;
+    }
+    /* hide desktop dropdown in drawer */
+    .reg-dropdown--mobile {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(70vw, 19rem);
+        z-index: 1002;
+    }
+
+        .reg-dropdown--mobile .reg-dropdown__toggle {
+            padding: 0.55rem 0.55rem 0.55rem 1.1rem;
+            font-size: 0.9rem;
+        }
+
+        .reg-dropdown--mobile .reg-dropdown__chev {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .reg-dropdown--mobile .reg-dropdown__menu {
+            top: calc(100% + 0.5rem);
+        }
+}
+
+@media (max-width: 767px) {
+    .reg-dropdown--mobile {
+        width: min(76vw, 18.5rem);
+    }
+
+        .reg-dropdown--mobile .reg-dropdown__toggle {
+            font-size: 0.8rem;
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
+        }
+
+        .reg-dropdown--mobile .reg-dropdown__link {
+            font-size: 0.8rem;
+            padding: 0.6rem 1rem;
+        }
+}
+
+.reg-dropdown--desktop {
+    width: 13rem; /* <- longer desktop button */
+}
+
+.reg-dropdown__toggle {
+    width: 100%; /* fill the details width */
+}
+
+/* Ink color that animates on hover */
+.reg-dropdown__toggle {
+    --reg-ink: #000000;
+    color: var(--reg-ink);
+    border-color: var(--reg-ink);
+    transition: color 0.3s ease, border-color 0.3s ease; /* <- slow */
+}
+
+.reg-dropdown__chev::before {
+    border-right: 3px solid var(--reg-ink);
+    border-bottom: 3px solid var(--reg-ink);
+    transition: border-right-color 0.3s ease, border-bottom-color 0.3s ease; /* <- slow */
+}
+
+/* Hover/active ink shift */
+@media (hover: hover) {
+    .reg-dropdown__toggle:hover {
+        --reg-ink: #c40000; /* <- red */
+    }
+}
+
+.reg-dropdown__link {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* <- slow */
+}
+
+@media (hover: hover) {
+    .reg-dropdown__link:hover:not(.focus-visible) {
+        background: #f6ac1b; /* yellow */
+    }
+}
+
+/* Text-only hover animation (black -> red) */
+.reg-dropdown__toggle {
+    color: #000000; /* keep base */
+}
+
+/* animate ONLY the text span */
+.reg-dropdown__text {
+    color: #000000;
+    transition: color 0.3s ease; /* slow */
+}
+
+@media (hover: hover) {
+    .reg-dropdown__toggle:hover .reg-dropdown__text {
+        color: #c40000; /* red */
+    }
+}
+
+/* Outline stays black */
+.reg-dropdown__toggle {
+    border-color: #000000;
+}
+
+/* Arrow stays black */
+.reg-dropdown__chev::before {
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+}
+
+/* =========================
+   FAQ categories (tabs)
+   ========================= */

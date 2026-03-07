@@ -1,0 +1,30 @@
+/* moved from sections/wait.css - footer related overrides */
+/* --- Footer: logos in one row on phones (like макет) --- */
+@media (max-width: 767px) {
+    .footer__logos {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .footer__grant {
+        height: 2.25rem;
+    }
+
+    .footer__logo-img--sp {
+        width: 7.5rem;
+        height: auto;
+    }
+
+    .footer__logo-img--kbk {
+        width: 7.25rem;
+        height: auto;
+    }
+
+    .footer .socials__link {
+        height: 3.125rem;
+    }
+}
+

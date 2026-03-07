@@ -1,0 +1,1601 @@
+.faq-tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 0 0 1.25rem 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+.faq-tabs__btn {
+    position: relative;
+    border: 2px solid #ffffff;
+    border-bottom: none;
+    background: transparent;
+    color: #ffffff;
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+    text-transform: uppercase;
+    /* trapezoid */
+    clip-path: polygon(0.9rem 0, 100% 0, calc(100% - 0.9rem) 100%, 0 100%);
+    z-index: 1;
+}
+
+    .faq-tabs__btn:focus-visible {
+        outline: 3px solid #f6ac1b;
+        outline-offset: 2px;
+    }
+
+    .faq-tabs__btn.is-active {
+        margin-bottom: -1px;
+        z-index: 2;
+    }
+
+@media (hover:hover) {
+    .faq-tabs__btn:hover:not(.focus-visible) {
+        color: #f6ac1b;
+        transition: color 0.35s ease;
+    }
+}
+
+.faq-empty {
+    margin: 0 0 1.25rem 0;
+    color: #ffffff;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+/* =========================
+   FAQ accordion look (as in mock)
+   ========================= */
+
+.accordion--faq .accordion__element {
+    border-top: 1px solid #ffffff;
+}
+
+    .accordion--faq .accordion__element:last-of-type {
+        border-bottom: 1px solid #ffffff;
+    }
+
+.accordion--faq .accordion__button {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    padding: 0.85rem 2.5rem 0.85rem 0;
+    transition: color 0.35s ease;
+}
+
+    /* Replace svg plus with plain “+” like in mock */
+    .accordion--faq .accordion__button::after {
+        mask-image: none;
+        -webkit-mask-image: none;
+        width: auto;
+        height: auto;
+        background: none;
+        content: "+";
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease, color 0.35s ease;
+    }
+
+.accordion--faq .accordion__wrapper p {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+    .faq-tabs__btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.95rem;
+        clip-path: polygon(0.75rem 0, 100% 0, calc(100% - 0.75rem) 100%, 0 100%);
+    }
+
+        .faq-tabs__btn + .faq-tabs__btn {
+            margin-left: -0.75rem;
+        }
+
+    .accordion--faq .accordion__button {
+        font-size: 1.1rem;
+        line-height: 1.35rem;
+        padding: 0.75rem 2.2rem 0.75rem 0;
+    }
+
+        .accordion--faq .accordion__button::after {
+            font-size: 1.4rem;
+        }
+
+    .accordion--faq .accordion__wrapper p {
+        font-size: 1rem;
+        line-height: 1.35rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .faq-tabs {
+        margin-bottom: 1rem;
+    }
+
+    .faq-tabs__btn {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.8rem;
+        clip-path: polygon(0.65rem 0, 100% 0, calc(100% - 0.65rem) 100%, 0 100%);
+    }
+
+        .faq-tabs__btn + .faq-tabs__btn {
+            margin-left: -0.65rem;
+        }
+}
+
+.faq-is-hidden {
+    display: none !important;
+}
+/* =========================
+   FAQ categories (tabs) — DESIGN FIXES
+   ========================= */
+
+.faq-tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    /* remove extra gap above accordion */
+    margin: 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* same font as questions + same hover animation */
+.faq-tabs__btn {
+    position: relative;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    /* same font as accordion questions */
+    font-family: inherit; /* <- important */
+    font-weight: 600; /* matches .accordion__button */
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    text-transform: none; /* like in mock */
+    /* same hover animation timing as questions */
+    transition: color 0.3s ease;
+    /* trapezoid */
+    clip-path: polygon(0.9rem 0, 100% 0, calc(100% - 0.9rem) 100%, 0 100%);
+    /* inactive tabs are "closed" at bottom */
+    border-bottom-color: #ffffff;
+}
+
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: -0.9rem; /* join angled edges */
+    }
+
+@media (hover:hover) {
+    .faq-tabs__btn:hover:not(.focus-visible) {
+        color: #c31632; /* same red as questions */
+    }
+}
+
+.faq-tabs__btn:focus-visible {
+    outline: 3px solid #f6ac1b;
+    outline-offset: 1px;
+}
+
+/* active tab: no bottom line */
+.faq-tabs__btn.is-active {
+    z-index: 2;
+    color: #ffffff;
+    /* remove bottom border and also hide the parent's bottom line under it */
+    border-bottom-color: transparent; /* <- no bottom line */
+    margin-bottom: -2px; /* overlap the tab-row line */
+    background: #000000; /* masks the white line beneath */
+}
+
+/* =========================
+   Remove the “extra black line/gap” between tabs and questions
+   ========================= */
+
+/* Use the tabs' bottom border as the first separator line */
+.accordion--faq .accordion__element:first-of-type {
+    border-top: none;
+}
+
+/* Tabs: make borders clearly visible between buttons */
+.faq-tabs {
+    border-bottom: 1px solid #ffffff; /* match accordion thickness */
+}
+
+.faq-tabs__btn {
+    border: 4px solid #ffffff;
+    border-bottom: none;
+    background: #000000; /* important: prevents overlap artifacts */
+}
+
+    /* keep your overlap */
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: -0.9rem;
+    }
+
+    /* active tab must be on top */
+    .faq-tabs__btn.is-active {
+        z-index: 10;
+        border-bottom-color: transparent;
+        margin-bottom: -4px; /* overlap the tabs row line (no bottom line) */
+    }
+
+.faq-empty {
+    display: none !important;
+}
+
+.accordion--faq > .accordion__element:first-child {
+    border-top: none !important;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .faq-tabs {
+        --faq-s: 0.95rem;
+    }
+}
+/* remove top border from first *visible* element (JS adds .faq-first) */
+.accordion--faq .accordion__element.faq-first {
+    border-top: none !important;
+}
+
+/* make z-index actually behave inside the row */
+.faq-tabs {
+    position: relative;
+    isolation: isolate;
+}
+
+/* default */
+.faq-tabs__btn {
+    position: relative;
+    z-index: 1;
+}
+
+    /* active always on top */
+    .faq-tabs__btn.is-active {
+        z-index: 10;
+    }
+
+/* FAQ questions: hover = text color only (white -> red, 0.3s) */
+.accordion--faq .accordion__button {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+    /* make + use text color, remove any icon background/mask leftovers */
+    .accordion--faq .accordion__button::after {
+        content: "+";
+        color: currentColor; /* <- plus follows text color */
+        background: transparent !important; /* <- no red square */
+        mask-image: none !important;
+        -webkit-mask-image: none !important;
+        width: auto;
+        height: auto;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+/* hover makes BOTH question text and + red */
+@media (hover:hover) {
+    .accordion--faq .accordion__button:hover {
+        color: #c31632;
+    }
+}
+
+/* opened state: rotate + */
+.accordion--faq .accordion__element.is-active .accordion__button::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* =========================
+   ECOSYSTEM carousel: side arrows + responsive placement
+   ========================= */
+
+.ecosystem__carousel {
+    position: relative;
+    overflow: visible; /* allow arrows to sit outside */
+}
+
+    .ecosystem__carousel .ecosystem__controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        margin-top: 0; /* override old bottom controls spacing */
+        display: flex;
+        justify-content: space-between;
+        gap: 0;
+        pointer-events: none; /* only buttons are clickable */
+        z-index: 5;
+    }
+
+    .ecosystem__carousel .ecosystem__arrow {
+        pointer-events: auto;
+    }
+
+/* >1440: arrows OUTSIDE container/card */
+@media (min-width: 1441px) {
+    .ecosystem__carousel .ecosystem__panel {
+        width: 100%;
+        margin: 0;
+    }
+
+    .ecosystem__carousel .ecosystem__controls {
+        left: -6.25rem;
+        right: -6.25rem;
+    }
+}
+
+/* 1440–1023: shrink card, arrows INSIDE container */
+@media (max-width: 1440px) {
+    .ecosystem__carousel .ecosystem__panel {
+        width: calc(100% - 12rem);
+        margin: 0 auto;
+    }
+}
+
+/* 1023 and below: a bit tighter + smaller arrows */
+@media (max-width: 1023px) {
+    .ecosystem__carousel .ecosystem__panel {
+        width: calc(100% - 9rem);
+    }
+
+    .ecosystem__carousel .ecosystem__arrow {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+
+        .ecosystem__carousel .ecosystem__arrow::before {
+            width: 1rem;
+            height: 1rem;
+            border-right-width: 4px;
+            border-bottom-width: 4px;
+        }
+}
+
+/* Mobile: keep your original bottom arrows layout */
+@media (max-width: 767px) {
+    .ecosystem__carousel .ecosystem__panel {
+        width: 100%;
+        margin: 0;
+    }
+
+    .ecosystem__carousel .ecosystem__controls {
+        position: static;
+        transform: none;
+        margin-top: 2.5rem;
+        justify-content: center;
+        gap: 3.125rem;
+        pointer-events: auto;
+    }
+}
+
+.ecosystem__panel {
+    touch-action: pan-y; /* allow vertical page scroll, keep horizontal gestures for us */
+}
+
+/* =========================================
+   HEADER dropdown redesign (desktop only)
+   Matches “big white panel + triangle pointer”
+   ========================================= */
+@media (min-width: 1025px) {
+
+    /* make sure dropdown can sit above everything */
+    .header__nav-item--dropdown {
+        position: relative;
+    }
+
+        /* Style the trigger like the “top white card” when open */
+        .header__nav-item--dropdown:hover > .header__nav-link--dropdown,
+        .header__nav-item--dropdown:focus-within > .header__nav-link--dropdown,
+        .header__nav-item--dropdown .header__dropdown.is-open ~ .header__nav-link--dropdown {
+            background: #ffffff;
+            border-radius: 1.25rem;
+            padding: 0.9rem 1.25rem;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+            color: #000;
+        }
+
+    /* The dropdown panel itself */
+    .header__dropdown {
+        left: 50%;
+        top: calc(100% + 1.15rem); /* space for the triangle */
+        transform: translate(-50%, 10px);
+        opacity: 0;
+        visibility: hidden;
+        width: max-content;
+        min-width: 16rem;
+        padding: 1.35rem 1.5rem;
+        border-radius: 1.5rem;
+        background: #ffffff;
+        box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+        list-style: none;
+        text-align: left;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 2000;
+    }
+
+        /* open state keeps your existing functionality */
+        .header__nav-item--dropdown:hover .header__dropdown,
+        .header__dropdown.is-open {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
+        }
+
+        /* Triangle pointer (white) */
+        .header__dropdown::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: -0.85rem;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 0.85rem solid transparent;
+            border-right: 0.85rem solid transparent;
+            border-bottom: 0.85rem solid #ffffff;
+        }
+
+    /* Bigger items like in the concept */
+    .header__dropdown-link {
+        display: block;
+        padding: 0.35rem 0;
+        font-size: 1.5rem;
+        line-height: 1.15;
+        font-weight: 800;
+        font-family: "MarvinVisions", "Arial", sans-serif;
+        color: #000000;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .header__dropdown-item + .header__dropdown-item {
+        margin-top: 1.1rem;
+    }
+
+    .header__dropdown-link:hover {
+        color: #c31632;
+    }
+}
+
+@media (min-width: 1025px) {
+    .header__nav-item--dropdown:hover > .header__nav-link--dropdown,
+    .header__nav-item--dropdown:focus-within > .header__nav-link--dropdown {
+        box-shadow: none !important;
+        padding: initial !important;
+        border-radius: initial !important;
+        background: initial !important;
+        color: initial !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .header__dropdown {
+        font-size: 30px; /* pick your exact value; this makes ALL items identical */
+        line-height: 1.15;
+    }
+
+    .header__dropdown-link {
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+
+/* =========================================
+   MOBILE BURGER: dropdowns for ecosystem/partners
+   ========================================= */
+@media (max-width: 1024px) {
+
+    /* default: hidden (overrides any earlier rules safely) */
+    .header__nav-item--dropdown > .header__dropdown {
+        display: none !important;
+        position: relative;
+        margin: 0 1.25rem 1rem 1.25rem; /* inset like mock */
+        padding: 1rem 1.25rem;
+        background: #ffffff;
+        border-radius: 1.25rem;
+        list-style: none;
+        /* subtle separation from background */
+        box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+        /* the red line under the submenu (like mock) */
+        border-bottom: 2px solid #c31632;
+    }
+
+        /* triangle pointer */
+        .header__nav-item--dropdown > .header__dropdown::before {
+            content: "";
+            position: absolute;
+            top: -0.7rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 0.75rem solid transparent;
+            border-right: 0.75rem solid transparent;
+            border-bottom: 0.75rem solid #ffffff;
+            filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.08));
+        }
+
+    /* open state */
+    .header__nav-item--dropdown.is-open > .header__dropdown {
+        display: block !important;
+    }
+
+    /* remove the “row” separator when submenu is open (so red line is only under submenu) */
+    .header__nav-item--dropdown.is-open {
+        border-bottom: none !important;
+    }
+
+    /* dropdown links inside submenu (not like main rows) */
+    .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.55rem 0;
+        font-size: 1.125rem;
+        line-height: 1.2;
+        font-weight: 500;
+        font-family: "MontserratAlternates", "Arial", sans-serif;
+        color: #000000;
+        text-decoration: none;
+    }
+
+        /* circle bullets (as in mock) */
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-link::before {
+            content: "";
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 999px;
+            border: 2px solid #000000;
+            flex: 0 0 auto;
+        }
+
+    /* hover (optional – keeps your site vibe) */
+    @media (hover:hover) {
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-link:hover {
+            color: #c31632;
+        }
+
+            .header__nav-item--dropdown > .header__dropdown .header__dropdown-link:hover::before {
+                border-color: #c31632;
+            }
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* Parent row should stay like other rows */
+    .header__nav-item--dropdown {
+        position: relative;
+    }
+
+        /* Dropdown: NOT a floating card */
+        .header__nav-item--dropdown > .header__dropdown {
+            display: none !important;
+            position: static; /* inline flow */
+            margin: 0;
+            padding: 0.35rem 0 0.85rem 0; /* small spacing under title */
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            border-bottom: 2px solid #c31632; /* red line like mock */
+            list-style: none;
+        }
+
+            /* No triangle */
+            .header__nav-item--dropdown > .header__dropdown::before {
+                content: none !important;
+            }
+
+        /* Open state */
+        .header__nav-item--dropdown.is-open > .header__dropdown {
+            display: block !important;
+        }
+
+        /* Submenu items: centered, simple */
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-item {
+            border: 0;
+        }
+
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+            display: block;
+            padding: 0.45rem 0;
+            margin: 0;
+            font-family: "MontserratAlternates", "Arial", sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            line-height: 1.2;
+            color: #000000;
+            text-decoration: none;
+            text-align: center; /* like in mock */
+        }
+
+            /* Remove bullets (mock has none) */
+            .header__nav-item--dropdown > .header__dropdown .header__dropdown-link::before {
+                content: none !important;
+            }
+
+    /* Hover: same red as other hover */
+    @media (hover:hover) {
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-link:hover {
+            color: #c31632;
+        }
+    }
+
+    /* IMPORTANT: avoid extra red separators while submenu is open
+     (you currently have red lines between ALL main items) */
+    .header__nav-item--dropdown.is-open {
+        padding-bottom: 0; /* prevents extra spacing before submenu underline */
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* IMPORTANT: cancel any earlier "display: contents" / hiding */
+    .header__nav-list .header__nav-item--dropdown {
+        display: block !important;
+    }
+
+    .header__nav-list .header__nav-link--dropdown {
+        display: block !important;
+    }
+
+    /* Submenu container: inline flow, full width, no card look */
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown {
+        /* visibility */
+        display: none !important;
+        /* kill desktop dropdown geometry */
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        /* FULL width (prevents short red line / weird sizing) */
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        /* clean look */
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        /* remove list indentation */
+        list-style: none !important;
+        padding: 0.35rem 0 0.9rem 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Open state */
+    .header__nav-list .header__nav-item--dropdown.is-open > .header__dropdown {
+        display: block !important;
+    }
+
+    /* Make sure the main red separator is FULL width and stays at the bottom */
+    .header__nav-list .header__nav-item--dropdown.is-open {
+        border-bottom: 1px solid #c31632 !important; /* full-width line like the mock */
+    }
+
+    /* Submenu items: centered, no big paddings from global rules */
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-item {
+        border: 0 !important;
+        margin: 0 !important;
+    }
+
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+        display: block !important;
+        width: 100% !important;
+        /* remove huge menu-row padding */
+        padding: 0.45rem 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        /* typography (adjust if you want slightly smaller) */
+        font-size: 1.25rem !important;
+        line-height: 1.2 !important;
+        font-weight: 500 !important;
+        font-family: "MontserratAlternates", "Arial", sans-serif !important;
+        color: #000000 !important;
+        text-decoration: none !important;
+    }
+
+        /* No bullets/circles */
+        .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link::before {
+            content: none !important;
+        }
+
+    @media (hover:hover) {
+        .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link:hover {
+            color: #c31632 !important;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown {
+        padding-left: 1.5rem !important; /* same left inset as main items */
+        padding-right: 1.5rem !important;
+        margin-top: -15px !important;
+    }
+
+        .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+            text-align: left !important;
+        }
+}
+
+@media (max-width: 1024px) {
+    /* keep dropdown parent title always black */
+    .header__nav-link--dropdown {
+        color: #000000 !important;
+    }
+
+        .header__nav-link--dropdown:active,
+        .header__nav-link--dropdown:focus,
+        .header__nav-link--dropdown:focus-visible {
+            color: #000000 !important;
+        }
+}
+
+@media (min-width: 1025px) {
+    .header__dropdown {
+        font-size: 22px; /* smaller than before */
+        line-height: 1.15;
+    }
+
+    .header__dropdown-link {
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+/* Desktop: ONLY “Наша экосистема” + “Партнёры” (dropdown triggers)
+   black -> red in 0.3s */
+@media (min-width: 1025px) {
+    .header__nav-item--dropdown > .header__nav-link--dropdown {
+        color: #000000 !important;
+        transition: color 0.3s ease;
+    }
+
+    @media (hover:hover) {
+        .header__nav-item--dropdown:hover > .header__nav-link--dropdown,
+        .header__nav-item--dropdown:focus-within > .header__nav-link--dropdown {
+            color: #c31632 !important;
+        }
+    }
+}
+
+/* Ecosystem arrows: hidden/disabled on edges */
+.ecosystem__arrow.is-disabled {
+    opacity: 0;
+    pointer-events: none;
+    transform: none !important; /* prevent hover-scale glitches */
+    transition: opacity 0.2s ease;
+}
+
+/* Ecosystem arrows: hidden/disabled on edges (instant) */
+.ecosystem__arrow.is-disabled {
+    opacity: 0;
+    pointer-events: none;
+    transition: none; /* <- instant */
+}
+
+/* ===== FAQ: unify line thickness (tabs underline + question separators) ===== */
+.question {
+    --faq-line: 4px; /* thickness like in mock */
+}
+
+.faq-tabs::after {
+    height: var(--faq-line) !important;
+}
+
+/* ===== FAQ tabs: diagonals visible ===== */
+.faq-tabs {
+    --faq-b: var(--faq-line);
+    --faq-s: 1.6rem; /* a bit larger slant */
+    position: relative;
+    isolation: isolate; /* make z-index reliable */
+}
+
+/* make borders thick */
+.faq-tabs__btn {
+    border-width: var(--faq-b) !important;
+    background: transparent !important;
+}
+
+    /* overlap less than slant => diagonal border remains visible */
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: calc(-1 * (var(--faq-s) - var(--faq-b))) !important;
+    }
+
+/* ensure clip-path uses our slant variable */
+.faq-tabs__btn {
+    clip-path: polygon(var(--faq-s) 0, 100% 0, calc(100% - var(--faq-s)) 100%, 0 100%) !important;
+}
+
+/* =========================================
+   FAQ TABS — draw real visible diagonals (robust)
+   ========================================= */
+
+.question {
+    --faq-line: 1.5px;
+}
+/* same thickness as question separators */
+
+/* underline under tabs */
+.faq-tabs {
+    --s: 28px; /* slant size (tweak if needed) */
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    margin: 0;
+    isolation: isolate; /* z-index works predictably */
+}
+
+/* TAB BUTTON: no border; outline is drawn by pseudo-elements */
+.faq-tabs__btn {
+    position: relative;
+    z-index: 1;
+    border: 0 !important;
+    background: transparent !important;
+    padding: 10px 26px;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.1;
+    transition: color 0.3s ease;
+}
+
+    /* overlap to “connect” tabs */
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: calc(-1 * (var(--s) - var(--faq-line)));
+    }
+
+    /* Outer white shape (outline) */
+    .faq-tabs__btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #ffffff;
+        clip-path: polygon(var(--s) 0, 100% 0, calc(100% - var(--s)) 100%, 0 100%);
+        z-index: -2;
+    }
+
+    /* Inner black fill (covers the inside AND removes bottom border by reaching bottom) */
+    .faq-tabs__btn::after {
+        content: "";
+        position: absolute;
+        top: var(--faq-line);
+        left: var(--faq-line);
+        right: var(--faq-line);
+        bottom: 0; /* IMPORTANT: covers bottom edge => no bottom outline */
+        background: #000000;
+        clip-path: polygon(var(--s) 0, 100% 0, calc(100% - var(--s)) 100%, 0 100%);
+        z-index: -1;
+    }
+
+/* =========================================
+   Match separators thickness with tabs underline
+   ========================================= */
+.accordion--faq .accordion__element {
+    border-top: var(--faq-line) solid #ffffff !important;
+}
+
+    .accordion--faq .accordion__element:last-of-type {
+        border-bottom: var(--faq-line) solid #ffffff !important;
+    }
+
+/* =========================================
+   FAQ TABS — responsive and stable on all widths
+   ========================================= */
+
+.question {
+    --faq-line: clamp(2px, 0.22vw, 4px);
+    --faq-tab-font: clamp(11px, 1.45vw, 24px);
+    --faq-tab-pad-y: clamp(6px, 0.7vw, 10px);
+    --faq-tab-pad-x: clamp(14px, 1.8vw, 26px);
+    --faq-tab-slant: clamp(14px, 2vw, 28px);
+}
+
+/* tabs row */
+.faq-tabs {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    margin: 0;
+    isolation: isolate;
+    flex-wrap: nowrap;
+    overflow: visible;
+}
+
+    /* underline under tabs */
+    .faq-tabs::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: var(--faq-line);
+        background: #ffffff;
+        z-index: 0;
+    }
+
+/* tab button */
+.faq-tabs__btn {
+    position: relative;
+    z-index: 1;
+    border: 0 !important;
+    background: transparent !important;
+    padding: var(--faq-tab-pad-y) var(--faq-tab-pad-x);
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: var(--faq-tab-font);
+    line-height: 1.1;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+    /* overlap */
+    .faq-tabs__btn + .faq-tabs__btn {
+        margin-left: calc(-1 * (var(--faq-tab-slant) - var(--faq-line)));
+    }
+
+    /* outer white shape */
+    .faq-tabs__btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #ffffff;
+        clip-path: polygon( var(--faq-tab-slant) 0, 100% 0, calc(100% - var(--faq-tab-slant)) 100%, 0 100% );
+        z-index: -2;
+    }
+
+    /* inner black fill */
+    .faq-tabs__btn::after {
+        content: "";
+        position: absolute;
+        top: var(--faq-line);
+        left: var(--faq-line);
+        right: var(--faq-line);
+        bottom: 0;
+        background: #000000;
+        clip-path: polygon( var(--faq-tab-slant) 0, 100% 0, calc(100% - var(--faq-tab-slant)) 100%, 0 100% );
+        z-index: -1;
+    }
+
+/* =========================================
+   FAQ text responsiveness
+   ========================================= */
+.accordion--faq .accordion__button {
+    font-size: clamp(18px, 2vw, 32px);
+    line-height: 1.15;
+    padding: clamp(12px, 1.2vw, 20px) clamp(32px, 3vw, 48px) clamp(12px, 1.2vw, 20px) 0;
+}
+
+    .accordion--faq .accordion__button::after {
+        font-size: clamp(28px, 2.4vw, 44px);
+    }
+
+/* =========================================
+   Small screens: allow horizontal scroll instead of breaking shape
+   ========================================= */
+@media (max-width: 767px) {
+    .faq-tabs {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+    }
+
+        .faq-tabs::-webkit-scrollbar {
+            display: none;
+        }
+}
+
+
+
+/* ========================================
+   Shared registration CTA dropdown (hero + promo)
+   ======================================== */
+.cta-reg {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    width: min(100%, 34rem);
+    margin: 0 auto;
+    z-index: 30;
+}
+
+.cta-reg__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.65rem 0.65rem 0.65rem 1.6rem;
+    border: 2px solid #000000;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    line-height: 1;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.cta-reg__label {
+    min-width: 0;
+}
+
+.cta-reg__label--mobile {
+    display: none;
+}
+
+.cta-reg__chev {
+    flex: 0 0 auto;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 999px;
+    background: #f6ac1b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .cta-reg__chev::before {
+        content: "";
+        width: 0.7rem;
+        height: 0.7rem;
+        border-right: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        transform: rotate(45deg);
+        margin-top: -0.2rem;
+        transition: transform 0.25s ease, margin-top 0.25s ease;
+    }
+
+.cta-reg__menu {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-0.4rem);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.cta-reg.is-open {
+    z-index: 50;
+}
+
+    .cta-reg.is-open .cta-reg__menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .cta-reg.is-open .cta-reg__chev::before {
+        transform: rotate(-135deg);
+        margin-top: 0.15rem;
+    }
+
+.cta-reg__link {
+    display: block;
+    width: 100%;
+    padding: 0.72rem 1.15rem;
+    border: 2px solid #000000;
+    border-radius: 999px;
+    background: #6bc9c6;
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 1.02rem;
+    line-height: 1.05;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+@media (hover: hover) {
+    .cta-reg__toggle:hover:not(.focus-visible) {
+        transform: translateY(-1px);
+        box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.18);
+    }
+
+    .cta-reg__link:hover:not(.focus-visible) {
+        background: #f6ac1b;
+    }
+}
+
+.cta-reg__toggle:focus-visible {
+    outline: 3px solid #6bc9c6;
+    outline-offset: 4px;
+}
+
+.cta-reg__link:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.cta-reg--hero {
+    width: min(100%, 31rem);
+}
+
+.cta-reg--promo {
+    width: min(100%, 29rem);
+}
+
+    .cta-reg--promo .cta-reg__toggle {
+        font-size: 2.2rem;
+    }
+
+@media (max-width: 1439px) {
+    .cta-reg--hero {
+        width: min(100%, 28rem);
+    }
+
+    .cta-reg--promo {
+        width: min(100%, 26rem);
+    }
+
+    .cta-reg__toggle {
+        font-size: 2rem;
+        padding-left: 1.35rem;
+    }
+
+    .cta-reg__chev {
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .cta-reg--hero,
+    .cta-reg--promo {
+        width: min(100%, 24rem);
+    }
+
+    .cta-reg__toggle {
+        font-size: 1.5rem;
+        padding-left: 1.2rem;
+    }
+
+    .cta-reg__chev {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+    .cta-reg__link {
+        font-size: 0.92rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .cta-reg--hero,
+    .cta-reg--promo {
+        width: min(100%, 18.75rem);
+    }
+
+    .cta-reg__toggle {
+        gap: 0.75rem;
+        padding: 0.38rem 0.38rem 0.38rem 1rem;
+        font-size: 0.82rem;
+    }
+
+    .cta-reg__label--desktop {
+        display: none;
+    }
+
+    .cta-reg__label--mobile {
+        display: inline;
+    }
+
+    .cta-reg__chev {
+        width: 2rem;
+        height: 2rem;
+    }
+
+        .cta-reg__chev::before {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+        }
+
+    .cta-reg__menu {
+        top: calc(100% + 0.45rem);
+        gap: 0.45rem;
+    }
+
+    .cta-reg__link {
+        padding: 0.65rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ========================================
+   CTA registration dropdown fine-tune
+   Append AFTER the current .cta-reg block
+   ======================================== */
+
+.cta-reg {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 30;
+}
+
+.cta-reg--hero {
+    width: 100%;
+    margin: 0;
+}
+
+.cta-reg--promo {
+    width: auto;
+    margin: 0 auto;
+}
+
+.cta-reg__label {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.cta-reg__label--desktop {
+    display: block;
+}
+
+.cta-reg__label--mobile {
+    display: none !important;
+}
+
+.cta-reg__toggle,
+.cta-reg__link {
+    position: relative;
+    border: none;
+    border-radius: 50px;
+    font-family: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: none;
+    transform: none;
+}
+
+.cta-reg__toggle {
+    display: block;
+    width: 100%;
+    color: #000000;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-reg__menu {
+    top: calc(100% + 0.625rem);
+    left: 0;
+    width: 100%;
+    gap: 0.625rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: none;
+    transition: none;
+}
+
+.cta-reg.is-open .cta-reg__menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+}
+
+.cta-reg__chev {
+    position: absolute;
+    top: 50%;
+    right: 1.125rem;
+    width: 3rem;
+    height: 3rem;
+    margin-top: -1.5rem;
+    border-radius: 50%;
+    background-color: #f6ac1b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .cta-reg__chev::before {
+        content: "";
+        width: 0.7rem;
+        height: 0.7rem;
+        margin-top: -0.2rem;
+        border-right: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        transform: rotate(45deg);
+        transition: none;
+    }
+
+.cta-reg.is-open .cta-reg__chev::before {
+    transform: rotate(45deg);
+    margin-top: -0.2rem;
+}
+
+.cta-reg__link {
+    display: block;
+    width: 100%;
+    color: #000000;
+    background-color: #6bc9c6;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-reg--hero .cta-reg__toggle,
+.cta-reg--hero .cta-reg__link {
+    padding: 0.75rem 5rem 0.75rem 1.25rem;
+    font-size: 3.125rem;
+    line-height: 3.8125rem;
+}
+
+.cta-reg--promo .cta-reg__toggle,
+.cta-reg--promo .cta-reg__link {
+    padding: 1.25rem 16rem 1.25rem 1.25rem;
+    font-size: 2.375rem;
+    line-height: 2.9375rem;
+}
+
+@media (hover: hover) {
+    .cta-reg__toggle:hover:not(.focus-visible),
+    .cta-reg.is-open .cta-reg__toggle {
+        color: #ffffff;
+        background-color: #000000;
+    }
+
+    .cta-reg__link:hover:not(.focus-visible) {
+        color: #000000;
+        background-color: #f6ac1b;
+    }
+}
+
+.cta-reg__toggle:focus-visible,
+.cta-reg.is-open .cta-reg__toggle {
+    color: #ffffff;
+    background-color: #000000;
+    outline: none;
+}
+
+.cta-reg__link:focus-visible {
+    color: #000000;
+    background-color: #f6ac1b;
+    outline: none;
+}
+
+.cta-reg__toggle:hover,
+.cta-reg__toggle:active,
+.cta-reg__toggle:focus,
+.cta-reg__link:hover,
+.cta-reg__link:active,
+.cta-reg__link:focus {
+    box-shadow: none;
+    transform: none;
+}
+
+@media (max-width: 1439px) {
+    .cta-reg--hero .cta-reg__toggle,
+    .cta-reg--hero .cta-reg__link {
+        font-size: 2.375rem;
+        line-height: 2.5625rem;
+    }
+
+    .cta-reg--promo .cta-reg__toggle,
+    .cta-reg--promo .cta-reg__link {
+        font-size: 2.375rem;
+        line-height: 2.9375rem;
+    }
+
+    .cta-reg__chev {
+        right: 1rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-top: -1.375rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .cta-reg--hero {
+        width: 100%;
+    }
+
+    .cta-reg--promo {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .cta-reg--hero .cta-reg__toggle,
+    .cta-reg--hero .cta-reg__link {
+        padding: 0.75rem 4.5rem 0.75rem 1.25rem;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+    }
+
+    .cta-reg--promo .cta-reg__toggle,
+    .cta-reg--promo .cta-reg__link {
+        padding: 1.25rem 4.5rem 1.25rem 1.25rem;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+    }
+
+    .cta-reg__chev {
+        right: 0.875rem;
+        width: 2.35rem;
+        height: 2.35rem;
+        margin-top: -1.175rem;
+    }
+
+        .cta-reg__chev::before {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+        }
+}
+
+@media (max-width: 767px) {
+    .cta-reg--hero,
+    .cta-reg--promo {
+        width: 100%;
+    }
+
+        .cta-reg--hero .cta-reg__toggle,
+        .cta-reg--hero .cta-reg__link {
+            padding: 0.75rem 4rem 0.75rem 1.25rem;
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+        }
+
+        .cta-reg--promo .cta-reg__toggle,
+        .cta-reg--promo .cta-reg__link {
+            padding: 1.25rem 4rem 1.25rem 1.25rem;
+            font-size: 1.125rem;
+            line-height: 1.5rem;
+        }
+
+    .cta-reg__menu {
+        top: calc(100% + 0.5rem);
+        gap: 0.5rem;
+    }
+
+    .cta-reg__chev {
+        right: 0.75rem;
+        width: 2.1rem;
+        height: 2.1rem;
+        margin-top: -1.05rem;
+    }
+
+        .cta-reg__chev::before {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+}
+
+.cta-reg__toggle {
+    font-size: 0.4em;
+    white-space: nowrap;
+}
+
+.cta-reg__link {
+    font-size: 0.4em;
+    white-space: nowrap;
+}
+
+.cta-reg__label,
+.cta-reg__link {
+    white-space: nowrap;
+    justify-self: center;
+}
+
+.cta-reg--hero .cta-reg__toggle,
+.cta-reg--hero .cta-reg__link {
+    font-size: 3rem;
+}
+
+.cta-reg--promo .cta-reg__toggle,
+.cta-reg--promo .cta-reg__link {
+    font-size: 2.25rem;
+}
+
+@media (max-width: 1439px) {
+    .cta-reg--hero .cta-reg__toggle,
+    .cta-reg--hero .cta-reg__link {
+        font-size: 2.25rem;
+    }
+
+    .cta-reg--promo .cta-reg__toggle,
+    .cta-reg--promo .cta-reg__link {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .cta-reg--hero .cta-reg__toggle,
+    .cta-reg--hero .cta-reg__link,
+    .cta-reg--promo .cta-reg__toggle,
+    .cta-reg--promo .cta-reg__link {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .cta-reg--hero .cta-reg__toggle,
+    .cta-reg--hero .cta-reg__link {
+        font-size: 1.18rem;
+    }
+
+    .cta-reg--promo .cta-reg__toggle,
+    .cta-reg--promo .cta-reg__link {
+        font-size: 1.06rem;
+    }
+}
+.cta-reg__toggle {
+    display: grid;
+    place-items: center;
+}
+
+.cta-reg__label {
+    justify-self: center;
+}
+
+.header__reg-btn--mobile {
+    max-width: 111em;
+    font-size: 0.9rem;
+    padding: 0.55rem 1rem;
+}
+
+@media (max-width: 1024px) {
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+        padding-left: 25px !important;
+    }
+}
+
+/* Ecosystem arrows: inactive = darker, not hidden */
+.ecosystem__arrow.is-disabled,
+.ecosystem__arrow:disabled {
+    opacity: 1 !important;
+    pointer-events: none;
+    cursor: default;
+    background-color: #cfcfcf;
+    transform: none !important;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .ecosystem__arrow.is-disabled::before,
+    .ecosystem__arrow:disabled::before {
+        border-right-color: #7a7a7a;
+        border-bottom-color: #7a7a7a;
+    }

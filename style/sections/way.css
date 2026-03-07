@@ -1,0 +1,248 @@
+.way {
+    position: relative;
+}
+
+.way__icon-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7.4375rem;
+    height: auto;
+}
+
+@media (max-width: 1439px) {
+    .way__icon-left {
+        width: 5.625rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .way__icon-left {
+        width: 4.375rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__icon-left {
+        width: 2.5rem;
+    }
+}
+
+.way__icon-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15.625rem;
+    height: auto;
+}
+
+@media (max-width: 1439px) {
+    .way__icon-right {
+        width: 12.5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .way__icon-right {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__icon-right {
+        width: 6.25rem;
+    }
+}
+
+.way__dragon-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 6.25rem;
+    height: auto;
+}
+
+@media (max-width: 1439px) {
+    .way__dragon-body {
+        width: 5.625rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .way__dragon-body {
+        width: 4.375rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__dragon-body {
+        width: 3.125rem;
+    }
+}
+
+.way__dragon-head {
+    position: absolute;
+    bottom: -6.25rem;
+    left: -1.25rem;
+    width: 27.6875rem;
+    height: auto;
+}
+
+@media (max-width: 1439px) {
+    .way__dragon-head {
+        bottom: -5rem;
+        left: -1.25rem;
+        width: 22.5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .way__dragon-head {
+        bottom: -3.75rem;
+        left: -0.625rem;
+        width: 18.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__dragon-head {
+        bottom: -2.5rem;
+        left: -0.3125rem;
+        width: 15rem;
+    }
+}
+
+.way__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 3.75rem 0 11.5625rem 0;
+}
+
+@media (max-width: 1439px) {
+    .way__wrapper {
+        padding: 2.5rem 5rem 10rem 5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .way__wrapper {
+        padding: 2.5rem 3.75rem 8.75rem 3.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__wrapper {
+        padding: 2.5rem 1.875rem 7.5rem 1.875rem;
+    }
+}
+
+.way__title {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    text-transform: uppercase;
+    font-size: 3.75rem;
+    line-height: 100%;
+    color: #ffffff;
+    margin: 0 0 3.125rem 0;
+}
+
+@media (max-width: 1439px) {
+    .way__title {
+        font-size: 3rem;
+        line-height: 3.625rem;
+        margin: 0 0 2.5rem 0;
+    }
+}
+
+@media (max-width: 1023px) {
+    .way__title {
+        font-size: 2.25rem;
+        line-height: 3rem;
+        margin: 0 0 1.875rem 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__title {
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+        margin: 0 0 1.25rem 0;
+    }
+}
+
+.way__text {
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    position: relative;
+    margin: 0 0 2.1875rem 0;
+}
+
+@media (max-width: 1439px) {
+    .way__text {
+        font-size: 1.375rem;
+        line-height: 1.625rem;
+        margin: 0 0 1.25rem 0;
+    }
+}
+
+@media (max-width: 1023px) {
+    .way__text {
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__text {
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
+}
+
+.way__text:last-of-type {
+    margin: 0;
+}
+
+.way__map {
+    margin-top: 5rem;
+    width: 100%;
+    height: 29.6875rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+    .way__map iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+@media (max-width: 1439px) {
+    .way__map {
+        margin-top: 3.75rem;
+        height: 25rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .way__map {
+        margin-top: 2.5rem;
+        height: 22.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__map {
+        margin-top: 1.25rem;
+        height: 20rem;
+    }
+}
