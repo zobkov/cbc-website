@@ -18210,12 +18210,12 @@ html, body {
         border-right: 3px solid #000000;
         border-bottom: 3px solid #000000;
         transform: rotate(45deg);
-        transition: none;
+        transition: transform 0.25s ease, margin-top 0.25s ease;
     }
 
 .cta-reg.is-open .cta-reg__chev::before {
-    transform: rotate(45deg);
-    margin-top: -0.2rem;
+    transform: rotate(-135deg);
+    margin-top: 0.15rem;
 }
 
 .cta-reg__link {
@@ -18234,6 +18234,12 @@ html, body {
     line-height: 3.8125rem;
 }
 
+.cta-reg--hero .cta-reg__link {
+    background-color: var(--kbk-red);
+    color: #ffffff;
+    border: 0.4rem solid #000000;
+}
+
 .cta-reg--promo .cta-reg__toggle,
 .cta-reg--promo .cta-reg__link {
     padding: 1.25rem 16rem 1.25rem 1.25rem;
@@ -18241,30 +18247,39 @@ html, body {
     line-height: 2.9375rem;
 }
 
+.cta-reg--promo .cta-reg__link {
+    background-color: var(--kbk-turq);
+    color: #000000;
+    border: 0.4rem solid #000000;
+}
+
 @media (hover: hover) {
-    .cta-reg__toggle:hover:not(.focus-visible),
-    .cta-reg.is-open .cta-reg__toggle {
-        color: #ffffff;
-        background-color: #000000;
+    .cta-reg__toggle:hover:not(.focus-visible) {
+        transform: translateY(-1px);
+        box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.18);
     }
 
     .cta-reg__link:hover:not(.focus-visible) {
-        color: #000000;
-        background-color: #f6ac1b;
+        filter: brightness(1.12);
     }
 }
 
-.cta-reg__toggle:focus-visible,
-.cta-reg.is-open .cta-reg__toggle {
-    color: #ffffff;
-    background-color: #000000;
-    outline: none;
+.cta-reg__toggle:focus-visible {
+    outline: 2px solid #6bc8c6;
+    outline-offset: 3px;
+}
+
+.cta-reg.is-open .cta-reg__toggle,
+.cta-reg__toggle:active {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: none;
+    transform: none;
 }
 
 .cta-reg__link:focus-visible {
-    color: #000000;
-    background-color: #f6ac1b;
-    outline: none;
+    outline: 2px solid rgba(0, 0, 0, 0.4);
+    outline-offset: 2px;
 }
 
 .cta-reg__toggle:hover,
