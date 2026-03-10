@@ -1053,26 +1053,26 @@
     display: none;
 }
 
-.cta-reg__chev {
+.reg-dropdown__chev {
     flex: 0 0 auto;
-    width: 2.9rem;
-    height: 2.9rem;
+    width: 2.2rem;
+    height: 2.2rem;
     border-radius: 999px;
     background: #f6ac1b;
+    border: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-    .cta-reg__chev::before {
+    .reg-dropdown__chev::before {
         content: "";
-        width: 0.7rem;
-        height: 0.7rem;
+        width: 0.55rem;
+        height: 0.55rem;
         border-right: 3px solid #000000;
         border-bottom: 3px solid #000000;
         transform: rotate(45deg);
-        margin-top: -0.2rem;
-        transition: transform 0.25s ease, margin-top 0.25s ease;
+        margin-top: -0.15rem;
     }
 
 .cta-reg__menu {
@@ -1320,10 +1320,10 @@
 .cta-reg__chev {
     position: absolute;
     top: 50%;
-    right: 1.125rem;
-    width: 3rem;
-    height: 3rem;
-    margin-top: -1.5rem;
+    right: 1rem;
+    width: 3.8rem;
+    height: 3.8rem;
+    margin-top: -1.9rem;
     border-radius: 50%;
     background-color: #f6ac1b;
     display: inline-flex;
@@ -1333,18 +1333,18 @@
 
     .cta-reg__chev::before {
         content: "";
-        width: 0.7rem;
-        height: 0.7rem;
-        margin-top: -0.2rem;
-        border-right: 3px solid #000000;
-        border-bottom: 3px solid #000000;
-        transform: rotate(45deg);
-        transition: none;
+        width: 0;
+        height: 0;
+        border-left: 1.05rem solid transparent;
+        border-right: 1.05rem solid transparent;
+        border-top: 1.82rem solid #000000;
+        margin-top: 0.25rem;
+        transition: transform 0.25s ease;
     }
 
 .cta-reg.is-open .cta-reg__chev::before {
-    transform: rotate(45deg);
-    margin-top: -0.2rem;
+    transform: rotate(180deg);
+    margin-top: -0.25rem;
 }
 
 .cta-reg__link {
@@ -1361,6 +1361,13 @@
     padding: 0.75rem 5rem 0.75rem 1.25rem;
     font-size: 3.125rem;
     line-height: 3.8125rem;
+
+}
+
+.cta-reg--hero .cta-reg__link {
+    background-color: var(--kbk-red);
+    color: #ffffff;
+    border: 0.4rem solid #ffffff;
 }
 
 .cta-reg--promo .cta-reg__toggle,
@@ -1368,6 +1375,12 @@
     padding: 1.25rem 16rem 1.25rem 1.25rem;
     font-size: 2.375rem;
     line-height: 2.9375rem;
+}
+
+.cta-reg--promo .cta-reg__link {
+    background-color: var(--kbk-turq);
+    color: #000000;
+    border: 0.4rem solid #ffffff;
 }
 
 @media (hover: hover) {
