@@ -275,7 +275,7 @@
         }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .cta-reg--hero,
     .cta-reg--promo {
         width: 100%;
@@ -371,7 +371,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .cta-reg--hero .cta-reg__toggle,
     .cta-reg--hero .cta-reg__link {
         font-size: 1rem;

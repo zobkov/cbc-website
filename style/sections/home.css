@@ -16,7 +16,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .hero {
         padding: 2.5rem 0;
     }
@@ -47,7 +47,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .hero__wrapper {
         max-width: 100%;
     }
@@ -79,7 +79,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .hero__title {
         font-size: 3.125rem;
         line-height: 3.3125rem;
@@ -114,7 +114,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .hero__date {
         font-size: 1.5rem;
         line-height: 1.875rem;
@@ -152,7 +152,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .hero__link {
         width: 100%;
         font-size: 1.25rem;
@@ -199,7 +199,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .hero__dragon {
         top: -0.625rem;
         width: 10.9375rem;
@@ -240,7 +240,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .hero__dragon-img--head {
         width: 8.75rem;
         height: 8.75rem;
@@ -277,7 +277,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .partners__wrapper {
         padding: 2.5rem 1.875rem;
     }
@@ -308,7 +308,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .partners__title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -339,7 +339,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .partners__img--top {
         width: 3.125rem;
     }
@@ -364,7 +364,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .partners__img--center {
         width: 3.125rem;
     }
@@ -389,7 +389,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .partners__img--bottom {
         width: 3.125rem;
     }
@@ -418,7 +418,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .partners__list {
         gap: 1.25rem;
     }
@@ -452,7 +452,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .partners__list p {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -483,7 +483,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .partners__list img {
         height: 3.75rem;
         margin: 0 0 0.9375rem 0;

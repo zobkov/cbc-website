@@ -1,0 +1,14 @@
+<!--
+Source - https://stackoverflow.com/a/34726322
+Posted by Amit Verma, modified by community. See post 'Timeline' for change history
+Retrieved 2026-03-11, License - CC BY-SA 4.0
+-->
+
+RewriteEngine on
+
+
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]

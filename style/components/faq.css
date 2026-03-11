@@ -38,7 +38,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .faq-tabs {
         margin-bottom: 1rem;
     }
@@ -161,7 +161,7 @@
     display: none !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .faq-tabs {
         --faq-s: 0.95rem;
     }
@@ -291,7 +291,7 @@
 }
 
 /* Mobile: keep your original bottom arrows layout */
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .ecosystem__carousel .ecosystem__panel {
         width: 100%;
         margin: 0;
@@ -898,7 +898,7 @@
 /* =========================================
    Small screens: allow horizontal scroll instead of breaking shape
    ========================================= */
-@media (max-width: 767px) {
+@media (max-width: 0px) {
     .faq-tabs {
         overflow-x: auto;
         overflow-y: hidden;
