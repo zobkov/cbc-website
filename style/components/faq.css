@@ -12,16 +12,6 @@
 }
 
 @media (max-width: 1023px) {
-    .faq-tabs__btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.95rem;
-        clip-path: polygon(0.75rem 0, 100% 0, calc(100% - 0.75rem) 100%, 0 100%);
-    }
-
-        .faq-tabs__btn + .faq-tabs__btn {
-            margin-left: -0.75rem;
-        }
-
     .accordion--faq .accordion__button {
         font-size: 1.1rem;
         line-height: 1.35rem;
@@ -70,57 +60,6 @@
     border-bottom: 1px solid #ffffff;
 }
 
-/* same font as questions + same hover animation */
-.faq-tabs__btn {
-    position: relative;
-    border: 1px solid #ffffff;
-    background: transparent;
-    color: #ffffff;
-    padding: 0.45rem 1.1rem;
-    cursor: pointer;
-    /* same font as accordion questions */
-    font-family: inherit; /* <- important */
-    font-weight: 600; /* matches .accordion__button */
-    font-size: 1.25rem;
-    line-height: 1.5rem;
-    text-transform: none; /* like in mock */
-    /* same hover animation timing as questions */
-    transition: color 0.3s ease;
-    /* trapezoid */
-    clip-path: polygon(0.9rem 0, 100% 0, calc(100% - 0.9rem) 100%, 0 100%);
-    /* inactive tabs are "closed" at bottom */
-    border-bottom-color: #ffffff;
-}
-
-    .faq-tabs__btn + .faq-tabs__btn {
-        margin-left: -0.9rem; /* join angled edges */
-    }
-
-@media (hover:hover) {
-    .faq-tabs__btn:hover:not(.focus-visible) {
-        color: #c31632; /* same red as questions */
-    }
-}
-
-.faq-tabs__btn:focus-visible {
-    outline: 3px solid #f6ac1b;
-    outline-offset: 1px;
-}
-
-/* active tab: no bottom line */
-.faq-tabs__btn.is-active {
-    z-index: 2;
-    color: #ffffff;
-    /* remove bottom border and also hide the parent's bottom line under it */
-    border-bottom-color: transparent; /* <- no bottom line */
-    margin-bottom: -2px; /* overlap the tab-row line */
-    background: #000000; /* masks the white line beneath */
-}
-
-/* =========================
-   Remove the “extra black line/gap” between tabs and questions
-   ========================= */
-
 /* Use the tabs' bottom border as the first separator line */
 .accordion--faq .accordion__element:first-of-type {
     border-top: none;
@@ -129,28 +68,88 @@
 /* Tabs: make borders clearly visible between buttons */
 .faq-tabs {
     border-bottom: 1px solid #ffffff; /* match accordion thickness */
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    padding: 0 0 0 0.67rem;
 }
-
-.faq-tabs__btn {
-    border: 4px solid #ffffff;
-    border-bottom: none;
-    background: #000000; /* important: prevents overlap artifacts */
-}
-
-    /* keep your overlap */
-    .faq-tabs__btn + .faq-tabs__btn {
-        margin-left: -0.9rem;
-    }
-
-    /* active tab must be on top */
-    .faq-tabs__btn.is-active {
-        z-index: 10;
-        border-bottom-color: transparent;
-        margin-bottom: -4px; /* overlap the tabs row line (no bottom line) */
-    }
 
 .faq-empty {
     display: none !important;
+}
+
+.faq-tabs__btn {
+z-index: 1;
+  position: relative;
+  top: 2px;
+  margin-right: -0.2rem;
+  padding: 10px 28px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transform: skewX(-30deg);
+  transition: color 0.2s;
+  outline: none;
+}
+
+/* Parallelogram border via pseudo-element */
+.faq-tabs__btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 0.2rem solid #fff;
+  border-radius: 4px;
+  transition: border-color 0.2s, background 0.2s;
+  pointer-events: none;
+}
+
+/* Keep text upright */
+.faq-tabs__btn > * ,
+.faq-tabs__btn {
+  display: inline-block;
+}
+
+.faq-tabs__btn span {
+  display: inline-block;
+  transform: skewX(30deg);
+}
+
+/* Unskew the text itself */
+.faq-tabs__btn {
+  font-style: normal;
+}
+.faq-tabs__btn::after {
+  /* unskew text trick — wrap text in span if needed, or use this */
+  content: none;
+}
+
+/* Hover — red fill */
+.faq-tabs__btn:hover::before {
+  border-color: #e02020;
+  background: #e02020;
+}
+
+/* Active (pressed / .is-active) — no color change, bottom border black */
+.faq-tabs__btn:active::before,
+.faq-tabs__btn.is-active::before {
+  border-color: #fff;
+  background: transparent;
+  border-bottom-color: #000;
+  border-bottom-width: 3px;
+}
+
+/* Make sure hover doesn't override active state */
+.faq-tabs__btn.is-active:hover::before {
+  border-color: #fff;
+  background: transparent;
+  border-bottom-color: #000;
+}
+.faq-tabs__btn span {
+  display: inline-block;
+  transform: skewX(30deg); /* компенсирует наклон кнопки */
 }
 
 .accordion--faq > .accordion__element:first-child {
@@ -176,17 +175,6 @@
     position: relative;
     isolation: isolate;
 }
-
-/* default */
-.faq-tabs__btn {
-    position: relative;
-    z-index: 1;
-}
-
-    /* active always on top */
-    .faq-tabs__btn.is-active {
-        z-index: 10;
-    }
 
 /* FAQ questions: hover = text color only (white -> red, 0.3s) */
 .accordion--faq .accordion__button {
@@ -439,23 +427,6 @@
     position: relative;
     isolation: isolate; /* make z-index reliable */
 }
-
-/* make borders thick */
-.faq-tabs__btn {
-    border-width: var(--faq-b) !important;
-    background: transparent !important;
-}
-
-    /* overlap less than slant => diagonal border remains visible */
-    .faq-tabs__btn + .faq-tabs__btn {
-        margin-left: calc(-1 * (var(--faq-s) - var(--faq-b))) !important;
-    }
-
-/* ensure clip-path uses our slant variable */
-.faq-tabs__btn {
-    clip-path: polygon(var(--faq-s) 0, 100% 0, calc(100% - var(--faq-s)) 100%, 0 100%) !important;
-}
-
 /* =========================================
    FAQ TABS — draw real visible diagonals (robust)
    ========================================= */
@@ -463,53 +434,6 @@
 .question {
     --faq-line: 1.5px;
 }
-/* same thickness as question separators */
-
-
-
-/* TAB BUTTON: no border; outline is drawn by pseudo-elements */
-.faq-tabs__btn {
-    position: relative;
-    z-index: 1;
-    border: 0 !important;
-    background: transparent !important;
-    padding: 10px 26px;
-    color: #ffffff;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 1.1;
-    transition: color 0.3s ease;
-}
-
-    /* overlap to “connect” tabs */
-    .faq-tabs__btn + .faq-tabs__btn {
-        margin-left: calc(-1 * (var(--s) - var(--faq-line)));
-    }
-
-    /* Outer white shape (outline) */
-    .faq-tabs__btn::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: #ffffff;
-        clip-path: polygon(var(--s) 0, 100% 0, calc(100% - var(--s)) 100%, 0 100%);
-        z-index: -2;
-    }
-
-    /* Inner black fill (covers the inside AND removes bottom border by reaching bottom) */
-    .faq-tabs__btn::after {
-        content: "";
-        position: absolute;
-        top: var(--faq-line);
-        left: var(--faq-line);
-        right: var(--faq-line);
-        bottom: 0; /* IMPORTANT: covers bottom edge => no bottom outline */
-        background: #000000;
-        clip-path: polygon(var(--s) 0, 100% 0, calc(100% - var(--s)) 100%, 0 100%);
-        z-index: -1;
-    }
 
 /* =========================================
    Match separators thickness with tabs underline
@@ -533,75 +457,6 @@
     --faq-tab-pad-x: clamp(14px, 1.8vw, 26px);
     --faq-tab-slant: clamp(14px, 2vw, 28px);
 }
-
-/* tabs row */
-.faq-tabs {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    gap: 0;
-    margin: 0;
-    isolation: isolate;
-    flex-wrap: nowrap;
-    overflow: visible;
-}
-
-    /* underline under tabs */
-    .faq-tabs::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: var(--faq-line);
-        background: #ffffff;
-        z-index: 0;
-    }
-
-/* tab button */
-.faq-tabs__btn {
-    position: relative;
-    z-index: 1;
-    border: 0 !important;
-    background: transparent !important;
-    padding: var(--faq-tab-pad-y) var(--faq-tab-pad-x);
-    color: #ffffff;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 600;
-    font-size: var(--faq-tab-font);
-    line-height: 1.1;
-    white-space: nowrap;
-    transition: color 0.3s ease;
-}
-
-    /* overlap */
-    .faq-tabs__btn + .faq-tabs__btn {
-        margin-left: calc(-1 * (var(--faq-tab-slant) - var(--faq-line)));
-    }
-
-    /* outer white shape */
-    .faq-tabs__btn::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: #ffffff;
-        clip-path: polygon( var(--faq-tab-slant) 0, 100% 0, calc(100% - var(--faq-tab-slant)) 100%, 0 100% );
-        z-index: -2;
-    }
-
-    /* inner black fill */
-    .faq-tabs__btn::after {
-        content: "";
-        position: absolute;
-        top: var(--faq-line);
-        left: var(--faq-line);
-        right: var(--faq-line);
-        bottom: 0;
-        background: #000000;
-        clip-path: polygon( var(--faq-tab-slant) 0, 100% 0, calc(100% - var(--faq-tab-slant)) 100%, 0 100% );
-        z-index: -1;
-    }
 
 /* =========================================
    FAQ text responsiveness
