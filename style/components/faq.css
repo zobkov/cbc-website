@@ -38,20 +38,20 @@
     }
 }
 
-@media (max-width: 0px) {
-    .faq-tabs {
-        margin-bottom: 1rem;
+@media (max-width: 767px) {
+    .accordion--faq .accordion__button {
+        font-size: 1.1rem;
+        line-height: 1.35rem;
+        padding: 0.75rem 2.2rem 0.75rem 0;
     }
 
-    .faq-tabs__btn {
-        font-size: 0.75rem;
-        padding: 0.35rem 0.8rem;
-        clip-path: polygon(0.65rem 0, 100% 0, calc(100% - 0.65rem) 100%, 0 100%);
-    }
-
-        .faq-tabs__btn + .faq-tabs__btn {
-            margin-left: -0.65rem;
+        .accordion--faq .accordion__button::after {
+            font-size: 1.4rem;
         }
+    .accordion--faq .accordion__wrapper p {
+        font-size: 0.6rem;
+        line-height: 0.95rem;
+    }
 }
 
 .faq-is-hidden {
