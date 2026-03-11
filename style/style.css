@@ -14,6 +14,7 @@
 @import "./components/header-overrides.css";
 @import "./components/footer-overrides.css";
 @import "./sections/way-overrides.css";
+@import "./components/cta_reg.css";
 
 :root {
 	/* Partner page tokens */
