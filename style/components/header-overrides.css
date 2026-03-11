@@ -53,7 +53,7 @@
 
     /* White panel */
     .header__nav-list {
-        width: min(82vw, 22.5rem);
+        width: min(70vw, 22.5rem);
         height: 100%;
         background: #fff;
         padding: 1.75rem 0 1.25rem 0;
@@ -253,7 +253,7 @@
     .header__nav-list .header__nav-link--dropdown,
     .header__nav-list .header__dropdown-link,
     .header__nav-item-reg .header__nav-link--btn {
-        font-size: 1.125rem;
+        font-size: 1rem;
         line-height: 1.2;
     }
 }
@@ -557,6 +557,284 @@
     border-bottom-color: #000000;
 }
 
-/* =========================
-   FAQ categories (tabs)
-   ========================= */
+/* =========================================
+   MOBILE BURGER: dropdowns for ecosystem/partners
+   ========================================= */
+@media (max-width: 1024px) {
+
+    /* default: hidden (overrides any earlier rules safely) */
+    .header__nav-item--dropdown > .header__dropdown {
+        display: none !important;
+        position: relative;
+        margin: 0 1.25rem 1rem 1.25rem; /* inset like mock */
+        padding: 1rem 1.25rem;
+        background: #ffffff;
+        border-radius: 1.25rem;
+        list-style: none;
+        /* subtle separation from background */
+        box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+        /* the red line under the submenu (like mock) */
+        border-bottom: 2px solid #c31632;
+    }
+
+        /* triangle pointer */
+        .header__nav-item--dropdown > .header__dropdown::before {
+            content: "";
+            position: absolute;
+            top: -0.7rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 0.75rem solid transparent;
+            border-right: 0.75rem solid transparent;
+            border-bottom: 0.75rem solid #ffffff;
+            filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.08));
+        }
+
+    /* open state */
+    .header__nav-item--dropdown.is-open > .header__dropdown {
+        display: block !important;
+    }
+
+    /* remove the “row” separator when submenu is open (so red line is only under submenu) */
+    .header__nav-item--dropdown.is-open {
+        border-bottom: none !important;
+    }
+
+    /* dropdown links inside submenu (not like main rows) */
+    .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.55rem 0;
+        font-size: 1.125rem;
+        line-height: 1.2;
+        font-weight: 500;
+        font-family: "MontserratAlternates", "Arial", sans-serif;
+        color: #000000;
+        text-decoration: none;
+    }
+
+        /* circle bullets (as in mock) */
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-link::before {
+            content: "";
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 999px;
+            border: 2px solid #000000;
+            flex: 0 0 auto;
+        }
+
+    /* hover (optional – keeps your site vibe) */
+    @media (hover:hover) {
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-link:hover {
+            color: #c31632;
+        }
+
+            .header__nav-item--dropdown > .header__dropdown .header__dropdown-link:hover::before {
+                border-color: #c31632;
+            }
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* Parent row should stay like other rows */
+    .header__nav-item--dropdown {
+        position: relative;
+    }
+
+        /* Dropdown: NOT a floating card */
+        .header__nav-item--dropdown > .header__dropdown {
+            display: none !important;
+            position: static; /* inline flow */
+            margin: 0;
+            padding: 0.35rem 0 0.85rem 0; /* small spacing under title */
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            border-bottom: 2px solid #c31632; /* red line like mock */
+            list-style: none;
+        }
+
+            /* No triangle */
+            .header__nav-item--dropdown > .header__dropdown::before {
+                content: none !important;
+            }
+
+        /* Open state */
+        .header__nav-item--dropdown.is-open > .header__dropdown {
+            display: block !important;
+        }
+
+        /* Submenu items: centered, simple */
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-item {
+            border: 0;
+        }
+
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+            display: block;
+            padding: 0.45rem 0;
+            margin: 0;
+            font-family: "MontserratAlternates", "Arial", sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            line-height: 1.2;
+            color: #000000;
+            text-decoration: none;
+            text-align: center; /* like in mock */
+        }
+
+            /* Remove bullets (mock has none) */
+            .header__nav-item--dropdown > .header__dropdown .header__dropdown-link::before {
+                content: none !important;
+            }
+
+    /* Hover: same red as other hover */
+    @media (hover:hover) {
+        .header__nav-item--dropdown > .header__dropdown .header__dropdown-link:hover {
+            color: #c31632;
+        }
+    }
+
+    /* IMPORTANT: avoid extra red separators while submenu is open
+     (you currently have red lines between ALL main items) */
+    .header__nav-item--dropdown.is-open {
+        padding-bottom: 0; /* prevents extra spacing before submenu underline */
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* IMPORTANT: cancel any earlier "display: contents" / hiding */
+    .header__nav-list .header__nav-item--dropdown {
+        display: block !important;
+    }
+
+    .header__nav-list .header__nav-link--dropdown {
+        display: block !important;
+    }
+
+    /* Submenu container: inline flow, full width, no card look */
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown {
+        /* visibility */
+        display: none !important;
+        /* kill desktop dropdown geometry */
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        /* FULL width (prevents short red line / weird sizing) */
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        /* clean look */
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        /* remove list indentation */
+        list-style: none !important;
+        padding: 0.35rem 0 0.9rem 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Open state */
+    .header__nav-list .header__nav-item--dropdown.is-open > .header__dropdown {
+        display: block !important;
+    }
+
+    /* Make sure the main red separator is FULL width and stays at the bottom */
+    .header__nav-list .header__nav-item--dropdown.is-open {
+        border-bottom: 1px solid #c31632 !important; /* full-width line like the mock */
+    }
+
+    /* Submenu items: centered, no big paddings from global rules */
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-item {
+        border: 0 !important;
+        margin: 0 !important;
+    }
+
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+        display: block !important;
+        width: 100% !important;
+        /* remove huge menu-row padding */
+        padding: 0.45rem 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        /* typography (adjust if you want slightly smaller) */
+        font-size: 1.25rem !important;
+        line-height: 1.2 !important;
+        font-weight: 500 !important;
+        font-family: "MontserratAlternates", "Arial", sans-serif !important;
+        color: #000000 !important;
+        text-decoration: none !important;
+    }
+
+        /* No bullets/circles */
+        .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link::before {
+            content: none !important;
+        }
+
+    @media (hover:hover) {
+        .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link:hover {
+            color: #c31632 !important;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .header__nav-list .header__nav-item--dropdown > .header__dropdown {
+        padding-left: 1.5rem !important; /* same left inset as main items */
+        padding-right: 1.5rem !important;
+        margin-top: -15px !important;
+    }
+
+        .header__nav-list .header__nav-item--dropdown > .header__dropdown .header__dropdown-link {
+            text-align: left !important;
+        }
+}
+
+@media (max-width: 1024px) {
+    /* keep dropdown parent title always black */
+    .header__nav-link--dropdown {
+        color: #000000 !important;
+    }
+
+        .header__nav-link--dropdown:active,
+        .header__nav-link--dropdown:focus,
+        .header__nav-link--dropdown:focus-visible {
+            color: #000000 !important;
+        }
+}
+
+@media (min-width: 1025px) {
+    .header__dropdown {
+        font-size: 22px; /* smaller than before */
+        line-height: 1.15;
+    }
+
+    .header__dropdown-link {
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+/* Desktop: ONLY “Наша экосистема” + “Партнёры” (dropdown triggers)
+   black -> red in 0.3s */
+@media (min-width: 1025px) {
+    .header__nav-item--dropdown > .header__nav-link--dropdown {
+        color: #000000 !important;
+        transition: color 0.3s ease;
+    }
+
+    @media (hover:hover) {
+        .header__nav-item--dropdown:hover > .header__nav-link--dropdown,
+        .header__nav-item--dropdown:focus-within > .header__nav-link--dropdown {
+            color: #c31632 !important;
+        }
+    }
+}
+
