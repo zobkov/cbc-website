@@ -84,6 +84,7 @@
     color: #000000;
 }
 
+
 .reg-general__field input::placeholder {
     color: #787878;
 }
@@ -198,4 +199,19 @@
     .reg-general__passport-row {
         gap: 0.5rem;
     }
+}
+.reg-general__field-info {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 0.5rem;
+    color: #f6ac1b;
+    margin: 0.2rem 0 0 0;
+}
+
+.reg-general__field-info a {
+    font-size: 0.875rem;
+    line-height: 0.5rem;
+    color: #000000;
+    margin: 0 0 0 0;
+    text-decoration: underline;
 }
