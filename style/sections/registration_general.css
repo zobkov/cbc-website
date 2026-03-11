@@ -170,41 +170,6 @@
     gap: 0.75rem;
 }
 
-@media (max-width: 767px) {
-    .registration__wrapper--general {
-        padding: 5rem 0 8rem;
-    }
-
-    .registration__subtitle {
-        margin-bottom: 1.25rem;
-        font-size: 0.9375rem;
-        line-height: 1.25rem;
-    }
-
-    .reg-general__field {
-        padding-left: 1.5rem;
-        --rg-control-h: 2.6875rem;
-    }
-
-    .reg-general__field::before {
-        font-size: 0.875rem;
-    }
-
-    .reg-general__field-title {
-        font-size: 3rem;
-    }
-
-    .reg-general__field input,
-    .reg-general__select-button {
-        min-height: 2.6875rem;
-        font-size: 1rem;
-        line-height: 1.125rem;
-    }
-
-    .reg-general__passport-row {
-        gap: 0.5rem;
-    }
-}
 .reg-general__field-info {
     font-size: 0.875rem;
     font-weight: 600;
@@ -219,4 +184,70 @@
     color: #000000;
     margin: 0 0 0 0;
     text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .registration__wrapper--general {
+        padding: 5rem 0 8rem;
+    }
+
+    .registration__subtitle {
+        margin-bottom: 1.25rem;
+        font-size: 0.9375rem;
+        line-height: 1.25rem;
+    }
+
+    .reg-general__field {
+        padding-left: 1.5rem;
+        --rg-title-size: 0.6rem;
+        --rg-control-h: 2.15rem;
+    }
+
+    .reg-general__field::before {
+        font-size: 0.875rem;
+    }
+
+    .reg-general__field input,
+    .reg-general__select-button {
+        min-height: 2.15rem;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+    }
+
+    .reg-general__field-info {
+    font-size: 0.5rem;
+    font-weight: 600;
+    line-height: 0.8rem;
+    color: #f6ac1b;
+    margin: 0rem 0 0 0;
+    }
+    .reg-general__field-info a {
+    font-size: 0.5rem;
+    line-height: 0.5rem;
+    color: #000000;
+    margin: 0 0 0 0;
+    text-decoration: underline;
+    }
+    .reg-general__select-menu button {
+    border: none;
+    background: transparent;
+    border-radius: 14px;
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    }
+
+    .registration__form--general .registration__submit {
+        height: 2.31875rem;
+        padding: 0.30625rem 1.70625rem;
+        font-size: 1.05rem;
+        line-height: 1.3125rem;
+    }
+
+    .reg-general__passport-row {
+        gap: 0.5rem;
+    }
 }
