@@ -2129,6 +2129,10 @@
             height: 1.5rem;
         }
 
+        .page-index .ecosystem::before {
+            height: 1.25rem;
+        }
+
         .page-index .about__wrapper {
             padding: 1.5rem 0 1.75rem 0;
         }
