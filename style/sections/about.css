@@ -2254,10 +2254,10 @@
         }
 
         .page-index .ecosystem__arrow::before {
-            width: 0.24rem;
-            height: 0.24rem;
-            border-right-width: 1px;
-            border-bottom-width: 1px;
+            width: 0.15rem;
+            height: 0.15rem;
+            border-right-width: 0.5px;
+            border-bottom-width: 0.5px;
         }
 
         .page-index .ecosystem__arrow--prev::before {
