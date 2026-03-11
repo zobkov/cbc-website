@@ -4,6 +4,7 @@
 @import "./components/footer.css";
 @import "./components/faq.css";
 @import "./sections/registration.css";
+@import "./sections/registration_general.css";
 @import "./sections/home.css";
 @import "./sections/about.css";
 @import "./sections/way.css";
