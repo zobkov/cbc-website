@@ -134,15 +134,18 @@
                 <div class="container">
                     <div class="registration__wrapper registration__wrapper--general">
                         <h1 class="registration__title registration__title--general">Регистрация на форум</h1>
-                        <p class="registration__subtitle">Заполните форму. После отправки вы увидите JSON с введенными данными.</p>
+                        <p class="registration__subtitle">КБК - это уникальный всероссийский проект для обмена знаниями о Китае, созданный студентами и молодыми профессионалами со всей России. С нами ты получишь экспертные знания, полезные связи и крутые карьерные возможности!
+ <br> <br>Дело за малым, осталось только зарегистрироваться</p>
 
                         <div class="registration__form registration__form--general">
                             <form id="generalRegistrationForm" novalidate>
                                 <div class="reg-general__field" data-number="1">
+                                    <span class="reg-general__field-title">ФИО</span>
                                     <input type="text" name="fullName" placeholder="ФИО" autocomplete="name" />
                                 </div>
 
                                 <div class="reg-general__field" data-number="2">
+                                    <span class="reg-general__field-title">Статус</span>
                                     <div class="reg-general__select" data-select>
                                         <input type="hidden" name="status" data-select-value value="" />
                                         <button class="reg-general__select-button" type="button" data-select-toggle>
@@ -159,12 +162,15 @@
 
                                 <div class="reg-general__role" data-role-block="speaker" hidden>
                                     <div class="reg-general__field" data-number="3">
+                                        <span class="reg-general__field-title">Почта</span>
                                         <input type="email" name="email" placeholder="Почта" autocomplete="email" />
                                     </div>
                                     <div class="reg-general__field" data-number="4">
+                                        <span class="reg-general__field-title">Телефон</span>
                                         <input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" />
                                     </div>
                                     <div class="reg-general__field" data-number="5">
+                                        <span class="reg-general__field-title">Способ доставки себя до форума</span>
                                         <div class="reg-general__select" data-select data-transport-select>
                                             <input type="hidden" name="transport" data-select-value value="" />
                                             <button class="reg-general__select-button" type="button" data-select-toggle>
@@ -180,9 +186,11 @@
                                         </div>
                                     </div>
                                     <div class="reg-general__field reg-general__field--no-number" data-car-field hidden>
+                                        <span class="reg-general__field-title">Номер автомобиля</span>
                                         <input type="text" name="carNumber" placeholder="Номер автомобиля" />
                                     </div>
                                     <div class="reg-general__field" data-number="6">
+                                        <span class="reg-general__field-title">Паспорт</span>
                                         <div class="reg-general__passport-row">
                                             <input type="text" name="passportSeries" placeholder="Серия" />
                                             <input type="text" name="passportNumber" placeholder="Паспорт" />
@@ -192,12 +200,15 @@
 
                                 <div class="reg-general__role" data-role-block="participant" hidden>
                                     <div class="reg-general__field" data-number="3">
+                                        <span class="reg-general__field-title">Дата рождения</span>
                                         <input type="date" name="birthDate" placeholder="Дата рождения" />
                                     </div>
                                     <div class="reg-general__field" data-number="4">
+                                        <span class="reg-general__field-title">Регион</span>
                                         <input type="text" name="region" placeholder="Регион" />
                                     </div>
                                     <div class="reg-general__field" data-number="5">
+                                        <span class="reg-general__field-title">Статус участника</span>
                                         <div class="reg-general__select" data-select>
                                             <input type="hidden" name="participantStatus" data-select-value value="" />
                                             <button class="reg-general__select-button" type="button" data-select-toggle>
@@ -212,12 +223,15 @@
                                         </div>
                                     </div>
                                     <div class="reg-general__field" data-number="6">
+                                        <span class="reg-general__field-title">Почта</span>
                                         <input type="email" name="email" placeholder="Почта" autocomplete="email" />
                                     </div>
                                     <div class="reg-general__field" data-number="7">
+                                        <span class="reg-general__field-title">Телефон</span>
                                         <input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" />
                                     </div>
                                     <div class="reg-general__field" data-number="8">
+                                        <span class="reg-general__field-title">Профильный трек</span>
                                         <div class="reg-general__select" data-select>
                                             <input type="hidden" name="track" data-select-value value="" />
                                             <button class="reg-general__select-button" type="button" data-select-toggle>
@@ -237,6 +251,7 @@
                                         </div>
                                     </div>
                                     <div class="reg-general__field" data-number="9">
+                                        <span class="reg-general__field-title">Способ доставки себя до форума</span>
                                         <div class="reg-general__select" data-select data-transport-select>
                                             <input type="hidden" name="transport" data-select-value value="" />
                                             <button class="reg-general__select-button" type="button" data-select-toggle>
@@ -252,9 +267,11 @@
                                         </div>
                                     </div>
                                     <div class="reg-general__field reg-general__field--no-number" data-car-field hidden>
+                                        <span class="reg-general__field-title">Номер автомобиля</span>
                                         <input type="text" name="carNumber" placeholder="Номер автомобиля" />
                                     </div>
                                     <div class="reg-general__field" data-number="10">
+                                        <span class="reg-general__field-title">Паспорт</span>
                                         <div class="reg-general__passport-row">
                                             <input type="text" name="passportSeries" placeholder="Серия" />
                                             <input type="text" name="passportNumber" placeholder="Паспорт" />
@@ -264,12 +281,15 @@
 
                                 <div class="reg-general__role" data-role-block="guest" hidden>
                                     <div class="reg-general__field" data-number="3">
+                                        <span class="reg-general__field-title">Почта</span>
                                         <input type="email" name="email" placeholder="Почта" autocomplete="email" />
                                     </div>
                                     <div class="reg-general__field" data-number="4">
+                                        <span class="reg-general__field-title">Телефон</span>
                                         <input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" />
                                     </div>
                                     <div class="reg-general__field" data-number="5">
+                                        <span class="reg-general__field-title">Способ доставки себя до форума</span>
                                         <div class="reg-general__select" data-select data-transport-select>
                                             <input type="hidden" name="transport" data-select-value value="" />
                                             <button class="reg-general__select-button" type="button" data-select-toggle>
@@ -285,9 +305,11 @@
                                         </div>
                                     </div>
                                     <div class="reg-general__field reg-general__field--no-number" data-car-field hidden>
+                                        <span class="reg-general__field-title">Номер автомобиля</span>
                                         <input type="text" name="carNumber" placeholder="Номер автомобиля" />
                                     </div>
                                     <div class="reg-general__field" data-number="6">
+                                        <span class="reg-general__field-title">Паспорт</span>
                                         <div class="reg-general__passport-row">
                                             <input type="text" name="passportSeries" placeholder="Серия" />
                                             <input type="text" name="passportNumber" placeholder="Паспорт" />

@@ -40,6 +40,18 @@
     width: 100%;
     position: relative;
     padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.reg-general__field-title {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #ffffff;
+    text-align: left;
 }
 
 .reg-general__field::before {
@@ -170,6 +182,10 @@
 
     .reg-general__field::before {
         font-size: 0.875rem;
+    }
+
+    .reg-general__field-title {
+        font-size: 3rem;
     }
 
     .reg-general__field input,
