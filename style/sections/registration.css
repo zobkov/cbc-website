@@ -178,6 +178,66 @@
     color: #ffffff;
 }
 
+.registration__captcha {
+    margin: 1.2rem 0 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.registration__captcha .cf-turnstile {
+    min-height: 65px;
+}
+
+.registration__captcha {
+    margin: 1rem 0 1.2rem;
+}
+
+.registration__captcha-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    min-height: 3.4rem;
+    padding: 0.85rem 1.2rem;
+    border-radius: 1.8rem;
+    background: #f2f2f2;
+    cursor: pointer;
+    user-select: none;
+}
+
+.registration__captcha-check input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.registration__captcha-box {
+    width: 1.35rem;
+    height: 1.35rem;
+    flex: 0 0 1.35rem;
+    border: 2px solid #7d7d7d;
+    border-radius: 0.3rem;
+    background: #ffffff;
+    position: relative;
+}
+
+.registration__captcha-text {
+    font-size: 1.1rem;
+    line-height: 1;
+    color: #6f7684;
+}
+
+.registration__captcha-check input:checked + .registration__captcha-box::after {
+    content: "";
+    position: absolute;
+    left: 0.32rem;
+    top: 0.08rem;
+    width: 0.38rem;
+    height: 0.72rem;
+    border-right: 2px solid #d4143d;
+    border-bottom: 2px solid #d4143d;
+    transform: rotate(45deg);
+}
+
 .registration__submit {
     width: 18.5rem;
     padding: 0.4375rem 2.4375rem;
