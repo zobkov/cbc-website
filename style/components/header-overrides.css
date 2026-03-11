@@ -275,12 +275,6 @@
 @media (max-width: 767px) {
     .header__reg-btn--mobile {
         font-size: 0.6rem;
-        padding: 0.65rem 1rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .header__reg-btn--mobile {
         padding: 0.3rem 0.8rem;
     }
 }
