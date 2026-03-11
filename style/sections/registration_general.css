@@ -42,14 +42,18 @@
     padding-left: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    --rg-title-size: 1.2rem;
+    --rg-title-line: 1.1;
+    --rg-gap: 0.35rem;
+    --rg-control-h: 3.3125rem;
+    gap: var(--rg-gap);
 }
 
 .reg-general__field-title {
     display: block;
-    font-size: 1.2rem;
+    font-size: var(--rg-title-size);
     font-weight: 600;
-    line-height: 1.1;
+    line-height: var(--rg-title-line);
     color: #ffffff;
     text-align: left;
 }
@@ -58,7 +62,7 @@
     content: attr(data-number);
     position: absolute;
     left: 0;
-    top: 50%;
+    top: calc((var(--rg-title-size) * var(--rg-title-line)) + var(--rg-gap) + (var(--rg-control-h) / 2));
     transform: translateY(-50%);
     color: #ffffff;
     font-weight: 700;
@@ -179,6 +183,7 @@
 
     .reg-general__field {
         padding-left: 1.5rem;
+        --rg-control-h: 2.6875rem;
     }
 
     .reg-general__field::before {
@@ -203,7 +208,7 @@
 .reg-general__field-info {
     font-size: 0.875rem;
     font-weight: 600;
-    line-height: 0.5rem;
+    line-height: 0.8rem;
     color: #f6ac1b;
     margin: 0.2rem 0 0 0;
 }
