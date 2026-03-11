@@ -629,7 +629,7 @@ button,
         padding: 0 1.25rem;
     }
 
-    .page-index .container {
+    .page-index .container, .page-index .header .container {
         padding: 0 1.25rem;
     }
 }

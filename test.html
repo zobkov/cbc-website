@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parallelogram Tabs</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --accent: #e8ff47;
+    --accent2: #ff4d6d;
+    --text: #f0f0f0;
+    --muted: #555;
+    --skew: -12deg;
+    --tab-h: 52px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px 20px;
+  }
+
+  /* ── Scanline texture ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(255,255,255,0.018) 3px,
+      rgba(255,255,255,0.018) 4px
+    );
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* ════════════════════════════════
+     VARIANT 1 — Racing Stripe
+  ════════════════════════════════ */
+  .tabs-racing {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+
+  .tabs-racing input[type="radio"] { display: none; }
+
+  .tabs-racing .tab {
+    position: relative;
+    height: var(--tab-h);
+    padding: 0 28px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    transition: color 0.2s;
+    user-select: none;
+    z-index: 1;
+  }
+
+  /* The actual parallelogram shape */
+  .tabs-racing .tab::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: skewX(var(--skew));
+    background: var(--surface);
+    border: 1px solid #222;
+    transition: background 0.2s, border-color 0.2s;
+    z-index: -1;
+  }
+
+  /* Overlap tabs slightly */
+  .tabs-racing .tab:not(:first-child) { margin-left: -14px; }
+
+  /* Active state via adjacent sibling */
+  .tabs-racing input:checked + .tab { color: #0a0a0f; }
+  .tabs-racing input:checked + .tab::before {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* Hover */
+  .tabs-racing .tab:hover { color: var(--text); }
+  .tabs-racing .tab:hover::before { background: #1e1e28; border-color: #444; }
+  .tabs-racing input:checked + .tab:hover { color: #0a0a0f; }
+  .tabs-racing input:checked + .tab:hover::before { background: var(--accent); }
+
+  /* Active indicator stripe */
+  .tabs-racing input:checked + .tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 8px; right: 8px;
+    height: 3px;
+    background: #0a0a0f;
+    transform: skewX(var(--skew));
+    border-radius: 1px;
+  }
+
+  /* ════════════════════════════════
+     VARIANT 2 — Ghost / Outlined
+  ════════════════════════════════ */
+  .tabs-ghost {
+    display: flex;
+    gap: 6px;
+  }
+  .tabs-ghost input[type="radio"] { display: none; }
+
+  .tabs-ghost .tab {
+    position: relative;
+    height: 46px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    transition: color 0.2s;
+    user-select: none;
+    z-index: 1;
+  }
+
+  .tabs-ghost .tab::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: skewX(var(--skew));
+    background: transparent;
+    border: 1.5px solid #333;
+    transition: border-color 0.2s, background 0.2s;
+    z-index: -1;
+  }
+
+  .tabs-ghost input:checked + .tab { color: var(--accent2); }
+  .tabs-ghost input:checked + .tab::before {
+    border-color: var(--accent2);
+    background: rgba(255, 77, 109, 0.08);
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.2), inset 0 0 12px rgba(255, 77, 109, 0.07);
+  }
+
+  .tabs-ghost .tab:hover { color: var(--text); }
+  .tabs-ghost .tab:hover::before { border-color: #555; }
+  .tabs-ghost input:checked + .tab:hover { color: var(--accent2); }
+
+  /* ════════════════════════════════
+     VARIANT 3 — Stacked / Vertical
+  ════════════════════════════════ */
+  .tabs-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .tabs-vertical input[type="radio"] { display: none; }
+
+  .tabs-vertical .tab {
+    position: relative;
+    height: 44px;
+    width: 220px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    transition: color 0.2s;
+    user-select: none;
+    z-index: 1;
+  }
+
+  .tabs-vertical .tab::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: skewX(var(--skew));
+    background: var(--surface);
+    border-left: 3px solid transparent;
+    transition: background 0.2s, border-color 0.2s;
+    z-index: -1;
+  }
+
+  .tabs-vertical input:checked + .tab { color: var(--text); }
+  .tabs-vertical input:checked + .tab::before {
+    background: #1c1c28;
+    border-left-color: var(--accent);
+  }
+
+  .tabs-vertical .tab:hover { color: var(--text); }
+  .tabs-vertical .tab:hover::before { background: #161620; }
+
+  .tab-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: opacity 0.2s;
+  }
+  .tabs-vertical input:checked + .tab .tab-dot { opacity: 1; background: var(--accent); }
+
+  /* panel demo */
+  .panel {
+    margin-top: 20px;
+    padding: 20px 28px;
+    background: var(--surface);
+    border: 1px solid #1e1e28;
+    font-size: 13px;
+    color: #888;
+    min-width: 320px;
+    position: relative;
+  }
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+</style>
+</head>
+<body>
+
+<!-- VARIANT 1 -->
+<div>
+  <label>Racing Stripe</label>
+  <div class="tabs-racing">
+    <input type="radio" name="r1" id="r1a" checked>
+    <label class="tab" for="r1a">Overview</label>
+
+    <input type="radio" name="r1" id="r1b">
+    <label class="tab" for="r1b">Analytics</label>
+
+    <input type="radio" name="r1" id="r1c">
+    <label class="tab" for="r1c">Reports</label>
+
+    <input type="radio" name="r1" id="r1d">
+    <label class="tab" for="r1d">Settings</label>
+  </div>
+</div>
+
+<!-- VARIANT 2 -->
+<div>
+  <label>Ghost Outlined</label>
+  <div class="tabs-ghost">
+    <input type="radio" name="r2" id="r2a" checked>
+    <label class="tab" for="r2a">Design</label>
+
+    <input type="radio" name="r2" id="r2b">
+    <label class="tab" for="r2b">Prototype</label>
+
+    <input type="radio" name="r2" id="r2c">
+    <label class="tab" for="r2c">Code</label>
+  </div>
+</div>
+
+<!-- VARIANT 3 + Panel -->
+<div style="display:flex; gap:0; align-items:flex-start;">
+  <div>
+    <label>Vertical Stack</label>
+    <div class="tabs-vertical">
+      <input type="radio" name="r3" id="r3a" checked>
+      <label class="tab" for="r3a"><span class="tab-dot"></span>Dashboard</label>
+
+      <input type="radio" name="r3" id="r3b">
+      <label class="tab" for="r3b"><span class="tab-dot"></span>Projects</label>
+
+      <input type="radio" name="r3" id="r3c">
+      <label class="tab" for="r3c"><span class="tab-dot"></span>Team</label>
+
+      <input type="radio" name="r3" id="r3d">
+      <label class="tab" for="r3d"><span class="tab-dot"></span>Integrations</label>
+    </div>
+  </div>
+  <div class="panel">Select a tab to navigate</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+.registration--general {
+    background-color: #c31632;
+}
+
+.registration__wrapper--general {
+    padding: 7.8125rem 0 6.5625rem;
+}
+
+.registration__title--general {
+    margin-bottom: 0.875rem;
+}
+
+.registration__subtitle {
+    margin: 0 0 2rem;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    color: #ffffff;
+    text-align: center;
+    max-width: 33.875rem;
+}
+
+.registration__form--general {
+    width: 100%;
+    max-width: 36.875rem;
+}
+
+.registration__form--general form {
+    width: 100%;
+    gap: 1rem;
+}
+
+.reg-general__role {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reg-general__field {
+    width: 100%;
+    position: relative;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    --rg-title-size: 1.2rem;
+    --rg-title-line: 1.1;
+    --rg-gap: 0.35rem;
+    --rg-control-h: 3.3125rem;
+    gap: var(--rg-gap);
+}
+
+.reg-general__field-title {
+    display: block;
+    font-size: var(--rg-title-size);
+    font-weight: 600;
+    line-height: var(--rg-title-line);
+    color: #ffffff;
+    text-align: left;
+}
+
+.reg-general__field::before {
+    content: attr(data-number);
+    position: absolute;
+    left: 0;
+    top: calc((var(--rg-title-size) * var(--rg-title-line)) + var(--rg-gap) + (var(--rg-control-h) / 2));
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.reg-general__field--no-number::before {
+    display: none;
+}
+
+.reg-general__field input,
+.reg-general__select-button {
+    width: 100%;
+    min-height: 3.3125rem;
+    border: none;
+    border-radius: 26.5px;
+    outline: none;
+    padding: 0.75rem 1.125rem;
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+
+.reg-general__field input::placeholder {
+    color: #787878;
+}
+
+.reg-general__select {
+    position: relative;
+}
+
+.reg-general__select-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    text-align: left;
+    padding-right: 2.75rem;
+}
+
+.reg-general__select-button span[data-select-label] {
+    color: #787878;
+}
+
+.reg-general__select.is-selected .reg-general__select-button span[data-select-label] {
+    color: #000000;
+}
+
+.reg-general__select-arrow {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    width: 0.75rem;
+    height: 0.5rem;
+    transform: translateY(-50%);
+    background-color: #000000;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    transition: transform 0.2s ease;
+}
+
+.reg-general__select.is-open .reg-general__select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.reg-general__select-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 0.5rem;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 20;
+}
+
+.reg-general__select.is-open .reg-general__select-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.reg-general__select-menu button {
+    border: none;
+    background: transparent;
+    border-radius: 14px;
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.reg-general__select-menu button:hover,
+.reg-general__select-menu button:focus-visible {
+    background-color: #f4f4f4;
+}
+
+.reg-general__passport-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.reg-general__field-info {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 0.8rem;
+    color: #f6ac1b;
+    margin: 0.2rem 0 0 0;
+}
+
+.reg-general__field-info a {
+    font-size: 0.875rem;
+    line-height: 0.5rem;
+    color: #000000;
+    margin: 0 0 0 0;
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .registration__wrapper--general {
+        padding: 5rem 0 8rem;
+    }
+
+    .registration__subtitle {
+        margin-bottom: 1.25rem;
+        font-size: 0.9375rem;
+        line-height: 1.25rem;
+    }
+
+    .reg-general__field {
+        padding-left: 1.5rem;
+        --rg-title-size: 0.6rem;
+        --rg-control-h: 2.15rem;
+    }
+
+    .reg-general__field::before {
+        font-size: 0.875rem;
+    }
+
+    .reg-general__field input,
+    .reg-general__select-button {
+        min-height: 2.15rem;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.8rem;
+        line-height: 0.9rem;
+    }
+
+    .reg-general__field-info {
+    font-size: 0.5rem;
+    font-weight: 600;
+    line-height: 0.8rem;
+    color: #f6ac1b;
+    margin: 0rem 0 0 0;
+    }
+    .reg-general__field-info a {
+    font-size: 0.5rem;
+    line-height: 0.5rem;
+    color: #000000;
+    margin: 0 0 0 0;
+    text-decoration: underline;
+    }
+    .reg-general__select-menu button {
+    border: none;
+    background: transparent;
+    border-radius: 14px;
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    }
+
+    .registration__form--general .registration__submit {
+        height: 2.31875rem;
+        padding: 0.30625rem 1.70625rem;
+        font-size: 1.05rem;
+        line-height: 1.3125rem;
+    }
+
+    .reg-general__passport-row {
+        gap: 0.5rem;
+    }
+}

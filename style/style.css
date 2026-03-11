@@ -4,16 +4,19 @@
 @import "./components/footer.css";
 @import "./components/faq.css";
 @import "./sections/registration.css";
+@import "./sections/registration_general.css";
 @import "./sections/home.css";
 @import "./sections/about.css";
 @import "./sections/way.css";
 @import "./sections/schedule.css";
 @import "./sections/wait.css";
+@import "./sections/rgistration_grant.css";
 @import "./sections/partner.css";
 @import "./sections/media-press-kit.css";
 @import "./components/header-overrides.css";
 @import "./components/footer-overrides.css";
 @import "./sections/way-overrides.css";
+@import "./components/cta_reg.css";
 
 :root {
 	/* Partner page tokens */
