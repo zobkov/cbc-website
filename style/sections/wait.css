@@ -1,0 +1,1574 @@
+.wait {
+    position: relative;
+    background-color: #c31632; /* êàê íà ìàêåòå */
+    overflow: hidden;
+}
+
+/* ÷òîáû áëîê âûãëÿäåë êàê "ýêðàí" è öåíòðèðîâàëñÿ */
+.wait__wrapper {
+    min-height: 45rem;
+    padding: 6rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.wait__title {
+    margin: 0 0 0.75rem 0;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 4.5rem;
+    line-height: 4.25rem;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.wait__subtitle {
+    margin: 0;
+    font-size: 1.75rem;
+    line-height: 2.125rem;
+    color: #ffffff;
+}
+
+/* äåêîð ïî áîêàì */
+.wait__decor {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: auto;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    object-fit: contain;
+}
+
+.wait__decor--left {
+    left: -1.5rem;
+    width: 25vw;
+    max-width: 30rem;
+}
+
+.wait__decor--right {
+    right: -1.5rem;
+    width: 25vw;
+    max-width: 30rem;
+}
+
+.wait .container,
+.wait__wrapper {
+    position: relative;
+    z-index: 1; /* ÷òîáû òåêñò áûë ïîâåðõ äåêîðà */
+}
+
+/* àäàïòèâ */
+@media (max-width: 1439px) {
+    .wait__decor--left,
+    .wait__decor--right {
+        width: 18vw;
+    }
+
+    .wait__title {
+        font-size: 3.5rem;
+        line-height: 1.1;
+    }
+}
+
+@media (max-width: 1023px) {
+    .wait__wrapper {
+        min-height: 28rem;
+        padding: 4.5rem 0;
+    }
+
+    .wait__title {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    .wait__subtitle {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+
+    .wait__decor--left,
+    .wait__decor--right {
+        width: 20vw;
+    }
+}
+
+@media (max-width: 767px) {
+    .wait__wrapper {
+        min-height: 22rem;
+        padding: 3.5rem 0;
+    }
+
+    .wait__title {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+    }
+
+    .wait__subtitle {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+
+    .wait__decor--left {
+        width: 35vw;
+        left: -3rem;
+        opacity: 0.9;
+    }
+
+    .wait__decor--right {
+        width: 35vw;
+        right: -3rem;
+        opacity: 0.9;
+    }
+}
+
+.reg {
+    padding: 4.5rem 0 6.25rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.reg__corner {
+    position: absolute;
+    width: 12.5rem;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+
+
+.reg__corner--tr {
+    top: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.reg__corner--bl {
+    bottom: 0;
+    left: 0;
+}
+
+.reg .container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 1439px) {
+    .reg__corner {
+        width: 10.625rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .reg__corner {
+        width: 8.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__corner {
+        width: 6.25rem;
+        display: none;
+    }
+}
+
+.reg__top {
+    text-align: center;
+    padding: 3.75rem 0 2.5rem 0;
+}
+
+.reg__title {
+    margin: -1rem 0 2rem 0;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 6.25rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+@media (max-width: 1439px) {
+    .reg__title {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .reg__title {
+        font-size: 3.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__title {
+        font-size: 2.75rem;
+        margin-top: -105px;
+    }
+}
+
+.reg__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 3rem;
+    border-radius: 50px;
+    background-color: #6bc9c6;
+    color: #ffffff;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 1023px) {
+    .reg__btn {
+        font-size: 1.5rem;
+        padding: 0.875rem 2.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__btn {
+        width: 100%;
+        max-width: 22rem;
+        font-size: 1.25rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (hover: hover) {
+    .reg__btn:hover:not(.focus-visible) {
+        transform: scale(1.05);
+        background-color: #f6ac1b;
+    }
+}
+
+.reg__btn.focus-visible:focus {
+    transform: scale(1.05);
+    background-color: #f6ac1b;
+}
+
+.reg__btn.focus-visible:active {
+    transform: scale(1);
+    background-color: #000000;
+}
+
+.reg__note {
+    margin: 1.25rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+@media (max-width: 1023px) {
+    .reg__note {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__note {
+        font-size: 1rem;
+        text-align: left;
+        justify-content: flex-start;
+    }
+}
+
+.reg__note-icon {
+    color: #f6ac1b;
+    font-size: 4rem;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+
+.reg__guide-title {
+    margin: 0 0 2.5rem 0;
+    text-align: center;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+@media (max-width: 1439px) {
+    .reg__guide-title {
+        font-size: 3.75rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .reg__guide-title {
+        font-size: 2.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg__guide-title {
+        font-size: 2rem;
+        margin-bottom: 1.75rem;
+    }
+}
+
+.reg__video {
+    width: 100%;
+    max-width: 76rem;
+    margin: 0 auto 3.75rem auto;
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+    .reg__video iframe,
+    .reg__video video {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
+
+.reg-steps {
+    width: 100%;
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    counter-reset: reg-step;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.reg-steps__item {
+    position: relative;
+    padding-left: 5.5rem;
+}
+
+@media (max-width: 767px) {
+    .reg-steps__item {
+        padding-left: 4.25rem;
+    }
+}
+
+.reg-steps__item::before {
+    counter-increment: reg-step;
+    content: counter(reg-step);
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 999px;
+    background-color: #f6ac1b;
+    color: #c31632;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+@media (max-width: 767px) {
+    .reg-steps__item::before {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.75rem;
+    }
+}
+
+.reg-steps__item::after {
+    content: "";
+    position: absolute;
+    left: 1.625rem;
+    top: 3.75rem;
+    bottom: -2.5rem;
+    width: 0.25rem;
+    border-radius: 999px;
+    background-color: #f6ac1b;
+}
+
+@media (max-width: 767px) {
+    .reg-steps__item::after {
+        left: 1.375rem;
+        top: 3.25rem;
+    }
+}
+
+.reg-steps__item:last-child::after {
+    display: none;
+}
+
+.reg-steps__title {
+    margin: 0 0 0.75rem 0;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+@media (max-width: 1439px) {
+    .reg-steps__title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .reg-steps__title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg-steps__title {
+        font-size: 1.75rem;
+    }
+}
+
+.reg-steps__text {
+    margin: 0;
+    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: #ffffff;
+}
+
+@media (max-width: 1023px) {
+    .reg-steps__text {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .reg-steps__text {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+}
+
+:root {
+    --kbk-red: #c31631;
+    --kbk-turq: #6bc8c6;
+    --kbk-yellow: #f6ac1a;
+    --kbk-photo: #d5d5d5;
+    --kbk-container: 1120px;
+    --kbk-gutter: 24px;
+    --kbk-slope: 96px;
+    /* Timeline */
+    --kbk-line-x: 72px;
+    --kbk-line-w: 8px;
+    --kbk-dot: 38px;
+    --kbk-axis-x: 56px;
+    --kbk-axis-w: 8px;
+    --kbk-dot-size: 34px;
+    --kbk-content-gap: 90px;
+    --kbk-dash-h: 16px;
+    --kbk-dash-gap: 28px;
+}
+
+.kbk-about {
+    width: 100%;
+}
+
+/* generic container */
+.kbk-container {
+    width: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+    margin-inline: auto;
+    z-index: 2;
+}
+
+.kbk-h2 {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 3.75rem;
+    line-height: 3.5rem;
+    margin: 0 0 16px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: clamp(28px, 3.2vw, 44px);
+}
+
+.kbk-h2--right {
+    text-align: right;
+}
+
+.kbk-h2--red {
+    color: var(--kbk-red);
+}
+
+.kbk-p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.35;
+}
+
+.kbk-p--right {
+    text-align: right;
+    max-width: 560px;
+    margin-left: auto;
+}
+
+.kbk-p--history {
+    max-width: none;
+}
+
+.kbk-p--light {
+    color: #fff;
+}
+
+/* ---------------- HERO ---------------- */
+.kbk-hero {
+    background: var(--kbk-red);
+    padding: 50px 0 150px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--kbk-slope)), 0 100%);
+}
+
+.kbk-hero__banner {
+    width: min(600px, 100%);
+    margin: 0 auto;
+    background: var(--kbk-yellow);
+    padding: 34px 28px;
+    transform: rotate(-7deg);
+}
+
+.kbk-hero__title {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 3.75rem;
+    line-height: 3.5rem;
+    margin: 0;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    font-size: clamp(34px, 4vw, 1000px);
+    color: #111;
+    text-align: center;
+}
+
+/* ---------------- MISSION / VALUES ---------------- */
+.kbk-mv {
+    background: #fff;
+    position: relative;
+    margin-top: calc(var(--kbk-slope) * -1);
+    padding: 120px 0 120px;
+    clip-path: polygon(0 var(--kbk-slope), 100% 0, 100% 100%, 0 100%);
+}
+
+    /* diagonal down to history */
+    .kbk-mv::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: var(--kbk-slope);
+        background: var(--kbk-turq);
+        clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+    }
+
+/* 1 колонка (миссия сверху, ценности ниже) */
+.kbk-mv__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+}
+
+/* миссия — слева и шире */
+.kbk-mv__col--mission {
+    max-width: 900px; /* можно убрать/подкрутить */
+}
+
+/* ценности — справа */
+.kbk-mv__col--values {
+    max-width: 750px;
+    margin-left: auto;
+    padding-top: 0;
+}
+
+    .kbk-mv__col--values .kbk-h2 {
+        text-align: right;
+        /
+    }
+
+    .kbk-mv__col--values .kbk-p {
+        text-align: right;
+        max-width: none;
+        margin-left: 0;
+    }
+
+
+.kbk-mv__col--values {
+    padding-top: 0; /* убираем сдвиг вниз */
+}
+
+.kbk-h2--right {
+    text-align: left;
+}
+
+.kbk-p--right {
+    text-align: right;
+    max-width: 720px;
+    margin-left: 0;
+}
+
+.kbk-mv__col--values {
+    padding-top: 80px; /* matches visual offset in the PDF */
+}
+
+@media (max-width: 900px) {
+    .kbk-mv__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kbk-mv__col--values {
+        padding-top: 0;
+    }
+
+    .kbk-h2--right,
+    .kbk-p--right {
+        text-align: left;
+        margin-left: 0;
+    }
+}
+
+/* ---------------- HISTORY ---------------- */
+.kbk-history {
+    position: relative;
+}
+
+.kbk-history--turq {
+    background: var(--kbk-turq);
+    padding: 110px 0 70px;
+}
+
+.kbk-history__title {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 3.75rem;
+    line-height: 3.5rem;
+    margin: 0 0 72px;
+    margin-top: -1rem;
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #fff;
+    line-height: 1;
+    font-size: clamp(34px, 4vw, 64px);
+}
+
+/* turquoise -> red diagonal */
+.kbk-history--turq {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--kbk-slope)));
+    padding-bottom: calc(90px + var(--kbk-slope));
+}
+
+.kbk-history--red {
+    background: var(--kbk-red);
+    margin-top: calc(var(--kbk-slope) * -1);
+    padding-top: calc(70px + var(--kbk-slope));
+    clip-path: polygon( 0 0, /* левый верх - самый высокий */
+    100% var(--kbk-slope), /* правый верх - ниже */
+    100% 100%, 0 100% );
+}
+
+/* timeline scaffold */
+.kbk-timeline {
+    padding-left: 0 !important;
+    position: relative;
+    padding-left: calc(var(--kbk-line-x) + 64px);
+}
+
+    .kbk-timeline::before {
+        content: "";
+        position: absolute;
+        left: var(--kbk-line-x);
+        top: 0;
+        bottom: 0;
+        width: var(--kbk-line-w);
+        background: #fff;
+        border-radius: 999px;
+    }
+
+.kbk-year {
+    position: relative;
+    padding: 10px 0 0px;
+}
+
+.kbk-dot {
+    display: block;
+    position: absolute;
+    left: 2000px;
+    top: 26px;
+    width: var(--kbk-dot-size);
+    height: var(--kbk-dot-size);
+    background: #fff;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.kbk-year__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 26px;
+    align-items: start;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+}
+
+.kbk-year__row,
+.kbk-year__row--withSide {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+}
+
+.kbk-year__num {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 4.25rem;
+    line-height: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 0.9;
+    color: #fff;
+    margin-left: 0;
+    margin-top: 30px;
+}
+
+.kbk-year__content {
+    max-width: 950px;
+}
+
+
+.kbk-year--darkText .kbk-year__num {
+    color: #fff;
+}
+
+.kbk-year--darkText .kbk-p--history {
+    color: #111;
+}
+
+.kbk-year__row--withSide {
+    grid-template-columns: auto 1fr auto;
+}
+
+.kbk-sidePhoto {
+    width: 310px;
+    height: 240px;
+    border-radius: 18px;
+    background: var(--kbk-photo);
+    align-self: end;
+    margin-left: 12px;
+}
+
+@media (max-width: 980px) {
+    .kbk-year__row--withSide {
+        grid-template-columns: auto 1fr;
+    }
+
+    .kbk-sidePhoto {
+        display: none; /* on mobile the cutout image disappears in the original feel */
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --kbk-line-x: 24px;
+    }
+
+    .kbk-timeline {
+        padding-left: 70px;
+    }
+
+    .kbk-p {
+        font-size: 15px;
+    }
+}
+
+/* placeholders */
+.kbk-ph {
+    background: var(--kbk-photo);
+}
+
+/* top turquoise “shapes” placeholders */
+.kbk-shapes {
+    margin-top: 100px;
+    margin-bottom: -160px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 26px;
+    align-items: center;
+    max-width: 860px;
+    margin-left: 50px; /* visually similar to the PDF spacing */
+}
+
+.kbk-ph--star {
+    width: 420px;
+    height: 420px;
+    aspect-ratio: 1 / 1;
+    background: var(--kbk-photo);
+    transform: none;
+    -webkit-clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
+    clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
+}
+
+
+
+.kbk-ph--diamond {
+    width: 220px;
+    height: 220px;
+    margin-left: 50px;
+    margin-top: -100px;
+    margin-right: 0px;
+    justify-self: center;
+    transform: rotate(60deg);
+    border-radius: 0px;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.kbk-ph--diamondSm {
+    width: 160px;
+    height: 160px;
+    margin-top: -170px;
+    margin-left: -20px;
+    justify-self: start;
+    transform: rotate(20deg);
+    border-radius: 0px;
+    grid-column: 3;
+    grid-row: 2;
+}
+
+@media (max-width: 980px) {
+    .kbk-shapes {
+        margin-left: 0;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .kbk-ph--star {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+/* red section photo placeholders */
+.kbk-photoGrid {
+    width: 100%;
+    margin-left: 0 !important; /* убираем старый сдвиг */
+    display: block;
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+
+.kbk-photoGrid--two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+}
+
+.kbk-ph--rect {
+    height: 210px;
+    border-radius: 18px;
+}
+
+.kbk-ph--rectLg {
+    width: 925px; /* почти на всю ширину */
+    top: -100px;
+    height: 420px; /* высота как на скрине (подкрути при желании) */
+    border-radius: 26px;
+    background: var(--kbk-photo);
+}
+
+@media (max-width: 900px) {
+    .kbk-photoGrid {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .kbk-photoGrid--two {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* last year: dashed tail */
+.kbk-year--last::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--kbk-line-x) + (var(--kbk-line-w) / 2));
+    top: calc(26px + var(--kbk-dot) + 16px);
+    bottom: 0;
+    border-left: var(--kbk-line-w) dashed rgba(255, 255, 255, 0.9);
+    transform: translateX(-50%);
+}
+
+/* ---------------- TEAM / ACADEMY ---------------- */
+.kbk-team {
+    background: var(--kbk-yellow);
+    padding: 90px 0 120px;
+}
+
+.kbk-team__wrap {
+    max-width: 920px;
+}
+
+.kbk-team__p {
+    max-width: 680px;
+    color: #111;
+}
+
+.kbk-team__mt {
+    margin-top: 54px;
+}
+
+.kbk-cta {
+    margin-top: 500px;
+    display: block;
+    width: min(760px, calc(100% - 40px)); /* шире */
+    margin: 160px auto 0 0;
+    transform: translateX(120px);
+    padding: 26px 28px;
+    border-radius: 999px;
+    background: #fff;
+    color: #111;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* === TIMELINE AXIS FIX (в конец файла) === */
+:root {
+    --kbk-axis-x: 56px; /* позиция оси внутри контейнера истории */
+    --kbk-axis-w: 8px; /* толщина линии */
+    --kbk-dot: 34px; /* диаметр точки */
+}
+
+/* общий контейнер истории — здесь будет единая ось */
+.kbk-historyWrap {
+    --kbk-axis-top: 300px;
+    --kbk-axis-bottom: 920px;
+    position: relative;
+    --kbk-wrapw: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+    isolation: isolate;
+}
+
+
+    /* Рисуем одну сплошную ось на весь блок истории */
+    .kbk-historyWrap::before {
+        content: "";
+        top: var(--kbk-axis-top);
+        bottom: var(--kbk-axis-bottom);
+        position: absolute;
+        /* ключевой момент: (100% - ширина контейнера)/2 = отступ контейнера слева */
+        left: calc((100% - var(--kbk-wrapw)) / 2 + var(--kbk-axis-x));
+        width: var(--kbk-axis-w);
+        background: #fff;
+        border-radius: 999px;
+        z-index: 1 !important;
+    }
+
+
+/* Таймлайну даём отступ слева, чтобы контент не налезал на ось */
+.kbk-timeline {
+    position: relative;
+    padding-left: calc(var(--kbk-axis-x) + 90px) !important;
+}
+
+/* Каждому году даём позиционирование для точки */
+.kbk-year {
+    position: relative;
+}
+
+/* Точки фиксируем строго по общей оси */
+.kbk-dot {
+    display: block;
+    position: absolute;
+    left: -86px;
+    top: 60px;
+    width: var(--kbk-dot-size);
+    height: var(--kbk-dot-size);
+    background: #fff;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Пунктирную "хвостовую" линию рисуем по той же оси */
+.kbk-year--last::after {
+    content: "";
+    position: absolute;
+    left: -86px;
+    top: calc(26px + var(--kbk-dot-size) + 16px);
+    width: var(--kbk-axis-w);
+    height: 120px; /* ~5 штрихов при шаге 32px */
+
+    transform: translateX(-50%);
+    z-index: 9;
+    pointer-events: none;
+    /* ВАЖНО: этим мы "стираем" сплошную ось под пунктиром */
+    background-color: var(--kbk-red);
+    /* Реальный пунктир: штрих 14px, пробел 18px (шаг 32px) */
+    background-image: repeating-linear-gradient( to bottom, #fff 0 14px, transparent 14px 32px );
+    /* чтобы первый штрих не залезал в точку — можно чуть сдвинуть вниз */
+    background-position: 0 6px;
+    border-radius: 0; /* убирает "полукруг" внизу */
+}
+
+/* лента — отдельный stacking context */
+.kbk-marquee {
+    position: relative;
+    z-index: 50;
+    isolation: isolate;
+}
+
+    /* МАСКА: закрывает белую ось под лентой */
+    .kbk-marquee::before {
+        content: "";
+        position: absolute;
+        inset: -30px 0 -30px 0; /* немного выше/ниже, чтобы точно закрыть линию */
+        background: var(--kbk-red); /* фон секции (если лента в красной части) */
+        z-index: 1;
+        pointer-events: none;
+    }
+
+/* сами карточки поверх маски */
+.kbk-marquee__track,
+.kbk-marquee__item {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* сама движущаяся дорожка */
+.kbk-marquee__track {
+    display: flex;
+    gap: 44px; /* расстояние между карточками */
+    width: max-content;
+    will-change: transform;
+    /* слева → направо, медленно, бесконечно */
+    animation: kbk-marquee-ltr 40s linear infinite;
+}
+
+/* карточка */
+.kbk-marquee__item {
+    background: var(--kbk-photo); /* #D5D5D5 у тебя */
+    width: clamp(260px, 30vw, 520px);
+    height: clamp(160px, 22vw, 260px);
+    border-radius: 26px; /* скругление как на 2й фотке */
+    flex: 0 0 auto;
+}
+
+/* движение: из состояния "-половина трека" в 0 (то есть вправо) */
+@keyframes kbk-marquee-ltr {
+    from {
+        transform: translateX(calc(-50%));
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/* на маленьких экранах чуть меньше gap/радиус */
+@media (max-width: 640px) {
+    .kbk-marquee__track {
+        gap: 28px;
+    }
+
+    .kbk-marquee__item {
+        border-radius: 18px;
+    }
+}
+
+
+/* 1) Отступ сверху от текста до ленты */
+.kbk-marquee {
+    margin-top: 70px; /* подбери: 40–90px */
+}
+
+
+/* 1) Отключаем все старые варианты линии (где бы они ни были) */
+.kbk-historyWrap::before,
+.kbk-historyWrap::after,
+.kbk-timeline::before {
+    display: none !important;
+}
+
+/* 2) Рисуем ось ВНУТРИ каждой секции истории */
+.kbk-history {
+    position: relative;
+    /* ширина контейнера как у .kbk-container */
+    --kbk-wrapw: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+}
+
+    /* сама белая вертикальная линия */
+    .kbk-history::before {
+        content: "";
+        position: absolute;
+        /* привязка к контейнеру + смещение оси */
+        left: calc((100% - var(--kbk-wrapw)) / 2 + var(--kbk-axis-x));
+        width: var(--kbk-axis-w);
+        background: #fff;
+        border-radius: 999px;
+        /* линия над фоном, но под контентом */
+        z-index: 2;
+        pointer-events: none;
+        /* базовая длина (можешь подкрутить) */
+        top: var(--kbk-axis-top, 140px);
+        bottom: var(--kbk-axis-bottom, 120px);
+    }
+
+/* 3) Чтобы на стыке бирюзовый/красный НЕ было разрыва — делаем нахлёст */
+.kbk-history--turq::before {
+    bottom: -90px; /* тянем ниже конца секции */
+}
+
+.kbk-history--red::before {
+    top: -90px; /* тянем выше начала секции */
+}
+
+/* 4) Контент секции выше линии */
+.kbk-history .kbk-container {
+    position: relative;
+    z-index: 3;
+}
+
+/* 5) Лента плейсхолдеров выше линии на 100% */
+.kbk-marquee {
+    position: relative;
+    z-index: 10;
+}
+
+/* === TEAM / ACADEMY (финальный объединённый CSS) === */
+
+.kbk-team {
+    position: relative;
+    overflow: hidden; /* чтобы звёзды могли выходить за край */
+}
+
+.kbk-team__layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 80px;
+    row-gap: 70px;
+    align-items: start;
+}
+
+/* контент справа занимает обе строки */
+.kbk-team__content {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: 760px;
+}
+
+/* звёзды-плейсхолдеры */
+.kbk-team__star {
+    background: var(--kbk-photo);
+    width: 520px;
+    height: 520px;
+    aspect-ratio: 1 / 1;
+    clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
+}
+
+/* левая звезда — больше и уходит за края страницы */
+.kbk-team__star--left {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    width: 600px;
+    height: 600px;
+    margin-left: -560px; /* сильнее вылезает влево */
+    margin-top: -80px;
+}
+
+/* правая звезда — выше и торчит справа */
+.kbk-team__star--right {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    margin-right: -240px;
+    margin-top: -300px;
+}
+
+/* текст */
+.kbk-team__p {
+    max-width: 800px;
+    line-height: 1.35;
+}
+
+/* SMART АКАДЕМИЯ (второй заголовок + текст) — сильно левее */
+.kbk-team__mt,
+.kbk-team__mt + .kbk-team__p {
+    margin-left: -360px;
+    max-width: 720px;
+}
+
+    /* кнопка вместе со вторым текстом */
+    .kbk-team__mt + .kbk-team__p + .kbk-cta {
+        margin-left: -260px;
+    }
+
+/* mobile */
+@media (max-width: 900px) {
+    .kbk-team__layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        row-gap: 40px;
+    }
+
+    .kbk-team__content {
+        grid-column: 1;
+        grid-row: 2;
+        max-width: 100%;
+    }
+
+    .kbk-team__star--left {
+        grid-column: 1;
+        grid-row: 1;
+        width: 560px;
+        height: 560px;
+        margin-left: -160px;
+        margin-top: -60px;
+    }
+
+    .kbk-team__star--right {
+        grid-column: 1;
+        grid-row: 3;
+        margin-right: -140px;
+        margin-top: 0;
+    }
+
+    /* на мобиле не уводим SMART так сильно влево */
+    .kbk-team__mt,
+    .kbk-team__mt + .kbk-team__p,
+    .kbk-team__mt + .kbk-team__p + .kbk-cta {
+        margin-left: auto;
+        max-width: 100%;
+    }
+}
+
+.kbk-history--turq {
+    margin-top: -2px;
+}
+
+.kbk-photo {
+    overflow: hidden; /* чтобы скругления работали */
+    border-radius: 26px; /* подгони под свой блок */
+}
+
+    /* чтобы картинка заполняла блок как в макете */
+    .kbk-photo > img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+    }
+
+/* чтобы вообще никогда не расширяло страницу */
+html, body {
+    overflow-x: clip;
+}
+/* можно hidden если clip не поддерживается */
+
+/* hero — контейнер для абсолютных элементов */
+.kbk-hero {
+    position: relative;
+    overflow: hidden; /* обрезает то, что вылезает за края */
+}
+
+/* слой декора на весь hero */
+.kbk-hero__decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; /* декор под баннером */
+}
+
+/* сами картинки */
+.kbk-hero__corner {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+    width: clamp(260px, 24vw, 520px);
+}
+
+/* top-right: двигаем ВПРАВО через transform (не ломает ширину страницы) */
+.kbk-hero__corner--tr {
+    top: 0;
+    right: 0;
+    transform: translate(35%, -20%); /* <-- правее/выше, не создаёт скролл */
+}
+
+/* bottom-left: двигаем ВЛЕВО/ВНИЗ через transform */
+.kbk-hero__corner--bl {
+    left: 0;
+    bottom: 0;
+    transform: translate(-25%, 25%);
+}
+
+/* баннер поверх декора */
+.kbk-hero__banner {
+    position: relative;
+    z-index: 5;
+}
+
+/* если раньше ты вставлял декор внутрь .kbk-history--turq — выключаем его */
+.kbk-historyDecor {
+    display: none !important;
+}
+
+/* слой между секциями */
+.kbk-seamDecor {
+    position: relative;
+    height: 0; /* не влияет на разметку */
+    z-index: 50; /* поверх белого и бирюзового */
+    pointer-events: none;
+}
+
+/* внутренний контейнер по ширине как .kbk-container */
+.kbk-seamDecor__inner {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+    transform: translateX(-50%);
+}
+
+/* картинки */
+.kbk-seamDecor__img {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+}
+
+/* ЛЕВАЯ длинная (на белом фоне) */
+.kbk-seamDecor__img--left {
+    left: -6px; /* ближе к центру -> увеличивай (0..40px) */
+    top: -500px; /* подними/опусти на белом фоне */
+    width: 450px;
+}
+
+/* ПРАВАЯ верхняя (на белом фоне) */
+.kbk-seamDecor__img--tr {
+    right: -6px; /* ближе к центру -> увеличивай (0..40px) */
+    top: -850px;
+    width: 450px;
+}
+
+/* ПРАВАЯ нижняя (уже на бирюзовом) */
+.kbk-seamDecor__img--br {
+    right: -20px;
+    top: -40px; /* чуть ниже стыка */
+    width: 260px;
+}
+
+/* Вставка декора между годами */
+.kbk-betweenYears {
+    position: relative;
+    height: 140px; /* высота вставки как на макете */
+    margin: 40px 0 60px; /* отступы сверху/снизу */
+    overflow: visible; /* чтобы ничего не вылезало и не делало scroll */
+    z-index: 5;
+}
+
+/* две одинаковые картинки по краям */
+.kbk-betweenYears__img {
+    position: absolute;
+    top: 50%;
+    width: 300px; /* размер круга */
+    height: 300px;
+    object-fit: contain;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* левый круг */
+.kbk-betweenYears__img--l {
+    left: -620px; /* чуть “уходит” за край */
+}
+
+/* правый круг */
+.kbk-betweenYears__img--r {
+    right: -470px; /* чуть “уходит” за край */
+    transform: translateY(-50%) rotate(180deg)
+}
+
+/* ===== LEFT DECOR between 2024 and 2025 ===== */
+.kbk-between24-25 {
+    position: relative;
+    top: -300px;
+    height: 0; /* не добавляет высоту */
+    z-index: 6;
+    pointer-events: none;
+}
+
+.kbk-yearPhoto {
+    position: relative;
+    left: 600px;
+    top: -350px;
+    margin-bottom: -600px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+
+.kbk-p--history24 {
+    max-width: 600px;
+}
+
+.kbk-year__num26 {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 4.25rem;
+    line-height: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 0.9;
+    color: #fff;
+    margin-left: 0;
+    margin-top: 30px;
+}
+
+
+/* Красное продолжение после истории */
+.kbk-history {
+    position: relative;
+    overflow: hidden;
+}
+
+    .kbk-history::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px; /* убирает 1px шов */
+        height: -200px; /* сколько красного "продолжения" нужно */
+
+        background: var(--kbk-red);
+        z-index: 0; /* под контентом истории */
+        pointer-events: none;
+    }
+
+    /* чтобы контент истории был поверх хвоста */
+    .kbk-history .kbk-container {
+        position: relative;
+        z-index: 2;
+    }
+
+.kbk-decor-26-right {
+    position: relative;
+    left: 895px;
+    top: -5px;
+    width: 475px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.kbk-decor-26-left {
+    position: relative;
+    right: 550px;
+    top: -850px;
+    width: 550px;
+    z-index: 6;
+    pointer-events: none;
+    margin-bottom: -1000px;
+}
+
+.kbk-decor-25-26-right {
+    position: relative;
+    left: 1220px;
+    top: -0px;
+    width: 150px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* --- WAIT section: match mobile макет proportions --- */
+@media (max-width: 767px) {
+    .wait__wrapper {
+        min-height: 38rem;
+        padding: 6.5rem 0 7.5rem 0;
+    }
+
+    .wait__title {
+        font-size: 2.5rem;
+        line-height: 2.35rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .wait__subtitle {
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+    }
+
+    /* Corner hands */
+    .wait__decor {
+        top: auto;
+        transform: none;
+        height: auto;
+    }
+
+    .wait__decor--left {
+        top: 5.25rem;
+        left: -6rem;
+        width: 74vw;
+        max-width: 22rem;
+        opacity: 1;
+    }
+
+    .wait__decor--right {
+        top: auto;
+        bottom: -2.25rem;
+        right: -6rem;
+        width: 74vw;
+        max-width: 22rem;
+        opacity: 1;
+    }
+}
+
+/* smaller hands on mobile */
+@media (max-width: 767px) {
+    .wait__decor--right {
+        width: 58vw; /* было ~74vw — уменьшаем */
+        top: 450px;
+        max-width: 17rem; /* ограничение по максимуму */
+    }
+}
+
+@media (max-width: 767px) {
+    .wait__decor--left {
+        width: 58vw; /* было ~74vw — уменьшаем */
+        top: 25px;
+        max-width: 17rem; /* ограничение по максимуму */
+    }
+}

@@ -1,0 +1,24 @@
+/* moved from sections/wait.css - way related overrides */
+@media (max-width: 767px) {
+    .way__icon-left,
+    .way__icon-right,
+    .way__dragon-body,
+    .way__dragon-head {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .way__map {
+        margin-top: 2.5rem;
+        margin-bottom: -3.5rem;
+        width: 100%;
+        height: 15rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+
