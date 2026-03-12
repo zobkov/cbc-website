@@ -8,7 +8,7 @@
   const toggle = root.querySelector('.hero-reg__toggle');
   const menu = root.querySelector('.hero-reg__menu');
   const backdrop = root.querySelector('.hero-reg__backdrop');
-  const desktopHref = toggle?.dataset.defaultHref || 'registration_closed.html';
+  const desktopHref = toggle?.dataset.defaultHref || 'registration_general.html';
   const mobileMq = window.matchMedia('(max-width: 767px)');
 
   if (!toggle || !menu || !backdrop) {
