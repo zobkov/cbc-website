@@ -161,6 +161,9 @@
             return { isValid: errors.length === 0, errors, invalidTargets };
         }
 
+        const transportInput = getInputByName('transport', activeRoleBlock);
+        const isOnlineTransport = transportInput && transportInput.value === 'Онлайн';
+
         const requiredByRole = {
             speaker: ['email', 'transport', 'passportSeries', 'passportNumber'],
             participant: ['adult18', 'region', 'participantStatus', 'email', 'track', 'transport', 'passportSeries', 'passportNumber'],
@@ -170,6 +173,10 @@
         const roleRequiredFields = requiredByRole[status] || [];
 
         roleRequiredFields.forEach((fieldName) => {
+            if (isOnlineTransport && (fieldName === 'passportSeries' || fieldName === 'passportNumber')) {
+                return;
+            }
+
             const field = getInputByName(fieldName, activeRoleBlock);
             if (!field) return;
             const value = field.value.trim();
@@ -189,15 +196,14 @@
         const passportSeries = passportSeriesInput ? passportSeriesInput.value.replace(/\D/g, '') : '';
         const passportNumber = passportNumberInput ? passportNumberInput.value.replace(/\D/g, '') : '';
 
-        if (passportSeriesInput && passportSeriesInput.value.trim() && passportSeries.length !== 4) {
+        if (!isOnlineTransport && passportSeriesInput && passportSeriesInput.value.trim() && passportSeries.length !== 4) {
             addError('Серия паспорта должна содержать 4 цифры.', passportSeriesInput);
         }
 
-        if (passportNumberInput && passportNumberInput.value.trim() && passportNumber.length !== 6) {
+        if (!isOnlineTransport && passportNumberInput && passportNumberInput.value.trim() && passportNumber.length !== 6) {
             addError('Номер паспорта должен содержать 6 цифр.', passportNumberInput);
         }
 
-        const transportInput = getInputByName('transport', activeRoleBlock);
         const carNumberInput = getInputByName('carNumber', activeRoleBlock);
         if (transportInput && transportInput.value === 'Личный транспорт' && carNumberInput && !carNumberInput.value.trim()) {
             addError('Укажи номер автомобиля для личного транспорта.', carNumberInput);
@@ -225,6 +231,12 @@
                 if (control.type === 'submit') return;
                 control.disabled = !isActive;
             });
+            if (isActive) {
+                const transportInput = getInputByName('transport', block);
+                const transportValue = transportInput ? transportInput.value : '';
+                toggleCarField(block, transportValue);
+                togglePassportField(block, transportValue);
+            }
             if (!isActive) {
                 const carField = block.querySelector('[data-car-field]');
                 if (carField) carField.hidden = true;
@@ -239,7 +251,48 @@
     const toggleCarField = (block, transportValue) => {
         const carField = block.querySelector('[data-car-field]');
         if (!carField) return;
-        carField.hidden = transportValue !== 'Личный транспорт';
+
+        const carNumberInput = getInputByName('carNumber', block);
+        const shouldShowCarField = transportValue === 'Личный транспорт';
+
+        carField.hidden = !shouldShowCarField;
+
+        if (!carNumberInput) return;
+
+        carNumberInput.disabled = !shouldShowCarField;
+
+        if (!shouldShowCarField) {
+            carNumberInput.value = '';
+            clearFieldError(carNumberInput);
+        }
+    };
+
+    const togglePassportField = (block, transportValue) => {
+        const passportSeriesInput = getInputByName('passportSeries', block);
+        const passportNumberInput = getInputByName('passportNumber', block);
+        if (!passportSeriesInput || !passportNumberInput) return;
+
+        const passportField = passportSeriesInput.closest('.reg-general__field');
+        const passportInfoNodes = Array.from(block.querySelectorAll('.reg-general__field-info')).filter((node) => {
+            return /паспортные данные/i.test(node.textContent || '');
+        });
+        const shouldHidePassport = transportValue === 'Онлайн';
+
+        if (passportField) {
+            passportField.hidden = shouldHidePassport;
+        }
+
+        passportInfoNodes.forEach((node) => {
+            node.hidden = shouldHidePassport;
+        });
+
+        [passportSeriesInput, passportNumberInput].forEach((input) => {
+            input.disabled = shouldHidePassport;
+            if (shouldHidePassport) {
+                input.value = '';
+                clearFieldError(input);
+            }
+        });
     };
 
     const toggleEducationField = (block, participantStatusValue) => {
@@ -301,6 +354,7 @@
                     const roleBlock = select.closest('[data-role-block]');
                     if (roleBlock) {
                         toggleCarField(roleBlock, value);
+                        togglePassportField(roleBlock, value);
                     }
                 }
 
