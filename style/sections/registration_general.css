@@ -74,7 +74,7 @@
     display: none;
 }
 
-.reg-general__field input,
+.reg-general__field input:not([type="checkbox"]),
 .reg-general__select-button {
     width: 100%;
     min-height: 3.3125rem;
@@ -89,8 +89,75 @@
 }
 
 
-.reg-general__field input::placeholder {
+.reg-general__field input:not([type="checkbox"])::placeholder {
     color: #787878;
+}
+
+.reg-general__field--consent {
+    padding-left: 0;
+    gap: 0;
+}
+
+.reg-general__field--consent label {
+    display: inline-flex;
+    align-items: center;
+        gap: 0;
+    flex-wrap: nowrap;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.reg-general__field--consent input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
+            margin: 0 0.5rem 0 0;
+    flex: 0 0 auto;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1.5px solid #000000;
+    border-radius: 2px;
+    background: #ffffff;
+    position: relative;
+    cursor: pointer;
+}
+
+.reg-general__field--consent input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 56%;
+    left: 35%;
+    top: 7%;
+    border-right: 1.5px solid #000000;
+    border-bottom: 1.5px solid #000000;
+    transform: rotate(45deg) scale(0);
+    transform-origin: center;
+    transition: transform 0.15s ease;
+}
+
+.reg-general__field--consent input[type="checkbox"]:checked {
+    background: #f6ac1b;
+    border-color: #000000;
+}
+
+.reg-general__field--consent input[type="checkbox"]:checked::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.reg-general__field--consent input[type="checkbox"]:focus-visible {
+    outline: 2px solid #f6ac1b;
+    outline-offset: 2px;
+}
+
+.reg-general__field--consent a {
+        display: inline;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 .reg-general__select {
@@ -197,9 +264,14 @@
     line-height: 1.2;
 }
 
-.reg-general__field input.is-invalid,
+.reg-general__field input:not([type="checkbox"]).is-invalid,
 .reg-general__select.is-invalid .reg-general__select-button {
     box-shadow: 0 0 0 2px #8d1414;
+}
+
+.reg-general__field--consent input[type="checkbox"].is-invalid {
+    outline: 2px solid #8d1414;
+    outline-offset: 2px;
 }
 
 body.reg-general-popup-open {
@@ -239,7 +311,7 @@ body.reg-general-popup-open {
     background: #f2f2f2;
     border-radius: 50%;
     font-size: 1.25rem;
-    line-height: 1;
+        gap: 0;
     cursor: pointer;
 }
 
@@ -247,6 +319,7 @@ body.reg-general-popup-open {
     margin: 0 0 0.75rem;
     font-size: 1.5rem;
     line-height: 1.15;
+        margin-right: 0.4rem;
     color: #c31632;
 }
 
@@ -277,6 +350,15 @@ body.reg-general-popup-open {
     background: #a50e27;
 }
 
+@media (max-width: 1023px) {
+    .reg-general__field--consent input[type="checkbox"] {
+        width: 1.3rem;
+        height: 1.3rem;
+        min-width: 1.3rem;
+        min-height: 1.3rem;
+    }
+}
+
 @media (max-width: 767px) {
     .registration__wrapper--general {
         padding: 5rem 0 8rem;
@@ -298,12 +380,23 @@ body.reg-general-popup-open {
         font-size: 0.875rem;
     }
 
-    .reg-general__field input,
+    .reg-general__field input:not([type="checkbox"]),
     .reg-general__select-button {
         min-height: 2.15rem;
         padding: 0.6rem 0.9rem;
         font-size: 0.8rem;
         line-height: 0.9rem;
+    }
+
+    .reg-general__field--consent label {
+        font-size: 0.5rem;
+    }
+
+    .reg-general__field--consent input[type="checkbox"] {
+        width: 1.5rem;
+        height: 1.5rem;
+        min-width: 1.5rem;
+        min-height: 1.5rem;
     }
 
     .reg-general__field-info {
