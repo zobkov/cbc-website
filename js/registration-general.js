@@ -157,6 +157,11 @@
             addError('Выбери статус.', statusSelect);
         }
 
+        const consentInput = form.querySelector('input[name="personalDataConsent"]');
+        if (consentInput && !consentInput.checked) {
+            addError('Подтверди согласие с политикой обработки персональных данных.', consentInput);
+        }
+
         if (!activeRoleBlock || !status) {
             return { isValid: errors.length === 0, errors, invalidTargets };
         }
