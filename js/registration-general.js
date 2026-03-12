@@ -8,6 +8,14 @@
         409: 'Такой email уже зарегистрирован.'
     };
     const defaultPopupMessage = 'Не удалось отправить форму. Попробуйте позже.';
+    const participantEducationConfig = {
+        'Среднее образование': {
+            hint: 'Напиши в формате: город, название уч. заведения, класс.'
+        },
+        'Высшее образование': {
+            hint: 'Напиши в формате: город, название ВУЗа, факультет, курс, год окончания.'
+        }
+    };
 
     const closeAllSelects = (except = null) => {
         selects.forEach((select) => {
@@ -141,12 +149,12 @@
 
         const fullNameInput = getInputByName('fullName');
         if (!fullName) {
-            addError('Заполните поле ФИО.', fullNameInput);
+            addError('Заполни поле ФИО.', fullNameInput);
         }
 
         const statusSelect = status ? null : form.querySelector('input[name="status"]')?.closest('[data-select]');
         if (!status) {
-            addError('Выберите статус.', statusSelect);
+            addError('Выбери статус.', statusSelect);
         }
 
         if (!activeRoleBlock || !status) {
@@ -168,12 +176,12 @@
             if (value) return;
 
             const selectContainer = field.closest('[data-select]');
-            addError('Заполните все обязательные поля формы.', selectContainer || field);
+            addError('Заполни все обязательные поля формы.', selectContainer || field);
         });
 
         const emailInput = getInputByName('email', activeRoleBlock);
         if (emailInput && emailInput.value.trim() && !emailPattern.test(emailInput.value.trim())) {
-            addError('Укажите корректный email.', emailInput);
+            addError('Укажи корректный email.', emailInput);
         }
 
         const passportSeriesInput = getInputByName('passportSeries', activeRoleBlock);
@@ -192,7 +200,17 @@
         const transportInput = getInputByName('transport', activeRoleBlock);
         const carNumberInput = getInputByName('carNumber', activeRoleBlock);
         if (transportInput && transportInput.value === 'Личный транспорт' && carNumberInput && !carNumberInput.value.trim()) {
-            addError('Укажите номер автомобиля для личного транспорта.', carNumberInput);
+            addError('Укажи номер автомобиля для личного транспорта.', carNumberInput);
+        }
+
+        if (status === 'participant') {
+            const participantStatusInput = getInputByName('participantStatus', activeRoleBlock);
+            const educationInput = getInputByName('education', activeRoleBlock);
+            const participantStatusValue = participantStatusInput ? participantStatusInput.value.trim() : '';
+
+            if (participantEducationConfig[participantStatusValue] && educationInput && !educationInput.value.trim()) {
+                addError('Заполни поле об образовании.', educationInput);
+            }
         }
 
         return { isValid: errors.length === 0, errors, invalidTargets };
@@ -210,6 +228,10 @@
             if (!isActive) {
                 const carField = block.querySelector('[data-car-field]');
                 if (carField) carField.hidden = true;
+                const educationField = block.querySelector('[data-education-field]');
+                if (educationField) {
+                    toggleEducationField(block, '');
+                }
             }
         });
     };
@@ -218,6 +240,36 @@
         const carField = block.querySelector('[data-car-field]');
         if (!carField) return;
         carField.hidden = transportValue !== 'Личный транспорт';
+    };
+
+    const toggleEducationField = (block, participantStatusValue) => {
+        const educationField = block.querySelector('[data-education-field]');
+        if (!educationField) return;
+
+        const educationInput = educationField.querySelector('input[name="education"]');
+        const educationHint = educationField.querySelector('[data-education-hint]');
+        const config = participantEducationConfig[participantStatusValue];
+
+        if (!config) {
+            educationField.hidden = true;
+            if (educationInput) {
+                educationInput.value = '';
+                educationInput.disabled = true;
+                clearFieldError(educationInput);
+            }
+            if (educationHint) {
+                educationHint.textContent = '';
+            }
+            return;
+        }
+
+        educationField.hidden = false;
+        if (educationInput) {
+            educationInput.disabled = false;
+        }
+        if (educationHint) {
+            educationHint.textContent = config.hint;
+        }
     };
 
     const registerSelect = (select) => {
@@ -249,6 +301,13 @@
                     const roleBlock = select.closest('[data-role-block]');
                     if (roleBlock) {
                         toggleCarField(roleBlock, value);
+                    }
+                }
+
+                if (valueInput.name === 'participantStatus') {
+                    const roleBlock = select.closest('[data-role-block]');
+                    if (roleBlock) {
+                        toggleEducationField(roleBlock, value);
                     }
                 }
             });
