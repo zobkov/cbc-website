@@ -12,6 +12,138 @@
         });
     };
 
+    const validationMessage = document.createElement('p');
+    validationMessage.className = 'reg-general__form-error';
+    validationMessage.setAttribute('role', 'alert');
+    validationMessage.setAttribute('aria-live', 'polite');
+    validationMessage.hidden = true;
+
+    const submitButtonNode = form.querySelector('.registration__submit');
+    if (submitButtonNode) {
+        form.insertBefore(validationMessage, submitButtonNode);
+    } else {
+        form.append(validationMessage);
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const getInputByName = (name, scope = form) => {
+        return scope.querySelector(`input[name="${name}"]`);
+    };
+
+    const clearFieldError = (target) => {
+        if (!target) return;
+
+        if (target.matches('input')) {
+            target.classList.remove('is-invalid');
+            target.removeAttribute('aria-invalid');
+            return;
+        }
+
+        if (target.hasAttribute('data-select')) {
+            target.classList.remove('is-invalid');
+            const toggle = target.querySelector('[data-select-toggle]');
+            if (toggle) toggle.removeAttribute('aria-invalid');
+        }
+    };
+
+    const markFieldInvalid = (target) => {
+        if (!target) return;
+
+        if (target.matches('input')) {
+            target.classList.add('is-invalid');
+            target.setAttribute('aria-invalid', 'true');
+            return;
+        }
+
+        if (target.hasAttribute('data-select')) {
+            target.classList.add('is-invalid');
+            const toggle = target.querySelector('[data-select-toggle]');
+            if (toggle) toggle.setAttribute('aria-invalid', 'true');
+        }
+    };
+
+    const clearValidationState = () => {
+        validationMessage.hidden = true;
+        validationMessage.textContent = '';
+
+        form.querySelectorAll('input.is-invalid').forEach((input) => {
+            clearFieldError(input);
+        });
+
+        form.querySelectorAll('[data-select].is-invalid').forEach((select) => {
+            clearFieldError(select);
+        });
+    };
+
+    const validateForm = ({ fullName, status, activeRoleBlock }) => {
+        const errors = [];
+        const invalidTargets = [];
+
+        const addError = (message, target) => {
+            errors.push(message);
+            if (target) invalidTargets.push(target);
+        };
+
+        const fullNameInput = getInputByName('fullName');
+        if (!fullName) {
+            addError('Заполните поле ФИО.', fullNameInput);
+        }
+
+        const statusSelect = status ? null : form.querySelector('input[name="status"]')?.closest('[data-select]');
+        if (!status) {
+            addError('Выберите статус.', statusSelect);
+        }
+
+        if (!activeRoleBlock || !status) {
+            return { isValid: errors.length === 0, errors, invalidTargets };
+        }
+
+        const requiredByRole = {
+            speaker: ['email', 'transport', 'passportSeries', 'passportNumber'],
+            participant: ['adult18', 'region', 'participantStatus', 'email', 'track', 'transport', 'passportSeries', 'passportNumber'],
+            guest: ['email', 'transport', 'passportSeries', 'passportNumber']
+        };
+
+        const roleRequiredFields = requiredByRole[status] || [];
+
+        roleRequiredFields.forEach((fieldName) => {
+            const field = getInputByName(fieldName, activeRoleBlock);
+            if (!field) return;
+            const value = field.value.trim();
+            if (value) return;
+
+            const selectContainer = field.closest('[data-select]');
+            addError('Заполните все обязательные поля формы.', selectContainer || field);
+        });
+
+        const emailInput = getInputByName('email', activeRoleBlock);
+        if (emailInput && emailInput.value.trim() && !emailPattern.test(emailInput.value.trim())) {
+            addError('Укажите корректный email.', emailInput);
+        }
+
+        const passportSeriesInput = getInputByName('passportSeries', activeRoleBlock);
+        const passportNumberInput = getInputByName('passportNumber', activeRoleBlock);
+        const passportSeries = passportSeriesInput ? passportSeriesInput.value.replace(/\D/g, '') : '';
+        const passportNumber = passportNumberInput ? passportNumberInput.value.replace(/\D/g, '') : '';
+
+        if (passportSeriesInput && passportSeriesInput.value.trim() && passportSeries.length !== 4) {
+            addError('Серия паспорта должна содержать 4 цифры.', passportSeriesInput);
+        }
+
+        if (passportNumberInput && passportNumberInput.value.trim() && passportNumber.length !== 6) {
+            addError('Номер паспорта должен содержать 6 цифр.', passportNumberInput);
+        }
+
+        const transportInput = getInputByName('transport', activeRoleBlock);
+        const carNumberInput = getInputByName('carNumber', activeRoleBlock);
+        if (transportInput && transportInput.value === 'Личный транспорт' && carNumberInput && !carNumberInput.value.trim()) {
+            addError('Укажите номер автомобиля для личного транспорта.', carNumberInput);
+        }
+
+        return { isValid: errors.length === 0, errors, invalidTargets };
+    };
+
     const setRole = (role) => {
         roleBlocks.forEach((block) => {
             const isActive = block.dataset.roleBlock === role;
@@ -53,6 +185,7 @@
                 label.textContent = option.textContent || '';
                 select.classList.add('is-selected');
                 select.classList.remove('is-open');
+                clearFieldError(select);
 
                 if (valueInput.name === 'status') {
                     setRole(value);
@@ -94,6 +227,15 @@
 
     selects.forEach(registerSelect);
 
+    form.querySelectorAll('input').forEach((input) => {
+        input.addEventListener('input', () => {
+            clearFieldError(input);
+            if (!validationMessage.hidden) {
+                validationMessage.hidden = true;
+            }
+        });
+    });
+
     document.addEventListener('click', (event) => {
         const target = event.target;
         if (!(target instanceof HTMLElement)) return;
@@ -111,6 +253,7 @@
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
+        clearValidationState();
 
         const fullNameInput = form.querySelector('input[name="fullName"]');
         const statusInput = form.querySelector('input[name="status"]');
@@ -127,6 +270,21 @@
 
         if (activeRoleBlock) {
             Object.assign(result, collectActiveRoleData(activeRoleBlock));
+        }
+
+        const validationResult = validateForm({ fullName, status, activeRoleBlock });
+        if (!validationResult.isValid) {
+            const uniqueTargets = Array.from(new Set(validationResult.invalidTargets));
+            uniqueTargets.forEach(markFieldInvalid);
+
+            validationMessage.textContent = validationResult.errors[0] || 'Проверьте корректность заполнения формы.';
+            validationMessage.hidden = false;
+
+            const firstInvalid = uniqueTargets[0];
+            if (firstInvalid && typeof firstInvalid.scrollIntoView === 'function') {
+                firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
         }
 
         const endpoint = (form.getAttribute('action') || '').trim();

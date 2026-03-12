@@ -186,6 +186,22 @@
     text-decoration: underline;
 }
 
+.reg-general__form-error {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    background-color: #ffd3dc;
+    color: #8d1414;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.reg-general__field input.is-invalid,
+.reg-general__select.is-invalid .reg-general__select-button {
+    box-shadow: 0 0 0 2px #8d1414;
+}
+
 @media (max-width: 767px) {
     .registration__wrapper--general {
         padding: 5rem 0 8rem;
@@ -229,6 +245,13 @@
     margin: 0 0 0 0;
     text-decoration: underline;
     }
+
+    .reg-general__form-error {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 12px;
+    }
+
     .reg-general__select-menu button {
     border: none;
     background: transparent;
