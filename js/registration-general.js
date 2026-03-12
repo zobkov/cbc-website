@@ -109,7 +109,7 @@
 
     setRole('');
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const fullNameInput = form.querySelector('input[name="fullName"]');
@@ -129,6 +129,53 @@
             Object.assign(result, collectActiveRoleData(activeRoleBlock));
         }
 
-        alert(JSON.stringify(result, null, 2));
+        const endpoint = (form.getAttribute('action') || '').trim();
+        const submitButton = form.querySelector('.registration__submit');
+        const defaultButtonText = submitButton ? submitButton.textContent : '';
+
+        if (!endpoint) {
+            window.location.href = './registration_error.html';
+            return;
+        }
+
+        try {
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Отправка...';
+            }
+
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(result)
+            });
+
+            if (response.status !== 201) {
+                throw new Error(`Request failed with status ${response.status}`);
+            }
+
+            const responseData = await response.json();
+            const numericKey = responseData && responseData.numericKey;
+
+            if (numericKey === null || numericKey === undefined || String(numericKey).trim() === '') {
+                throw new Error('numericKey is missing in successful response');
+            }
+
+            const successUrl = new URL('./registration_success.html', window.location.href);
+            successUrl.searchParams.set('numericKey', String(numericKey).trim());
+            window.location.href = successUrl.toString();
+            return;
+        } catch (error) {
+            console.error('Registration request failed:', error);
+            window.location.href = './registration_error.html';
+            return;
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = defaultButtonText;
+            }
+        }
     });
 })();
