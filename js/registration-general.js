@@ -4,6 +4,10 @@
 
     const roleBlocks = Array.from(form.querySelectorAll('[data-role-block]'));
     const selects = Array.from(form.querySelectorAll('[data-select]'));
+    const popupMessagesByStatus = {
+        409: 'Такой email уже зарегистрирован.'
+    };
+    const defaultPopupMessage = 'Не удалось отправить форму. Попробуйте позже.';
 
     const closeAllSelects = (except = null) => {
         selects.forEach((select) => {
@@ -11,6 +15,56 @@
             select.classList.remove('is-open');
         });
     };
+
+    const popupNode = document.createElement('div');
+    popupNode.className = 'reg-general-popup';
+    popupNode.setAttribute('role', 'dialog');
+    popupNode.setAttribute('aria-modal', 'true');
+    popupNode.setAttribute('aria-labelledby', 'regGeneralPopupTitle');
+    popupNode.hidden = true;
+    popupNode.innerHTML = `
+        <div class="reg-general-popup__backdrop" data-popup-close></div>
+        <div class="reg-general-popup__dialog" role="document">
+            <button class="reg-general-popup__close" type="button" aria-label="Закрыть" data-popup-close>&times;</button>
+            <h2 class="reg-general-popup__title" id="regGeneralPopupTitle">Ошибка регистрации</h2>
+            <p class="reg-general-popup__text" data-popup-text></p>
+            <button class="reg-general-popup__button" type="button" data-popup-close>Понятно</button>
+        </div>
+    `;
+    document.body.append(popupNode);
+
+    const popupTextNode = popupNode.querySelector('[data-popup-text]');
+    let popupLastFocusedElement = null;
+
+    const closeErrorPopup = () => {
+        if (popupNode.hidden) return;
+        popupNode.hidden = true;
+        document.body.classList.remove('reg-general-popup-open');
+        if (popupLastFocusedElement && typeof popupLastFocusedElement.focus === 'function') {
+            popupLastFocusedElement.focus();
+        }
+    };
+
+    const openErrorPopup = (message) => {
+        if (!popupTextNode) return;
+        popupLastFocusedElement = document.activeElement;
+        popupTextNode.textContent = message;
+        popupNode.hidden = false;
+        document.body.classList.add('reg-general-popup-open');
+
+        const firstButton = popupNode.querySelector('.reg-general-popup__button');
+        if (firstButton && typeof firstButton.focus === 'function') {
+            firstButton.focus();
+        }
+    };
+
+    const resolvePopupMessage = (statusCode) => {
+        return popupMessagesByStatus[statusCode] || defaultPopupMessage;
+    };
+
+    popupNode.querySelectorAll('[data-popup-close]').forEach((control) => {
+        control.addEventListener('click', closeErrorPopup);
+    });
 
     const validationMessage = document.createElement('p');
     validationMessage.className = 'reg-general__form-error';
@@ -245,6 +299,10 @@
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
+            if (!popupNode.hidden) {
+                closeErrorPopup();
+                return;
+            }
             closeAllSelects();
         }
     });
@@ -310,8 +368,14 @@
                 body: JSON.stringify(result)
             });
 
+            if (response.status === 400) {
+                window.location.href = './registration_error.html';
+                return;
+            }
+
             if (response.status !== 201) {
-                throw new Error(`Request failed with status ${response.status}`);
+                openErrorPopup(resolvePopupMessage(response.status));
+                return;
             }
 
             const responseData = await response.json();

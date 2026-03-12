@@ -202,6 +202,81 @@
     box-shadow: 0 0 0 2px #8d1414;
 }
 
+body.reg-general-popup-open {
+    overflow: hidden;
+}
+
+.reg-general-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+}
+
+.reg-general-popup__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.reg-general-popup__dialog {
+    position: relative;
+    width: calc(100% - 2rem);
+    max-width: 28rem;
+    margin: 12vh auto 0;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 1.5rem 1.25rem 1.25rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.reg-general-popup__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    background: #f2f2f2;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.reg-general-popup__title {
+    margin: 0 0 0.75rem;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    color: #c31632;
+}
+
+.reg-general-popup__text {
+    margin: 0 0 1.25rem;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: #2b2b2b;
+}
+
+.reg-general-popup__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.625rem;
+    padding: 0.5rem 1.25rem;
+    border: 0;
+    border-radius: 1.5rem;
+    background: #c31632;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reg-general-popup__button:hover,
+.reg-general-popup__button:focus-visible {
+    background: #a50e27;
+}
+
 @media (max-width: 767px) {
     .registration__wrapper--general {
         padding: 5rem 0 8rem;
@@ -272,5 +347,27 @@
 
     .reg-general__passport-row {
         gap: 0.5rem;
+    }
+
+    .reg-general-popup__dialog {
+        margin-top: 16vh;
+        border-radius: 1rem;
+        padding: 1rem 0.9rem 0.9rem;
+    }
+
+    .reg-general-popup__title {
+        font-size: 1.1rem;
+        margin-bottom: 0.55rem;
+    }
+
+    .reg-general-popup__text {
+        font-size: 0.85rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .reg-general-popup__button {
+        width: 100%;
+        min-height: 2.2rem;
+        font-size: 0.9rem;
     }
 }
