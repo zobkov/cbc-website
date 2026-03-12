@@ -140,7 +140,10 @@
                     <div class="wait__wrapper">
                         <h1 class="wait__title">Регистрация успешна!</h1>
                         <p class="wait__subtitle">Спасибо за заявку.</p>
-                        <p class="wait__subtitle">Ваш numericKey: <strong id="numericKeyValue">Загрузка...</strong></p>
+                        <p class="wait__subtitle">Для дальнейших действий используйте нашего бота в Телеграм. Там можно: сменить трек, получить то и то</p>
+                        <br>
+                        <p class="wait__subtitle">Твоя ссылка: <a id="numericKeyLink" href="#" target="_blank" rel="noopener noreferrer">Загрузка...</a></p>
+                        <p class="wait__subtitle">Либо сохрани код: <span id="numericKey" style="font-weight: 700;">Загрузка...</span></p>
                     </div>
                 </div>
             </section>
@@ -186,12 +189,41 @@
         </footer>
         <script>
             (function () {
-                const keyElement = document.getElementById('numericKeyValue');
-                if (!keyElement) return;
+                const linkElement = document.getElementById('numericKeyLink');
+                if (!linkElement) return;
 
                 const params = new URLSearchParams(window.location.search);
                 const numericKey = (params.get('numericKey') || '').trim();
-                keyElement.textContent = numericKey || 'Ключ подтверждения недоступен';
+                const baseLink = 'https://t.me/CBC_forum_bot?start=reg-';
+
+                if (!numericKey) {
+                    linkElement.textContent = 'Ссылка недоступна';
+                    linkElement.removeAttribute('href');
+                    linkElement.removeAttribute('target');
+                    return;
+                }
+
+                const fullLink = `${baseLink}${numericKey}`;
+                linkElement.href = fullLink;
+                linkElement.textContent = fullLink;
+            })();
+        </script>
+        <script>
+            (function () {
+                const linkElement = document.getElementById('numericKey');
+                if (!linkElement) return;
+
+                const params = new URLSearchParams(window.location.search);
+                const numericKey = (params.get('numericKey') || '').trim();
+
+                if (!numericKey) {
+                    linkElement.textContent = 'Ссылка недоступна';
+                    linkElement.removeAttribute('href');
+                    linkElement.removeAttribute('target');
+                    return;
+                }
+
+                linkElement.textContent = numericKey;
             })();
         </script>
         <script src="./js/vendor.min.js?t1"></script>
