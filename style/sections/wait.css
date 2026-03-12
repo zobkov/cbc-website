@@ -1231,3 +1231,45 @@ html, body {
         max-width: 17rem; /* ограничение по максимуму */
     }
 }
+
+/* Final responsive guards for wait pages */
+@media (min-width: 1441px) {
+    .wait .wait__wrapper {
+        max-width: 1000px;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 1440px) {
+    .wait .wait__wrapper {
+        max-width: min(1100px, calc(100vw - clamp(13rem, 26vw, 34rem)));
+        margin-inline: auto;
+    }
+
+    .wait .wait__title {
+        font-size: clamp(1.9rem, 4.25vw, 4rem);
+        line-height: 1.05;
+    }
+
+    .wait .wait__subtitle {
+        font-size: clamp(0.95rem, 1.8vw, 1.5rem);
+        line-height: 1.25;
+    }
+}
+
+@media (max-width: 1023px) {
+    .wait .wait__wrapper {
+        max-width: 64vw;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .wait .wait__decor--left {
+        top: 5vh;
+    }
+
+    .wait .wait__decor--right {
+        top: 70vh;
+    }
+}
