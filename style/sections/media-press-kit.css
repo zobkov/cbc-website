@@ -1,5 +1,9 @@
+/* =========================================
+   HEADER / FOOTER PLACEHOLDERS
+   ========================================= */
+
 .shell-placeholder {
-    background: #ffffff;
+    background: var(--page-white);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -20,6 +24,10 @@
     color: rgba(0, 0, 0, 0.45);
 }
 
+/* =========================================
+   SHARED TITLES
+   ========================================= */
+
 .section-title {
     margin: 0 0 1.75rem;
     font-family: "MarvinVisions", Arial, sans-serif;
@@ -33,12 +41,16 @@
     color: var(--page-red);
 }
 
+/* =========================================
+   HERO
+   ========================================= */
+
 .media-hero {
     position: relative;
     background: var(--page-red);
     color: var(--page-white);
-    padding: 4.5rem 0 8.5rem;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3.6rem), 0 100%);
+    padding: 8rem 0 11rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
 }
 
 .media-hero__container {
@@ -46,11 +58,11 @@
 }
 
 .media-hero__title {
-    margin: 0 0 2rem;
     display: flex;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
+    margin: 0 0 2rem;
     font-family: "MarvinVisions", Arial, sans-serif;
     font-size: clamp(2.6rem, 6vw, 5.2rem);
     line-height: 0.9;
@@ -67,22 +79,22 @@
     color: var(--page-black);
 }
 
-.media-hero__tag::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--page-yellow);
-    transform: skewX(-12deg);
-}
+    .media-hero__tag::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--page-yellow);
+        transform: skewX(-22deg);
+    }
 
-.media-hero__tag span {
-    position: relative;
-    z-index: 1;
-}
+    .media-hero__tag span {
+        position: relative;
+        z-index: 1;
+    }
 
 .media-hero__lead {
-    max-width: 49rem;
-    margin: 0 0 2.5rem;
+    max-width: 70rem;
+    margin: 0 0 4rem;
     font-size: 1.8rem;
     line-height: 1.16;
 }
@@ -90,7 +102,7 @@
 .media-hero__points {
     display: grid;
     gap: 1.4rem;
-    max-width: 45rem;
+    max-width: 70rem;
 }
 
 .media-hero__point {
@@ -111,9 +123,14 @@
     line-height: 1.14;
 }
 
+/* =========================================
+   RULES SECTION
+   ========================================= */
+
 .media-rules {
+    margin-top: -10rem;
+    padding: 10rem 0 5.4rem;
     background: var(--page-light);
-    padding: 4.75rem 0 5.4rem;
 }
 
 .media-rules__list {
@@ -124,8 +141,8 @@
 .media-rules__item {
     display: grid;
     grid-template-columns: 4.9rem minmax(0, 1fr);
-    gap: 1.6rem;
     align-items: start;
+    gap: 1.6rem;
 }
 
 .media-rules__icon {
@@ -143,16 +160,20 @@
 }
 
 .media-rules__content p {
-    max-width: 46rem;
+    max-width: 70rem;
     margin: 0;
     font-size: 1.35rem;
     line-height: 1.14;
 }
 
+/* =========================================
+   BRANDBOOK
+   ========================================= */
+
 .media-brandbook {
     position: relative;
+    padding: 3.75rem 0 10rem;
     background: var(--page-yellow);
-    padding: 3.75rem 0 6.25rem;
 }
 
 .media-brandbook__container {
@@ -162,267 +183,97 @@
 }
 
 .media-brandbook__placeholder {
-    width: min(100%, 46rem);
-    aspect-ratio: 1.45 / 1;
+    width: min(100%, 70rem);
+    aspect-ratio: 2 / 1;
+    margin-bottom: 1.6rem;
     border-radius: 1.4rem;
     background: var(--placeholder);
-    margin-bottom: 1.6rem;
 }
 
 .media-brandbook__button {
     align-self: center;
-    min-width: 17rem;
+    min-width: 11.5rem;
     padding: 0.65rem 2rem 0.85rem;
+    border: 0;
     border-radius: 999px;
     background: var(--page-white);
+    color: var(--page-black);
     font-family: "MarvinVisions", Arial, sans-serif;
     font-size: clamp(1.4rem, 2vw, 2.05rem);
     line-height: 0.95;
     text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.media-brandbook__button:hover,
-.media-brandbook__button:focus-visible {
-    background: var(--page-black);
-    color: var(--page-white);
-}
+    .media-brandbook__button:hover,
+    .media-brandbook__button:focus-visible {
+        background: var(--page-black);
+        color: var(--page-white);
+    }
+
+/* =========================================
+   REGISTRATION
+   partner-style mechanics, media colors
+   ========================================= */
 
 .registration.registration--media {
     position: relative;
-    margin-top: -3.2rem;
+    margin-top: -10.2rem;
     background: var(--page-red);
-    clip-path: polygon(0 3.2rem, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 8rem, 100% 100%, 0 100%);
 }
 
 .registration--media .registration__wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 3rem;
-    padding: 9.25rem 0 7rem;
+    display: grid;
+    grid-template-columns: minmax(18rem, 1fr) minmax(20rem, 31.5rem);
+    gap: 2rem;
+    align-items: start;
+    padding: 12.25rem 0 1rem;
 }
 
 .registration--media .registration__title {
-    max-width: 26rem;
     margin: 0;
+    max-width: 12ch;
+    color: var(--page-white);
     font-family: "MarvinVisions", Arial, sans-serif;
     font-size: clamp(2.4rem, 5vw, 4.7rem);
     line-height: 0.92;
     text-transform: uppercase;
-    color: var(--page-white);
 }
 
-.registration--media .registration__title span {
-    display: block;
-    color: var(--page-yellow);
-}
+    .registration--media .registration__title span {
+        display: block;
+        color: var(--page-yellow);
+    }
 
 .registration--media .registration__form {
     position: relative;
-    width: min(100%, 31.25rem);
+    z-index: 1;
+    width: 100%;
+    max-width: 31.25rem;
+    justify-self: end;
 }
 
-.registration--media .registration__form form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.95rem;
-}
+    .registration--media .registration__form form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.95rem;
+    }
 
 .registration--media .registration__input {
     width: 100%;
-    height: 3.25rem;
-}
-
-.registration--media .registration__input input {
-    width: 100%;
-    height: 100%;
-    padding: 0.8rem 1.15rem;
-    border: none;
-    border-radius: 999px;
-    background: var(--page-white);
-    color: var(--page-black);
-    font-size: 1.35rem;
-    outline: none;
-}
-
-.registration--media .registration__input input::placeholder {
-    color: #8b8b8b;
-}
-
-.registration--media .registration__input input:focus-visible {
-    box-shadow: 0 0 0 3px rgba(121, 215, 223, 0.45);
-}
-
-.registration--media .registration__captcha {
-    width: 100%;
-    margin-top: 0.2rem;
-}
-
-.registration--media .registration__captcha-check {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.75rem 1rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-    color: var(--page-white);
-    cursor: pointer;
-}
-
-.registration--media .registration__captcha-check input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.registration--media .registration__captcha-box {
-    position: relative;
-    width: 1.2rem;
-    height: 1.2rem;
-    border-radius: 0.25rem;
-    border: 2px solid var(--page-white);
-    background: transparent;
-}
-
-.registration--media .registration__captcha-check input:checked + .registration__captcha-box::after {
-    content: "";
-    position: absolute;
-    left: 0.28rem;
-    top: 0.02rem;
-    width: 0.32rem;
-    height: 0.62rem;
-    border-right: 2px solid var(--page-yellow);
-    border-bottom: 2px solid var(--page-yellow);
-    transform: rotate(45deg);
-}
-
-.registration--media .registration__captcha-text {
-    font-size: 1rem;
-    line-height: 1;
-}
-
-.registration--media .registration__honeypot {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-}
-
-.registration--media .registration__submit {
-    width: 12rem;
-    min-height: 3.25rem;
-    padding: 0.5rem 1.75rem;
-    border: none;
-    border-radius: 999px;
-    background: var(--page-cyan);
-    color: var(--page-black);
-    font-family: "MarvinVisions", Arial, sans-serif;
-    font-size: 1.55rem;
-    line-height: 0.95;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.registration--media .registration__submit:hover,
-.registration--media .registration__submit:focus-visible {
-    background: var(--page-white);
-}
-
-.registration--media .registration__status {
-    min-height: 1.25rem;
-    width: 100%;
-    margin: -0.1rem 0 0;
-    font-size: 0.95rem;
-    line-height: 1.2;
-    text-align: center;
-    color: var(--page-white);
-}
-
-.registration--media .registration__status.is-success {
-    color: var(--page-cyan);
-}
-
-.registration--media .registration__status.is-error {
-    color: #ffd3dc;
-}
-
-.registration--media .registration__form-result {
-    display: none;
-}
-
-.registration--media .registration__form-close {
-    display: none;
-}
-
-.registration--media .registration__form-text {
     margin: 0;
 }
 
-@media (max-width: 1023px) {
-    .container {
-        padding: 0 1.875rem;
-    }
-
-    .media-hero {
-        padding: 3.5rem 0 7.25rem;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.6rem), 0 100%);
-    }
-
-    .media-hero__lead {
-        font-size: 1.35rem;
-        max-width: 41rem;
-    }
-
-    .media-hero__point p {
-        font-size: 1.2rem;
-    }
-
-    .media-rules {
-        padding: 4rem 0 4.5rem;
-    }
-
-    .media-rules__item {
-        grid-template-columns: 3.8rem 1fr;
-        gap: 1.2rem;
-    }
-
-    .media-rules__icon {
-        width: 3.25rem;
-    }
-
-    .media-rules__content p {
-        font-size: 1.08rem;
-    }
-
-    .media-brandbook__placeholder {
-        width: min(100%, 41rem);
-        margin-bottom: 1.35rem;
-    }
-
-    .registration.registration--media {
-        margin-top: -2.4rem;
-        clip-path: polygon(0 2.4rem, 100% 0, 100% 100%, 0 100%);
-    }
-
-    .registration--media .registration__wrapper {
-        flex-direction: column;
-        align-items: center;
-        padding: 7rem 0 5.5rem;
-        gap: 2rem;
-    }
-
-    .registration--media .registration__title {
-        text-align: center;
-    }
-}
+/* =========================================
+   MOBILE
+   ========================================= */
 
 @media (max-width: 767px) {
     .container {
-        padding: 0 1.25rem;
+        width: min(100% - 2.5rem, 1240px);
     }
 
     .shell-placeholder__inner {
@@ -490,7 +341,7 @@
     }
 
     .media-rules__content h3 {
-        margin-bottom: 0.55rem;
+        margin-bottom: 1rem;
     }
 
     .media-rules__content p {
@@ -503,14 +354,14 @@
     }
 
     .media-brandbook__placeholder {
-        border-radius: 1rem;
         width: 100%;
-        aspect-ratio: 1.22 / 1;
+        aspect-ratio: 1.7 / 1;
+        border-radius: 1rem;
     }
 
     .media-brandbook__button {
         min-width: 11rem;
-        padding: 0.75rem 1.4rem 0.9rem;
+        padding: 0.71rem 1.4rem 0.9rem;
     }
 
     .registration.registration--media {
@@ -519,25 +370,22 @@
     }
 
     .registration--media .registration__wrapper {
-        padding: 4.3rem 0 3.4rem;
         gap: 1.4rem;
+        padding: 4.3rem 0 3.4rem;
     }
 
     .registration--media .registration__form {
         width: 100%;
     }
 
-    .registration--media .registration__form form {
-        gap: 0.8rem;
-    }
-
-    .registration--media .registration__input {
-        height: 2.85rem;
-    }
+        .registration--media .registration__form form {
+            gap: 0.8rem;
+        }
 
     .registration--media .registration__input input {
-        font-size: 1rem;
+        height: 2.85rem;
         padding: 0.7rem 1rem;
+        font-size: 1rem;
     }
 
     .registration--media .registration__submit {
@@ -549,9 +397,5 @@
     .registration--media .registration__captcha-check {
         width: 100%;
         justify-content: center;
-    }
-
-    .registration--media .registration__status {
-        font-size: 0.86rem;
     }
 }
