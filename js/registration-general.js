@@ -170,15 +170,15 @@
         const isOnlineTransport = transportInput && transportInput.value === 'Онлайн';
 
         const requiredByRole = {
-            speaker: ['email', 'transport', 'passportSeries', 'passportNumber'],
-            participant: ['adult18', 'region', 'participantStatus', 'email', 'track', 'transport', 'passportSeries', 'passportNumber'],
-            guest: ['email', 'transport', 'passportSeries', 'passportNumber']
+            speaker: ['email', 'transport', 'passportNumber'],
+            participant: ['adult18', 'region', 'participantStatus', 'email', 'track', 'transport', 'passportNumber'],
+            guest: ['email', 'transport', 'passportNumber']
         };
 
         const roleRequiredFields = requiredByRole[status] || [];
 
         roleRequiredFields.forEach((fieldName) => {
-            if (isOnlineTransport && (fieldName === 'passportSeries' || fieldName === 'passportNumber')) {
+            if (isOnlineTransport && fieldName === 'passportNumber') {
                 return;
             }
 
@@ -194,19 +194,6 @@
         const emailInput = getInputByName('email', activeRoleBlock);
         if (emailInput && emailInput.value.trim() && !emailPattern.test(emailInput.value.trim())) {
             addError('Укажи корректный email.', emailInput);
-        }
-
-        const passportSeriesInput = getInputByName('passportSeries', activeRoleBlock);
-        const passportNumberInput = getInputByName('passportNumber', activeRoleBlock);
-        const passportSeries = passportSeriesInput ? passportSeriesInput.value.replace(/\D/g, '') : '';
-        const passportNumber = passportNumberInput ? passportNumberInput.value.replace(/\D/g, '') : '';
-
-        if (!isOnlineTransport && passportSeriesInput && passportSeriesInput.value.trim() && passportSeries.length !== 4) {
-            addError('Серия паспорта должна содержать 4 цифры.', passportSeriesInput);
-        }
-
-        if (!isOnlineTransport && passportNumberInput && passportNumberInput.value.trim() && passportNumber.length !== 6) {
-            addError('Номер паспорта должен содержать 6 цифр.', passportNumberInput);
         }
 
         const carNumberInput = getInputByName('carNumber', activeRoleBlock);
