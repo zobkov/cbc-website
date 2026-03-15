@@ -464,3 +464,120 @@ body.reg-general-popup-open {
         font-size: 0.9rem;
     }
 }
+
+/* ---- Track info button (ⓘ) ---- */
+.reg-general__track-info-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    padding: 0;
+    margin-left: 0.35rem;
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    vertical-align: middle;
+    flex-shrink: 0;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.reg-general__track-info-btn:hover,
+.reg-general__track-info-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+/* ---- Track description below field ---- */
+.reg-general__track-desc {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #f6ac1b;
+    font-style: italic;
+}
+
+/* ---- Guest warning popup ---- */
+.reg-general-guest-popup__title {
+    color: #b35a00;
+}
+
+.reg-general-guest-popup__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+}
+
+.reg-general-guest-popup__cancel {
+    background: transparent;
+    color: #555555;
+    border: 1.5px solid #cccccc;
+}
+
+.reg-general-guest-popup__cancel:hover,
+.reg-general-guest-popup__cancel:focus-visible {
+    background: #f4f4f4;
+    color: #222222;
+}
+
+/* ---- Track info popup (wider dialog, scrollable list) ---- */
+.reg-general-track-info-popup__dialog {
+    max-width: 36rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.reg-general-track-info__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.reg-general-track-info__item {
+    padding: 0.625rem 0.75rem;
+    background: #faf8f5;
+    border-radius: 0.75rem;
+}
+
+.reg-general-track-info__name {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.3rem;
+}
+
+.reg-general-track-info__desc {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: #444444;
+}
+
+@media (max-width: 767px) {
+    .reg-general__track-info-btn {
+        width: 1.1rem;
+        height: 1.1rem;
+        font-size: 0.65rem;
+    }
+
+    .reg-general-track-info-popup__dialog {
+        max-height: 85vh;
+    }
+
+    .reg-general-track-info__name {
+        font-size: 0.85rem;
+    }
+
+    .reg-general-track-info__desc {
+        font-size: 0.8rem;
+    }
+}
