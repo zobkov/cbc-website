@@ -25,7 +25,7 @@
         marketing: 'Маркетинг и медиа (Digital & Brand): Участники изучат специфику продвижения и продаж на китайском рынке, освоят локальные digital-инструменты, а также получат навыки выстраивания эффективных коммуникаций с аудиторией.',
         language: 'Язык, культура и перевод (Humanities & Arts): Участники глубоко погрузятся в китайский язык и культуру, освоят тонкости перевода, поймут культурный код и научатся превращать полученные знания в реальные карьерные возможности.',
         chinese: 'Китайский трек (Chinese Track): Специальный трек только для студентов из Китая, обучение проводится на китайском языке. Участники знакомятся с программой форума, образовательными и культурными форматами, интегрируясь в мероприятия вместе с другими участниками.',
-        rosmolodezh_grants: 'Росмолодёжь.Гранты: Трек для участников, которые разрабатывают свои проекты и будут презентовать их на конкурсе «Росмолодёжь.Гранты», с возможностью получить до 1 млн. рублей. Образовательная программа с 26 февраля по 11 апреля 2026 года.'
+        rosmolodezh_grants: 'Росмолодёжь.Гранты: Трек для участников, которые разрабатывают свои проекты и будут презентовать их на конкурсе «Росмолодёжь.Гранты», с возможностью получить до 1 млн. рублей. Образовательная программа с 26 февраля по 11 апреля 2026 года.<br><br><b>ВНИМАНИЕ!</b> Этот трек для участников конкурса «Росмолодёжь.Гранты». Подробную информцию о конкурсе можно найти на сайте Росмолодёжи: https://myrosmol.ru/events/f70b4bd4-5df5-4794-b5b1-7ab67b1ca048 и в наших социальный сетях!'
     };
 
     const closeAllSelects = (except = null) => {
@@ -97,7 +97,7 @@
         <div class="reg-general-popup__dialog" role="document">
             <button class="reg-general-popup__close" type="button" aria-label="Закрыть" data-guest-popup-close>&times;</button>
             <h2 class="reg-general-popup__title reg-general-guest-popup__title" id="regGuestPopupTitle">&#9888; ВНИМАНИЕ</h2>
-            <p class="reg-general-popup__text">При регистрации как гость ты не сможешь посещать мероприятия форума КБК&nbsp;— у гостя нет возможности выбора трека.<br><br>Регистрируйся как гость только если уверен, что ты делаешь. Если сомневаешься&nbsp;— свяжись с нами:<br><br>Почта: <a href="mailto:info@forum-cbc.ru" style="color:#c31632;font-weight:700">info@forum-cbc.ru</a><br>Telegram: <a href="https://t.me/cbc_assistant" target="_blank" rel="noopener noreferrer" style="color:#c31632;font-weight:700">@cbc_assistant</a></p>
+            <p class="reg-general-popup__text">При регистрации как гость ты сможешь находиться на площадке форума, но не сможешь посещать мастер-классы и трековые мероприятия. Для участия в них нужна регистрация как участника с выбором трека.<br><br>Регистрируйся как гость, только если уверен в своём выборе. Если сомневаешься, просто напиши нам, поможем разобраться:<br><br>Почта: <a href="mailto:info@forum-cbc.ru" style="color:#c31632;font-weight:700">info@forum-cbc.ru</a><br>Telegram: <a href="https://t.me/cbc_assistant" target="_blank" rel="noopener noreferrer" style="color:#c31632;font-weight:700">@cbc_assistant</a></p>
             <div class="reg-general-guest-popup__buttons">
                 <button class="reg-general-popup__button reg-general-guest-popup__confirm" type="button">Всё равно продолжить</button>
                 <button class="reg-general-popup__button reg-general-guest-popup__cancel" type="button" data-guest-popup-close>Назад</button>
