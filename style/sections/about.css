@@ -3210,9 +3210,19 @@ html, body {
         clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%);
     }
 
-    .page--about-mobile .aboutm-block {
+    .page--about-mobile .aboutm-block-team {
         position: relative;
+        width: 300px;
     }
+
+    .page--about-mobile .aboutmf-block-team {
+        position: relative;
+        left: 100px;
+        width: 300px;
+        margin-bottom: 50px;
+    }
+
+
 
         .page--about-mobile .aboutm-block + .aboutm-block {
             margin-top: 54px;
@@ -3509,6 +3519,7 @@ html, body {
     background: var(--about-turq);
     padding: 44px 0 80px;
     clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 94%);
+    overflow: visible;
 }
 
 .page--about-mobile .aboutm-title {
@@ -3524,14 +3535,16 @@ html, body {
 .page--about-mobile .aboutm-timeline {
     position: relative;
     padding-left: 70px;
+    overflow: visible;
 }
 
     .page--about-mobile .aboutm-timeline::before {
         content: "";
         position: absolute;
         left: 40px;
-        top: 30px;
-        bottom: 0px;
+        top: 40px;
+        bottom: 10px;
+        height:575px;
         width: 4px;
         background: #fff;
         border-radius: 4px;
@@ -3649,6 +3662,7 @@ html, body {
     margin-top: -56px; /* overlap turquoise diagonal */
     padding: 72px 0 62px;
     clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 94%);
+
     overflow: visible;
 }
 
@@ -3676,13 +3690,13 @@ html, body {
 
 .page--about-mobile .aboutm-photoPh--big {
     height: 160px;
-    margin-top: 12px;
+    margin-top: 30px;
 }
 
 /* ---------- TEAM (yellow) ---------- */
 .page--about-mobile .aboutm-team {
     background: var(--about-yellow);
-    margin-top: -56px;
+    margin-top: -70px;
     padding: 72px 0 70px;
     clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 100%);
 }
@@ -3710,7 +3724,7 @@ html, body {
 
 .page--about-mobile .aboutm-starPh--right {
     right: -52px;
-    bottom: 70px;
+    bottom: 100px;
     width: 180px;
     height: 180px;
 }
@@ -3745,3 +3759,66 @@ html, body {
         height: 108px;
     }
 }
+
+.page--about-mobile .kbk-marquee {
+    top: -35px;
+}
+
+.about-desktop {
+    display: block;
+}
+
+.about-mobile {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .about-desktop {
+        display: none !important;
+    }
+
+    .about-mobile {
+        display: block !important;
+    }
+}
+
+.page--about-mobile .aboutm-sideDecor img {
+    position: absolute;
+    left: -2px;
+    top: -52px;
+    width: 88px;
+    max-width: none;
+}
+
+.page--about-mobile .aboutm-year--summer .aboutm-year__num {
+    font-size: 52px;
+}
+
+.page--about-mobile .aboutm-year--last {
+    padding-bottom: 110px;
+}
+
+    .page--about-mobile .aboutm-year--last::after {
+        content: "";
+        position: absolute;
+        left: -29px;
+        top: 62px;
+        width: 4px;
+        height: 92px;
+        transform: translateX(-50%);
+        background-image: repeating-linear-gradient(to bottom, #fff 0 12px, transparent 12px 22px);
+    }
+
+.page--about-mobile .aboutm-photoPh,
+.page--about-mobile .aboutm-photoPh--big {
+    overflow: hidden;
+}
+
+    .page--about-mobile .aboutm-photoPh > img,
+    .page--about-mobile .aboutm-photoPh--big > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
