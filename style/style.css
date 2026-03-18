@@ -30,7 +30,6 @@
 	--partners-radius: 1rem;
 	--partners-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 	--partners-muted: #4f4f4f;
-
 	/* Media press kit tokens */
 	--page-red: var(--kbk-red, #c31631);
 	--page-light: #f3f3f3;
