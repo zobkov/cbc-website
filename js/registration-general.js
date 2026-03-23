@@ -18,14 +18,81 @@
     };
 
     const trackDescriptions = {
-        finance: 'Финансы и инвестиции (Finance & Banking): Участники изучат банковский сектор Поднебесной, научатся структурировать финансовые сделки в международном контексте и анализировать инвестиционные рынки.',
-        logistics: 'Логистика и ВЭД (Supply Chain & Trade): Участники научатся планировать и управлять цепочками поставок, страхованием, доставкой и таможенными операциями, а также оптимизировать маршруты и себестоимость.',
-        consulting: 'Консалтинг и риск-менеджмент (Strategy & Consulting): Участники научатся решать сложные бизнес-задачи, разрабатывать стратегии выхода на рынок Китая, оценивать риски и собирать аналитические рекомендации для топ-менеджмента.',
-        politics: 'Политика, право и дипломатия (Rules of the Game): Участники научатся ориентироваться в международных правилах игры: решать сложные межгосударственные бизнес-задачи, разрабатывать стратегии с учётом правовых норм, оценивать риски и выстраивать отношения с китайскими партнёрами.',
-        marketing: 'Маркетинг и медиа (Digital & Brand): Участники изучат специфику продвижения и продаж на китайском рынке, освоят локальные digital-инструменты, а также получат навыки выстраивания эффективных коммуникаций с аудиторией.',
-        language: 'Язык, культура и перевод (Humanities & Arts): Участники глубоко погрузятся в китайский язык и культуру, освоят тонкости перевода, поймут культурный код и научатся превращать полученные знания в реальные карьерные возможности.',
-        chinese: 'Китайский трек (Chinese Track): Специальный трек только для студентов из Китая, обучение проводится на китайском языке. Участники знакомятся с программой форума, образовательными и культурными форматами, интегрируясь в мероприятия вместе с другими участниками.',
-        rosmolodezh_grants: 'Росмолодёжь.Гранты: Трек для участников, которые разрабатывают свои проекты и будут презентовать их на конкурсе «Росмолодёжь.Гранты», с возможностью получить до 1 млн. рублей. Образовательная программа с 26 февраля по 11 апреля 2026 года.<br><br><b>ВНИМАНИЕ!</b> Этот трек для участников конкурса «Росмолодёжь.Гранты». Подробную информцию о конкурсе можно найти на сайте Росмолодёжи: <a href="https://myrosmol.ru/events/f70b4bd4-5df5-4794-b5b1-7ab67b1ca048" style="text-decoration: underline;">Ссылка на сайт</a> и в наших социальный сетях!'
+        finance: {
+            title: 'Финансы и инвестиции (Finance &amp; Banking)',
+            desc: 'Участники изучат банковский сектор Поднебесной, научатся структурировать финансовые сделки в международном контексте и анализировать инвестиционные рынки.',
+            events: [
+                'Горизонт профессии: финансы Россия\u2013Китай 2026\u20132030',
+                'Финансовая грамотность без иллюзий: Россия vs Китай',
+                'Юань и новая архитектура расчётов: как реально проходят деньги',
+                '\u00abАнатомия сделки\u00bb: инвестиционный проект с китайским капиталом',
+                'Чек-лист финансиста: что проверить в сделке с Китаем до подписания договора?'
+            ]
+        },
+        logistics: {
+            title: 'Логистика и ВЭД (Supply Chain &amp; Trade)',
+            desc: 'Участники научатся планировать и управлять цепочками поставок, страхованием, доставкой и таможенными операциями, а также оптимизировать маршруты и себестоимость.',
+            events: [
+                'Как Китай стал главным логистическим партнёром России?',
+                'Где на самом деле начинается логистика: поставщик, контракт и распределение рисков?',
+                'Таможня как зона системного риска: где ломаются даже сильные схемы?',
+                'Краш-тест цепочки поставок: что произойдет, если правила снова изменятся?',
+                'Топ-3 ошибки новичков в импорте из Китая: честный разговор практиков'
+            ]
+        },
+        consulting: {
+            title: 'Консалтинг и риск-менеджмент (Strategy &amp; Consulting)',
+            desc: 'Участники научатся решать сложные бизнес-задачи, разрабатывать стратегии выхода на рынок Китая, оценивать риски и собирать аналитические рекомендации для топ-менеджмента.',
+            events: [
+                'Китайский консалтинг: кто и как строит проекты?',
+                'Декомпозиция бизнес-проблемы: инструментальный подход MECE',
+                'Скрытые риски и конфликт интересов: навигация в сложной среде',
+                'Практический кейс: правовые и операционные риски в китайских проектах',
+                'Управление проектами в Китае: что на самом деле определяет результат?'
+            ]
+        },
+        politics: {
+            title: 'Политика, право и дипломатия (Rules of the Game)',
+            desc: 'Участники научатся ориентироваться в международных правилах игры: решать сложные межгосударственные бизнес-задачи, разрабатывать стратегии с учётом правовых норм, оценивать риски и выстраивать отношения с китайскими партнёрами.',
+            events: [
+                'Новый мировой порядок: где в нём Россия и Китай?',
+                'Инициатива ОПОП как политико-правовая платформа',
+                'Интеллектуальная собственность в Китае: мифы и реальность',
+                'Дипломатия переговоров и юридическая практика с Китаем',
+                'О чём молчат контракты: разговор про риски с китайскими партнёрами'
+            ]
+        },
+        marketing: {
+            title: 'Маркетинг и медиа (Digital &amp; Brand)',
+            desc: 'Участники изучат специфику продвижения и продаж на китайском рынке, освоят локальные digital-инструменты, а также получат навыки выстраивания эффективных коммуникаций с аудиторией.',
+            events: [
+                'Китай как параллельный интернет: почему западные digital-подходы здесь не работают?',
+                'Алгоритмы и язык контента: как стать \u00abсвоим\u00bb внутри системы?',
+                'Бренд без защиты \u2013 не бренд: как в Китае теряют имя, дизайн и рынок',
+                'Краш-тест бренда: как за 6 месяцев потерять рынок?',
+                'Китайский рынок без иллюзий: что на самом деле нужно, чтобы бренд выжил?'
+            ]
+        },
+        language: {
+            title: 'Язык, культура и перевод (Humanities &amp; Arts)',
+            desc: 'Участники глубоко погрузятся в китайский язык и культуру, освоят тонкости перевода, поймут культурный код и научатся превращать полученные знания в реальные карьерные возможности.',
+            events: [
+                'Работа переводчика в эпоху искусственного интеллекта: как остаться незаменимым и не потерять профессию?',
+                'Философия пути и менталитет Китая: как мыслить по-китайски?',
+                'От текста к культурной интерпретации: как донести поэзию и смысл на другом языке?',
+                'Тело как язык: китайская хореография и культурные сигналы',
+                'Переводчик как стратег: кейс, который невозможно перевести дословно'
+            ]
+        },
+        chinese: {
+            title: 'Китайский трек (Chinese Track)',
+            desc: 'Специальный трек только для студентов из Китая, обучение проводится на китайском языке. Участники знакомятся с программой форума, образовательными и культурными форматами, интегрируясь в мероприятия вместе с другими участниками.'
+        },
+        rosmolodezh_grants: {
+            title: 'Росмолодёжь.Гранты',
+            desc: 'Трек для участников, которые разрабатывают свои проекты и будут презентовать их на конкурсе \u00abРосмолодёжь.Гранты\u00bb, с возможностью получить до\u00a01\u00a0млн.\u00a0рублей. Образовательная программа для участников реализуется с 26\u00a0февраля по 11\u00a0апреля 2026\u00a0года.',
+            extra: '<br><br><b>ВНИМАНИЕ!</b> Этот трек для участников конкурса \u00abРосмолодёжь.Гранты\u00bb. Подробную информацию о конкурсе можно найти на сайте Росмолодёжи: <a href="https://myrosmol.ru/events/f70b4bd4-5df5-4794-b5b1-7ab67b1ca048" style="text-decoration: underline;">Ссылка на сайт</a> и в наших социальных сетях!'
+        }
     };
 
     const closeAllSelects = (except = null) => {
@@ -143,11 +210,12 @@
     }
 
     // --- Track info popup ---
-    const trackInfoLines = Object.entries(trackDescriptions).map(([, desc]) => {
-        const colonIdx = desc.indexOf(':');
-        const title = colonIdx !== -1 ? desc.slice(0, colonIdx) : desc;
-        const body = colonIdx !== -1 ? desc.slice(colonIdx + 1).trim() : '';
-        return `<div class="reg-general-track-info__item"><strong class="reg-general-track-info__name">${title}</strong>${body ? `<p class="reg-general-track-info__desc">${body}</p>` : ''}</div>`;
+    const trackInfoLines = Object.entries(trackDescriptions).map(([, track]) => {
+        const eventsHtml = track.events && track.events.length
+            ? `<ol class="reg-general-track-info__events">${track.events.map((e, i) => `<li><b>Мероприятие\u00a0№${i + 1}.</b> ${e}</li>`).join('')}</ol>`
+            : '';
+        const extraHtml = track.extra || '';
+        return `<div class="reg-general-track-info__item"><strong class="reg-general-track-info__name">${track.title}</strong>${track.desc ? `<p class="reg-general-track-info__desc">${track.desc}${extraHtml}</p>` : ''}${eventsHtml}</div>`;
     }).join('');
 
     const trackInfoPopupNode = document.createElement('div');
@@ -188,6 +256,47 @@
 
     trackInfoPopupNode.querySelectorAll('[data-track-info-close]').forEach((control) => {
         control.addEventListener('click', closeTrackInfoPopup);
+    });
+
+    // --- Invitation info popup ---
+    const invitationInfoPopupNode = document.createElement('div');
+    invitationInfoPopupNode.className = 'reg-general-popup';
+    invitationInfoPopupNode.setAttribute('role', 'dialog');
+    invitationInfoPopupNode.setAttribute('aria-modal', 'true');
+    invitationInfoPopupNode.setAttribute('aria-labelledby', 'regInvitationPopupTitle');
+    invitationInfoPopupNode.hidden = true;
+    invitationInfoPopupNode.innerHTML = `
+        <div class="reg-general-popup__backdrop" data-invitation-info-close></div>
+        <div class="reg-general-popup__dialog" role="document">
+            <button class="reg-general-popup__close" type="button" aria-label="Закрыть" data-invitation-info-close>&times;</button>
+            <h2 class="reg-general-popup__title" id="regInvitationPopupTitle">Официальное приглашение</h2>
+            <p class="reg-general-popup__text">Официальное приглашение может, например, использоваться для пропуска занятий в университете или иных целей. С Вами свяжутся по электронной почте.</p>
+            <button class="reg-general-popup__button" type="button" data-invitation-info-close>Понятно</button>
+        </div>
+    `;
+    document.body.append(invitationInfoPopupNode);
+
+    let invitationInfoLastFocusedElement = null;
+
+    const closeInvitationInfoPopup = () => {
+        if (invitationInfoPopupNode.hidden) return;
+        invitationInfoPopupNode.hidden = true;
+        document.body.classList.remove('reg-general-popup-open');
+        if (invitationInfoLastFocusedElement && typeof invitationInfoLastFocusedElement.focus === 'function') {
+            invitationInfoLastFocusedElement.focus();
+        }
+    };
+
+    const openInvitationInfoPopup = () => {
+        invitationInfoLastFocusedElement = document.activeElement;
+        invitationInfoPopupNode.hidden = false;
+        document.body.classList.add('reg-general-popup-open');
+        const closeBtn = invitationInfoPopupNode.querySelector('[data-invitation-info-close]');
+        if (closeBtn) closeBtn.focus();
+    };
+
+    invitationInfoPopupNode.querySelectorAll('[data-invitation-info-close]').forEach((control) => {
+        control.addEventListener('click', closeInvitationInfoPopup);
     });
 
     const validationMessage = document.createElement('p');
@@ -491,7 +600,8 @@
                     if (field) {
                         const descEl = field.querySelector('[data-track-desc]');
                         if (descEl) {
-                            const desc = trackDescriptions[value] || '';
+                            const track = trackDescriptions[value];
+                            const desc = track ? track.desc : '';
                             descEl.innerHTML = desc ? '<b>Описание выбранного трека:</b> <br>' + desc : '';
                             descEl.hidden = !desc;
                         }
@@ -531,6 +641,10 @@
         btn.addEventListener('click', openTrackInfoPopup);
     });
 
+    form.querySelectorAll('[data-invitation-info-btn]').forEach((btn) => {
+        btn.addEventListener('click', openInvitationInfoPopup);
+    });
+
     form.querySelectorAll('input').forEach((input) => {
         input.addEventListener('input', () => {
             clearFieldError(input);
@@ -559,6 +673,10 @@
             }
             if (!trackInfoPopupNode.hidden) {
                 closeTrackInfoPopup();
+                return;
+            }
+            if (!invitationInfoPopupNode.hidden) {
+                closeInvitationInfoPopup();
                 return;
             }
             closeAllSelects();
