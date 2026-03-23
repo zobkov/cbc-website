@@ -108,7 +108,7 @@
 .media-hero__point {
     display: grid;
     grid-template-columns: 2.6rem 1fr;
-    align-items: start;
+    align-items: center;
     gap: 1rem;
 }
 
