@@ -530,6 +530,7 @@ body.reg-general-popup-open {
     max-width: 36rem;
     max-height: 80vh;
     overflow-y: auto;
+    overscroll-behavior: contain;
     display: flex;
     flex-direction: column;
 }
@@ -562,6 +563,18 @@ body.reg-general-popup-open {
     color: #444444;
 }
 
+.reg-general-track-info__events {
+    margin: 0.4rem 0 0;
+    padding-left: 1.25rem;
+    font-size: 0.815rem;
+    line-height: 1.45;
+    color: #555555;
+}
+
+.reg-general-track-info__events li + li {
+    margin-top: 0.2rem;
+}
+
 @media (max-width: 767px) {
     .reg-general__track-info-btn {
         width: 1.1rem;
@@ -580,4 +593,38 @@ body.reg-general-popup-open {
     .reg-general-track-info__desc {
         font-size: 0.8rem;
     }
+}
+
+/* ---- Invitation checkbox row ---- */
+.reg-general__consent-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* ---- Invitation info button (inline, matches track-info-btn style) ---- */
+.reg-general__invitation-info-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.1rem;
+    height: 1.1rem;
+    padding: 0;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    background: transparent;
+    color: inherit;
+    font-size: 0.65rem;
+    font-weight: 700;
+    cursor: pointer;
+    vertical-align: middle;
+    flex-shrink: 0;
+    transition: opacity 0.15s ease;
+    opacity: 0.7;
+}
+
+.reg-general__invitation-info-btn:hover,
+.reg-general__invitation-info-btn:focus-visible {
+    opacity: 1;
+    outline: none;
 }
