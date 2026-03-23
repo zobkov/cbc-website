@@ -182,12 +182,14 @@
     align-items: flex-start;
 }
 
-.media-brandbook__placeholder {
-    width: min(100%, 70rem);
-    aspect-ratio: 2 / 1;
+.media-brandbook__preview {
+    width: 95%;
+    aspect-ratio: 1 / 1;
     margin-bottom: 1.6rem;
     border-radius: 1.4rem;
-    background: var(--placeholder);
+    border: 0;
+    overflow: hidden;
+    display: block;
 }
 
 .media-brandbook__button {
@@ -353,9 +355,9 @@
         padding: 2.8rem 0 4.4rem;
     }
 
-    .media-brandbook__placeholder {
+    .media-brandbook__preview {
         width: 100%;
-        aspect-ratio: 1.7 / 1;
+        aspect-ratio: 1 / 1;
         border-radius: 1rem;
     }
 
