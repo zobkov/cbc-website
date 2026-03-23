@@ -603,6 +603,11 @@
             Object.assign(result, collectActiveRoleData(activeRoleBlock));
         }
 
+        const officialInvitationInput = form.querySelector('input[name="officialInvitation"]');
+        if (officialInvitationInput) {
+            result.officialInvitation = officialInvitationInput.checked;
+        }
+
         const validationResult = validateForm({ fullName, status, activeRoleBlock });
         if (!validationResult.isValid) {
             const uniqueTargets = Array.from(new Set(validationResult.invalidTargets));
