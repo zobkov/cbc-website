@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Toggle "help details" textarea based on need-help radio selection
+  const helpDetailsWrap = document.getElementById('helpDetailsWrap');
+  const needHelpRadios = document.querySelectorAll('input[name="need-help"]');
+  needHelpRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      if (helpDetailsWrap) {
+        helpDetailsWrap.hidden = radio.value !== 'Да';
+      }
+    });
+  });
+
   const form = document.querySelector('[data-partners-form]');
   const status = form?.querySelector('[data-form-status]');
   const successBox = form?.querySelector('.registration__form-result--success');
