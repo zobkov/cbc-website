@@ -68,7 +68,7 @@
 .partners-hero__title {
     color: var(--partners-white);
     text-align: center;
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: clamp(1.7rem, 4vw, 4rem);
 }
 
 .partners-hero__line {
@@ -535,7 +535,7 @@
 
 @media (max-width: 1023px) {
     .partners-hero {
-        padding-top: 2.5rem;
+        padding-top: 7rem;
     }
 
     .partners-hero__logos,
@@ -739,6 +739,14 @@
     width: 100%;
     background: #cfcfcf;
     border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.partners-how__card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .partners-how__card--1,
