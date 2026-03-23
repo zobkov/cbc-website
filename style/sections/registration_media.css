@@ -1,0 +1,175 @@
+/* =========================================
+   MEDIA (СМИ) REGISTRATION
+   Extends registration_general.css
+   ========================================= */
+
+.registration--media .registration__wrapper--general {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration--media .registration__form--general {
+    width: 100%;
+}
+
+.registration--media #mediaRegistrationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration--media .reg-general__role {
+    width: 100%;
+}
+
+.reg-media__success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    color: #ffffff;
+    padding: 2rem 1rem 0;
+}
+
+.reg-media__success-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.reg-media__success h2 {
+    margin: 0;
+    font-family: "MarvinVisions", Arial, sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.reg-media__success p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.45;
+    max-width: 34ch;
+}
+
+/* Error banner */
+.reg-media__submit-error {
+    margin: 1 0 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    background-color: #ffd3dc;
+    color: #8d1414;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Textarea inside reg-general__field */
+.reg-general__field textarea {
+    width: 100%;
+    min-height: 6.5rem;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 0.75rem 1.125rem;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    background-color: #ffffff;
+    color: #000000;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.reg-general__field textarea::placeholder {
+    color: #787878;
+}
+
+.reg-general__field textarea.is-invalid {
+    box-shadow: 0 0 0 2px #8d1414;
+}
+
+/* Number bullet aligned to top for textarea fields */
+.reg-general__field--textarea::before {
+    top: calc((var(--rg-title-size) * var(--rg-title-line)) + var(--rg-gap) + 0.85rem);
+    transform: none;
+}
+
+/* Radio group */
+.reg-media__radios {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.reg-media__radios.is-invalid .reg-media__radio-label span {
+    outline: 2px solid #8d1414;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.reg-media__radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.25;
+    cursor: pointer;
+}
+
+.reg-media__radio-label input[type="radio"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    min-width: 1.15rem;
+    flex: 0 0 auto;
+    accent-color: #f6ac1b;
+    cursor: pointer;
+}
+
+/* Submit button */
+.reg-media__submit {
+    align-self: center;
+    min-width: 11.5rem;
+    margin-top: 0.5rem;
+    padding: 0.75rem 2.5rem;
+    border: 0;
+    border-radius: 999px;
+    background: #f6ac1b;
+    color: #000000;
+    font-family: "MarvinVisions", Arial, sans-serif;
+    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.reg-media__submit:hover,
+.reg-media__submit:focus-visible {
+    background: #ffffff;
+}
+
+.reg-media__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+    .reg-general__field textarea {
+        font-size: 0.9rem;
+        min-height: 5rem;
+        border-radius: 14px;
+    }
+
+    .reg-media__radio-label {
+        font-size: 0.95rem;
+    }
+
+    .reg-media__submit {
+        min-width: 10rem;
+        padding: 0.7rem 1.8rem;
+    }
+}
