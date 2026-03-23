@@ -581,3 +581,54 @@ body.reg-general-popup-open {
         font-size: 0.8rem;
     }
 }
+
+/* ---- Invitation checkbox row ---- */
+.reg-general__consent-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* ---- Info tooltip ---- */
+.reg-general__tooltip-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.reg-general__tooltip-wrap .reg-general__track-info-btn {
+    margin-left: 0;
+}
+
+.reg-general__tooltip {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16rem;
+    padding: 0.6rem 0.75rem;
+    background: #1a1a1a;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.4;
+    border-radius: 0.5rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    z-index: 100;
+    white-space: normal;
+}
+
+.reg-general__tooltip-wrap:hover .reg-general__tooltip,
+.reg-general__tooltip-wrap:focus-within .reg-general__tooltip {
+    opacity: 1;
+}
+
+@media (max-width: 767px) {
+    .reg-general__tooltip {
+        width: 12rem;
+        font-size: 0.75rem;
+    }
+}
