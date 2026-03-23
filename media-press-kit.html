@@ -263,61 +263,129 @@
                     </div>
                 </section>
 
-                <section class="registration registration--media">
+                <section class="registration registration--general registration--media">
                     <div class="container">
-                        <div class="registration__wrapper">
-                            <h2 class="registration__title">
-                                Решили стать<br />
-                                партнёром кбк?
-                                <span>Свяжитесь с нами!</span>
-                            </h2>
+                        <div class="registration__wrapper--general">
 
-                            <div class="registration__form" data-form-validate data-callback="base">
-                                <div class="registration__form-result registration__form-result--success">
-                                    <button class="registration__form-close" aria-label="Закрыть окно" type="button"></button>
-                                    <p class="registration__form-text">Спасибо! Ваша заявка была отправлена. Скоро мы свяжемся с вами.</p>
-                                </div>
+                            <h2 class="registration__title registration__title--general">Аккредитация СМИ</h2>
+                            <p class="registration__subtitle">
+                                Заполните форму для получения пресс-аккредитации на форум КБК'26.<br>
+                                Мы рассмотрим заявку и свяжемся с вами.
+                            </p>
 
-                                <div class="registration__form-result registration__form-result--error">
-                                    <button class="registration__form-close" aria-label="Закрыть окно" type="button"></button>
-                                    <p class="registration__form-text">Во время отправки произошла ошибка.</p>
-                                </div>
+                            <!-- Success -->
+                            <div class="reg-media__success" id="mediaFormSuccess" hidden>
+                                <span class="reg-media__success-icon" aria-hidden="true">✓</span>
+                                <h2>Заявка отправлена!</h2>
+                                <p>Спасибо! Мы рассмотрим вашу заявку и свяжемся с вами в ближайшее время.</p>
+                            </div>
 
-                                <form action="./tg.php" method="post">
-                                    <input type="hidden" name="form-type" value="Регистрация">
+                            <div class="registration__form--general">
+                                
 
-                                    <div class="registration__input"
-                                         data-validate-type="phone"
-                                         data-message-base="Поле обязательно к заполнению"
-                                         data-required>
-                                        <input type="text" name="user-phone" placeholder="+7 XXX XXX XX XX" aria-label="Введите телефон">
+                                <form id="mediaRegistrationForm" novalidate>
+                                    <div class="reg-general__role">
+
+                                        <!-- 1 -->
+                                        <div class="reg-general__field" data-number="1">
+                                            <span class="reg-general__field-title">Укажите название СМИ</span>
+                                            <input type="text" name="media-name" placeholder="Название вашего издания" aria-label="Название СМИ" required>
+                                        </div>
+
+                                        <!-- 2 -->
+                                        <div class="reg-general__field" data-number="2">
+                                            <span class="reg-general__field-title">Выберите тип СМИ</span>
+                                            <div class="reg-general__select" data-select>
+                                                <button class="reg-general__select-button" type="button" data-select-btn aria-haspopup="listbox" aria-expanded="false" aria-label="Тип СМИ">
+                                                    <span data-select-label style="color:#787878">Выберите тип</span>
+                                                    <span class="reg-general__select-arrow" aria-hidden="true"></span>
+                                                </button>
+                                                <input type="hidden" name="media-type">
+                                                <div class="reg-general__select-menu" data-select-menu role="listbox">
+                                                    <button type="button" data-option-value="Интернет-издание">Интернет-издание</button>
+                                                    <button type="button" data-option-value="Телевидение">Телевидение</button>
+                                                    <button type="button" data-option-value="Радио">Радио</button>
+                                                    <button type="button" data-option-value="Печатное издание">Печатное издание</button>
+                                                    <button type="button" data-option-value="Информационное агентство">Информационное агентство</button>
+                                                    <button type="button" data-option-value="Блог / независимый проект">Блог / независимый проект</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 3 -->
+                                        <div class="reg-general__field" data-number="3">
+                                            <span class="reg-general__field-title">Укажите страну / регион регистрации СМИ</span>
+                                            <input type="text" name="media-region" placeholder="Например: Россия, Санкт-Петербург" aria-label="Страна или регион" required>
+                                        </div>
+
+                                        <!-- 4 -->
+                                        <div class="reg-general__field" data-number="4">
+                                            <span class="reg-general__field-title">Прикрепите ссылку на сайт / соцсети издания</span>
+                                            <input type="text" name="media-url" placeholder="https://..." aria-label="Ссылка на сайт или соцсети" required>
+                                        </div>
+
+                                        <!-- 5 -->
+                                        <div class="reg-general__field" data-number="5">
+                                            <span class="reg-general__field-title">Укажите ФИО журналиста и его должность</span>
+                                            <input type="text" name="journalist-name" placeholder="Иванов Иван Иванович, корреспондент" aria-label="ФИО и должность" required>
+                                        </div>
+
+                                        <!-- 6 -->
+                                        <div class="reg-general__field" data-number="6">
+                                            <span class="reg-general__field-title">Укажите контактный телефон журналиста</span>
+                                            <input type="tel" name="journalist-phone" placeholder="+7 XXX XXX XX XX" aria-label="Контактный телефон" required>
+                                        </div>
+
+                                        <!-- 7 -->
+                                        <div class="reg-general__field" data-number="7">
+                                            <span class="reg-general__field-title">Укажите ваш Email</span>
+                                            <input type="email" name="journalist-email" placeholder="example@mail.ru" aria-label="Email" required>
+                                        </div>
+
+                                        <!-- 8 -->
+                                        <div class="reg-general__field" data-number="8">
+                                            <span class="reg-general__field-title">Нужна ли Вам помощь в организации съёмок / интервью?</span>
+                                            <div class="reg-media__radios" data-radio-group aria-label="Нужна ли помощь">
+                                                <label class="reg-media__radio-label">
+                                                    <input type="radio" name="need-help" value="Да">
+                                                    <span>Да</span>
+                                                </label>
+                                                <label class="reg-media__radio-label">
+                                                    <input type="radio" name="need-help" value="Нет">
+                                                    <span>Нет</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- 9 (условное) -->
+                                        <div class="reg-general__field reg-general__field--textarea reg-general__field--no-number"
+                                             id="helpDetailsWrap" hidden>
+                                            <span class="reg-general__field-title">Если да, укажите, какая помощь Вам может понадобиться</span>
+                                            <textarea name="help-details" rows="4" placeholder="Опишите, какая помощь нужна…" aria-label="Описание необходимой помощи"></textarea>
+                                        </div>
+
+                                        <!-- 10 -->
+                                        <div class="reg-general__field reg-general__field--textarea reg-general__field--no-number">
+                                            <span class="reg-general__field-title">Особые пожелания по формату работы, интервью или съёмкам</span>
+                                            <textarea name="special-wishes" rows="4" placeholder="Если есть пожелания — напишите здесь…" aria-label="Особые пожелания"></textarea>
+                                        </div>
+
+                                        <!-- Капча -->
+                                        <div class="reg-general__field reg-general__field--consent reg-general__field--no-number">
+                                            <label>
+                                                <input type="checkbox" name="human" data-human-check>
+                                                <span>Я не робот</span>
+                                            </label>
+                                        </div>
+
                                     </div>
-
-                                    <div class="registration__input"
-                                         data-validate-type="email"
-                                         data-message-base="Поле обязательно к заполнению"
-                                         data-required>
-                                        <input type="text" name="user-email" placeholder="Почта" aria-label="Введите почту">
-                                    </div>
-
-                                    <div class="registration__input"
-                                         data-validate-type="text"
-                                         data-message-base="Поле обязательно к заполнению"
-                                         data-required>
-                                        <input type="text" name="user-company" placeholder="Название компании" aria-label="Введите название компании">
-                                    </div>
-
-                                    <div class="registration__captcha">
-                                        <label class="registration__captcha-check">
-                                            <input type="checkbox" name="human" data-human-check>
-                                            <span class="registration__captcha-box"></span>
-                                            <span class="registration__captcha-text">Я не робот</span>
-                                        </label>
-                                    </div>
-
-                                    <button class="registration__submit" type="submit">Отправить</button>
+                                    <p class="reg-media__submit-error" id="mediaFormError" hidden>
+                                        Во время отправки произошла ошибка. Попробуйте ещё раз.
+                                    </p>
+                                    <button class="reg-media__submit" type="submit">Отправить</button>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </section>
@@ -367,5 +435,6 @@
         <script src="./js/media-press-kit.js?v=20260316-1"></script>
         <script src="./js/vendor.min.js?v=20260316-1"></script>
         <script src="./js/main.min.js?v=20260316-1"></script>
+        <script src="./js/registration-media.js?v=20260323-1"></script>
     </body>
 </html>
