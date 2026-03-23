@@ -179,7 +179,6 @@
 }
 
 .media-brandbook__preview {
-    width: 95%;
     aspect-ratio: 1 / 1;
     margin-bottom: 1.6rem;
     border-radius: 1.4rem;
@@ -354,6 +353,7 @@
 
     .media-brandbook__preview {
         width: 100%;
+        max-width: 70vh;
         aspect-ratio: 1 / 1;
         border-radius: 1rem;
     }
