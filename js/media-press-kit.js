@@ -1,91 +1,136 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Toggle "help details" textarea based on need-help radio selection
-  const helpDetailsWrap = document.getElementById('helpDetailsWrap');
-  const needHelpRadios = document.querySelectorAll('input[name="need-help"]');
-  needHelpRadios.forEach((radio) => {
-    radio.addEventListener('change', () => {
-      if (helpDetailsWrap) {
-        helpDetailsWrap.hidden = radio.value !== 'Да';
-      }
-    });
-  });
+(() => {
+    const form = document.getElementById('mediaRegistrationForm');
+    if (!form) return;
 
-  const form = document.querySelector('[data-partners-form]');
-  const status = form?.querySelector('[data-form-status]');
-  const successBox = form?.querySelector('.registration__form-result--success');
-  const errorBox = form?.querySelector('.registration__form-result--error');
-  const closeButtons = form?.querySelectorAll('.registration__form-close') || [];
+    /* ── Custom select ── */
+    form.querySelectorAll('[data-select]').forEach((sel) => {
+        const btn    = sel.querySelector('[data-select-btn]');
+        const label  = btn.querySelector('[data-select-label]');
+        const hidden = sel.querySelector('input[type="hidden"]');
+        const menu   = sel.querySelector('[data-select-menu]');
 
-  if (!form || !status) return;
-
-  const setStatus = (message, state) => {
-    status.textContent = message;
-    status.classList.remove('is-success', 'is-error');
-    if (state) status.classList.add(state);
-  };
-
-  const hideMessages = () => {
-    successBox && (successBox.style.display = 'none');
-    errorBox && (errorBox.style.display = 'none');
-  };
-
-  closeButtons.forEach((button) => {
-    button.addEventListener('click', hideMessages);
-  });
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    hideMessages();
-    setStatus('', '');
-
-    if (!form.reportValidity()) {
-      setStatus('Пожалуйста, заполните обязательные поля.', 'is-error');
-      return;
-    }
-
-    const humanCheckbox = form.querySelector('[data-human-check]');
-    if (humanCheckbox && !humanCheckbox.checked) {
-      setStatus('Пожалуйста, подтвердите, что вы человек.', 'is-error');
-      humanCheckbox.focus();
-      return;
-    }
-
-    const honeypot = form.querySelector('.registration__honeypot');
-    if (honeypot && honeypot.value.trim() !== '') {
-      setStatus('Проверка не пройдена. Попробуйте ещё раз.', 'is-error');
-      return;
-    }
-
-    const submitButton = form.querySelector('.registration__submit');
-    const defaultText = submitButton?.textContent || 'Отправить';
-
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = 'Отправка...';
-    }
-
-    try {
-      const endpoint = form.querySelector('form')?.getAttribute('action')?.trim();
-      if (endpoint && endpoint !== '#') {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          body: new FormData(form.querySelector('form')),
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = sel.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', open);
         });
 
-        if (!response.ok) throw new Error('Request failed');
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 700));
-      }
+        menu.querySelectorAll('[data-option-value]').forEach((opt) => {
+            opt.addEventListener('click', () => {
+                label.textContent = opt.textContent.trim();
+                label.style.color = '';
+                hidden.value = opt.dataset.optionValue;
+                sel.classList.remove('is-open', 'is-invalid');
+                btn.classList.remove('is-invalid');
+                btn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    });
 
-      form.querySelector('form')?.reset();
-      setStatus('Спасибо! Ваша заявка была отправлена. Скоро мы свяжемся с вами.', 'is-success');
-    } catch (error) {
-      setStatus('Не удалось отправить форму. Проверьте endpoint и попробуйте ещё раз.', 'is-error');
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = defaultText;
-      }
-    }
-  });
-});
+    document.addEventListener('click', () => {
+        form.querySelectorAll('[data-select].is-open').forEach((s) => {
+            s.classList.remove('is-open');
+            s.querySelector('[data-select-btn]').setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    /* ── Radio: show/hide conditional field ── */
+    const helpWrap = document.getElementById('helpDetailsWrap');
+    form.querySelectorAll('[name="need-help"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+            if (helpWrap) helpWrap.hidden = radio.value !== 'Да';
+        });
+    });
+
+    /* ── Validation ── */
+    const validate = () => {
+        let ok = true;
+
+        form.querySelectorAll(
+            'input[required]:not([type="radio"]):not([type="checkbox"]):not([type="hidden"]), textarea[required]'
+        ).forEach((f) => {
+            if (f.closest('[hidden]')) return;
+            const empty = !f.value.trim();
+            f.classList.toggle('is-invalid', empty);
+            if (empty) ok = false;
+        });
+
+        // Email format
+        const emailEl = form.querySelector('[name="journalist-email"]');
+        if (emailEl && emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+            emailEl.classList.add('is-invalid');
+            ok = false;
+        }
+
+        // Custom select
+        form.querySelectorAll('[data-select]').forEach((sel) => {
+            const hidden = sel.querySelector('input[type="hidden"]');
+            const btn    = sel.querySelector('[data-select-btn]');
+            const empty  = !hidden.value;
+            btn.classList.toggle('is-invalid', empty);
+            if (empty) ok = false;
+        });
+
+        // Radio group
+        const radioChecked = form.querySelector('[name="need-help"]:checked');
+        const radioGroup   = form.querySelector('[data-radio-group]');
+        if (radioGroup) {
+            radioGroup.classList.toggle('is-invalid', !radioChecked);
+            if (!radioChecked) ok = false;
+        }
+
+        // Captcha
+        const captcha = form.querySelector('[data-human-check]');
+        if (captcha) {
+            captcha.classList.toggle('is-invalid', !captcha.checked);
+            if (!captcha.checked) ok = false;
+        }
+
+        return ok;
+    };
+
+    /* ── Clear invalid state on user input ── */
+    form.addEventListener('input', (e) => e.target.classList.remove('is-invalid'));
+    form.addEventListener('change', (e) => {
+        e.target.classList.remove('is-invalid');
+        const rg = form.querySelector('[data-radio-group]');
+        if (rg && e.target.name === 'need-help') rg.classList.remove('is-invalid');
+    });
+
+    /* ── Submit ── */
+    const successEl = document.getElementById('mediaFormSuccess');
+    const errorEl   = document.getElementById('mediaFormError');
+    const submitBtn = form.querySelector('[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (errorEl) errorEl.hidden = true;
+
+        if (!validate()) {
+            form.querySelector('.is-invalid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+
+        submitBtn.disabled = true;
+        const origText = submitBtn.textContent;
+        submitBtn.textContent = 'Отправка…';
+
+        try {
+            const resp = await fetch('./tg_media.php', { method: 'POST', body: new FormData(form) });
+            const json = await resp.json();
+
+            if (json.ok) {
+                form.hidden = true;
+                if (successEl) successEl.hidden = false;
+            } else {
+                if (errorEl) errorEl.hidden = false;
+                submitBtn.disabled = false;
+                submitBtn.textContent = origText;
+            }
+        } catch {
+            if (errorEl) errorEl.hidden = false;
+            submitBtn.disabled = false;
+            submitBtn.textContent = origText;
+        }
+    });
+})();
