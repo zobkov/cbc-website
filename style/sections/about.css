@@ -3768,7 +3768,7 @@ html, body {
     color: #0b0b0b;
     font-size: 14px;
     line-height: 1.35;
-    max-width: 310px;
+    max-width: 100%;
 }
 
 /* decorative targets between years */
