@@ -3372,13 +3372,13 @@ html, body {
     }
 
     .page--about-mobile .aboutm-hero__corner--tr {
-        top: -18px;
-        right: -34px;
+        top: -28vw;
+        right: -13vw;
     }
 
     .page--about-mobile .aboutm-hero__corner--bl {
-        left: -45px;
-        bottom: -34px;
+        left: -10vw;
+        bottom: -35vw;
     }
 
     .page--about-mobile .aboutm-hero__art {
@@ -3966,7 +3966,7 @@ html, body {
 }
 
 .page--about-mobile .aboutm-starPh--left {
-    left: -60px;
+    left: -87px;
     top: -20px;
     width: 300px;
     height: 300px;
