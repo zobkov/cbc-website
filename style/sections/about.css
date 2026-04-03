@@ -460,7 +460,7 @@
     width: 100%;
     margin-left: 0 !important; /* убираем старый сдвиг */
     display: block;
-    margin-top: 75px;
+    margin-top: 2rem;
     margin-bottom: 75px;
 }
 
@@ -471,14 +471,25 @@
 }
 
 .kbk-ph--rect {
-    height: 210px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
     border-radius: 18px;
+    overflow: hidden;
+}
+
+.kbk-ph--rect img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .kbk-ph--rectLg {
-    width: 820px; /* почти на всю ширину */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
     top: -100px;
-    height: 470px; /* высота как на скрине (подкрути при желании) */
     border-radius: 26px;
     background: var(--kbk-photo);
 }
@@ -521,7 +532,7 @@
 }
 
 .kbk-team__mt {
-    margin-top: 6rem;
+    margin-top: 9rem;
 }
 
 .kbk-cta {
@@ -819,7 +830,6 @@
 /* звёзды-плейсхолдеры */
 .kbk-team__star {
     background: var(--kbk-photo);
-    width: 520px;
     height: 520px;
     aspect-ratio: 1 / 1;
     clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
@@ -842,7 +852,9 @@
     grid-row: 2;
     justify-self: end;
     margin-right: -240px;
-    margin-top: -250px;
+    margin-top: -300px;
+    width: 450px;
+    height: 450px;
 }
 
 /* текст */
@@ -884,27 +896,17 @@
         max-width: 100%;
     }
 
-    .kbk-team__star--left {
-        grid-column: 1;
-        grid-row: 1;
-        width: 560px;
-        height: 560px;
-        margin-left: -160px;
-        margin-top: -60px;
-    }
-
+    .kbk-team__star--left,
     .kbk-team__star--right {
-        grid-column: 1;
-        grid-row: 3;
-        margin-right: -140px;
-        margin-top: 0;
+        display: none;
     }
 
-    /* на мобиле не уводим SMART так сильно влево */
+    .kbk-team__t,
+    .kbk-team__t + .kbk-team__p,
     .kbk-team__mt,
     .kbk-team__mt + .kbk-team__p,
     .kbk-team__mt + .kbk-team__p + .kbk-cta {
-        margin-left: auto;
+        margin-left: 0;
         max-width: 100%;
     }
 }
@@ -1137,6 +1139,7 @@ html, body {
 .kbk-history {
     position: relative;
     overflow: hidden;
+    padding-bottom: 10rem;
 }
 
     .kbk-history::after {
@@ -1160,7 +1163,7 @@ html, body {
 
 .kbk-decor-26-right {
     position: relative;
-    left: 895px;
+    left: 47vw;
     top: -5px;
     width: 475px;
     z-index: 6;
@@ -1179,7 +1182,7 @@ html, body {
 
 .kbk-decor-25-26-right {
     position: relative;
-    left: 1220px;
+    left: 167vw;
     top: -0px;
     width: 150px;
     z-index: 100;
@@ -1188,25 +1191,34 @@ html, body {
 
 @media (max-width: 1439px) {
     .kbk-decor-26-right {
-        left: 650px;
+        left: 55vw;
         width: 350px;
+        top: 10rem;
     }
     .kbk-decor-26-left {
         right: 400px;
         width: 400px;
     }
     .kbk-decor-25-26-right {
-        left: 870px;
+        left: 74.5vw;   
         width: 110px;
     }
 }
 
 @media (max-width: 1199px) {
-    .kbk-decor-26-right,
-    .kbk-decor-26-left,
-    .kbk-decor-25-26-right {
-        display: none;
+    .kbk-decor-26-right {
+        width: 300px;
+        left: 64vw;
+        top: 13rem;
     }
+    .kbk-history{
+        padding-bottom: 14rem;
+    }
+    .kbk-decor-26-left {
+        top: -700px;
+        width: 400px;
+    }
+
 
     /* When kbk-decor-25-26-right vanishes, ЛЕТО 2025 article loses its spacer.
        Adjacent sibling selector works even on display:none elements. */
@@ -1217,17 +1229,18 @@ html, body {
 
 
 .about__btn {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     justify-content: center;
-    margin-left: -160px;
+    margin-inline: auto;
     margin-top: 4.25rem;
     padding: 1rem 3.5rem;
     border-radius: 50px;
     background-color: #ffffff;
     color: #000000;
     font-family: "Montserrat", "Arial", sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 2rem;
     line-height: 1;
     text-transform: uppercase;
@@ -3856,7 +3869,7 @@ html, body {
 .page--about-mobile .aboutm-history--red {
     background: var(--about-red);
     margin-top: -56px; /* overlap turquoise diagonal */
-    padding: 72px 1.25rem 62px;
+    padding: 72px 1.25rem 100px;
     clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 94%);
 
     overflow: hidden;
@@ -3898,7 +3911,7 @@ html, body {
 /* ---------- TEAM (yellow) ---------- */
 .page--about-mobile .aboutm-team {
     background: var(--about-yellow);
-    margin-top: -70px;
+    margin-top: -100px;
     padding: 72px 2.5rem 70px;
     clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 100%);
 }
@@ -3916,7 +3929,7 @@ html, body {
     background: var(--about-gray);
     width: 383px;
     height: 383px;
-    clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
+    clip-path: polygon(34.805% 67.879%, 40.661% 79.224%, 52.029% 73.373%, 64.176% 77.247%, 68.041% 65.130%, 79.317% 59.325%, 73.485% 48.064%, 77.372% 35.877%, 65.179% 31.988%, 59.323% 20.719%, 48.048% 26.523%, 35.901% 22.649%, 32.036% 34.766%, 20.668% 40.618%, 26.548% 51.971%, 22.704% 64.019%);
 }
 
 .page--about-mobile .aboutm-starPh--left {
@@ -3998,7 +4011,7 @@ html, body {
 }
 
 .page--about-mobile .aboutm-year--last {
-    padding-bottom: 110px;
+    padding-bottom: 2rem;
 }
 
     .page--about-mobile .aboutm-year--last::after {
