@@ -674,6 +674,9 @@
     position: relative;
     z-index: 50;
     isolation: isolate;
+    overflow-x: clip;
+    width: 110vw;
+    margin-left: calc(50% - 60vw);
 }
 
     /* МАСКА: закрывает белую ось под лентой */
