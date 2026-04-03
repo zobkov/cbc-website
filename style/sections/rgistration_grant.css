@@ -106,7 +106,7 @@
     justify-content: center;
     padding: 0.875rem 3rem;
     border-radius: 50px;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     color: #ffffff;
     font-family: "MarvinVisions", "Arial", sans-serif;
     font-weight: 800;
@@ -136,13 +136,13 @@
 @media (hover: hover) {
     .reg__btn:hover:not(.focus-visible) {
         transform: scale(1.05);
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
     }
 }
 
 .reg__btn.focus-visible:focus {
     transform: scale(1.05);
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
 }
 
 .reg__btn.focus-visible:active {
@@ -156,7 +156,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 1.2;
@@ -179,7 +179,7 @@
 }
 
 .reg__note-icon {
-    color: #f6ac1b;
+    color: #F3A41E;
     font-size: 4rem;
     margin-top: 1.5rem;
     line-height: 1;
@@ -312,7 +312,7 @@
     width: 3.25rem;
     height: 3.25rem;
     border-radius: 999px;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     color: #c31632;
     display: flex;
     align-items: center;
@@ -347,7 +347,7 @@
     bottom: -2.5rem;
     width: 0.25rem;
     border-radius: 999px;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
 }
 
 @media (max-width: 1023px) {
@@ -403,7 +403,7 @@
 
 .reg-steps__text {
     margin: 0;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 1.4;
@@ -450,14 +450,14 @@
 
 @media (hover: hover) {
     .fgais--reg--link:hover:not(.focus-visible) {
-        color: #f6ac1b;
+        color: #F3A41E;
     }
 }
 
 .fgais--reg--link.focus-visible:focus {
-    color: #f6ac1b;
+    color: #F3A41E;
 }
 
 .fgais--reg--link.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
 }

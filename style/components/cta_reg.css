@@ -79,7 +79,7 @@
     height: 3.8rem;
     margin-top: -1.9rem;
     border-radius: 50%;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -145,7 +145,7 @@
     display: inline-block;
     width: 100%;
     color: #000000;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -186,7 +186,7 @@
 
     .cta-reg__link:hover:not(.focus-visible) {
         color: #000000;
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
     }
 }
 
@@ -199,7 +199,7 @@
 
 .cta-reg__link:focus-visible {
     color: #000000;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     outline: none;
 }
 

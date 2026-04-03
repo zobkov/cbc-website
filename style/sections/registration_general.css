@@ -140,7 +140,7 @@
 }
 
 .reg-general__field--consent input[type="checkbox"]:checked {
-    background: #f6ac1b;
+    background: #F3A41E;
     border-color: #000000;
 }
 
@@ -149,7 +149,7 @@
 }
 
 .reg-general__field--consent input[type="checkbox"]:focus-visible {
-    outline: 2px solid #f6ac1b;
+    outline: 2px solid #F3A41E;
     outline-offset: 2px;
 }
 
@@ -241,7 +241,7 @@
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 0.8rem;
-    color: #f6ac1b;
+    color: #F3A41E;
     margin: 0.2rem 0 0 0;
 }
 
@@ -403,7 +403,7 @@ body.reg-general-popup-open {
     font-size: 0.5rem;
     font-weight: 600;
     line-height: 0.8rem;
-    color: #f6ac1b;
+    color: #F3A41E;
     margin: 0rem 0 0 0;
     }
     .reg-general__field-info a {
@@ -498,7 +498,7 @@ body.reg-general-popup-open {
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.35;
-    color: #f6ac1b;
+    color: #F3A41E;
     font-style: italic;
 }
 

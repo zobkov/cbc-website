@@ -248,7 +248,7 @@
     text-align: center;
     color: #000000;
     text-transform: uppercase;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     border: none;
     border-radius: 26.5px;
     cursor: pointer;
@@ -323,7 +323,7 @@
         }
 
     .registration__info-icon.focus-visible:active {
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
     }
 
 .registration__info-content {
@@ -472,7 +472,7 @@
 
 .registration--partner {
     margin: 0;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
 }
 
     .registration--partner .registration__wrapper {
@@ -573,7 +573,7 @@
 
 .registration--partner .registration__submit.focus-visible:active {
     color: #000000;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
 }
 
 .registration--partner .registration__img {
@@ -619,7 +619,7 @@
 }
 
     .registration--partner .registration__form-close:hover, .registration--partner .registration__form-close:focus {
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
     }
 
 .registration__info-text {

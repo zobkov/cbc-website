@@ -324,18 +324,10 @@ template {
 
 @font-face {
     font-style: normal;
-    font-weight: 400;
-    font-family: "MontserratAlternates";
+    font-weight: 100 900;
+    font-family: "Montserrat";
     font-display: swap;
-    src: url("../../fonts/MontserratAlternates-Regular.woff2") format("woff2");
-}
-
-@font-face {
-    font-style: normal;
-    font-weight: 600;
-    font-family: "MontserratAlternates";
-    font-display: swap;
-    src: url("../../fonts/MontserratAlternates-SemiBold.woff2") format("woff2");
+    src: url("../../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
 }
 
 *,
@@ -357,7 +349,7 @@ html {
     font-weight: 400;
     font-size: 0.8333333333vw;
     line-height: 24px;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     color: #000000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
