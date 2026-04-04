@@ -7,12 +7,14 @@
 @import "./sections/registration_general.css";
 @import "./sections/home.css";
 @import "./sections/about.css";
+@import "./sections/about_new.css";
 @import "./sections/way.css";
 @import "./sections/schedule.css";
 @import "./sections/wait.css";
 @import "./sections/rgistration_grant.css";
 @import "./sections/partner.css";
 @import "./sections/media-press-kit.css";
+@import "./sections/registration_media.css";
 @import "./components/header-overrides.css";
 @import "./components/footer-overrides.css";
 @import "./sections/way-overrides.css";
@@ -30,7 +32,6 @@
 	--partners-radius: 1rem;
 	--partners-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 	--partners-muted: #4f4f4f;
-
 	/* Media press kit tokens */
 	--page-red: var(--kbk-red, #c31631);
 	--page-light: #f3f3f3;

@@ -1,5 +1,1301 @@
+:root {
+    --kbk-red: #c31631;
+    --kbk-turq: #6bc8c6;
+    --kbk-yellow: #f6ac1a;
+    --kbk-photo: #d5d5d5;
+    --kbk-container: 1120px;
+    --kbk-gutter: 24px;
+    --kbk-slope: 96px;
+    /* Timeline */
+    --kbk-line-x: 72px;
+    --kbk-line-w: 8px;
+    --kbk-dot: 38px;
+    --kbk-axis-x: 56px;
+    --kbk-axis-w: 8px;
+    --kbk-dot-size: 55px;
+    --kbk-content-gap: 90px;
+    --kbk-dash-h: 16px;
+    --kbk-dash-gap: 28px;
+}
+
+.kbk-about {
+    width: 100%;
+}
+
+/* generic container */
+.kbk-container {
+    width: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+    margin-inline: auto;
+    z-index: 2;
+}
+
+.kbk-h2 {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 3.75rem;
+    line-height: 3.5rem;
+    margin: 0 0 16px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: clamp(28px, 3.2vw, 44px);
+}
+
+.kbk-h2--right {
+    text-align: right;
+}
+
+.kbk-h2--red {
+    color: var(--kbk-red);
+}
+
+.kbk-p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.35;
+}
+
+.kbk-p--right {
+    text-align: right;
+    max-width: 560px;
+    margin-left: auto;
+}
+
+.kbk-p--history {
+    max-width: none;
+    margin-bottom: 1.5rem;
+}
+
+.kbk-p--light {
+    color: #fff;
+}
+
+/* ---------------- HERO ---------------- */
+.kbk-hero {
+    background: var(--kbk-red);
+    padding: 50px 0 177px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--kbk-slope)), 0 100%);
+}
+
+.kbk-hero__banner {
+    width: min(600px, 100%);
+    margin: 0 auto;
+    background: var(--kbk-yellow);
+    padding: 34px 28px;
+    transform: rotate(-7deg);
+}
+
+.kbk-hero__title {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 3.75rem;
+    line-height: 3.5rem;
+    margin: 0;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    font-size: clamp(34px, 4vw, 1000px);
+    color: #111;
+    text-align: center;
+}
+
+/* ---------------- MISSION / VALUES ---------------- */
+.kbk-mv {
+    background: #fff;
+    position: relative;
+    margin-top: calc(var(--kbk-slope) * -1);
+    padding: 120px 0 120px;
+    clip-path: polygon(0 var(--kbk-slope), 100% 0, 100% 100%, 0 100%);
+}
+
+    /* diagonal down to history */
+    .kbk-mv::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: var(--kbk-slope);
+        background: var(--kbk-turq);
+        clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+    }
+
+/* 1 колонка (миссия сверху, ценности ниже) */
+.kbk-mv__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+}
+
+/* миссия — слева и шире */
+.kbk-mv__col--mission {
+    max-width: 900px; /* можно убрать/подкрутить */
+}
+
+/* ценности — справа */
+.kbk-mv__col--values {
+    max-width: 750px;
+    margin-left: auto;
+    padding-top: 0;
+}
+
+    .kbk-mv__col--values .kbk-h2 {
+        text-align: right;
+        /
+    }
+
+    .kbk-mv__col--values .kbk-p {
+        text-align: right;
+        max-width: none;
+        margin-left: 0;
+    }
+
+
+.kbk-mv__col--values {
+    padding-top: 0; /* убираем сдвиг вниз */
+}
+
+.kbk-h2--right {
+    text-align: left;
+}
+
+.kbk-p--right {
+    text-align: right;
+    max-width: 720px;
+    margin-left: 0;
+}
+
+.kbk-mv__col--values {
+    padding-top: 80px; /* matches visual offset in the PDF */
+}
+
+@media (max-width: 900px) {
+    .kbk-mv__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kbk-mv__col--values {
+        padding-top: 0;
+    }
+
+    .kbk-h2--right,
+    .kbk-p--right {
+        text-align: left;
+        margin-left: 0;
+    }
+}
+
+/* ---------------- HISTORY ---------------- */
+.kbk-history {
+    position: relative;
+}
+
+.kbk-history--turq {
+    background: var(--kbk-turq);
+    padding: 60px 0 70px;
+}
+
+.kbk-history__title {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 3.75rem;
+    line-height: 3.5rem;
+    margin: 0 0 72px;
+    margin-top: -1rem;
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #fff;
+    line-height: 1;
+    font-size: clamp(34px, 4vw, 64px);
+}
+
+/* turquoise -> red diagonal */
+.kbk-history--turq {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--kbk-slope)));
+    padding-bottom: calc(90px + var(--kbk-slope));
+}
+
+.kbk-history--red {
+    background: var(--kbk-red);
+    margin-top: calc(var(--kbk-slope) * -1);
+    padding-top: calc(70px + var(--kbk-slope));
+    clip-path: polygon( 0 0, /* левый верх - самый высокий */
+    100% var(--kbk-slope), /* правый верх - ниже */
+    100% 100%, 0 100% );
+}
+
+/* timeline scaffold */
+.kbk-timeline {
+    padding-left: 0 !important;
+    position: relative;
+    padding-left: calc(var(--kbk-line-x) + 64px);
+}
+
+    .kbk-timeline::before {
+        content: "";
+        position: absolute;
+        left: var(--kbk-line-x);
+        top: 0;
+        bottom: 0;
+        width: var(--kbk-line-w);
+        background: #fff;
+        border-radius: 999px;
+    }
+
+.kbk-year {
+    position: relative;
+    padding: 0px 0 0px;
+}
+
+.kbk-year--2025 {
+    position: relative;
+    padding: 0rem 0 0px 0;
+    margin-top: -50px;
+}
+
+.kbk-dot {
+    display: block;
+    position: absolute;
+    left: 2000px;
+    top: 26px;
+    width: var(--kbk-dot-size);
+    height: var(--kbk-dot-size);
+    background: #fff;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.kbk-year__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 26px;
+    align-items: start;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+}
+
+.kbk-year__row,
+.kbk-year__row--withSide {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+}
+
+.kbk-year__num {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 7rem;
+    line-height: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 0.9;
+    color: #fff;
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+.kbk-year__content {
+    max-width: 950px;
+}
+
+
+.kbk-year--darkText .kbk-year__num {
+    color: #fff;
+}
+
+.kbk-year--darkText .kbk-p--history {
+    color: #111;
+}
+
+.kbk-year__row--withSide {
+    grid-template-columns: auto 1fr auto;
+}
+
+.kbk-sidePhoto {
+    width: 310px;
+    height: 240px;
+    border-radius: 18px;
+    background: var(--kbk-photo);
+    align-self: end;
+    margin-left: 12px;
+}
+
+/* 1149px and below: reshape inner shapes grid to star-left / diamonds-stacked-right */
+@media (max-width: 980px) {
+    .kbk-year__row--withSide {
+        grid-template-columns: auto 1fr;
+    }
+
+    .kbk-sidePhoto {
+        display: none; /* on mobile the cutout image disappears in the original feel */
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --kbk-line-x: 24px;
+    }
+
+    .kbk-timeline {
+        padding-left: 70px;
+    }
+
+    .kbk-p {
+        font-size: 15px;
+    }
+}
+
+/* placeholders */
+.kbk-ph {
+    background: var(--kbk-photo);
+}
+
+/* top turquoise “shapes” placeholders */
+.kbk-shapes {
+    margin-top: 45px;
+    margin-bottom: -100px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 26px;
+    align-items: center;
+    max-width: 860px;
+    margin-left: 50px; /* visually similar to the PDF spacing */
+}
+
+/* 1149px–981px: reshape inner grid, shift left 3rem */
+@media (max-width: 1149px) {
+    .kbk-shapes {
+        margin-left: -3rem;
+        max-width: 440px;
+        grid-template-columns: auto auto;
+        gap: 16px;
+    }
+    .kbk-ph--star {
+        width: 260px;
+        height: 260px;
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+    .kbk-ph--diamond {
+        width: 150px;
+        height: 150px;
+        margin-left: 0;
+        margin-top: 0;
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .kbk-ph--diamondSm {
+        width: 120px;
+        height: 120px;
+        margin-top: 0;
+        margin-left: 0;
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
+
+/* 980px and below: shapes wraps to new row — span full width, reset left shift */
+@media (max-width: 980px) {
+    .kbk-shapes {
+        grid-column: 1 / -1;
+        margin-left: 0;
+        gap: 3rem;
+    }
+}
+
+.kbk-ph--star {
+    width: 420px;
+    height: 420px;
+    aspect-ratio: 1 / 1;
+    background: var(--kbk-photo);
+    transform: none;
+    overflow: hidden;
+    -webkit-clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
+    clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
+}
+
+
+
+.kbk-ph--diamond {
+    width: 220px;
+    height: 220px;
+    margin-left: 50px;
+    margin-top: -100px;
+    margin-right: 0px;
+    justify-self: center;
+    overflow: hidden;
+    transform: rotate(60deg);
+    border-radius: 0px;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.kbk-ph--diamondSm {
+    width: 160px;
+    height: 160px;
+    margin-top: -170px;
+    margin-left: -20px;
+    justify-self: start;
+    transform: rotate(20deg);
+    border-radius: 0px;
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.kbk-ph--star img,
+.kbk-ph--diamond img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.kbk-ph--diamond:not(.kbk-ph--diamondSm) img {
+    transform: rotate(-45deg) scale(1.42);
+}
+
+@media (max-width: 980px) {
+    .kbk-shapes {
+        margin-left: 0;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .kbk-ph--star {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+/* red section photo placeholders */
+.kbk-photoGrid {
+    width: 100%;
+    margin-left: 0 !important; /* убираем старый сдвиг */
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 75px;
+}
+
+.kbk-photoGrid--two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+}
+
+.kbk-ph--rect {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.kbk-ph--rect img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.kbk-ph--rectLg {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    top: -100px;
+    border-radius: 26px;
+    background: var(--kbk-photo);
+}
+
+@media (max-width: 900px) {
+    .kbk-photoGrid {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .kbk-photoGrid--two {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* last year: dashed tail */
+.kbk-year--last::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--kbk-line-x) + (var(--kbk-line-w) / 2));
+    top: calc(26px + var(--kbk-dot) + 16px);
+    bottom: 0;
+    border-left: var(--kbk-line-w) dashed rgba(255, 255, 255, 0.9);
+    transform: translateX(-50%);
+}
+
+/* ---------------- TEAM / ACADEMY ---------------- */
+.kbk-team {
+    background: var(--kbk-yellow);
+    padding: 90px 0 120px;
+}
+
+.kbk-team__wrap {
+    max-width: 920px;
+}
+
+.kbk-team__p {
+    max-width: 680px;
+    color: #111;
+}
+
+.kbk-team__mt {
+    margin-top: 9rem;
+}
+
+.kbk-cta {
+    margin-top: 500px;
+    display: block;
+    width: min(760px, calc(100% - 40px)); /* шире */
+    margin: 160px auto 0 0;
+    transform: translateX(120px);
+    padding: 26px 28px;
+    border-radius: 999px;
+    background: #fff;
+    color: #111;
+    text-align: center;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* === TIMELINE AXIS FIX (в конец файла) === */
+:root {
+    --kbk-axis-x: 56px; /* позиция оси внутри контейнера истории */
+    --kbk-axis-w: 8px; /* толщина линии */
+    --kbk-dot: 100px; /* диаметр точки */
+}
+
+/* общий контейнер истории — здесь будет единая ось */
+.kbk-historyWrap {
+    --kbk-axis-top: 300px;
+    --kbk-axis-bottom: 920px;
+    position: relative;
+    --kbk-wrapw: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+    isolation: isolate;
+}
+
+
+    /* Рисуем одну сплошную ось на весь блок истории */
+    .kbk-historyWrap::before {
+        content: "";
+        top: var(--kbk-axis-top);
+        bottom: var(--kbk-axis-bottom);
+        position: absolute;
+        /* ключевой момент: (100% - ширина контейнера)/2 = отступ контейнера слева */
+        left: calc((100% - var(--kbk-wrapw)) / 2 + var(--kbk-axis-x));
+        width: var(--kbk-axis-w);
+        background: #fff;
+        border-radius: 999px;
+        z-index: 1 !important;
+    }
+
+
+/* Таймлайну даём отступ слева, чтобы контент не налезал на ось */
+.kbk-timeline {
+    position: relative;
+    padding-left: calc(var(--kbk-axis-x) + 90px) !important;
+}
+
+/* Каждому году даём позиционирование для точки */
+.kbk-year {
+    position: relative;
+}
+
+/* Точки фиксируем строго по общей оси */
+.kbk-dot {
+    display: block;
+    position: absolute;
+    left: -86px;
+    top: 60px;
+    width: var(--kbk-dot-size);
+    height: var(--kbk-dot-size);
+    background: #fff;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Пунктирную "хвостовую" линию рисуем по той же оси */
+
+/* ::before — fading dashes over 10rem, using decreasing opacity per dash */
+/* dash: 14px (0.875rem) on / 18px (1.125rem) off = 32px (2rem) period; 6px (0.375rem) initial offset */
+.kbk-year--last::before {
+    content: "";
+    position: absolute;
+    left: -86px;
+    top: calc(26px + var(--kbk-dot-size) + 16px);
+    width: var(--kbk-axis-w);
+    height: 10rem;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom,
+        transparent 0.375rem,
+        rgba(255,255,255,1.00) 0.375rem, rgba(255,255,255,1.00) 1.25rem,
+        transparent 1.25rem,  transparent 2.375rem,
+        rgba(255,255,255,0.75) 2.375rem, rgba(255,255,255,0.75) 3.25rem,
+        transparent 3.25rem,  transparent 4.375rem,
+        rgba(255,255,255,0.45) 4.375rem, rgba(255,255,255,0.45) 5.25rem,
+        transparent 5.25rem,  transparent 6.375rem,
+        rgba(255,255,255,0.20) 6.375rem, rgba(255,255,255,0.20) 7.25rem,
+        transparent 7.25rem,  transparent 8.375rem,
+        rgba(255,255,255,0.07) 8.375rem, rgba(255,255,255,0.07) 9.25rem,
+        transparent 9.25rem
+    );
+}
+
+/* ::after — solid red mask that hides the white line below the last dot */
+.kbk-year--last::after {
+    content: "";
+    position: absolute;
+    left: -86px;
+    top: calc(26px + var(--kbk-dot-size) + 16px);
+    width: var(--kbk-axis-w);
+    height: 2000px; /* clipped by overflow:hidden on kbk-history */
+    transform: translateX(-50%);
+    z-index: 5; /* below kbk-decor-26-left (z-index:6), above white line (section z-index:2) */
+    pointer-events: none;
+    background-color: var(--kbk-red);
+    border-left: none; /* override earlier border-left: dashed rule */
+    border-radius: 0;
+}
+
+/* лента — отдельный stacking context */
+.kbk-marquee {
+    position: relative;
+    z-index: 50;
+    isolation: isolate;
+    overflow-x: clip;
+    width: 110vw;
+    margin-left: calc(50% - 60vw);
+}
+
+    /* МАСКА: закрывает белую ось под лентой */
+    .kbk-marquee::before {
+        content: "";
+        position: absolute;
+        inset: -30px 0 -30px 0; /* немного выше/ниже, чтобы точно закрыть линию */
+        background: var(--kbk-red); /* фон секции (если лента в красной части) */
+        z-index: 1;
+        pointer-events: none;
+    }
+
+/* сами карточки поверх маски */
+.kbk-marquee__track,
+.kbk-marquee__item {
+    position: relative;
+    z-index: 2;
+    margin-top: -15px;
+}
+
+/* ===== LEFT DECOR between 2024 and 2025 ===== */
+.kbk-between24-l {
+    position: relative;
+    top: -300px;
+    height: 0; /* не добавляет высоту */
+    z-index: 6;
+    pointer-events: none;
+}
+
+/* сама движущаяся дорожка */
+.kbk-marquee__track {
+    display: flex;
+    gap: 1.5rem; /* расстояние между карточками */
+    width: max-content;
+    will-change: transform;
+    /* слева → направо, медленно, бесконечно */
+    animation: kbk-marquee-ltr 40s linear infinite;
+}
+
+/* карточка */
+.kbk-marquee__item {
+    background: var(--kbk-photo); /* #D5D5D5 у тебя */
+    width: clamp(260px, 30vw, 520px);
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 26px; /* скругление как на 2й фотке */
+    flex: 0 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.kbk-marquee__item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* движение: из состояния "-половина трека" в 0 (то есть вправо) */
+@keyframes kbk-marquee-ltr {
+    from {
+        transform: translateX(calc(-50%));
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/* на маленьких экранах чуть меньше gap/радиус */
+@media (max-width: 640px) {
+    .kbk-marquee__track {
+        gap: 20px;
+    }
+
+    .kbk-marquee__item {
+        border-radius: 18px;
+        box-shadow: #292929 0px 2px 15px; /* добавляем лёгкую тень для глубины на мобильных */
+    }
+}
+
+
+/* 1) Отступ сверху от текста до ленты */
+.kbk-marquee {
+    margin-top: 70px; /* подбери: 40–90px */
+}
+
+
+/* 1) Отключаем все старые варианты линии (где бы они ни были) */
+.kbk-historyWrap::before,
+.kbk-historyWrap::after,
+.kbk-timeline::before {
+    display: none !important;
+}
+
+/* 2) Рисуем ось ВНУТРИ каждой секции истории */
+.kbk-history {
+    position: relative;
+    /* ширина контейнера как у .kbk-container */
+    --kbk-wrapw: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+}
+
+    /* сама белая вертикальная линия */
+    .kbk-history::before {
+        content: "";
+        position: absolute;
+        /* привязка к контейнеру + смещение оси */
+        left: calc((100% - var(--kbk-wrapw)) / 2 + var(--kbk-axis-x));
+        width: var(--kbk-axis-w);
+        background: #fff;
+        border-radius: 999px;
+        /* линия над фоном, но под контентом */
+        z-index: 2;
+        pointer-events: none;
+        /* базовая длина (можешь подкрутить) */
+        top: var(--kbk-axis-top, 140px);
+        bottom: var(--kbk-axis-bottom, 120px);
+    }
+
+/* 3) Чтобы на стыке бирюзовый/красный НЕ было разрыва — делаем нахлёст */
+.kbk-history--turq::before {
+    top: 260px; /* override inherited 300px; aligns with 2023 dot center */
+    bottom: -90px; /* тянем ниже конца секции */
+}
+
+.kbk-history--red::before {
+    top: 10px; /* тянем выше начала секции */
+    bottom: 120px; /* override inherited 920px from kbk-historyWrap */
+}
+
+/* 4) Контент секции выше линии */
+.kbk-history .kbk-container {
+    position: relative;
+    z-index: 3;
+}
+
+/* 5) Лента плейсхолдеров выше линии на 100% */
+.kbk-marquee {
+    position: relative;
+    z-index: 10;
+}
+
+/* === TEAM / ACADEMY (финальный объединённый CSS) === */
+
+.kbk-team {
+    position: relative;
+    overflow: hidden; /* чтобы звёзды могли выходить за край */
+}
+
+.kbk-team__layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 80px;
+    row-gap: 70px;
+    align-items: start;
+}
+
+/* контент справа занимает обе строки */
+.kbk-team__content {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: 760px;
+}
+
+/* звёзды-плейсхолдеры */
+.kbk-team__star {
+    background: var(--kbk-photo);
+    height: 520px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
+}
+
+.kbk-team__star img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* левая звезда — больше и уходит за края страницы */
+.kbk-team__star--left {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    width: 600px;
+    height: 600px;
+    margin-left: -400px; /* сильнее вылезает влево */
+    margin-top: -220px;
+}
+
+/* правая звезда — выше и торчит справа */
+.kbk-team__star--right {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    margin-right: -240px;
+    margin-top: -300px;
+    width: 450px;
+    height: 450px;
+}
+
+/* текст */
+.kbk-team__p {
+    max-width: 800px;
+    line-height: 1.35;
+}
+
+.kbk-team__t,
+.kbk-team__t + .kbk-team__p {
+    margin-left: -175px;
+    max-width: 720px;
+    bottom: 100px;
+}
+
+/* SMART АКАДЕМИЯ (второй заголовок + текст) — сильно левее */
+.kbk-team__mt,
+.kbk-team__mt + .kbk-team__p {
+    margin-left: -400px;
+    max-width: 720px;
+}
+
+    /* кнопка вместе со вторым текстом */
+    .kbk-team__mt + .kbk-team__p + .kbk-cta {
+        margin-left: -260px;
+    }
+
+/* mobile */
+@media (max-width: 900px) {
+    .kbk-team__layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        row-gap: 40px;
+    }
+
+    .kbk-team__content {
+        grid-column: 1;
+        grid-row: 2;
+        max-width: 100%;
+    }
+
+    .kbk-team__star--left,
+    .kbk-team__star--right {
+        display: none;
+    }
+
+    .kbk-team__t,
+    .kbk-team__t + .kbk-team__p,
+    .kbk-team__mt,
+    .kbk-team__mt + .kbk-team__p,
+    .kbk-team__mt + .kbk-team__p + .kbk-cta {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+
+.kbk-history--turq {
+    margin-top: -2px;
+}
+
+.kbk-photo {
+    overflow: hidden; /* чтобы скругления работали */
+    border-radius: 26px; /* подгони под свой блок */
+}
+
+    /* чтобы картинка заполняла блок как в макете */
+    .kbk-photo > img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+    }
+
+/* чтобы вообще никогда не расширяло страницу */
+html, body {
+    overflow-x: clip;
+}
+/* можно hidden если clip не поддерживается */
+
+/* hero — контейнер для абсолютных элементов */
+.kbk-hero {
+    position: relative;
+    overflow: hidden; /* обрезает то, что вылезает за края */
+}
+
+/* слой декора на весь hero */
+.kbk-hero__decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; /* декор под баннером */
+}
+
+/* сами картинки */
+.kbk-hero__corner {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+    width: clamp(260px, 24vw, 520px);
+}
+
+/* top-right: двигаем ВПРАВО через transform (не ломает ширину страницы) */
+.kbk-hero__corner--tr {
+    top: 0;
+    right: 0;
+    transform: translate(35%, -20%); /* <-- правее/выше, не создаёт скролл */
+}
+
+/* bottom-left: двигаем ВЛЕВО/ВНИЗ через transform */
+.kbk-hero__corner--bl {
+    left: 0;
+    bottom: 0;
+    transform: translate(-25%, 25%);
+}
+
+/* баннер поверх декора */
+.kbk-hero__banner {
+    position: relative;
+    z-index: 5;
+}
+
+/* если раньше ты вставлял декор внутрь .kbk-history--turq — выключаем его */
+.kbk-historyDecor {
+    display: none !important;
+}
+
+/* слой между секциями */
+.kbk-seamDecor {
+    position: relative;
+    height: 0; /* не влияет на разметку */
+    z-index: 50; /* поверх белого и бирюзового */
+    pointer-events: none;
+}
+
+/* внутренний контейнер по ширине как .kbk-container */
+.kbk-seamDecor__inner {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: min(var(--kbk-container), calc(100% - (var(--kbk-gutter) * 2)));
+    transform: translateX(-50%);
+}
+
+/* картинки */
+.kbk-seamDecor__img {
+    position: absolute;
+    display: block;
+    max-width: none;
+    height: auto;
+}
+
+/* ЛЕВАЯ длинная (на белом фоне) */
+.kbk-seamDecor__img--left {
+    left: -6px; /* ближе к центру -> увеличивай (0..40px) */
+    top: -500px; /* подними/опусти на белом фоне */
+    width: 450px;
+}
+
+/* ПРАВАЯ верхняя (на белом фоне) */
+.kbk-seamDecor__img--tr {
+    right: -6px; /* ближе к центру -> увеличивай (0..40px) */
+    top: -1050px;
+    width: 450px;
+}
+
+/* ПРАВАЯ нижняя (уже на бирюзовом) */
+.kbk-seamDecor__img--br {
+    right: -20px;
+    top: -40px; /* чуть ниже стыка */
+    width: 260px;
+}
+
+@media (max-width: 1439px) {
+    .kbk-seamDecor__img--left {
+        width: 300px;
+    }
+    .kbk-seamDecor__img--tr {
+        width: 300px;
+        top: -950px;
+    }
+    .kbk-seamDecor__img--br {
+        width: 180px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .kbk-seamDecor__img--left {
+        width: 200px;
+    }
+    .kbk-seamDecor__img--tr {
+        width: 200px;
+    }
+    .kbk-seamDecor__img--br {
+        width: 140px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .kbk-seamDecor__img--left,
+    .kbk-seamDecor__img--tr,
+    .kbk-seamDecor__img--br {
+        display: none;
+    }
+}
+
+/* Вставка декора между годами */
+.kbk-betweenYears {
+    position: relative;
+    height: 140px; /* высота вставки как на макете */
+    margin: 40px 0 60px; /* отступы сверху/снизу */
+    overflow: visible; /* чтобы ничего не вылезало и не делало scroll */
+    z-index: 5;
+}
+
+/* две одинаковые картинки по краям */
+.kbk-betweenYears__img {
+    position: absolute;
+    top: 50%;
+    width: 300px; /* размер круга */
+    height: 300px;
+    object-fit: contain;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* левый круг */
+.kbk-betweenYears__img--l {
+    left: -620px; /* чуть “уходит” за край */
+}
+
+/* правый круг */
+.kbk-betweenYears__img--r {
+    right: -470px; /* чуть “уходит” за край */
+    transform: translateY(-50%) rotate(180deg)
+}
+
+/* ===== LEFT DECOR between 2024 and 2025 ===== */
+.kbk-between24-25 {
+    position: relative;
+    top: -300px;
+    height: 0; /* не добавляет высоту */
+    z-index: 6;
+    pointer-events: none;
+}
+
+@media (max-width: 1299px) {
+    .kbk-between24-25 {
+        display: none;
+    }
+}
+
+.kbk-yearPhoto {
+    position: relative;
+    left: 600px;
+    top: -350px;
+    margin-bottom: -600px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+
+.kbk-p--history24 {
+    max-width: 600px;
+}
+
+.kbk-year__num26 {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    font-size: 7rem;
+    line-height: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 0.9;
+    color: #fff;
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+
+/* Красное продолжение после истории */
+.kbk-history {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 10rem;
+}
+
+    .kbk-history::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px; /* убирает 1px шов */
+        height: -200px; /* сколько красного "продолжения" нужно */
+
+        background: var(--kbk-red);
+        z-index: 0; /* под контентом истории */
+        pointer-events: none;
+    }
+
+    /* чтобы контент истории был поверх хвоста */
+    .kbk-history .kbk-container {
+        position: relative;
+        z-index: 2;
+    }
+
+.kbk-decor-26-right {
+    position: relative;
+    left: 47vw;
+    top: -5px;
+    width: 475px;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.kbk-decor-26-left {
+    position: relative;
+    right: 550px;
+    top: -850px;
+    width: 550px;
+    z-index: 6;
+    pointer-events: none;
+    margin-bottom: -1000px;
+}
+
+.kbk-decor-25-26-right {
+    position: relative;
+    left: 167vw;
+    top: -0px;
+    width: 150px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+@media (max-width: 1439px) {
+    .kbk-decor-26-right {
+        left: 55vw;
+        width: 350px;
+        top: 10rem;
+    }
+    .kbk-decor-26-left {
+        right: 400px;
+        width: 400px;
+    }
+    .kbk-decor-25-26-right {
+        left: 74.5vw;   
+        width: 110px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .kbk-decor-26-right {
+        width: 300px;
+        left: 64vw;
+        top: 13rem;
+    }
+    .kbk-history{
+        padding-bottom: 14rem;
+    }
+    .kbk-decor-26-left {
+        top: -700px;
+        width: 400px;
+    }
+
+
+    /* When kbk-decor-25-26-right vanishes, ЛЕТО 2025 article loses its spacer.
+       Adjacent sibling selector works even on display:none elements. */
+    .kbk-decor-25-26-right + .kbk-year--2025 {
+        margin-top: 4rem;
+    }
+}
+
+
+.about__btn {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    margin-top: 4.25rem;
+    padding: 1rem 3.5rem;
+    border-radius: 50px;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+@media (hover: hover) {
+    .about__btn:hover:not(.focus-visible) {
+        color: #000000;
+        background-color: #6bc8c6;
+        transform: scale(1.05);
+    }
+}
+
+.about__btn.focus-visible:focus {
+    color: #000000;
+    background-color: #6bc8c6;
+    transform: scale(1.05);
+}
+
+.about__btn.focus-visible:active {
+    color: #6bc8c6;
+    background-color: #000000;
+    transform: scale(1);
+}
+
+
+
 .about {
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     margin: 0 0 0 0;
     z-index: 0;
 }
@@ -296,11 +1592,11 @@
 
 .about__card-label {
     margin: 0;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-weight: 600;
     font-size: 2rem;
     line-height: 1.5;
-    color: #f6ac1b;
+    color: #F3A41E;
     text-transform: lowercase;
 }
 
@@ -343,7 +1639,7 @@
     display: block;
     width: 100%;
     height: 3.5rem;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
     z-index: 1;
 }
@@ -355,7 +1651,7 @@
     left: 0;
     width: 100%;
     height: 3.125rem;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
     z-index: 2;
 }
@@ -363,7 +1659,7 @@
 
 .ecosystem {
     position: relative;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     overflow: visible;
     margin: 0 0 0 0;
     z-index: 1;
@@ -512,12 +1808,12 @@
 
 .ecosystem__panel-title {
     margin: 0 0 1rem 0;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-weight: 800;
     font-size: 2.25rem;
     line-height: 2.25rem;
     text-transform: uppercase;
-    color: #6bc9c6;
+    color: #88D0C8;
 }
 
 @media (max-width: 1023px) {
@@ -626,16 +1922,16 @@
         aspect-ratio: 5/3;
     }
 
-    .page-index .ecosystem__gallery-item:nth-child(n+3) {
-        display: none;
-    }
+        .page-index .ecosystem__gallery-item:nth-child(n+3) {
+            display: none;
+        }
 
-    .page-index .ecosystem__gallery-item img {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 5/3;
-        object-fit: cover;
-    }
+        .page-index .ecosystem__gallery-item img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 5/3;
+            object-fit: cover;
+        }
 
     .page-index .ecosystem__gallery-card {
         padding: 0.55rem;
@@ -709,8 +2005,8 @@
         content: "";
         width: 1.125rem;
         height: 1.125rem;
-        border-right: 4px solid #6bc9c6;
-        border-bottom: 4px solid #6bc9c6;
+        border-right: 4px solid #88D0C8;
+        border-bottom: 4px solid #88D0C8;
     }
 
 .ecosystem__arrow--prev::before {
@@ -900,8 +2196,8 @@
     border-radius: 50px;
     background-color: #ffffff;
     color: #000000;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
-    font-weight: 800;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-weight: 600;
     font-size: 2rem;
     line-height: 1;
     text-transform: uppercase;
@@ -911,25 +2207,25 @@
 @media (hover: hover) {
     .support__btn:hover:not(.focus-visible) {
         color: #000000;
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
         transform: scale(1.05);
     }
 }
 
 .support__btn.focus-visible:focus {
     color: #000000;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     transform: scale(1.05);
 }
 
 .support__btn.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
     background-color: #000000;
     transform: scale(1);
 }
 
 .promo {
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     position: relative;
     overflow: visible;
     z-index: 3;
@@ -999,7 +2295,8 @@
 }
 
 .promo__title {
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     font-size: 3.5625rem;
@@ -1077,7 +2374,7 @@
 @media (hover: hover) {
     .promo__link:hover:not(.focus-visible) {
         color: #000000;
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
         transform: scale(1.05);
@@ -1086,14 +2383,14 @@
 
 .promo__link.focus-visible:focus {
     color: #000000;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
 }
 
 .promo__link.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
     background-color: #000000;
 }
 
@@ -1322,7 +2619,7 @@
     }
 
 .accordion__button.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
 }
 
 .is-active .accordion__button::after {
@@ -1436,24 +2733,24 @@
 
 @media (hover: hover) {
     .accordion--schedule .accordion__button:hover:not(.focus-visible) {
-        color: #f6ac1b;
+        color: #F3A41E;
     }
 
         .accordion--schedule .accordion__button:hover:not(.focus-visible)::after {
-            background-color: #f6ac1b;
+            background-color: #F3A41E;
         }
 }
 
 .accordion--schedule .accordion__button.focus-visible:focus {
-    color: #f6ac1b;
+    color: #F3A41E;
 }
 
     .accordion--schedule .accordion__button.focus-visible:focus::after {
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
     }
 
 .accordion--schedule .accordion__button.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
 }
 
 .accordion--schedule .accordion__button:disabled {
@@ -1780,7 +3077,7 @@
 }
 
     .b24-form * {
-        font-family: "MontserratAlternates", "Arial", sans-serif !important;
+        font-family: "Montserrat", "Arial", sans-serif !important;
     }
 
 @media (max-width: 0px) {
@@ -1946,7 +3243,7 @@
     text-align: center;
     color: #000000;
     text-transform: uppercase;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     border: none;
     border-radius: 26.5px;
     cursor: pointer;
@@ -1984,7 +3281,7 @@
 .ecosystem__gallery-card {
     width: 100%;
     height: 100%;
-    background-color: #6BC9C6;
+    background-color: #88D0C8;
     padding: 0.93rem;
     box-sizing: border-box;
     display: flex;
@@ -1994,7 +3291,7 @@
 
 .ecosystem__gallery-card-title {
     margin: 0;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-size: 1.5rem;
     line-height: 1.2;
     color: #000000;
@@ -2010,7 +3307,7 @@
 }
 
 .ecosystem__gallery-card-link {
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-size: 1.51rem;
     font-style: normal;
     color: #000000;
@@ -2042,13 +3339,11 @@
 }
 
     .page--about-mobile img {
-        max-width: 100%;
-        height: auto;
+        height: 100%;
     }
 
     .page--about-mobile .aboutm-inner {
-        width: min(440px, calc(100% - 32px));
-        margin-inline: auto;
+        box-sizing: border-box;
     }
 
     .page--about-mobile .aboutm-section {
@@ -2060,7 +3355,7 @@
     .page--about-mobile .aboutm-hero {
         background: var(--about-red);
         /* header is fixed; keep hero content below it */
-        padding: 96px 0 70px;
+        padding: 96px 1.25rem 70px;
         clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
     }
 
@@ -2077,13 +3372,13 @@
     }
 
     .page--about-mobile .aboutm-hero__corner--tr {
-        top: -18px;
-        right: -34px;
+        top: -28vw;
+        right: -13vw;
     }
 
     .page--about-mobile .aboutm-hero__corner--bl {
-        left: -45px;
-        bottom: -34px;
+        left: -10vw;
+        bottom: -35vw;
     }
 
     .page--about-mobile .aboutm-hero__art {
@@ -2097,13 +3392,29 @@
     .page--about-mobile .aboutm-mv {
         background: #fff;
         margin-top: -36px; /* overlap hero diagonal */
-        padding: 56px 0 58px;
+        padding: 56px 2.5rem 58px;
         clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%);
+        overflow: visible;
+        z-index: 1;
     }
 
-    .page--about-mobile .aboutm-block {
+    .page--about-mobile .aboutm-block-team {
         position: relative;
+        width: 300px;
     }
+
+    .page--about-mobile .aboutm-team .aboutm-block-team:first-child {
+        margin-left: 7rem;
+    }
+
+    .page--about-mobile .aboutmf-block-team {
+        position: relative;
+        left: 100px;
+        width: 300px;
+        margin-bottom: 50px;
+    }
+
+
 
         .page--about-mobile .aboutm-block + .aboutm-block {
             margin-top: 54px;
@@ -2124,101 +3435,101 @@
     }
 
 
-    @media (max-width: 767px) {
-        .page-index .about::before {
-            height: 1.5rem;
-        }
+@media (max-width: 767px) {
+    .page-index .about::before {
+        height: 1.5rem;
+    }
 
-        .page-index .ecosystem::before {
-            height: 1.25rem;
-        }
+    .page-index .ecosystem::before {
+        height: 1.25rem;
+    }
 
-        .page-index .about__wrapper {
-            padding: 1.5rem 0 1.75rem 0;
-        }
+    .page-index .about__wrapper {
+        padding: 1.5rem 0 1.75rem 0;
+    }
 
-        .page-index .about__title {
-            font-size: 1.375rem;
-            line-height: 1.5rem;
-            margin: 0 0 0.75rem 0;
-        }
+    .page-index .about__title {
+        font-size: 1.375rem;
+        line-height: 1.5rem;
+        margin: 0 0 0.75rem 0;
+    }
 
-        .page-index .about__cards {
-            gap: 0.45rem;
-        }
+    .page-index .about__cards {
+        gap: 0.45rem;
+    }
 
-        .page-index .about__card {
-            min-height: 10.5rem;
-            padding: 0.9rem 0.7rem;
-            border-radius: 0.75rem;
-        }
+    .page-index .about__card {
+        min-height: 10.5rem;
+        padding: 0.9rem 0.7rem;
+        border-radius: 0.75rem;
+    }
 
-        .page-index .about__card-num {
-            font-size: 3.25rem;
-        }
+    .page-index .about__card-num {
+        font-size: 3.25rem;
+    }
 
-        .page-index .about__card-label {
-            font-size: 0.8rem;
-        }
+    .page-index .about__card-label {
+        font-size: 0.8rem;
+    }
 
-        .page-index .about__card-text {
-            font-size: 0.56rem;
-            line-height: 1.15;
-        }
+    .page-index .about__card-text {
+        font-size: 0.56rem;
+        line-height: 1.15;
+    }
 
-        .page-index .ecosystem::after {
-            height: 1.25rem;
-        }
+    .page-index .ecosystem::after {
+        height: 1.25rem;
+    }
 
-        .page-index .ecosystem__wrapper {
-            padding: 1.5rem 0 1.75rem 0;
-        }
+    .page-index .ecosystem__wrapper {
+        padding: 1.5rem 0 1.75rem 0;
+    }
 
-        .page-index .ecosystem__title {
-            font-size: 1.375rem;
-            line-height: 1.5rem;
-            margin: 0 0 0.5rem 0;
-        }
+    .page-index .ecosystem__title {
+        font-size: 1.375rem;
+        line-height: 1.5rem;
+        margin: 0 0 0.5rem 0;
+    }
 
-        .page-index .ecosystem__lead {
-            margin: 0 0 0.85rem 0;
-            font-size: 0.85rem;
-            line-height: 1.05rem;
-        }
+    .page-index .ecosystem__lead {
+        margin: 0 0 0.85rem 0;
+        font-size: 0.85rem;
+        line-height: 1.05rem;
+    }
 
-        .page-index .ecosystem__panel {
-            border-radius: 1.2rem;
-        }
+    .page-index .ecosystem__panel {
+        border-radius: 1.2rem;
+    }
 
         .page-index .ecosystem__panel > div > div {
             padding: 0.85rem;
         }
 
-        .page-index .ecosystem__panel-title {
-            margin: 0 0 0.45rem 0;
-            font-size: 1rem;
-            line-height: 1.1rem;
-        }
+    .page-index .ecosystem__panel-title {
+        margin: 0 0 0.45rem 0;
+        font-size: 1rem;
+        line-height: 1.1rem;
+    }
 
-        .page-index .ecosystem__panel-text {
-            margin: 0 0 0.75rem 0;
-            font-size: 0.82rem;
-            line-height: 1rem;
-        }
+    .page-index .ecosystem__panel-text {
+        margin: 0 0 0.75rem 0;
+        font-size: 0.82rem;
+        line-height: 1rem;
+    }
 
-        .page-index .ecosystem__gallery {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            grid-template-rows: 1fr;
-            width: 100%;
-            max-width: none;
-            margin: 0;
-            gap: 0.4rem;
-        }
+    .page-index .ecosystem__gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: 1fr;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        gap: 0.4rem;
+    }
 
-        .page-index .ecosystem__gallery-item {
-            height: auto;
-            aspect-ratio: 5/3;
-        }
+    .page-index .ecosystem__gallery-item {
+        height: auto;
+        aspect-ratio: 5/3;
+    }
 
         .page-index .ecosystem__gallery-item:nth-child(n+3) {
             display: none;
@@ -2231,31 +3542,31 @@
             object-fit: cover;
         }
 
-        .page-index .ecosystem__gallery-card {
-            padding: 0.5rem;
-        }
+    .page-index .ecosystem__gallery-card {
+        padding: 0.5rem;
+    }
 
-        .page-index .ecosystem__gallery-card-title {
-            font-size: 0.62rem;
-        }
+    .page-index .ecosystem__gallery-card-title {
+        font-size: 0.62rem;
+    }
 
-        .page-index .ecosystem__gallery-card-links {
-            gap: 0.2rem;
-        }
+    .page-index .ecosystem__gallery-card-links {
+        gap: 0.2rem;
+    }
 
-        .page-index .ecosystem__gallery-card-link {
-            font-size: 0.56rem;
-        }
+    .page-index .ecosystem__gallery-card-link {
+        font-size: 0.56rem;
+    }
 
-        .page-index .ecosystem__controls {
-            margin-top: 0.35rem;
-            gap: 0.4rem;
-        }
+    .page-index .ecosystem__controls {
+        margin-top: 0.35rem;
+        gap: 0.4rem;
+    }
 
-        .page-index .ecosystem__arrow {
-            width: 0.7rem;
-            height: 0.7rem;
-        }
+    .page-index .ecosystem__arrow {
+        width: 0.7rem;
+        height: 0.7rem;
+    }
 
         .page-index .ecosystem__arrow::before {
             width: 0.15rem;
@@ -2264,362 +3575,426 @@
             border-bottom-width: 0.5px;
         }
 
-        .page-index .ecosystem__arrow--prev::before {
-            margin-left: 0.1rem;
-        }
-
-        .page-index .ecosystem__arrow--next::before {
-            margin-right: 0.1rem;
-        }
-
-        .page-index .question__wrapper {
-            padding: 1.75rem 0;
-        }
-
-        .page-index .question__title {
-            font-size: 1.375rem;
-            line-height: 1.5rem;
-            margin: 0 0 0.75rem 0;
-        }
-
-        .page-index .support__wrapper {
-            padding: 2rem 0 2.25rem 0;
-        }
-
-        .page-index .support__title {
-            font-size: 1.375rem;
-            line-height: 1.5rem;
-            margin: 0 0 1rem 0;
-        }
-
-        .page-index .support__logos-track {
-            gap: 2.25rem;
-        }
-
-        .page-index .support__logo {
-            width: 8.25rem;
-            height: 2.9rem;
-        }
-
-        .page-index .support__btn {
-            margin-top: 1.25rem;
-            padding: 0.6rem 1.2rem;
-            font-size: 1rem;
-        }
-
-        .page-index .promo::before {
-            height: 1.5rem;
-        }
-
-        .page-index .promo__wrapper {
-            padding: 1rem 0 7rem 0;
-        }
-
-        .page-index .promo__title {
-            font-size: 1.25rem;
-            line-height: 1.45rem;
-            margin: 0.75rem 0 0.75rem 0;
-        }
-
-        .page-index .promo__link {
-            font-size: 0.95rem;
-            line-height: 1.15rem;
-            padding: 0.65rem 0.9rem;
-        }
-
-        .page-index .promo__dragon-left {
-            width: 9.5rem;
-            height: 7.4rem;
-            bottom: -0.75rem;
-        }
-
-        .page-index .promo__dragon-left-img--head {
-            width: 5.15rem;
-        }
-
-        .page-index .promo__dragon-right {
-            width: 5.75rem;
-            height: 7.45rem;
-            bottom: 0.2rem;
-        }
-
-        .page-index .promo__dragon-right-img--head {
-            width: 2.35rem;
-            left: 1.8rem;
-        }
-    }
-    .page--about-mobile .aboutm-p {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.35;
-        color: var(--about-black);
-        max-width: 360px;
+    .page-index .ecosystem__arrow--prev::before {
+        margin-left: 0.1rem;
     }
 
-    .page--about-mobile .aboutm-p--right {
-        margin-left: auto;
-        text-align: right;
-        max-width: 320px;
+    .page-index .ecosystem__arrow--next::before {
+        margin-right: 0.1rem;
     }
 
-    /* decorative seam pieces in white area */
-    .page--about-mobile .aboutm-mv__decor {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
+    .page-index .question__wrapper {
+        padding: 1.75rem 0;
     }
 
-    .page--about-mobile .aboutm-mv__decor-img {
-        position: absolute;
-        max-width: none;
+    .page-index .question__title {
+        font-size: 1.375rem;
+        line-height: 1.5rem;
+        margin: 0 0 0.75rem 0;
     }
 
+    .page-index .support__wrapper {
+        padding: 2rem 0 2.25rem 0;
+    }
+
+    .page-index .support__title {
+        font-size: 1.375rem;
+        line-height: 1.5rem;
+        margin: 0 0 1rem 0;
+    }
+
+    .page-index .support__logos-track {
+        gap: 2.25rem;
+    }
+
+    .page-index .support__logo {
+        width: 8.25rem;
+        height: 2.9rem;
+    }
+
+    .page-index .support__btn {
+        margin-top: 1.25rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .page-index .promo::before {
+        height: 1.5rem;
+    }
+
+    .page-index .promo__wrapper {
+        padding: 1rem 0 7rem 0;
+    }
+
+    .page-index .promo__title {
+        font-size: 1.25rem;
+        line-height: 1.45rem;
+        margin: 0.75rem 0 0.75rem 0;
+    }
+
+    .page-index .promo__link {
+        font-size: 0.95rem;
+        line-height: 1.15rem;
+        padding: 0.65rem 0.9rem;
+    }
+
+    .page-index .promo__dragon-left {
+        width: 9.5rem;
+        height: 7.4rem;
+        bottom: -0.75rem;
+    }
+
+    .page-index .promo__dragon-left-img--head {
+        width: 5.15rem;
+    }
+
+    .page-index .promo__dragon-right {
+        width: 5.75rem;
+        height: 7.45rem;
+        bottom: 0.2rem;
+    }
+
+    .page-index .promo__dragon-right-img--head {
+        width: 2.35rem;
+        left: 1.8rem;
+    }
+}
+
+.page--about-mobile .aboutm-p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.35;
+    color: var(--about-black);
+    max-width: 360px;
+}
+
+.page--about-mobile .aboutm-p--right {
+    margin-left: auto;
+    text-align: right;
+    max-width: 320px;
+}
+
+/* decorative seam pieces in white area */
+.page--about-mobile .aboutm-mv__decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.page--about-mobile .aboutm-mv__decor-img {
+    position: absolute;
+    max-width: none;
+}
+
+/* left decor lives outside clip-path in a zero-height seam wrapper */
+.page--about-mobile .aboutm-mv__seam-left {
+    position: relative;
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.page--about-mobile .aboutm-mv__decor-img--left {
+    left: -2px;
+    bottom: -160px;
+    width: 180px;
+}
+
+@media (max-width: 550px) {
     .page--about-mobile .aboutm-mv__decor-img--left {
-        left: -2px;
-        bottom: -10px;
-        width: 120px;
+        width: 32.727vw;   /* 180px at 550px, scales down proportionally */
+        bottom: -24.091vw; /* -160px at 550px, moves up proportionally */
     }
+}
 
-    .page--about-mobile .aboutm-mv__decor-img--tr {
-        right: -26px;
-        top: -56px;
-        width: 150px;
+@media (max-width: 435px) {
+    .page--about-mobile .aboutm-mv__decor-img--left {
         display: none;
     }
+}
 
-    .page--about-mobile .aboutm-mv__decor-img--br {
-        right: -10px;
-        bottom: -38px;
-        width: 140px;
-        display: none;
-    }
+.page--about-mobile .aboutm-mv__decor-img--tr {
+    right: -26px;
+    top: -56px;
+    width: 150px;
+    display: none;
+}
 
-    /* ---------- HISTORY (turquoise) ---------- */
-    .page--about-mobile .aboutm-history--turq {
-        background: var(--about-turq);
-        padding: 44px 0 80px;
-        clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 94%);
-    }
+.page--about-mobile .aboutm-mv__decor-img--br {
+    right: -10px;
+    bottom: -38px;
+    width: 140px;
+    display: none;
+}
 
-    .page--about-mobile .aboutm-title {
-        font-family: "MarvinVisions", "Arial", sans-serif;
-        text-transform: uppercase;
-        text-align: center;
-        margin: 0 0 24px;
-        color: #fff;
-        font-size: 20px;
-        letter-spacing: 0.02em;
-    }
+/* ---------- HISTORY (turquoise) ---------- */
+.page--about-mobile .aboutm-history--turq {
+    background: var(--about-turq);
+    padding: 44px 1.25rem 80px;
+    clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 94%);
+    overflow: visible;
+}
 
-    .page--about-mobile .aboutm-timeline {
-        position: relative;
-        padding-left: 70px;
-    }
+.page--about-mobile .aboutm-title {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 24px;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+}
 
-        .page--about-mobile .aboutm-timeline::before {
-            content: "";
-            position: absolute;
-            left: 40px;
-            top: 30px;
-            bottom: 0px;
-            width: 4px;
-            background: #fff;
-            border-radius: 4px;
-            overflow: visible;
-        }
+.page--about-mobile .aboutm-timeline {
+    position: relative;
+    padding-left: 70px;
+    overflow: visible;
+}
 
-    .page--about-mobile .aboutm-year {
-        position: relative;
-        padding: 6px 0 24px;
-    }
-
-        .page--about-mobile .aboutm-year::before {
-            content: "";
-            position: absolute;
-            left: -28px;
-            top: 20px;
-            width: 25px;
-            height: 25px;
-            background: #fff;
-            border-radius: 50%;
-            transform: translateX(-50%);
-        }
-
-    .page--about-mobile .aboutm-year__num {
-        font-family: "MarvinVisions", "Arial", sans-serif;
-        color: #fff;
-        font-size: 44px;
-        line-height: 1;
-        margin: 0 0 6px;
-    }
-
-    .page--about-mobile .aboutm-year__text {
-        margin: 0;
-        color: #0b0b0b;
-        font-size: 14px;
-        line-height: 1.35;
-        max-width: 310px;
-    }
-
-    /* decorative targets between years */
-    .page--about-mobile .aboutm-betweenYears {
-        position: relative;
-        height: 30px;
-        margin: 18px 0 10px;
-    }
-
-        .page--about-mobile .aboutm-betweenYears img {
-            position: absolute;
-            top: 50%;
-            width: 65px;
-            height: 65px;
-            transform: translateY(-50%);
-            opacity: 1;
-        }
-
-    .page--about-mobile .aboutm-betweenYears__l {
-        left: -90px;
-    }
-
-    .page--about-mobile .aboutm-betweenYears__r {
-        right: -0px;
-        transform: rotate(90deg);
-        display: none;
-    }
-
-    /* grey shapes in turquoise */
-    .page--about-mobile .aboutm-shapes {
-        position: relative;
-        height: 220px;
-        margin-top: 18px;
-    }
-
-    .page--about-mobile .aboutm-shape {
+    .page--about-mobile .aboutm-timeline::before {
+        content: "";
         position: absolute;
-        background: var(--about-gray);
-    }
-
-    .page--about-mobile .aboutm-shape--star {
-        left: 16px;
+        left: 40px;
+        top: 40px;
         bottom: 10px;
-        width: 150px;
-        height: 150px;
-        clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
-    }
-
-    .page--about-mobile .aboutm-shape--diamond {
-        right: 20px;
-        bottom: 44px;
-        width: 118px;
-        height: 118px;
-        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-    }
-
-    .page--about-mobile .aboutm-shape--diamondSm {
-        right: 118px;
-        bottom: 6px;
-        width: 70px;
-        height: 70px;
-        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-    }
-
-    /* small side decor (optional, uses existing asset if present) */
-    .page--about-mobile .aboutm-sideDecor {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 90px;
-        pointer-events: none;
-    }
-
-    /* ---------- HISTORY (red) ---------- */
-    .page--about-mobile .aboutm-history--red {
-        background: var(--about-red);
-        margin-top: -56px; /* overlap turquoise diagonal */
-        padding: 72px 0 62px;
-        clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 94%);
-        overflow: visible;
-    }
-
-        .page--about-mobile .aboutm-history--red .aboutm-timeline::before {
-            background: #fff;
-        }
-
-        .page--about-mobile .aboutm-history--red .aboutm-year__text {
-            color: #fff;
-        }
-
-    .page--about-mobile .aboutm-photoRow {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin: 18px 0 8px;
-        padding-right: 4px;
-    }
-
-    .page--about-mobile .aboutm-photoPh {
-        background: var(--about-gray);
-        border-radius: 18px;
-        height: 120px;
-    }
-
-    .page--about-mobile .aboutm-photoPh--big {
-        height: 160px;
-        margin-top: 12px;
-    }
-
-    /* ---------- TEAM (yellow) ---------- */
-    .page--about-mobile .aboutm-team {
-        background: var(--about-yellow);
-        margin-top: -56px;
-        padding: 72px 0 70px;
-        clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 100%);
-    }
-
-        .page--about-mobile .aboutm-team .aboutm-h {
-            color: var(--about-red);
-        }
-
-        .page--about-mobile .aboutm-team .aboutm-p {
-            max-width: 340px;
-        }
-
-    .page--about-mobile .aboutm-starPh {
-        position: absolute;
-        background: var(--about-gray);
-        width: 170px;
-        height: 170px;
-        clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
-    }
-
-    .page--about-mobile .aboutm-starPh--left {
-        left: -46px;
-        top: 42px;
-    }
-
-    .page--about-mobile .aboutm-starPh--right {
-        right: -52px;
-        bottom: 70px;
-        width: 180px;
-        height: 180px;
-    }
-
-    .page--about-mobile .aboutm-cta {
-        display: block;
-        width: min(280px, 100%);
-        margin: 32px auto 0;
-        padding: 14px 18px;
-        border-radius: 999px;
+        width: 4px;
         background: #fff;
-        color: var(--about-black);
-        text-align: center;
-        text-decoration: none;
-        font-family: "MarvinVisions", "Arial", sans-serif;
-        text-transform: uppercase;
-        font-size: 14px;
-        letter-spacing: 0.02em;
+        border-radius: 4px;
     }
+
+.page--about-mobile .aboutm-year {
+    position: relative;
+    padding: 6px 0 24px;
+}
+
+    .page--about-mobile .aboutm-year::before {
+        content: "";
+        position: absolute;
+        left: -28px;
+        top: 20px;
+        width: 25px;
+        height: 25px;
+        background: #fff;
+        border-radius: 50%;
+        transform: translateX(-50%);
+    }
+
+.page--about-mobile .aboutm-year__num {
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    color: #fff;
+    font-size: 44px;
+    line-height: 1;
+    margin: 0 0 6px;
+}
+
+.page--about-mobile .aboutm-year__text {
+    margin: 0;
+    color: #0b0b0b;
+    font-size: 14px;
+    line-height: 1.35;
+    max-width: 100%;
+}
+
+/* decorative targets between years */
+.page--about-mobile .aboutm-betweenYears {
+    position: relative;
+    height: 30px;
+    margin: 18px 0 10px;
+}
+
+    .page--about-mobile .aboutm-betweenYears img {
+        position: absolute;
+        top: 50%;
+        width: 65px;
+        height: 65px;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+
+.page--about-mobile .aboutm-betweenYears__l {
+    left: -90px;
+}
+
+.page--about-mobile .aboutm-betweenYears__r {
+    right: -0px;
+    transform: rotate(90deg);
+    display: none;
+}
+
+/* grey shapes in turquoise */
+.page--about-mobile .aboutm-shapes {
+    position: relative;
+    height: 220px;
+    margin-top: 18px;
+}
+
+.page--about-mobile .aboutm-shape {
+    position: absolute;
+    background: var(--about-gray);
+}
+
+.page--about-mobile .aboutm-shape--star {
+    left: 16px;
+    bottom: 10px;
+    width: 150px;
+    height: 150px;
+    clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
+}
+
+.page--about-mobile .aboutm-shape--diamond {
+    right: 20px;
+    bottom: 44px;
+    width: 118px;
+    height: 118px;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.page--about-mobile .aboutm-shape--diamondSm {
+    right: 118px;
+    bottom: 6px;
+    width: 70px;
+    height: 70px;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+/* small side decor (optional, uses existing asset if present) */
+.page--about-mobile .aboutm-sideDecor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    pointer-events: none;
+}
+
+/* ---- Bridge: white line connecting turquoise→red timeline outside clip-path ---- */
+/* Both sections have clip-path (= z-index:0 stacking context). This sibling sits   */
+/* between them in DOM with z-index:10, painting over both backgrounds in the gap.  */
+.page--about-mobile .aboutm-seam-2425 {
+    position: relative;
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.page--about-mobile .aboutm-seam-2425::before {
+    content: "";
+    position: absolute;
+    left: calc(1.25rem + 40px); /* matches section padding + timeline::before left */
+    top: -110px;   /* reach up to where turquoise timeline line ends */
+    height: 180px; /* 110px above + 70px into red section, past the clip diagonal */
+    width: 4px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+/* ---------- HISTORY (red) ---------- */
+.page--about-mobile .aboutm-history--red {
+    background: var(--about-red);
+    margin-top: -56px; /* overlap turquoise diagonal */
+    padding: 72px 1.25rem 100px;
+    clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 94%);
+
+    overflow: hidden;
+}
+
+    .page--about-mobile .aboutm-history--red .aboutm-timeline::before {
+        background: #fff;
+    }
+
+    .page--about-mobile .aboutm-history--red .aboutm-year__text {
+        color: #fff;
+    }
+
+.page--about-mobile .aboutm-photoRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin: 18px 0 8px;
+    padding-right: 4px;
+}
+
+.page--about-mobile .aboutm-photoPh {
+    background: var(--about-gray);
+    border-radius: 18px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+}
+
+.page--about-mobile .aboutm-photoPh--big {
+    height: auto;
+    aspect-ratio: 2 / 1;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ---------- TEAM (yellow) ---------- */
+.page--about-mobile .aboutm-team {
+    background: var(--about-yellow);
+    margin-top: -100px;
+    padding: 72px 2.5rem 70px;
+    clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 100%);
+}
+
+    .page--about-mobile .aboutm-team .aboutm-h {
+        color: var(--about-red);
+    }
+
+    .page--about-mobile .aboutm-team .aboutm-p {
+        max-width: 50vw;
+    }
+
+.page--about-mobile .aboutm-starPh {
+    position: absolute;
+    background: var(--about-gray);
+    width: 383px;
+    height: 383px;
+    overflow: hidden;
+    clip-path: polygon(34.805% 67.879%, 40.661% 79.224%, 52.029% 73.373%, 64.176% 77.247%, 68.041% 65.130%, 79.317% 59.325%, 73.485% 48.064%, 77.372% 35.877%, 65.179% 31.988%, 59.323% 20.719%, 48.048% 26.523%, 35.901% 22.649%, 32.036% 34.766%, 20.668% 40.618%, 26.548% 51.971%, 22.704% 64.019%);
+}
+
+.page--about-mobile .aboutm-starPh img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.page--about-mobile .aboutm-starPh--left {
+    left: -87px;
+    top: -20px;
+    width: 300px;
+    height: 300px;
+}
+
+.page--about-mobile .aboutm-starPh--right {
+    right: -180px;
+    bottom: 0px;
+    width: 405px;
+    height: 405px;
+    z-index: -1;
+}
+
+.page--about-mobile .aboutm-cta {
+    display: block;
+    width: min(280px, 100%);
+    margin: 32px auto 0;
+    padding: 14px 18px;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--about-black);
+    text-align: center;
+    text-decoration: none;
+    font-family: "MarvinVisions", "Arial", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+}
 
 /* Small phones */
 @media (max-width: 360px) {
@@ -2635,4 +4010,88 @@
         height: 108px;
     }
 }
+
+.page--about-mobile .kbk-marquee {
+    top: -35px;
+}
+
+.about-desktop {
+    display: block;
+}
+
+.about-mobile {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .about-desktop {
+        display: none !important;
+    }
+
+    .about-mobile {
+        display: block !important;
+    }
+}
+
+.page--about-mobile .aboutm-sideDecor img {
+    position: absolute;
+    left: -2px;
+    top: -52px;
+    width: 88px;
+    max-width: none;
+}
+
+.page--about-mobile .aboutm-year--summer .aboutm-year__num {
+    font-size: 52px;
+}
+
+.page--about-mobile .aboutm-year--last {
+    padding-bottom: 2rem;
+}
+
+    .page--about-mobile .aboutm-year--last::after {
+        content: "";
+        position: absolute;
+        left: -28px;
+        top: 62px;
+        width: 4px;
+        height: 2000px; /* tall enough to mask the rest of timeline ::before */
+        transform: translateX(-50%);
+        pointer-events: none;
+        z-index: 2;
+        /* Two background layers:
+           Layer 1 (top): fading dashes over ~7rem
+           Layer 2 (base): solid red — fills the transparent gaps between dashes
+             so the white timeline line never shows through */
+        background:
+            linear-gradient(to bottom,
+                rgba(255,255,255,1.00)  0px,  rgba(255,255,255,1.00) 12px,
+                transparent            12px,  transparent            22px,
+                rgba(255,255,255,0.75) 22px,  rgba(255,255,255,0.75) 34px,
+                transparent            34px,  transparent            44px,
+                rgba(255,255,255,0.45) 44px,  rgba(255,255,255,0.45) 56px,
+                transparent            56px,  transparent            66px,
+                rgba(255,255,255,0.20) 66px,  rgba(255,255,255,0.20) 78px,
+                transparent            78px,  transparent            88px,
+                rgba(255,255,255,0.07) 88px,  rgba(255,255,255,0.07) 100px,
+                transparent           100px
+            ),
+            var(--about-red); /* masks everything: gaps between dashes + rest of line */
+    }
+
+.page--about-mobile .aboutm-photoPh,
+.page--about-mobile .aboutm-photoPh--big {
+    overflow: hidden;
+    position: relative;
+}
+
+    .page--about-mobile .aboutm-photoPh > img,
+    .page--about-mobile .aboutm-photoPh--big > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
 

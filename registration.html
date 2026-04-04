@@ -37,7 +37,7 @@
     <meta property="og:image:type" content="png" />
     <meta property="og:image:width" content="1300" />
     <meta property="og:image:height" content="530" />
-    <link rel="stylesheet" href="./style/style.css?v=20260316-1" />
+    <link rel="stylesheet" href="./style/style.css?v=20260404-1" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -88,7 +88,7 @@
                                 </button>
                                 <ul class="header__dropdown">
                                     <li class="header__dropdown-item">
-                                        <a class="header__dropdown-link" href="wait.html">О КБК</a>
+                                        <a class="header__dropdown-link" href="about.html">О КБК</a>
                                     </li>
                                     <li class="header__dropdown-item">
                                         <a class="header__dropdown-link" href="wait.html">Сериал</a>
@@ -106,10 +106,10 @@
                                     <li class="header__dropdown-item">
                                         <a class="header__dropdown-link" href="wait.html">Партнёры</a>
                                     </li>
+                                    <li class="header__dropdown-item">
+                                        <a class="header__dropdown-link" href="media-press-kit.html">Медиа</a>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li class="header__nav-item header__nav-item--media">
-                                <a class="header__nav-link" href="wait.html">Медиа</a>
                             </li>
                             <li class="header__nav-item">
                                 <a class="header__nav-link" href="wait.html">Программа</a>
@@ -143,24 +143,10 @@
                                     <span class="reg-general__field-title">ФИО</span>
                                     <input type="text" name="fullName" placeholder="ФИО" autocomplete="name" />
                                 </div>
+                                <input type="hidden" name="status" value="participant" />
 
-                                <div class="reg-general__field" data-number="2">
-                                    <span class="reg-general__field-title">Статус</span>
-                                    <div class="reg-general__select is-selected" data-select>
-                                        <input type="hidden" name="status" data-select-value value="participant" />
-                                        <button class="reg-general__select-button" type="button" data-select-toggle>
-                                            <span data-select-label>Участник форума</span>
-                                            <span class="reg-general__select-arrow" aria-hidden="true"></span>
-                                        </button>
-                                        <div class="reg-general__select-menu" data-select-menu role="listbox">
-                                            <button type="button" data-select-option data-value="participant">Участник форума</button>
-                                            <button type="button" data-select-option data-value="guest">Приглашенный гость / другое</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="reg-general__role" data-role-block="participant" hidden>
-                                    <div class="reg-general__field" data-number="3">
+                                <div class="reg-general__role" data-role-block="participant">
+                                    <div class="reg-general__field" data-number="2">
                                         <span class="reg-general__field-title">Тебе есть 18 лет?</span>
                                         <div class="reg-general__select" data-select>
                                             <input type="hidden" name="adult18" data-select-value value="" />
@@ -174,11 +160,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="reg-general__field" data-number="4">
+                                    <div class="reg-general__field" data-number="3">
                                         <span class="reg-general__field-title">Регион</span>
                                         <input type="text" name="region" placeholder="Регион" />
                                     </div>
-                                    <div class="reg-general__field" data-number="5">
+                                    <div class="reg-general__field" data-number="4">
                                         <span class="reg-general__field-title">Статус участника</span>
                                         <div class="reg-general__select" data-select>
                                             <input type="hidden" name="participantStatus" data-select-value value="" />
@@ -198,11 +184,11 @@
                                         <input type="text" name="education" placeholder="Напиши, где ты учишься" />
                                         <p class="reg-general__field-info" data-education-hint></p>
                                     </div>
-                                    <div class="reg-general__field" data-number="6">
+                                    <div class="reg-general__field" data-number="5">
                                         <span class="reg-general__field-title">Почта</span>
                                         <input type="email" name="email" placeholder="Почта" autocomplete="email" />
                                     </div>
-                                    <div class="reg-general__field" data-number="7">
+                                    <div class="reg-general__field" data-number="6">
                                         <span class="reg-general__field-title">Профильный трек <button class="reg-general__track-info-btn" type="button" data-track-info-btn aria-label="Подробнее о треках">ⓘ</button></span>
                                         <div class="reg-general__select" data-select>
                                             <input type="hidden" name="track" data-select-value value="" />
@@ -222,7 +208,7 @@
                                             </div>
                                         </div>
                                         <p class="reg-general__field-info">Информация о треках:   <a href="https://vk.com/wall-225090086_308" target="_blank" rel="noopener noreferrer">VK</a>    <a href="https://t.me/forumcbc/724" target="_blank" rel="noopener noreferrer">Telegram</a></p>                                        <p class="reg-general__track-desc" data-track-desc hidden></p>                                    </div>
-                                    <div class="reg-general__field" data-number="8">
+                                    <div class="reg-general__field" data-number="7">
                                         <span class="reg-general__field-title">Как ты будешь добираться до КБК?</span>
                                         <div class="reg-general__select" data-select data-transport-select>
                                             <input type="hidden" name="transport" data-select-value value="" />
@@ -242,7 +228,7 @@
                                         <span class="reg-general__field-title">Номер автомобиля</span>
                                         <input type="text" name="carNumber" placeholder="Номер автомобиля" />
                                     </div>
-                                    <div class="reg-general__field" data-number="9">
+                                    <div class="reg-general__field" data-number="8">
                                         <span class="reg-general__field-title">Паспорт</span>
                                         <div class="reg-general__passport-row">
                                             <input type="text" name="passportSeries" placeholder="Серия" />
@@ -252,43 +238,16 @@
                                     </div>
                                 </div>
 
-                                <div class="reg-general__role" data-role-block="guest" hidden>
-                                    <div class="reg-general__field" data-number="3">
-                                        <span class="reg-general__field-title">Почта</span>
-                                        <input type="email" name="email" placeholder="Почта" autocomplete="email" />
+                                <div class="reg-general__field reg-general__field--no-number reg-general__field--consent">                                    <div class="reg-general__consent-row">
+                                        <label>
+                                            <input type="checkbox" name="officialInvitation" />
+                                            <p>Мне нужно официальное приглашение на форум</p>
+                                        </label>
+                                        <button type="button" class="reg-general__invitation-info-btn" data-invitation-info-btn aria-label="Подробнее об официальном приглашении">ⓘ</button>
                                     </div>
-                                    <div class="reg-general__field" data-number="4">
-                                        <span class="reg-general__field-title">Как ты будешь добираться до КБК?</span>
-                                        <div class="reg-general__select" data-select data-transport-select>
-                                            <input type="hidden" name="transport" data-select-value value="" />
-                                            <button class="reg-general__select-button" type="button" data-select-toggle>
-                                                <span data-select-label>Выбрать</span>
-                                                <span class="reg-general__select-arrow" aria-hidden="true"></span>
-                                            </button>
-                                            <div class="reg-general__select-menu" data-select-menu role="listbox">
-                                                <button type="button" data-select-option data-value="Личный транспорт">Личный транспорт</button>
-                                                <button type="button" data-select-option data-value="Общественный транспорт">Общественный транспорт</button>
-                                                <button type="button" data-select-option data-value="Спец. развозка от КБК">Спец. развозка от КБК</button>
-                                                <button type="button" data-select-option data-value="Онлайн">Онлайн</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="reg-general__field reg-general__field--no-number" data-car-field hidden>
-                                        <span class="reg-general__field-title">Номер автомобиля</span>
-                                        <input type="text" name="carNumber" placeholder="Номер автомобиля" />
-                                    </div>
-                                    <div class="reg-general__field" data-number="5">
-                                        <span class="reg-general__field-title">Паспорт</span>
-                                        <div class="reg-general__passport-row">
-                                            <input type="text" name="passportSeries" placeholder="Серия" />
-                                            <input type="text" name="passportNumber" placeholder="Номер" />
-                                        </div>
-                                    </div>
-                                    <p class="reg-general__field-info">По правилам СПбГУ нобходимо предоставить паспортные данные для прохода на территорию университета. <a href="https://spbu.ru/openuniversity/documents/polozhenie-o-kontrolno-propusknom-rezhime-v-spbgu" target="_blank" rel="noopener noreferrer">Положение о контрольно-пропускном режиме в СПбГУ</a></p>
                                 </div>
 
-                                <div class="reg-general__field reg-general__field--no-number reg-general__field--consent">
-                                    <label>
+                                <div class="reg-general__field reg-general__field--no-number reg-general__field--consent">                                    <label>
                                         <input type="checkbox" name="personalDataConsent" />
                                         <p>Я соглашаюсь с  <a href="privacy.html" target="_blank" rel="noopener noreferrer">политикой обработки персональных данных</a></p>
                                     </label>
@@ -315,7 +274,7 @@
                         </a>
 
                         <a class="footer__logo scroll-to-top" href="index.html" aria-label="Переход на главную страницу">
-                            <img class="footer__logo-img footer__logo-img--kbk" src="./img/kbk-logo.svg" alt="Логотип КБК" width="240" height="77" loading="lazy">
+                            <img class="footer__logo-img footer__logo-img--kbk" src="./img/CBC_logo_black_righttext.png" alt="Логотип КБК" width="240" height="77" loading="lazy">
                         </a>
                     </div>
 
@@ -342,10 +301,11 @@
         </footer>
     </div>
 
-    <script src="./js/vendor.min.js?v=20260316-1"></script>
-    <script src="./js/main.min.js?v=20260316-1"></script>
-    <script src="./js/burger.js?v=20260316-1"></script>
-    <script src="./js/dropdown.js?v=20260316-1" defer></script>
-    <script src="./js/registration-general.js?v=20260316-1"></script>
+    <script src="./js/vendor.min.js?v=20260404-1"></script>
+    <script src="./js/main.min.js?v=20260404-1"></script>
+    <script src="./js/burger.js?v=20260404-1"></script>
+    <script src="./js/dropdown.js?v=20260404-1" defer></script>
+    <script src="./js/mobile-burger-dropdowns.js?v=20260404-1"></script>
+    <script src="./js/registration-general.js?v=20260404-1"></script>
 </body>
 </html>
