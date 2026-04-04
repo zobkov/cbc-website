@@ -1323,7 +1323,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about::before {
         height: 2.375rem;
     }
@@ -1377,7 +1377,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -1415,7 +1415,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__text {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -1438,7 +1438,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__list {
         padding: 0;
     }
@@ -1469,7 +1469,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__list-text {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -1521,7 +1521,7 @@ html, body {
 }
 
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__cards {
         gap: 0.5rem; /* keep exactly the same */
     }
@@ -1554,7 +1554,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__card {
         border-radius: 1rem; /* matches ecosystem items on mobile */
         min-height: 15rem;
@@ -1584,7 +1584,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__card-num {
         font-size: 4.5rem;
     }
@@ -1606,7 +1606,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__card-label {
         font-size: 1.2rem;
     }
@@ -1628,7 +1628,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__card-text {
         font-size: 0.6rem;
     }
@@ -1687,7 +1687,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem::after {
         height: 1.75rem;
     }
@@ -1703,7 +1703,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__wrapper {
         padding: 2.5rem 0 2.75rem 0;
     }
@@ -1733,7 +1733,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -1756,7 +1756,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__lead {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -1795,7 +1795,7 @@ html, body {
         }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__panel {
         border-radius: 2rem;
     }
@@ -1823,7 +1823,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__panel-title {
         font-size: 1.25rem;
         line-height: 1.5rem;
@@ -1845,7 +1845,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__panel-text {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -2078,7 +2078,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .question__wrapper {
         padding: 3.125rem 0 2.5rem 0;
     }
@@ -2109,7 +2109,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .question__title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -2256,7 +2256,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo::before {
         height: 2.375rem;
     }
@@ -2288,7 +2288,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__wrapper {
         padding: 1.25rem 0 12.5rem 0;
     }
@@ -2321,7 +2321,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__title {
         font-size: 1.5rem;
         line-height: 2.25rem;
@@ -2363,7 +2363,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__link {
         width: 100%;
         font-size: 1.125rem;
@@ -2417,7 +2417,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__dragon-left {
         bottom: -1.875rem;
         width: 14.375rem;
@@ -2450,7 +2450,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__dragon-left-img--head {
         width: 7.875rem;
     }
@@ -2481,7 +2481,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__dragon-right {
         bottom: 0.5rem;
         width: 8.75rem;
@@ -2521,7 +2521,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__dragon-right-img--head {
         width: 3.625rem;
         left: 2.8125rem;
@@ -2563,7 +2563,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__wrapper p {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -2672,7 +2672,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__button {
         font-size: 1.125rem;
         line-height: 1.375rem;
@@ -2723,7 +2723,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__button {
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -2792,7 +2792,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__time {
         font-size: 1.25rem;
         -webkit-box-orient: horizontal;
@@ -2819,7 +2819,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__time > span > span {
         margin-right: -0.25rem;
     }
@@ -2829,7 +2829,7 @@ html, body {
     color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__time > span:last-of-type {
         color: #ffffff;
     }
@@ -2860,7 +2860,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__title {
         font-size: 1.125rem;
     }
@@ -2887,7 +2887,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__place {
         grid-column: unset;
         font-size: 1rem;
@@ -2914,7 +2914,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__description {
         margin-left: 0;
         font-size: 1rem;
@@ -2944,7 +2944,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__person {
         margin-left: 0;
     }
@@ -2976,7 +2976,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__person img {
         width: 5rem;
         height: 5rem;
@@ -3014,7 +3014,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__person-content h3 {
         font-size: 1rem;
     }
@@ -3039,7 +3039,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__person-content p {
         font-size: 1rem;
     }
@@ -3080,7 +3080,7 @@ html, body {
         font-family: "Montserrat", "Arial", sans-serif !important;
     }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form {
         width: 100%;
         gap: 1.25rem;
@@ -3099,7 +3099,7 @@ html, body {
         width: 33.8125rem;
     }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-content form {
         width: 100%;
     }
@@ -3138,7 +3138,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-header-title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -3170,7 +3170,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-header-description {
         font-size: 1.25rem;
         line-height: 1.5rem;
@@ -3210,7 +3210,7 @@ html, body {
     box-shadow: 0 0 5px 1px #ffffff;
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-control-container input:not([type=checkbox]) {
         height: 3.125rem;
         font-size: 1rem !important;
@@ -3226,7 +3226,7 @@ html, body {
     height: unset !important;
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-window-scrollable .b24-form-btn {
         height: unset !important;
         padding: 10px !important;
@@ -3251,7 +3251,7 @@ html, body {
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-btn {
         padding: 0.625rem 1.25rem;
         font-size: 1.25rem;
