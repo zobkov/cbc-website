@@ -511,6 +511,7 @@
 .registration--partner {
     margin: 0;
     background-color: #F3A41E;
+    min-height: auto;  
 }
 
     .registration--partner .registration__wrapper {
@@ -626,6 +627,7 @@
     .registration--partner .registration__img {
         width: 25rem;
         height: 18.75rem;
+        bottom: -3vw;
     }
 }
 
