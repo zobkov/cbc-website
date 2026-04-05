@@ -397,7 +397,8 @@
         const requiredByRole = {
             speaker: ['email', 'transport', 'passportNumber'],
             participant: ['adult18', 'region', 'participantStatus', 'email', 'track', 'transport', 'passportNumber'],
-            guest: ['email', 'transport', 'passportNumber']
+            guest: ['email', 'transport', 'passportNumber'],
+            gsom: ['email', 'education', 'track']
         };
 
         const roleRequiredFields = requiredByRole[status] || [];
@@ -618,7 +619,8 @@
         fields.forEach((field) => {
             if (field.disabled || field.type === 'button' || field.type === 'submit') return;
             if (!field.value.trim()) return;
-            payload[field.name] = field.value.trim();
+            const prefix = field.dataset.valuePrefix || '';
+            payload[field.name] = prefix + field.value.trim();
         });
 
         const passportSeries = payload.passportSeries || '';
