@@ -178,6 +178,45 @@
     color: #ffffff;
 }
 
+.registration__input--textarea {
+    height: auto;
+}
+
+.registration__input--textarea textarea {
+    width: 100%;
+    padding: 0.75rem 1.125rem;
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    font-family: inherit;
+    border: none;
+    border-radius: 26.5px;
+    outline: none;
+    resize: vertical;
+    -webkit-transition: -webkit-box-shadow 0.3s ease;
+    transition: -webkit-box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+    .registration__input--textarea textarea:hover:not(.focus-visible) {
+        -webkit-box-shadow: 0 0 5px 1px #ffffff;
+        box-shadow: 0 0 5px 1px #ffffff;
+    }
+}
+
+.registration__input--textarea textarea.focus-visible:focus {
+    -webkit-box-shadow: 0 0 5px 1px #ffffff;
+    box-shadow: 0 0 5px 1px #ffffff;
+}
+
+@media (max-width: 767px) {
+    .registration__input--textarea textarea {
+        font-size: 1rem;
+        line-height: 1.125rem;
+    }
+}
+
 .registration__captcha {
     margin: 1.2rem 0 1rem;
     display: flex;
