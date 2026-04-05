@@ -74,6 +74,7 @@
             ]
         },
         language: {
+            full: true,
             title: 'Язык, культура и перевод (Humanities &amp; Arts)',
             desc: 'Участники глубоко погрузятся в китайский язык и культуру, освоят тонкости перевода, поймут культурный код и научатся превращать полученные знания в реальные карьерные возможности.',
             events: [
@@ -215,7 +216,10 @@
             ? `<ol class="reg-general-track-info__events">${track.events.map((e, i) => `<li><b>Мероприятие\u00a0№${i + 1}.</b> ${e}</li>`).join('')}</ol>`
             : '';
         const extraHtml = track.extra || '';
-        return `<div class="reg-general-track-info__item"><strong class="reg-general-track-info__name">${track.title}</strong>${track.desc ? `<p class="reg-general-track-info__desc">${track.desc}${extraHtml}</p>` : ''}${eventsHtml}</div>`;
+        const fullBadgeHtml = track.full
+            ? `<p class="reg-general-track-info__full-notice">&#9888; Регистрация на этот трек закрыта — все места заняты.</p>`
+            : '';
+        return `<div class="reg-general-track-info__item${track.full ? ' reg-general-track-info__item--full' : ''}"><strong class="reg-general-track-info__name">${track.title}</strong>${fullBadgeHtml}${track.desc ? `<p class="reg-general-track-info__desc">${track.desc}${extraHtml}</p>` : ''}${eventsHtml}</div>`;
     }).join('');
 
     const trackInfoPopupNode = document.createElement('div');

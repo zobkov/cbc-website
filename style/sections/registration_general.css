@@ -575,6 +575,17 @@ body.reg-general-popup-open {
     margin-top: 0.2rem;
 }
 
+.reg-general-track-info__item--full {
+    opacity: 0.75;
+}
+
+.reg-general-track-info__full-notice {
+    margin: 0 0 0.4rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: #c0392b;
+}
+
 @media (max-width: 767px) {
     .reg-general__track-info-btn {
         width: 1.1rem;
