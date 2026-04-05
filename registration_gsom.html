@@ -11,7 +11,7 @@
         gtag('config', 'G-5BHBQFSWF3');
     </script>
 
-    <title>Китай Бизнес Культура’26</title>
+    <title>Регистрация КБК — Китай Бизнес Культура'26</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -80,7 +80,7 @@
                                 <a class="socials__link socials__link--vk" href="https://vk.com/forumcbc" target="_blank" aria-label="Связаться с нами в вконтакте"></a>
                             </div>
                             <li class="header__nav-item">
-                                <a class="header__nav-link header__nav-link--active" href="index.html">Главная</a>
+                                <a class="header__nav-link" href="index.html">Главная</a>
                             </li>
                             <li class="header__nav-item header__nav-item--dropdown">
                                 <button class="header__nav-link header__nav-link--dropdown" type="button" aria-expanded="false" aria-haspopup="true">
@@ -133,62 +133,33 @@
             <section class="registration registration--general">
                 <div class="container">
                     <div class="registration__wrapper registration__wrapper--general">
-                        <h1 class="registration__title registration__title--general">Регистрация на форум</h1>
-                        <p class="registration__subtitle">КБК - это уникальный всероссийский проект для обмена знаниями о Китае, созданный студентами и молодыми профессионалами со всей России. 
- <br> <br>Дело за малым, осталось только зарегистрироваться!</p>
+                        <h1 class="registration__title registration__title--general">Регистрация КБК</h1>
+                        <p class="registration__subtitle">Рады видеть тебя на КБК! Чтобы попасть на форум, <b>необходимо зарегистрироваться!</b></p>
 
                         <div class="registration__form registration__form--general">
                             <form id="generalRegistrationForm" data-default-role="participant" action="https://test-zobkov.amvera.io/api/v1/registrations" novalidate>
+                                <input type="hidden" name="status" value="participant" />
+
                                 <div class="reg-general__field" data-number="1">
                                     <span class="reg-general__field-title">ФИО</span>
                                     <input type="text" name="fullName" placeholder="ФИО" autocomplete="name" />
                                 </div>
-                                <input type="hidden" name="status" value="participant" />
 
-                                <div class="reg-general__role" data-role-block="participant">
+                                <div class="reg-general__role" data-role-block="participant" hidden>
+                                    <input type="hidden" name="adult18" value="Да" />
+                                    <input type="hidden" name="region" value="GSOM" />
+                                    <input type="hidden" name="participantStatus" value="Высшее образование" />
+                                    <input type="hidden" name="transport" value="Общественный транспорт" />
                                     <div class="reg-general__field" data-number="2">
-                                        <span class="reg-general__field-title">Тебе есть 18 лет?</span>
-                                        <div class="reg-general__select" data-select>
-                                            <input type="hidden" name="adult18" data-select-value value="" />
-                                            <button class="reg-general__select-button" type="button" data-select-toggle>
-                                                <span data-select-label>Выбрать</span>
-                                                <span class="reg-general__select-arrow" aria-hidden="true"></span>
-                                            </button>
-                                            <div class="reg-general__select-menu" data-select-menu role="listbox">
-                                                <button type="button" data-select-option data-value="Да">Да</button>
-                                                <button type="button" data-select-option data-value="Нет">Нет</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="reg-general__field" data-number="3">
-                                        <span class="reg-general__field-title">Регион</span>
-                                        <input type="text" name="region" placeholder="Регион" />
-                                    </div>
-                                    <div class="reg-general__field" data-number="4">
-                                        <span class="reg-general__field-title">Статус участника</span>
-                                        <div class="reg-general__select" data-select>
-                                            <input type="hidden" name="participantStatus" data-select-value value="" />
-                                            <button class="reg-general__select-button" type="button" data-select-toggle>
-                                                <span data-select-label>Выбрать</span>
-                                                <span class="reg-general__select-arrow" aria-hidden="true"></span>
-                                            </button>
-                                            <div class="reg-general__select-menu" data-select-menu role="listbox">
-                                                <button type="button" data-select-option data-value="Среднее образование">Среднее образование</button>
-                                                <button type="button" data-select-option data-value="Высшее образование">Высшее образование</button>
-                                                <button type="button" data-select-option data-value="Работаю">Работаю</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="reg-general__field reg-general__field--no-number" data-education-field hidden>
-                                        <span class="reg-general__field-title" data-education-title>Напиши, где ты учишься</span>
-                                        <input type="text" name="education" placeholder="Напиши, где ты учишься" />
-                                        <p class="reg-general__field-info" data-education-hint></p>
-                                    </div>
-                                    <div class="reg-general__field" data-number="5">
                                         <span class="reg-general__field-title">Почта</span>
                                         <input type="email" name="email" placeholder="Почта" autocomplete="email" />
                                     </div>
-                                    <div class="reg-general__field" data-number="6">
+                                    <div class="reg-general__field" data-number="3">
+                                        <span class="reg-general__field-title">Напиши свою программу, курс и год окончания</span>
+                                        <input type="text" name="education" placeholder="Напиши свою программу, курс и год окончания" data-value-prefix="ВШМ," />
+                                        <p class="reg-general__field-info">Напиши в формате: программа, курс, год окончания.</p>
+                                    </div>
+                                    <div class="reg-general__field" data-number="4">
                                         <span class="reg-general__field-title">Профильный трек <button class="reg-general__track-info-btn" type="button" data-track-info-btn aria-label="Подробнее о треках">ⓘ</button></span>
                                         <div class="reg-general__select" data-select>
                                             <input type="hidden" name="track" data-select-value value="" />
@@ -206,49 +177,12 @@
                                                 <button type="button" data-select-option data-value="rosmolodezh_grants">Росмолодёжь.Гранты</button>
                                             </div>
                                         </div>
-                                        <p class="reg-general__field-info">Информация о треках:   <a href="https://vk.com/wall-225090086_308" target="_blank" rel="noopener noreferrer">VK</a>    <a href="https://t.me/forumcbc/724" target="_blank" rel="noopener noreferrer">Telegram</a></p>                                        <p class="reg-general__track-desc" data-track-desc hidden></p>                                    </div>
-                                    <div class="reg-general__field" data-number="7">
-                                        <span class="reg-general__field-title">Как ты будешь добираться до КБК?</span>
-                                        <div class="reg-general__select" data-select data-transport-select>
-                                            <input type="hidden" name="transport" data-select-value value="" />
-                                            <button class="reg-general__select-button" type="button" data-select-toggle>
-                                                <span data-select-label>Выбрать</span>
-                                                <span class="reg-general__select-arrow" aria-hidden="true"></span>
-                                            </button>
-                                            <div class="reg-general__select-menu" data-select-menu role="listbox">
-                                                <button type="button" data-select-option data-value="Личный транспорт">Личный транспорт</button>
-                                                <button type="button" data-select-option data-value="Общественный транспорт">Общественный транспорт</button>
-                                                <button type="button" data-select-option data-value="Спец. развозка от КБК">Спец. развозка от КБК</button>
-                                                <button type="button" data-select-option data-value="Онлайн">Онлайн</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="reg-general__field reg-general__field--no-number" data-car-field hidden>
-                                        <span class="reg-general__field-title">Номер автомобиля</span>
-                                        <input type="text" name="carNumber" placeholder="Номер автомобиля" />
-                                    </div>
-                                    <div class="reg-general__field" data-number="8">
-                                        <span class="reg-general__field-title">Паспорт</span>
-                                        <div class="reg-general__passport-row">
-                                            <input type="text" name="passportSeries" placeholder="Серия" />
-                                            <input type="text" name="passportNumber" placeholder="Номер" />
-                                        </div>
-                                        <p class="reg-general__field-info">По правилам СПбГУ нобходимо предоставить паспортные данные для прохода на территорию университета. <a href="https://spbu.ru/openuniversity/documents/polozhenie-o-kontrolno-propusknom-rezhime-v-spbgu" target="_blank" rel="noopener noreferrer">Положение о контрольно-пропускном режиме в СПбГУ</a></p>
-                                    </div>
-                                </div>
-
-                                <div class="reg-general__field reg-general__field--no-number reg-general__field--consent">                                    <div class="reg-general__consent-row">
-                                        <label>
-                                            <input type="checkbox" name="officialInvitation" />
-                                            <p>Мне нужно официальное приглашение на форум</p>
-                                        </label>
-                                        <button type="button" class="reg-general__invitation-info-btn" data-invitation-info-btn aria-label="Подробнее об официальном приглашении">ⓘ</button>
-                                    </div>
+                                        <p class="reg-general__field-info">Информация о треках:   <a href="https://vk.com/wall-225090086_308" target="_blank" rel="noopener noreferrer">VK</a>    <a href="https://t.me/forumcbc/724" target="_blank" rel="noopener noreferrer">Telegram</a></p>                                        <p class="reg-general__track-desc" data-track-desc hidden></p>                                    </div>
                                 </div>
 
                                 <div class="reg-general__field reg-general__field--no-number reg-general__field--consent">                                    <label>
                                         <input type="checkbox" name="personalDataConsent" />
-                                        <p>Я соглашаюсь с  <a href="privacy.html" target="_blank" rel="noopener noreferrer">политикой обработки персональных данных</a></p>
+                                        <p>Я соглашаюсь с  <a href="privacy.html" target="_blank" rel="noopener noreferrer">политикой обработки персональных данных</a></p>
                                     </label>
                                 </div>
 
