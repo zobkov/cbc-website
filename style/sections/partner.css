@@ -68,7 +68,7 @@
 .partners-hero__title {
     color: var(--partners-white);
     text-align: center;
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: clamp(1.7rem, 4vw, 4rem);
 }
 
 .partners-hero__line {
@@ -302,7 +302,8 @@
 }
 
 .partners-tiers {
-    padding: 4rem 0 4.5rem;
+    padding: 0rem 0 4.5rem;
+    margin-top: -4rem;
     background: #ffffff;
 }
 
@@ -535,7 +536,7 @@
 
 @media (max-width: 1023px) {
     .partners-hero {
-        padding-top: 2.5rem;
+        padding-top: 7rem;
     }
 
     .partners-hero__logos,
@@ -553,8 +554,24 @@
 }
 
 @media (max-width: 767px) {
+    .partners-growth__list li {
+        font-size: clamp(0.8rem, 3vw, 1.16rem);
+    }
+    .support__logo {
+        width: 10rem;
+        max-width: 420px;
+    }
     .partners-container {
         width: min(100% - 1.25rem, 1240px);
+    }
+    .partners-growth__note {
+        font-size: clamp(0.5rem, 3vw, 1.16rem);
+    }
+    .partners-hero__title-wrap {
+        margin-bottom: 2.5rem;
+    }
+    .partners-hero {
+        padding: 6rem 0 4rem;
     }
 
     .partners-placeholder {
@@ -693,8 +710,7 @@
 
 .partners-how {
     background: #f3aa35;
-    padding: 5rem 0rem 5rem;
-    margin-left: -16rem;
+    padding: 5rem 0;
 }
 
 /* do not reset the site's container here */
@@ -740,6 +756,14 @@
     width: 100%;
     background: #cfcfcf;
     border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.partners-how__card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .partners-how__card--1,
@@ -766,7 +790,7 @@
 
     .partners-how__layout,
     .partners-how__row {
-        gap: 1rem;
+        gap: 0.4rem;
     }
 
     .partners-how__row--top,
@@ -779,7 +803,7 @@
     }
 
     .partners-how__card {
-        border-radius: 1.1rem;
+        border-radius: 0.4rem;
     }
 }
 
@@ -796,7 +820,11 @@
     .partners-how__row--top,
     .partners-how__row--middle,
     .partners-how__row--bottom {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.62fr);
+    }
+
+    .partners-how__row--bottom {
+        grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.72fr);
     }
 
     .partners-how__card--1,
@@ -805,7 +833,7 @@
     .partners-how__card--4,
     .partners-how__card--5,
     .partners-how__card--6 {
-        height: 11rem;
+        height: clamp(6rem, 22vw, 11rem);
     }
 }
 
