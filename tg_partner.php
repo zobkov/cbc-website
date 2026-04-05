@@ -31,24 +31,14 @@ if (empty($_POST['human'])) {
 
 $s = fn(string $k): string => htmlspecialchars(trim($_POST[$k] ?? ''), ENT_XML1 | ENT_QUOTES, 'UTF-8');
 
-$text  = "📰 <b>Аккредитация СМИ — КБК'26</b>\n\n";
-$text .= "<b>Название СМИ:</b> {$s('media-name')}\n";
-$text .= "<b>Тип СМИ:</b> {$s('media-type')}\n";
-$text .= "<b>Страна / регион:</b> {$s('media-region')}\n";
-$text .= "<b>Сайт / соцсети:</b> {$s('media-url')}\n";
-$text .= "<b>ФИО и должность:</b> {$s('journalist-name')}\n";
-$text .= "<b>Телефон:</b> {$s('journalist-phone')}\n";
-$text .= "<b>Email:</b> {$s('journalist-email')}\n";
-$text .= "<b>Нужна помощь со съёмками:</b> {$s('need-help')}\n";
+$text  = "🤝 <b>Заявка партнёра — КБК'26</b>\n\n";
+$text .= "<b>Телефон:</b> {$s('user-phone')}\n";
+$text .= "<b>Email:</b> {$s('user-email')}\n";
+$text .= "<b>Название компании:</b> {$s('user-company')}\n";
 
-$helpDetails = $s('help-details');
-if ($helpDetails !== '') {
-    $text .= "<b>Необходимая помощь:</b> {$helpDetails}\n";
-}
-
-$wishes = $s('special-wishes');
-if ($wishes !== '') {
-    $text .= "<b>Особые пожелания:</b> {$wishes}\n";
+$comment = $s('user-comment');
+if ($comment !== '') {
+    $text .= "<b>Комментарий:</b> {$comment}\n";
 }
 
 $text .= "\n🕐 " . date('d.m.Y H:i:s');
