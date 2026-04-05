@@ -57,6 +57,7 @@
             const json = await resp.json();
 
             if (json.ok) {
+                wrapper.style.minHeight = wrapper.offsetHeight + 'px';
                 form.hidden = true;
                 if (successEl) successEl.classList.add('is-active');
             } else {
