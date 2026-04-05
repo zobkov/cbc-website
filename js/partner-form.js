@@ -41,7 +41,8 @@
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        if (errorEl) errorEl.classList.remove('is-active');
+        
+        if (errorEl) errorEl.classList.remove('is-active');                                                                                                                                                                        
 
         if (!validate()) {
             form.querySelector('.is-invalid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
