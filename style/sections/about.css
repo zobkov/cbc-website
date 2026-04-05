@@ -251,7 +251,7 @@
 
 .kbk-year--2025 {
     position: relative;
-    padding: 0px 0 0px;
+    padding: 0rem 0 0px 0;
     margin-top: -50px;
 }
 
@@ -323,6 +323,7 @@
     margin-left: 12px;
 }
 
+/* 1149px and below: reshape inner shapes grid to star-left / diamonds-stacked-right */
 @media (max-width: 980px) {
     .kbk-year__row--withSide {
         grid-template-columns: auto 1fr;
@@ -364,12 +365,54 @@
     margin-left: 50px; /* visually similar to the PDF spacing */
 }
 
+/* 1149px–981px: reshape inner grid, shift left 3rem */
+@media (max-width: 1149px) {
+    .kbk-shapes {
+        margin-left: -3rem;
+        max-width: 440px;
+        grid-template-columns: auto auto;
+        gap: 16px;
+    }
+    .kbk-ph--star {
+        width: 260px;
+        height: 260px;
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+    .kbk-ph--diamond {
+        width: 150px;
+        height: 150px;
+        margin-left: 0;
+        margin-top: 0;
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .kbk-ph--diamondSm {
+        width: 120px;
+        height: 120px;
+        margin-top: 0;
+        margin-left: 0;
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
+
+/* 980px and below: shapes wraps to new row — span full width, reset left shift */
+@media (max-width: 980px) {
+    .kbk-shapes {
+        grid-column: 1 / -1;
+        margin-left: 0;
+        gap: 3rem;
+    }
+}
+
 .kbk-ph--star {
     width: 420px;
     height: 420px;
     aspect-ratio: 1 / 1;
     background: var(--kbk-photo);
     transform: none;
+    overflow: hidden;
     -webkit-clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
     clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
 }
@@ -383,6 +426,7 @@
     margin-top: -100px;
     margin-right: 0px;
     justify-self: center;
+    overflow: hidden;
     transform: rotate(60deg);
     border-radius: 0px;
     grid-column: 2;
@@ -399,6 +443,18 @@
     border-radius: 0px;
     grid-column: 3;
     grid-row: 2;
+}
+
+.kbk-ph--star img,
+.kbk-ph--diamond img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.kbk-ph--diamond:not(.kbk-ph--diamondSm) img {
+    transform: rotate(-45deg) scale(1.42);
 }
 
 @media (max-width: 980px) {
@@ -418,7 +474,7 @@
     width: 100%;
     margin-left: 0 !important; /* убираем старый сдвиг */
     display: block;
-    margin-top: 75px;
+    margin-top: 2rem;
     margin-bottom: 75px;
 }
 
@@ -429,14 +485,25 @@
 }
 
 .kbk-ph--rect {
-    height: 210px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
     border-radius: 18px;
+    overflow: hidden;
+}
+
+.kbk-ph--rect img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .kbk-ph--rectLg {
-    width: 820px; /* почти на всю ширину */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
     top: -100px;
-    height: 470px; /* высота как на скрине (подкрути при желании) */
     border-radius: 26px;
     background: var(--kbk-photo);
 }
@@ -479,7 +546,7 @@
 }
 
 .kbk-team__mt {
-    margin-top: 54px;
+    margin-top: 9rem;
 }
 
 .kbk-cta {
@@ -558,24 +625,48 @@
 }
 
 /* Пунктирную "хвостовую" линию рисуем по той же оси */
+
+/* ::before — fading dashes over 10rem, using decreasing opacity per dash */
+/* dash: 14px (0.875rem) on / 18px (1.125rem) off = 32px (2rem) period; 6px (0.375rem) initial offset */
+.kbk-year--last::before {
+    content: "";
+    position: absolute;
+    left: -86px;
+    top: calc(26px + var(--kbk-dot-size) + 16px);
+    width: var(--kbk-axis-w);
+    height: 10rem;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom,
+        transparent 0.375rem,
+        rgba(255,255,255,1.00) 0.375rem, rgba(255,255,255,1.00) 1.25rem,
+        transparent 1.25rem,  transparent 2.375rem,
+        rgba(255,255,255,0.75) 2.375rem, rgba(255,255,255,0.75) 3.25rem,
+        transparent 3.25rem,  transparent 4.375rem,
+        rgba(255,255,255,0.45) 4.375rem, rgba(255,255,255,0.45) 5.25rem,
+        transparent 5.25rem,  transparent 6.375rem,
+        rgba(255,255,255,0.20) 6.375rem, rgba(255,255,255,0.20) 7.25rem,
+        transparent 7.25rem,  transparent 8.375rem,
+        rgba(255,255,255,0.07) 8.375rem, rgba(255,255,255,0.07) 9.25rem,
+        transparent 9.25rem
+    );
+}
+
+/* ::after — solid red mask that hides the white line below the last dot */
 .kbk-year--last::after {
     content: "";
     position: absolute;
     left: -86px;
     top: calc(26px + var(--kbk-dot-size) + 16px);
     width: var(--kbk-axis-w);
-    height: 120px; /* ~5 штрихов при шаге 32px */
-
+    height: 2000px; /* clipped by overflow:hidden on kbk-history */
     transform: translateX(-50%);
-    z-index: 9;
+    z-index: 5; /* below kbk-decor-26-left (z-index:6), above white line (section z-index:2) */
     pointer-events: none;
-    /* ВАЖНО: этим мы "стираем" сплошную ось под пунктиром */
     background-color: var(--kbk-red);
-    /* Реальный пунктир: штрих 14px, пробел 18px (шаг 32px) */
-    background-image: repeating-linear-gradient( to bottom, #fff 0 14px, transparent 14px 32px );
-    /* чтобы первый штрих не залезал в точку — можно чуть сдвинуть вниз */
-    background-position: 0 6px;
-    border-radius: 0; /* убирает "полукруг" внизу */
+    border-left: none; /* override earlier border-left: dashed rule */
+    border-radius: 0;
 }
 
 /* лента — отдельный stacking context */
@@ -583,6 +674,9 @@
     position: relative;
     z-index: 50;
     isolation: isolate;
+    overflow-x: clip;
+    width: 110vw;
+    margin-left: calc(50% - 60vw);
 }
 
     /* МАСКА: закрывает белую ось под лентой */
@@ -615,7 +709,7 @@
 /* сама движущаяся дорожка */
 .kbk-marquee__track {
     display: flex;
-    gap: 44px; /* расстояние между карточками */
+    gap: 1.5rem; /* расстояние между карточками */
     width: max-content;
     will-change: transform;
     /* слева → направо, медленно, бесконечно */
@@ -626,9 +720,21 @@
 .kbk-marquee__item {
     background: var(--kbk-photo); /* #D5D5D5 у тебя */
     width: clamp(260px, 30vw, 520px);
-    height: clamp(200px, 22vw, 300px);
+    height: auto;
+    aspect-ratio: 4 / 3;
     border-radius: 26px; /* скругление как на 2й фотке */
     flex: 0 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.kbk-marquee__item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* движение: из состояния "-половина трека" в 0 (то есть вправо) */
@@ -645,11 +751,12 @@
 /* на маленьких экранах чуть меньше gap/радиус */
 @media (max-width: 640px) {
     .kbk-marquee__track {
-        gap: 28px;
+        gap: 20px;
     }
 
     .kbk-marquee__item {
         border-radius: 18px;
+        box-shadow: #292929 0px 2px 15px; /* добавляем лёгкую тень для глубины на мобильных */
     }
 }
 
@@ -693,11 +800,13 @@
 
 /* 3) Чтобы на стыке бирюзовый/красный НЕ было разрыва — делаем нахлёст */
 .kbk-history--turq::before {
+    top: 260px; /* override inherited 300px; aligns with 2023 dot center */
     bottom: -90px; /* тянем ниже конца секции */
 }
 
 .kbk-history--red::before {
     top: 10px; /* тянем выше начала секции */
+    bottom: 120px; /* override inherited 920px from kbk-historyWrap */
 }
 
 /* 4) Контент секции выше линии */
@@ -738,10 +847,17 @@
 /* звёзды-плейсхолдеры */
 .kbk-team__star {
     background: var(--kbk-photo);
-    width: 520px;
     height: 520px;
     aspect-ratio: 1 / 1;
+    overflow: hidden;
     clip-path: polygon( 50.00% 0.00%, 63.01% 18.59%, 85.36% 14.64%, 81.41% 36.99%, 100.00% 50.00%, 81.41% 63.01%, 85.36% 85.36%, 63.01% 81.41%, 50.00% 100.00%, 36.99% 81.41%, 14.64% 85.36%, 18.59% 63.01%, 0.00% 50.00%, 18.59% 36.99%, 14.64% 14.64%, 36.99% 18.59% );
+}
+
+.kbk-team__star img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* левая звезда — больше и уходит за края страницы */
@@ -751,8 +867,8 @@
     justify-self: start;
     width: 600px;
     height: 600px;
-    margin-left: -560px; /* сильнее вылезает влево */
-    margin-top: -80px;
+    margin-left: -400px; /* сильнее вылезает влево */
+    margin-top: -220px;
 }
 
 /* правая звезда — выше и торчит справа */
@@ -762,6 +878,8 @@
     justify-self: end;
     margin-right: -240px;
     margin-top: -300px;
+    width: 450px;
+    height: 450px;
 }
 
 /* текст */
@@ -803,27 +921,17 @@
         max-width: 100%;
     }
 
-    .kbk-team__star--left {
-        grid-column: 1;
-        grid-row: 1;
-        width: 560px;
-        height: 560px;
-        margin-left: -160px;
-        margin-top: -60px;
-    }
-
+    .kbk-team__star--left,
     .kbk-team__star--right {
-        grid-column: 1;
-        grid-row: 3;
-        margin-right: -140px;
-        margin-top: 0;
+        display: none;
     }
 
-    /* на мобиле не уводим SMART так сильно влево */
+    .kbk-team__t,
+    .kbk-team__t + .kbk-team__p,
     .kbk-team__mt,
     .kbk-team__mt + .kbk-team__p,
     .kbk-team__mt + .kbk-team__p + .kbk-cta {
-        margin-left: auto;
+        margin-left: 0;
         max-width: 100%;
     }
 }
@@ -935,7 +1043,7 @@ html, body {
 /* ПРАВАЯ верхняя (на белом фоне) */
 .kbk-seamDecor__img--tr {
     right: -6px; /* ближе к центру -> увеличивай (0..40px) */
-    top: -850px;
+    top: -1050px;
     width: 450px;
 }
 
@@ -944,6 +1052,39 @@ html, body {
     right: -20px;
     top: -40px; /* чуть ниже стыка */
     width: 260px;
+}
+
+@media (max-width: 1439px) {
+    .kbk-seamDecor__img--left {
+        width: 300px;
+    }
+    .kbk-seamDecor__img--tr {
+        width: 300px;
+        top: -950px;
+    }
+    .kbk-seamDecor__img--br {
+        width: 180px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .kbk-seamDecor__img--left {
+        width: 200px;
+    }
+    .kbk-seamDecor__img--tr {
+        width: 200px;
+    }
+    .kbk-seamDecor__img--br {
+        width: 140px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .kbk-seamDecor__img--left,
+    .kbk-seamDecor__img--tr,
+    .kbk-seamDecor__img--br {
+        display: none;
+    }
 }
 
 /* Вставка декора между годами */
@@ -986,6 +1127,12 @@ html, body {
     pointer-events: none;
 }
 
+@media (max-width: 1299px) {
+    .kbk-between24-25 {
+        display: none;
+    }
+}
+
 .kbk-yearPhoto {
     position: relative;
     left: 600px;
@@ -1017,6 +1164,7 @@ html, body {
 .kbk-history {
     position: relative;
     overflow: hidden;
+    padding-bottom: 10rem;
 }
 
     .kbk-history::after {
@@ -1040,7 +1188,7 @@ html, body {
 
 .kbk-decor-26-right {
     position: relative;
-    left: 895px;
+    left: 47vw;
     top: -5px;
     width: 475px;
     z-index: 6;
@@ -1059,26 +1207,65 @@ html, body {
 
 .kbk-decor-25-26-right {
     position: relative;
-    left: 1220px;
+    left: 167vw;
     top: -0px;
     width: 150px;
     z-index: 100;
     pointer-events: none;
 }
 
+@media (max-width: 1439px) {
+    .kbk-decor-26-right {
+        left: 55vw;
+        width: 350px;
+        top: 10rem;
+    }
+    .kbk-decor-26-left {
+        right: 400px;
+        width: 400px;
+    }
+    .kbk-decor-25-26-right {
+        left: 74.5vw;   
+        width: 110px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .kbk-decor-26-right {
+        width: 300px;
+        left: 64vw;
+        top: 13rem;
+    }
+    .kbk-history{
+        padding-bottom: 14rem;
+    }
+    .kbk-decor-26-left {
+        top: -700px;
+        width: 400px;
+    }
+
+
+    /* When kbk-decor-25-26-right vanishes, ЛЕТО 2025 article loses its spacer.
+       Adjacent sibling selector works even on display:none elements. */
+    .kbk-decor-25-26-right + .kbk-year--2025 {
+        margin-top: 4rem;
+    }
+}
+
 
 .about__btn {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     justify-content: center;
-    margin-left: -160px;
+    margin-inline: auto;
     margin-top: 4.25rem;
     padding: 1rem 3.5rem;
     border-radius: 50px;
     background-color: #ffffff;
     color: #000000;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
-    font-weight: 800;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-weight: 700;
     font-size: 2rem;
     line-height: 1;
     text-transform: uppercase;
@@ -1108,7 +1295,7 @@ html, body {
 
 
 .about {
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     margin: 0 0 0 0;
     z-index: 0;
 }
@@ -1136,7 +1323,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about::before {
         height: 2.375rem;
     }
@@ -1190,7 +1377,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -1228,7 +1415,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__text {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -1251,7 +1438,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__list {
         padding: 0;
     }
@@ -1282,7 +1469,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__list-text {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -1334,7 +1521,7 @@ html, body {
 }
 
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__cards {
         gap: 0.5rem; /* keep exactly the same */
     }
@@ -1367,7 +1554,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__card {
         border-radius: 1rem; /* matches ecosystem items on mobile */
         min-height: 15rem;
@@ -1397,7 +1584,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__card-num {
         font-size: 4.5rem;
     }
@@ -1405,11 +1592,11 @@ html, body {
 
 .about__card-label {
     margin: 0;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-weight: 600;
     font-size: 2rem;
     line-height: 1.5;
-    color: #f6ac1b;
+    color: #F3A41E;
     text-transform: lowercase;
 }
 
@@ -1419,7 +1606,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__card-label {
         font-size: 1.2rem;
     }
@@ -1441,7 +1628,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .about__card-text {
         font-size: 0.6rem;
     }
@@ -1452,7 +1639,7 @@ html, body {
     display: block;
     width: 100%;
     height: 3.5rem;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
     z-index: 1;
 }
@@ -1464,7 +1651,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 3.125rem;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
     z-index: 2;
 }
@@ -1472,7 +1659,7 @@ html, body {
 
 .ecosystem {
     position: relative;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     overflow: visible;
     margin: 0 0 0 0;
     z-index: 1;
@@ -1500,7 +1687,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem::after {
         height: 1.75rem;
     }
@@ -1516,7 +1703,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__wrapper {
         padding: 2.5rem 0 2.75rem 0;
     }
@@ -1546,7 +1733,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -1569,7 +1756,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__lead {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -1608,7 +1795,7 @@ html, body {
         }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__panel {
         border-radius: 2rem;
     }
@@ -1621,12 +1808,12 @@ html, body {
 
 .ecosystem__panel-title {
     margin: 0 0 1rem 0;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-weight: 800;
     font-size: 2.25rem;
     line-height: 2.25rem;
     text-transform: uppercase;
-    color: #6bc9c6;
+    color: #88D0C8;
 }
 
 @media (max-width: 1023px) {
@@ -1636,7 +1823,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__panel-title {
         font-size: 1.25rem;
         line-height: 1.5rem;
@@ -1658,7 +1845,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .ecosystem__panel-text {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -1818,8 +2005,8 @@ html, body {
         content: "";
         width: 1.125rem;
         height: 1.125rem;
-        border-right: 4px solid #6bc9c6;
-        border-bottom: 4px solid #6bc9c6;
+        border-right: 4px solid #88D0C8;
+        border-bottom: 4px solid #88D0C8;
     }
 
 .ecosystem__arrow--prev::before {
@@ -1891,7 +2078,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .question__wrapper {
         padding: 3.125rem 0 2.5rem 0;
     }
@@ -1922,7 +2109,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .question__title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -2009,8 +2196,8 @@ html, body {
     border-radius: 50px;
     background-color: #ffffff;
     color: #000000;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
-    font-weight: 800;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-weight: 600;
     font-size: 2rem;
     line-height: 1;
     text-transform: uppercase;
@@ -2020,25 +2207,25 @@ html, body {
 @media (hover: hover) {
     .support__btn:hover:not(.focus-visible) {
         color: #000000;
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
         transform: scale(1.05);
     }
 }
 
 .support__btn.focus-visible:focus {
     color: #000000;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     transform: scale(1.05);
 }
 
 .support__btn.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
     background-color: #000000;
     transform: scale(1);
 }
 
 .promo {
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     position: relative;
     overflow: visible;
     z-index: 3;
@@ -2069,7 +2256,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo::before {
         height: 2.375rem;
     }
@@ -2101,14 +2288,15 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__wrapper {
         padding: 1.25rem 0 12.5rem 0;
     }
 }
 
 .promo__title {
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     font-size: 3.5625rem;
@@ -2133,7 +2321,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__title {
         font-size: 1.5rem;
         line-height: 2.25rem;
@@ -2175,7 +2363,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__link {
         width: 100%;
         font-size: 1.125rem;
@@ -2186,7 +2374,7 @@ html, body {
 @media (hover: hover) {
     .promo__link:hover:not(.focus-visible) {
         color: #000000;
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
         transform: scale(1.05);
@@ -2195,14 +2383,14 @@ html, body {
 
 .promo__link.focus-visible:focus {
     color: #000000;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
 }
 
 .promo__link.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
     background-color: #000000;
 }
 
@@ -2229,7 +2417,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__dragon-left {
         bottom: -1.875rem;
         width: 14.375rem;
@@ -2262,7 +2450,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__dragon-left-img--head {
         width: 7.875rem;
     }
@@ -2293,7 +2481,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__dragon-right {
         bottom: 0.5rem;
         width: 8.75rem;
@@ -2333,7 +2521,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .promo__dragon-right-img--head {
         width: 3.625rem;
         left: 2.8125rem;
@@ -2375,7 +2563,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__wrapper p {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -2431,7 +2619,7 @@ html, body {
     }
 
 .accordion__button.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
 }
 
 .is-active .accordion__button::after {
@@ -2484,7 +2672,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__button {
         font-size: 1.125rem;
         line-height: 1.375rem;
@@ -2535,7 +2723,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__button {
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -2545,24 +2733,24 @@ html, body {
 
 @media (hover: hover) {
     .accordion--schedule .accordion__button:hover:not(.focus-visible) {
-        color: #f6ac1b;
+        color: #F3A41E;
     }
 
         .accordion--schedule .accordion__button:hover:not(.focus-visible)::after {
-            background-color: #f6ac1b;
+            background-color: #F3A41E;
         }
 }
 
 .accordion--schedule .accordion__button.focus-visible:focus {
-    color: #f6ac1b;
+    color: #F3A41E;
 }
 
     .accordion--schedule .accordion__button.focus-visible:focus::after {
-        background-color: #f6ac1b;
+        background-color: #F3A41E;
     }
 
 .accordion--schedule .accordion__button.focus-visible:active {
-    color: #f6ac1b;
+    color: #F3A41E;
 }
 
 .accordion--schedule .accordion__button:disabled {
@@ -2604,7 +2792,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__time {
         font-size: 1.25rem;
         -webkit-box-orient: horizontal;
@@ -2631,7 +2819,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__time > span > span {
         margin-right: -0.25rem;
     }
@@ -2641,7 +2829,7 @@ html, body {
     color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__time > span:last-of-type {
         color: #ffffff;
     }
@@ -2672,7 +2860,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__title {
         font-size: 1.125rem;
     }
@@ -2699,7 +2887,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__place {
         grid-column: unset;
         font-size: 1rem;
@@ -2726,7 +2914,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion--schedule .accordion__description {
         margin-left: 0;
         font-size: 1rem;
@@ -2756,7 +2944,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__person {
         margin-left: 0;
     }
@@ -2788,7 +2976,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__person img {
         width: 5rem;
         height: 5rem;
@@ -2826,7 +3014,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__person-content h3 {
         font-size: 1rem;
     }
@@ -2851,7 +3039,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .accordion__person-content p {
         font-size: 1rem;
     }
@@ -2889,10 +3077,10 @@ html, body {
 }
 
     .b24-form * {
-        font-family: "MontserratAlternates", "Arial", sans-serif !important;
+        font-family: "Montserrat", "Arial", sans-serif !important;
     }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form {
         width: 100%;
         gap: 1.25rem;
@@ -2911,7 +3099,7 @@ html, body {
         width: 33.8125rem;
     }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-content form {
         width: 100%;
     }
@@ -2950,7 +3138,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-header-title {
         font-size: 1.75rem;
         line-height: 2.25rem;
@@ -2982,7 +3170,7 @@ html, body {
     }
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-header-description {
         font-size: 1.25rem;
         line-height: 1.5rem;
@@ -3022,7 +3210,7 @@ html, body {
     box-shadow: 0 0 5px 1px #ffffff;
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-control-container input:not([type=checkbox]) {
         height: 3.125rem;
         font-size: 1rem !important;
@@ -3038,7 +3226,7 @@ html, body {
     height: unset !important;
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-window-scrollable .b24-form-btn {
         height: unset !important;
         padding: 10px !important;
@@ -3055,7 +3243,7 @@ html, body {
     text-align: center;
     color: #000000;
     text-transform: uppercase;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     border: none;
     border-radius: 26.5px;
     cursor: pointer;
@@ -3063,7 +3251,7 @@ html, body {
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-@media (max-width: 0px) {
+@media (max-width: 767px) {
     .b24-form .b24-form-btn {
         padding: 0.625rem 1.25rem;
         font-size: 1.25rem;
@@ -3093,7 +3281,7 @@ html, body {
 .ecosystem__gallery-card {
     width: 100%;
     height: 100%;
-    background-color: #6BC9C6;
+    background-color: #88D0C8;
     padding: 0.93rem;
     box-sizing: border-box;
     display: flex;
@@ -3103,7 +3291,7 @@ html, body {
 
 .ecosystem__gallery-card-title {
     margin: 0;
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-size: 1.5rem;
     line-height: 1.2;
     color: #000000;
@@ -3119,7 +3307,7 @@ html, body {
 }
 
 .ecosystem__gallery-card-link {
-    font-family: "MontserratAlternates", "Arial", sans-serif;
+    font-family: "Montserrat", "Arial", sans-serif;
     font-size: 1.51rem;
     font-style: normal;
     color: #000000;
@@ -3151,13 +3339,11 @@ html, body {
 }
 
     .page--about-mobile img {
-        max-width: 100%;
-        height: auto;
+        height: 100%;
     }
 
     .page--about-mobile .aboutm-inner {
-        width: min(440px, calc(100% - 32px));
-        margin-inline: auto;
+        box-sizing: border-box;
     }
 
     .page--about-mobile .aboutm-section {
@@ -3169,7 +3355,7 @@ html, body {
     .page--about-mobile .aboutm-hero {
         background: var(--about-red);
         /* header is fixed; keep hero content below it */
-        padding: 96px 0 70px;
+        padding: 96px 1.25rem 70px;
         clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
     }
 
@@ -3186,13 +3372,13 @@ html, body {
     }
 
     .page--about-mobile .aboutm-hero__corner--tr {
-        top: -18px;
-        right: -34px;
+        top: -28vw;
+        right: -13vw;
     }
 
     .page--about-mobile .aboutm-hero__corner--bl {
-        left: -45px;
-        bottom: -34px;
+        left: -10vw;
+        bottom: -35vw;
     }
 
     .page--about-mobile .aboutm-hero__art {
@@ -3206,13 +3392,19 @@ html, body {
     .page--about-mobile .aboutm-mv {
         background: #fff;
         margin-top: -36px; /* overlap hero diagonal */
-        padding: 56px 0 58px;
+        padding: 56px 2.5rem 58px;
         clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%);
+        overflow: visible;
+        z-index: 1;
     }
 
     .page--about-mobile .aboutm-block-team {
         position: relative;
         width: 300px;
+    }
+
+    .page--about-mobile .aboutm-team .aboutm-block-team:first-child {
+        margin-left: 7rem;
     }
 
     .page--about-mobile .aboutmf-block-team {
@@ -3494,10 +3686,32 @@ html, body {
     max-width: none;
 }
 
+/* left decor lives outside clip-path in a zero-height seam wrapper */
+.page--about-mobile .aboutm-mv__seam-left {
+    position: relative;
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 10;
+}
+
 .page--about-mobile .aboutm-mv__decor-img--left {
     left: -2px;
-    bottom: -10px;
-    width: 120px;
+    bottom: -160px;
+    width: 180px;
+}
+
+@media (max-width: 550px) {
+    .page--about-mobile .aboutm-mv__decor-img--left {
+        width: 32.727vw;   /* 180px at 550px, scales down proportionally */
+        bottom: -24.091vw; /* -160px at 550px, moves up proportionally */
+    }
+}
+
+@media (max-width: 435px) {
+    .page--about-mobile .aboutm-mv__decor-img--left {
+        display: none;
+    }
 }
 
 .page--about-mobile .aboutm-mv__decor-img--tr {
@@ -3517,7 +3731,7 @@ html, body {
 /* ---------- HISTORY (turquoise) ---------- */
 .page--about-mobile .aboutm-history--turq {
     background: var(--about-turq);
-    padding: 44px 0 80px;
+    padding: 44px 1.25rem 80px;
     clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 94%);
     overflow: visible;
 }
@@ -3544,11 +3758,9 @@ html, body {
         left: 40px;
         top: 40px;
         bottom: 10px;
-        height:575px;
         width: 4px;
         background: #fff;
         border-radius: 4px;
-        overflow: visible;
     }
 
 .page--about-mobile .aboutm-year {
@@ -3581,7 +3793,7 @@ html, body {
     color: #0b0b0b;
     font-size: 14px;
     line-height: 1.35;
-    max-width: 310px;
+    max-width: 100%;
 }
 
 /* decorative targets between years */
@@ -3656,14 +3868,36 @@ html, body {
     pointer-events: none;
 }
 
+/* ---- Bridge: white line connecting turquoise→red timeline outside clip-path ---- */
+/* Both sections have clip-path (= z-index:0 stacking context). This sibling sits   */
+/* between them in DOM with z-index:10, painting over both backgrounds in the gap.  */
+.page--about-mobile .aboutm-seam-2425 {
+    position: relative;
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.page--about-mobile .aboutm-seam-2425::before {
+    content: "";
+    position: absolute;
+    left: calc(1.25rem + 40px); /* matches section padding + timeline::before left */
+    top: -110px;   /* reach up to where turquoise timeline line ends */
+    height: 180px; /* 110px above + 70px into red section, past the clip diagonal */
+    width: 4px;
+    background: #fff;
+    border-radius: 2px;
+}
+
 /* ---------- HISTORY (red) ---------- */
 .page--about-mobile .aboutm-history--red {
     background: var(--about-red);
     margin-top: -56px; /* overlap turquoise diagonal */
-    padding: 72px 0 62px;
+    padding: 72px 1.25rem 100px;
     clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 94%);
 
-    overflow: visible;
+    overflow: hidden;
 }
 
     .page--about-mobile .aboutm-history--red .aboutm-timeline::before {
@@ -3677,7 +3911,7 @@ html, body {
 .page--about-mobile .aboutm-photoRow {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 4px;
     margin: 18px 0 8px;
     padding-right: 4px;
 }
@@ -3685,19 +3919,25 @@ html, body {
 .page--about-mobile .aboutm-photoPh {
     background: var(--about-gray);
     border-radius: 18px;
-    height: 120px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
 }
 
 .page--about-mobile .aboutm-photoPh--big {
-    height: 160px;
+    height: auto;
+    aspect-ratio: 2 / 1;
     margin-top: 30px;
+    position: relative;
+    overflow: hidden;
 }
 
 /* ---------- TEAM (yellow) ---------- */
 .page--about-mobile .aboutm-team {
     background: var(--about-yellow);
-    margin-top: -70px;
-    padding: 72px 0 70px;
+    margin-top: -100px;
+    padding: 72px 2.5rem 70px;
     clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 100%);
 }
 
@@ -3706,27 +3946,38 @@ html, body {
     }
 
     .page--about-mobile .aboutm-team .aboutm-p {
-        max-width: 340px;
+        max-width: 50vw;
     }
 
 .page--about-mobile .aboutm-starPh {
     position: absolute;
     background: var(--about-gray);
-    width: 170px;
-    height: 170px;
-    clip-path: polygon( 50% 0%, 61% 22%, 85% 18%, 72% 40%, 92% 54%, 68% 58%, 76% 84%, 50% 70%, 24% 84%, 32% 58%, 8% 54%, 28% 40%, 15% 18%, 39% 22% );
+    width: 383px;
+    height: 383px;
+    overflow: hidden;
+    clip-path: polygon(34.805% 67.879%, 40.661% 79.224%, 52.029% 73.373%, 64.176% 77.247%, 68.041% 65.130%, 79.317% 59.325%, 73.485% 48.064%, 77.372% 35.877%, 65.179% 31.988%, 59.323% 20.719%, 48.048% 26.523%, 35.901% 22.649%, 32.036% 34.766%, 20.668% 40.618%, 26.548% 51.971%, 22.704% 64.019%);
+}
+
+.page--about-mobile .aboutm-starPh img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .page--about-mobile .aboutm-starPh--left {
-    left: -46px;
-    top: 42px;
+    left: -87px;
+    top: -20px;
+    width: 300px;
+    height: 300px;
 }
 
 .page--about-mobile .aboutm-starPh--right {
-    right: -52px;
-    bottom: 100px;
-    width: 180px;
-    height: 180px;
+    right: -180px;
+    bottom: 0px;
+    width: 405px;
+    height: 405px;
+    z-index: -1;
 }
 
 .page--about-mobile .aboutm-cta {
@@ -3795,27 +4046,49 @@ html, body {
 }
 
 .page--about-mobile .aboutm-year--last {
-    padding-bottom: 110px;
+    padding-bottom: 2rem;
 }
 
     .page--about-mobile .aboutm-year--last::after {
         content: "";
         position: absolute;
-        left: -29px;
+        left: -28px;
         top: 62px;
         width: 4px;
-        height: 92px;
+        height: 2000px; /* tall enough to mask the rest of timeline ::before */
         transform: translateX(-50%);
-        background-image: repeating-linear-gradient(to bottom, #fff 0 12px, transparent 12px 22px);
+        pointer-events: none;
+        z-index: 2;
+        /* Two background layers:
+           Layer 1 (top): fading dashes over ~7rem
+           Layer 2 (base): solid red — fills the transparent gaps between dashes
+             so the white timeline line never shows through */
+        background:
+            linear-gradient(to bottom,
+                rgba(255,255,255,1.00)  0px,  rgba(255,255,255,1.00) 12px,
+                transparent            12px,  transparent            22px,
+                rgba(255,255,255,0.75) 22px,  rgba(255,255,255,0.75) 34px,
+                transparent            34px,  transparent            44px,
+                rgba(255,255,255,0.45) 44px,  rgba(255,255,255,0.45) 56px,
+                transparent            56px,  transparent            66px,
+                rgba(255,255,255,0.20) 66px,  rgba(255,255,255,0.20) 78px,
+                transparent            78px,  transparent            88px,
+                rgba(255,255,255,0.07) 88px,  rgba(255,255,255,0.07) 100px,
+                transparent           100px
+            ),
+            var(--about-red); /* masks everything: gaps between dashes + rest of line */
     }
 
 .page--about-mobile .aboutm-photoPh,
 .page--about-mobile .aboutm-photoPh--big {
     overflow: hidden;
+    position: relative;
 }
 
     .page--about-mobile .aboutm-photoPh > img,
     .page--about-mobile .aboutm-photoPh--big > img {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;

@@ -125,7 +125,7 @@
     height: 1.15rem;
     min-width: 1.15rem;
     flex: 0 0 auto;
-    accent-color: #f6ac1b;
+    accent-color: #F3A41E;
     cursor: pointer;
 }
 
@@ -137,7 +137,7 @@
     padding: 0.75rem 2.5rem;
     border: 0;
     border-radius: 999px;
-    background: #f6ac1b;
+    background: #F3A41E;
     color: #000000;
     font-family: "MarvinVisions", Arial, sans-serif;
     font-size: clamp(1.2rem, 1.8vw, 1.6rem);

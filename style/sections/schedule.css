@@ -57,7 +57,7 @@
 }
 
     .schedule__title span {
-        color: #f6ac1b;
+        color: #F3A41E;
     }
 
 @media (max-width: 1439px) {
@@ -142,7 +142,7 @@
     left: 0;
     width: 7.6875rem;
     height: auto;
-    top: 15%;
+    top: 5%;
 }
 
 @media (max-width: 1439px) {
@@ -168,7 +168,7 @@
     right: 0;
     width: 7.6875rem;
     height: auto;
-    top: 30%;
+    top: 10%;
 }
 
 @media (max-width: 1439px) {
@@ -194,7 +194,7 @@
     left: 0;
     width: 7.6875rem;
     height: auto;
-    top: 40%;
+    top: 60%;
 }
 
 @media (max-width: 1439px) {
@@ -220,7 +220,7 @@
     right: 0;
     width: 7.6875rem;
     height: auto;
-    top: 55%;
+    top: 65%;
 }
 
 @media (max-width: 1439px) {
@@ -246,7 +246,7 @@
     left: 0;
     width: 7.6875rem;
     height: auto;
-    top: 70%;
+    top: 91%;
 }
 
 @media (max-width: 1439px) {
@@ -286,7 +286,7 @@
     -ms-flex-pack: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: #f6ac1b;
+    background-color: #F3A41E;
     font-weight: 600;
     font-size: 1rem;
     line-height: 100%;
@@ -310,17 +310,17 @@
 
 @media (hover: hover) {
     .up:hover:not(.focus-visible) {
-        background-color: #6bc9c6;
+        background-color: #88D0C8;
         color: #ffffff;
     }
 }
 
 .up.focus-visible:focus {
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     color: #ffffff;
 }
 
 .up.focus-visible:active {
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
     color: #ffffff;
 }

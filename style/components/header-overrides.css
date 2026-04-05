@@ -327,7 +327,7 @@
 }
 
     .reg-dropdown__toggle:focus-visible {
-        outline: 3px solid #6bc9c6;
+        outline: 3px solid #88D0C8;
         outline-offset: 3px;
     }
 
@@ -336,7 +336,7 @@
     width: 2.2rem;
     height: 2.2rem;
     border-radius: 999px;
-    background: #f6ac1b;
+    background: #F3A41E;
     border: none;
     display: inline-flex;
     align-items: center;
@@ -374,7 +374,7 @@
     padding: 0.65rem 1.25rem;
     border-radius: 999px;
     border: 2px solid #000000;
-    background: #6bc9c6;
+    background: #88D0C8;
     color: #000000;
     text-decoration: none;
     text-transform: uppercase;
@@ -386,12 +386,12 @@
 
 @media (hover: hover) {
     .reg-dropdown__link:hover:not(.focus-visible) {
-        background: #f6ac1b;
+        background: #F3A41E;
     }
 }
 
 .reg-dropdown__link.focus-visible:focus {
-    background: #f6ac1b;
+    background: #F3A41E;
 }
 
 .reg-dropdown__link:active {
@@ -486,7 +486,7 @@
 
 @media (hover: hover) {
     .reg-dropdown__link:hover:not(.focus-visible) {
-        background: #f6ac1b; /* yellow */
+        background: #F3A41E; /* yellow */
     }
 }
 
@@ -572,7 +572,7 @@
         font-size: 1.125rem;
         line-height: 1.2;
         font-weight: 500;
-        font-family: "MontserratAlternates", "Arial", sans-serif;
+        font-family: "Montserrat", "Arial", sans-serif;
         color: #000000;
         text-decoration: none;
     }
@@ -638,7 +638,7 @@
             display: block;
             padding: 0.45rem 0;
             margin: 0;
-            font-family: "MontserratAlternates", "Arial", sans-serif;
+            font-family: "Montserrat", "Arial", sans-serif;
             font-weight: 500;
             font-size: 1.25rem;
             line-height: 1.2;
@@ -730,7 +730,7 @@
         font-size: 1.25rem !important;
         line-height: 1.2 !important;
         font-weight: 500 !important;
-        font-family: "MontserratAlternates", "Arial", sans-serif !important;
+        font-family: "Montserrat", "Arial", sans-serif !important;
         color: #000000 !important;
         text-decoration: none !important;
     }

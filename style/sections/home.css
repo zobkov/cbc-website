@@ -88,7 +88,7 @@
 }
 
 .hero__title span {
-    color: #f6ac1b;
+    color: #F3A41E;
 }
 
 .hero__date {
@@ -174,7 +174,7 @@
 
 .hero__link.focus-visible:active {
     color: #000000;
-    background-color: #6bc9c6;
+    background-color: #88D0C8;
 }
 
 .hero__dragon {
