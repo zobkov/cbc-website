@@ -142,7 +142,7 @@
     left: 0;
     width: 7.6875rem;
     height: auto;
-    top: 15%;
+    top: 5%;
 }
 
 @media (max-width: 1439px) {
@@ -168,7 +168,7 @@
     right: 0;
     width: 7.6875rem;
     height: auto;
-    top: 30%;
+    top: 10%;
 }
 
 @media (max-width: 1439px) {
@@ -194,7 +194,7 @@
     left: 0;
     width: 7.6875rem;
     height: auto;
-    top: 40%;
+    top: 60%;
 }
 
 @media (max-width: 1439px) {
@@ -220,7 +220,7 @@
     right: 0;
     width: 7.6875rem;
     height: auto;
-    top: 55%;
+    top: 65%;
 }
 
 @media (max-width: 1439px) {
@@ -246,7 +246,7 @@
     left: 0;
     width: 7.6875rem;
     height: auto;
-    top: 70%;
+    top: 91%;
 }
 
 @media (max-width: 1439px) {
