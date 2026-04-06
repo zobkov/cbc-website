@@ -87,7 +87,7 @@
         },
         chinese: {
             title: 'Китайский трек (Chinese Track)',
-            desc: 'Специальный трек только для студентов из Китая, обучение проводится на китайском языке. Участники знакомятся с программой форума, образовательными и культурными форматами, интегрируясь в мероприятия вместе с другими участниками.'
+            desc: 'Специальный трек только для студентов из Китая, обучение проводится <b>на китайском языке</b>. Участники знакомятся с программой форума, образовательными и культурными форматами, интегрируясь в мероприятия вместе с другими участниками.'
         },
         rosmolodezh_grants: {
             title: 'Росмолодёжь.Гранты',
@@ -642,6 +642,14 @@
     };
 
     selects.forEach(registerSelect);
+
+    form.querySelectorAll('[data-select-option][data-value]').forEach((option) => {
+        const track = trackDescriptions[option.dataset.value];
+        if (track && track.full) {
+            option.disabled = true;
+            option.classList.add('is-full');
+        }
+    });
 
     form.querySelectorAll('[data-track-info-btn]').forEach((btn) => {
         btn.addEventListener('click', openTrackInfoPopup);

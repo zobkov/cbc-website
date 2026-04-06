@@ -231,6 +231,12 @@
     background-color: #f4f4f4;
 }
 
+.reg-general__select-menu button.is-full {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .reg-general__passport-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
