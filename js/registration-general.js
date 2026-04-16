@@ -63,6 +63,7 @@
             ]
         },
         marketing: {
+            full: true,
             title: 'Маркетинг и медиа (Digital &amp; Brand)',
             desc: 'Участники изучат специфику продвижения и продаж на китайском рынке, освоят локальные digital-инструменты, а также получат навыки выстраивания эффективных коммуникаций с аудиторией.',
             events: [
@@ -428,7 +429,7 @@
 
         const carNumberInput = getInputByName('carNumber', activeRoleBlock);
         if (transportInput && transportInput.value === 'Личный транспорт' && carNumberInput && !carNumberInput.value.trim()) {
-            addError('Укажи номер автомобиля для личного транспорта.', carNumberInput);
+            addError('Укажи марку и номер автомобиля для личного транспорта.', carNumberInput);
         }
 
         if (status === 'participant') {
